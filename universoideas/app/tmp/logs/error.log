@@ -1,0 +1,281 @@
+2013-06-15 21:33:38 Error: [MissingControllerException] Controller class Pdo.--constructController could not be found.
+Exception Attributes: array (
+  'class' => 'Pdo.--constructController',
+  'plugin' => NULL,
+)
+Request URL: /cake_2_0/pdo.--construct
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-06-16 18:06:46 Error: [NotFoundException] Invalid post
+Request URL: /cake_2_0/posts/edit
+Stack Trace:
+#0 [internal function]: PostsController->edit()
+#1 /private/var/www/html/cake_2_0/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(PostsController), Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
+#4 /private/var/www/html/cake_2_0/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-06-17 01:48:43 Error: [MissingControllerException] Controller class UsertsController could not be found.
+Exception Attributes: array (
+  'class' => 'UsertsController',
+  'plugin' => NULL,
+)
+Request URL: /cake_2_0/userts
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-06-17 01:49:53 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UsersArticle.article_id' in 'field list'
+Request URL: /cake_2_0/users/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `UsersAr...', Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(669): DboSource->execute('SELECT `UsersAr...', Array, Array)
+#3 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(1080): DboSource->fetchAll('SELECT `UsersAr...', false)
+#4 /private/var/www/html/cake_2_0/lib/Cake/Model/Model.php(2696): DboSource->read(Object(AppModel), Array)
+#5 /private/var/www/html/cake_2_0/lib/Cake/Model/Model.php(1869): Model->find('all', Array)
+#6 /private/var/www/html/cake_2_0/lib/Cake/Model/Model.php(1757): Model->_saveMulti(Array, '0', Object(Mysql))
+#7 /private/var/www/html/cake_2_0/app/Controller/UsersController.php(43): Model->save(Array)
+#8 [internal function]: UsersController->add()
+#9 /private/var/www/html/cake_2_0/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#10 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#12 /private/var/www/html/cake_2_0/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-06-17 01:51:46 Error: [MissingControllerException] Controller class HomeController could not be found.
+Exception Attributes: array (
+  'class' => 'HomeController',
+  'plugin' => NULL,
+)
+Request URL: /cake_2_0/home
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-06-17 01:51:53 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'User.id' in 'field list'
+Request URL: /cake_2_0/articles/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `User`.`...', Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(669): DboSource->execute('SELECT `User`.`...', Array, Array)
+#3 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(1080): DboSource->fetchAll('SELECT `User`.`...', false)
+#4 /private/var/www/html/cake_2_0/lib/Cake/Model/Model.php(2696): DboSource->read(Object(User), Array)
+#5 /private/var/www/html/cake_2_0/app/Controller/ArticlesController.php(50): Model->find('list')
+#6 [internal function]: ArticlesController->add()
+#7 /private/var/www/html/cake_2_0/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(ArticlesController), Array)
+#8 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#9 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ArticlesController), Object(CakeRequest), Object(CakeResponse))
+#10 /private/var/www/html/cake_2_0/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2013-06-17 01:58:37 Error: [PDOException] SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+Request URL: /cake_2_0/users/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `es...', Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(1007): DboSource->execute('INSERT INTO `es...')
+#3 /private/var/www/html/cake_2_0/lib/Cake/Model/Model.php(1744): DboSource->create(Object(User), Array, Array)
+#4 /private/var/www/html/cake_2_0/app/Controller/UsersController.php(43): Model->save(Array)
+#5 [internal function]: UsersController->add()
+#6 /private/var/www/html/cake_2_0/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 /private/var/www/html/cake_2_0/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-06-17 02:05:36 Error: [PDOException] SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+Request URL: /cake_2_0/articles/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `es...', Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(1007): DboSource->execute('INSERT INTO `es...')
+#3 /private/var/www/html/cake_2_0/lib/Cake/Model/Model.php(1744): DboSource->create(Object(Article), Array, Array)
+#4 /private/var/www/html/cake_2_0/app/Controller/ArticlesController.php(43): Model->save(Array)
+#5 [internal function]: ArticlesController->add()
+#6 /private/var/www/html/cake_2_0/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(ArticlesController), Array)
+#7 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ArticlesController), Object(CakeRequest), Object(CakeResponse))
+#9 /private/var/www/html/cake_2_0/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-06-17 02:08:50 Error: [PDOException] SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+Request URL: /cake_2_0/articles/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `es...', Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(1007): DboSource->execute('INSERT INTO `es...')
+#3 /private/var/www/html/cake_2_0/lib/Cake/Model/Model.php(1744): DboSource->create(Object(Article), Array, Array)
+#4 /private/var/www/html/cake_2_0/app/Controller/ArticlesController.php(43): Model->save(Array)
+#5 [internal function]: ArticlesController->add()
+#6 /private/var/www/html/cake_2_0/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(ArticlesController), Array)
+#7 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ArticlesController), Object(CakeRequest), Object(CakeResponse))
+#9 /private/var/www/html/cake_2_0/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-06-17 02:21:39 Error: [PDOException] SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+Request URL: /cake_2_0/users/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `es...', Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(1007): DboSource->execute('INSERT INTO `es...')
+#3 /private/var/www/html/cake_2_0/lib/Cake/Model/Model.php(1744): DboSource->create(Object(User), Array, Array)
+#4 /private/var/www/html/cake_2_0/app/Controller/UsersController.php(43): Model->save(Array)
+#5 [internal function]: UsersController->add()
+#6 /private/var/www/html/cake_2_0/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 /private/var/www/html/cake_2_0/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-06-17 02:29:02 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UsersArticle.user_id' in 'on clause'
+Request URL: /cake_2_0/users/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `Article...', Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(669): DboSource->execute('SELECT `Article...', Array, Array)
+#3 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(1254): DboSource->fetchAll('SELECT `Article...', false)
+#4 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(1115): DboSource->queryAssociation(Object(User), Object(Article), 'hasAndBelongsTo...', 'Article', Array, Array, true, Array, 0, Array)
+#5 /private/var/www/html/cake_2_0/lib/Cake/Model/Model.php(2696): DboSource->read(Object(User), Array)
+#6 /private/var/www/html/cake_2_0/app/Controller/UsersController.php(43): Model->find('first', Array)
+#7 [internal function]: UsersController->add()
+#8 /private/var/www/html/cake_2_0/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#9 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /private/var/www/html/cake_2_0/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-06-17 02:35:22 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'field list'
+Request URL: /cake_2_0/users/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('UPDATE `estudia...', Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/Database/Mysql.php(379): DboSource->execute('UPDATE `estudia...')
+#3 /private/var/www/html/cake_2_0/lib/Cake/Model/Model.php(1733): Mysql->update(Object(User), Array, Array)
+#4 /private/var/www/html/cake_2_0/app/Controller/UsersController.php(45): Model->save(Array)
+#5 [internal function]: UsersController->add()
+#6 /private/var/www/html/cake_2_0/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 /private/var/www/html/cake_2_0/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-06-17 02:37:08 Error: Fatal Error (1): Unsupported operand types in [/private/var/www/html/cake_2_0/app/Controller/UsersController.php, line 44]
+2013-06-17 02:37:08 Error: [FatalErrorException] Unsupported operand types
+Request URL: /cake_2_0/users/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Unsupported ope...', '/private/var/ww...', 44)
+#1 [internal function]: ErrorHandler::handleError(1, 'Unsupported ope...', '/private/var/ww...', 44, Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Unsupported ope...', '/private/var/ww...', 44, Array)
+#3 /private/var/www/html/cake_2_0/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-17 02:37:56 Error: [PDOException] SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+Request URL: /cake_2_0/users/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `es...', Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Model/Datasource/DboSource.php(1007): DboSource->execute('INSERT INTO `es...')
+#3 /private/var/www/html/cake_2_0/lib/Cake/Model/Model.php(1744): DboSource->create(Object(User), Array, Array)
+#4 /private/var/www/html/cake_2_0/app/Controller/UsersController.php(46): Model->save(Array)
+#5 [internal function]: UsersController->add()
+#6 /private/var/www/html/cake_2_0/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /private/var/www/html/cake_2_0/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 /private/var/www/html/cake_2_0/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-06-17 02:39:41 Error: Fatal Error (1): Unsupported operand types in [/private/var/www/html/cake_2_0/app/Controller/UsersController.php, line 44]
+2013-06-17 02:39:41 Error: [FatalErrorException] Unsupported operand types
+Request URL: /cake_2_0/users/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Unsupported ope...', '/private/var/ww...', 44)
+#1 [internal function]: ErrorHandler::handleError(1, 'Unsupported ope...', '/private/var/ww...', 44, Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Unsupported ope...', '/private/var/ww...', 44, Array)
+#3 /private/var/www/html/cake_2_0/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-17 02:46:26 Error: Fatal Error (1): Call to a member function setFlash() on a non-object in [/private/var/www/html/cake_2_0/app/Controller/UsersController.php, line 44]
+2013-06-17 02:46:26 Error: [FatalErrorException] Call to a member function setFlash() on a non-object
+Request URL: /cake_2_0/users/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/private/var/ww...', 44)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/private/var/ww...', 44, Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/private/var/ww...', 44, Array)
+#3 /private/var/www/html/cake_2_0/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-17 02:54:13 Error: Fatal Error (1): Call to a member function setFlash() on a non-object in [/private/var/www/html/cake_2_0/app/Controller/UsersController.php, line 44]
+2013-06-17 02:54:13 Error: [FatalErrorException] Call to a member function setFlash() on a non-object
+Request URL: /cake_2_0/users/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/private/var/ww...', 44)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/private/var/ww...', 44, Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/private/var/ww...', 44, Array)
+#3 /private/var/www/html/cake_2_0/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-17 02:56:01 Error: Fatal Error (1): Call to a member function setFlash() on a non-object in [/private/var/www/html/cake_2_0/app/Controller/ArticlesController.php, line 44]
+2013-06-17 02:56:01 Error: [FatalErrorException] Call to a member function setFlash() on a non-object
+Request URL: /cake_2_0/articles/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/private/var/ww...', 44)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/private/var/ww...', 44, Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/private/var/ww...', 44, Array)
+#3 /private/var/www/html/cake_2_0/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-17 02:58:48 Error: Fatal Error (1): Call to a member function setFlash() on a non-object in [/private/var/www/html/cake_2_0/app/Controller/ArticlesController.php, line 44]
+2013-06-17 02:58:48 Error: [FatalErrorException] Call to a member function setFlash() on a non-object
+Request URL: /cake_2_0/articles/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/private/var/ww...', 44)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/private/var/ww...', 44, Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/private/var/ww...', 44, Array)
+#3 /private/var/www/html/cake_2_0/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-17 03:05:26 Error: Fatal Error (1): Call to a member function setFlash() on a non-object in [/private/var/www/html/cake_2_0/app/Controller/UsersController.php, line 44]
+2013-06-17 03:05:26 Error: [FatalErrorException] Call to a member function setFlash() on a non-object
+Request URL: /cake_2_0/users/add
+Stack Trace:
+#0 /private/var/www/html/cake_2_0/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/private/var/ww...', 44)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/private/var/ww...', 44, Array)
+#2 /private/var/www/html/cake_2_0/lib/Cake/Core/App.php(927): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/private/var/ww...', 44, Array)
+#3 /private/var/www/html/cake_2_0/lib/Cake/Core/App.php(900): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-24 03:10:34 Error: [MissingActionException] Action AppController::index.php() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'index.php',
+)
+Request URL: /cake2/app/index.php
+Stack Trace:
+#0 /home/jrivas/public_html/cake2/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/jrivas/public_html/cake2/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/jrivas/public_html/cake2/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 /home/jrivas/public_html/cake2/app/index.php(19): require('/home/jrivas/pu...')
+#4 {main}
+2013-06-25 01:03:38 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`jrivas_estudiantes`.`users_articles`, CONSTRAINT `fk_USUARIO_has_ARTICULO_USUARIO1` FOREIGN KEY (`user_id`) REFERENCES `users` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /cake2/articles/add
+Stack Trace:
+#0 /home/jrivas/public_html/cake2/lib/Cake/Model/Datasource/DboSource.php(2924): PDOStatement->execute()
+#1 /home/jrivas/public_html/cake2/lib/Cake/Model/Model.php(1906): DboSource->insertMulti(Object(AppModel), Array, Array)
+#2 /home/jrivas/public_html/cake2/lib/Cake/Model/Model.php(1757): Model->_saveMulti(Array, '1', Object(Mysql))
+#3 /home/jrivas/public_html/cake2/app/Controller/ArticlesController.php(43): Model->save(Array)
+#4 [internal function]: ArticlesController->add()
+#5 /home/jrivas/public_html/cake2/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(ArticlesController), Array)
+#6 /home/jrivas/public_html/cake2/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 /home/jrivas/public_html/cake2/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ArticlesController), Object(CakeRequest), Object(CakeResponse))
+#8 /home/jrivas/public_html/cake2/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-06-26 18:40:38 Error: [MissingControllerException] Controller class UsersarticlesController could not be found.
+Exception Attributes: array (
+  'class' => 'UsersarticlesController',
+  'plugin' => NULL,
+)
+Request URL: /estudiantes/usersarticles
+Stack Trace:
+#0 /var/www/estudiantes/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-06-26 18:40:41 Error: [MissingControllerException] Controller class Users-articlesController could not be found.
+Exception Attributes: array (
+  'class' => 'Users-articlesController',
+  'plugin' => NULL,
+)
+Request URL: /estudiantes/users-articles
+Stack Trace:
+#0 /var/www/estudiantes/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
