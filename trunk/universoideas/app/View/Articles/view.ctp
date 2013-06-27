@@ -6,29 +6,24 @@
 			<?php echo h($article['Article']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Titulo'); ?></dt>
+		<dt><?php echo __('Title'); ?></dt>
 		<dd>
-			<?php echo h($article['Article']['titulo']); ?>
+			<?php echo h($article['Article']['title']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Sumario'); ?></dt>
+		<dt><?php echo __('Summary'); ?></dt>
 		<dd>
-			<?php echo h($article['Article']['sumario']); ?>
+			<?php echo h($article['Article']['summary']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Cuerpo'); ?></dt>
+		<dt><?php echo __('Body'); ?></dt>
 		<dd>
-			<?php echo h($article['Article']['cuerpo']); ?>
+			<?php echo h($article['Article']['body']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Habilitado'); ?></dt>
+		<dt><?php echo __('Enabled'); ?></dt>
 		<dd>
-			<?php echo h($article['Article']['habilitado']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Imagen'); ?></dt>
-		<dd>
-			<?php echo h($article['Article']['imagen']); ?>
+			<?php echo h($article['Article']['enabled']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Created'); ?></dt>
@@ -50,9 +45,95 @@
 		<li><?php echo $this->Form->postLink(__('Delete Article'), array('action' => 'delete', $article['Article']['id']), null, __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Articles'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Article'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Related Images'), array('controller' => 'related_images', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Related Image'), array('controller' => 'related_images', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Related Videos'), array('controller' => 'related_videos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Related Video'), array('controller' => 'related_videos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
+</div>
+<div class="related">
+	<h3><?php echo __('Related Related Images'); ?></h3>
+	<?php if (!empty($article['RelatedImage'])): ?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php echo __('Id'); ?></th>
+		<th><?php echo __('Uri'); ?></th>
+		<th><?php echo __('Name'); ?></th>
+		<th><?php echo __('Title'); ?></th>
+		<th><?php echo __('Uri Thumb'); ?></th>
+		<th><?php echo __('Width'); ?></th>
+		<th><?php echo __('Height'); ?></th>
+		<th><?php echo __('Width Thumb'); ?></th>
+		<th><?php echo __('Height Thumb'); ?></th>
+		<th><?php echo __('Article Id'); ?></th>
+		<th class="actions"><?php echo __('Actions'); ?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($article['RelatedImage'] as $relatedImage): ?>
+		<tr>
+			<td><?php echo $relatedImage['id']; ?></td>
+			<td><?php echo $relatedImage['uri']; ?></td>
+			<td><?php echo $relatedImage['name']; ?></td>
+			<td><?php echo $relatedImage['title']; ?></td>
+			<td><?php echo $relatedImage['uri_thumb']; ?></td>
+			<td><?php echo $relatedImage['width']; ?></td>
+			<td><?php echo $relatedImage['height']; ?></td>
+			<td><?php echo $relatedImage['width_thumb']; ?></td>
+			<td><?php echo $relatedImage['height_thumb']; ?></td>
+			<td><?php echo $relatedImage['article_id']; ?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View'), array('controller' => 'related_images', 'action' => 'view', $relatedImage['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'related_images', 'action' => 'edit', $relatedImage['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'related_images', 'action' => 'delete', $relatedImage['id']), null, __('Are you sure you want to delete # %s?', $relatedImage['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Related Image'), array('controller' => 'related_images', 'action' => 'add')); ?> </li>
+		</ul>
+	</div>
+</div>
+<div class="related">
+	<h3><?php echo __('Related Related Videos'); ?></h3>
+	<?php if (!empty($article['RelatedVideo'])): ?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<th><?php echo __('Id'); ?></th>
+		<th><?php echo __('Name'); ?></th>
+		<th><?php echo __('Source'); ?></th>
+		<th><?php echo __('Article Id'); ?></th>
+		<th class="actions"><?php echo __('Actions'); ?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($article['RelatedVideo'] as $relatedVideo): ?>
+		<tr>
+			<td><?php echo $relatedVideo['id']; ?></td>
+			<td><?php echo $relatedVideo['name']; ?></td>
+			<td><?php echo $relatedVideo['source']; ?></td>
+			<td><?php echo $relatedVideo['article_id']; ?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('View'), array('controller' => 'related_videos', 'action' => 'view', $relatedVideo['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'related_videos', 'action' => 'edit', $relatedVideo['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'related_videos', 'action' => 'delete', $relatedVideo['id']), null, __('Are you sure you want to delete # %s?', $relatedVideo['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('New Related Video'), array('controller' => 'related_videos', 'action' => 'add')); ?> </li>
+		</ul>
+	</div>
 </div>
 <div class="related">
 	<h3><?php echo __('Related Users'); ?></h3>
@@ -62,9 +143,9 @@
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Username'); ?></th>
 		<th><?php echo __('Password'); ?></th>
-		<th><?php echo __('Nombre'); ?></th>
-		<th><?php echo __('Apellido'); ?></th>
-		<th><?php echo __('Correo'); ?></th>
+		<th><?php echo __('Name'); ?></th>
+		<th><?php echo __('Lastname'); ?></th>
+		<th><?php echo __('Mail'); ?></th>
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
@@ -76,9 +157,9 @@
 			<td><?php echo $user['id']; ?></td>
 			<td><?php echo $user['username']; ?></td>
 			<td><?php echo $user['password']; ?></td>
-			<td><?php echo $user['nombre']; ?></td>
-			<td><?php echo $user['apellido']; ?></td>
-			<td><?php echo $user['correo']; ?></td>
+			<td><?php echo $user['name']; ?></td>
+			<td><?php echo $user['lastname']; ?></td>
+			<td><?php echo $user['mail']; ?></td>
 			<td><?php echo $user['created']; ?></td>
 			<td><?php echo $user['modified']; ?></td>
 			<td class="actions">
