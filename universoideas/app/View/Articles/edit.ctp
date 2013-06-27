@@ -4,11 +4,10 @@
 		<legend><?php echo __('Edit Article'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('titulo');
-		echo $this->Form->input('sumario');
-		echo $this->Form->input('cuerpo');
-		echo $this->Form->input('habilitado');
-		echo $this->Form->input('imagen');
+		echo $this->Form->input('title');
+		echo $this->Form->input('summary');
+		echo $this->Form->input('body');
+		echo $this->Form->input('enabled');
 		echo $this->Form->input('User');
 	?>
 	</fieldset>
@@ -20,6 +19,10 @@
 
 		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Article.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Article.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('List Articles'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Related Images'), array('controller' => 'related_images', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Related Image'), array('controller' => 'related_images', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Related Videos'), array('controller' => 'related_videos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Related Video'), array('controller' => 'related_videos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>

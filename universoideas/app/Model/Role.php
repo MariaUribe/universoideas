@@ -13,7 +13,7 @@ class Role extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'tipo_rol' => array(
+		'role_type' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -35,7 +35,7 @@ class Role extends AppModel {
 	public $hasAndBelongsToMany = array(
 		'User' => array(
 			'className' => 'User',
-			'joinTable' => 'roles_users',
+			'joinTable' => 'users_roles',
 			'foreignKey' => 'role_id',
 			'associationForeignKey' => 'user_id',
 			'unique' => 'keepExisting',

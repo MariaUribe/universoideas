@@ -1,13 +1,12 @@
 <div class="articles index">
-	<h2><?php echo __('Artículos'); ?></h2>
+	<h2><?php echo __('Articles'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('titulo'); ?></th>
-			<th><?php echo $this->Paginator->sort('sumario'); ?></th>
-			<th><?php echo $this->Paginator->sort('cuerpo'); ?></th>
-			<th><?php echo $this->Paginator->sort('habilitado'); ?></th>
-			<th><?php echo $this->Paginator->sort('imagen'); ?></th>
+			<th><?php echo $this->Paginator->sort('title'); ?></th>
+			<th><?php echo $this->Paginator->sort('summary'); ?></th>
+			<th><?php echo $this->Paginator->sort('body'); ?></th>
+			<th><?php echo $this->Paginator->sort('enabled'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
@@ -15,11 +14,10 @@
 	<?php foreach ($articles as $article): ?>
 	<tr>
 		<td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['titulo']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['sumario']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['cuerpo']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['habilitado']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['imagen']); ?>&nbsp;</td>
+		<td><?php echo h($article['Article']['title']); ?>&nbsp;</td>
+		<td><?php echo h($article['Article']['summary']); ?>&nbsp;</td>
+		<td><?php echo h($article['Article']['body']); ?>&nbsp;</td>
+		<td><?php echo h($article['Article']['enabled']); ?>&nbsp;</td>
 		<td><?php echo h($article['Article']['created']); ?>&nbsp;</td>
 		<td><?php echo h($article['Article']['modified']); ?>&nbsp;</td>
 		<td class="actions">
@@ -48,6 +46,10 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Article'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Related Images'), array('controller' => 'related_images', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Related Image'), array('controller' => 'related_images', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Related Videos'), array('controller' => 'related_videos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Related Video'), array('controller' => 'related_videos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>

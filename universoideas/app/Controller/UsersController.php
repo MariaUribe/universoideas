@@ -48,7 +48,8 @@ class UsersController extends AppController {
 			}
 		}
 		$articles = $this->User->Article->find('list');
-		$this->set(compact('articles'));
+		$roles = $this->User->Role->find('list');
+		$this->set(compact('articles', 'roles'));
 	}
 
 /**
@@ -74,7 +75,8 @@ class UsersController extends AppController {
 			$this->request->data = $this->User->find('first', $options);
 		}
 		$articles = $this->User->Article->find('list');
-		$this->set(compact('articles'));
+		$roles = $this->User->Role->find('list');
+		$this->set(compact('articles', 'roles'));
 	}
 
 /**

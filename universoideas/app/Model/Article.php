@@ -3,6 +3,8 @@ App::uses('AppModel', 'Model');
 /**
  * Article Model
  *
+ * @property RelatedImage $RelatedImage
+ * @property RelatedVideo $RelatedVideo
  * @property User $User
  */
 class Article extends AppModel {
@@ -13,7 +15,7 @@ class Article extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'titulo' => array(
+		'title' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -23,7 +25,7 @@ class Article extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'sumario' => array(
+		'summary' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -33,7 +35,7 @@ class Article extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'cuerpo' => array(
+		'body' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -43,7 +45,7 @@ class Article extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'habilitado' => array(
+		'enabled' => array(
 			'boolean' => array(
 				'rule' => array('boolean'),
 				//'message' => 'Your custom message here',
@@ -56,6 +58,41 @@ class Article extends AppModel {
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'RelatedImage' => array(
+			'className' => 'RelatedImage',
+			'foreignKey' => 'article_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'RelatedVideo' => array(
+			'className' => 'RelatedVideo',
+			'foreignKey' => 'article_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
+
 
 /**
  * hasAndBelongsToMany associations

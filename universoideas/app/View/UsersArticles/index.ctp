@@ -9,10 +9,10 @@
 	<?php foreach ($usersArticles as $usersArticle): ?>
 	<tr>
 		<td>
-			<?php echo $this->Html->link($usersArticle['User']['id'], array('controller' => 'users', 'action' => 'view', $usersArticle['User']['id'])); ?>
+			<?php echo $this->Html->link($usersArticle['User']['name'], array('controller' => 'users', 'action' => 'view', $usersArticle['User']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($usersArticle['Article']['id'], array('controller' => 'articles', 'action' => 'view', $usersArticle['Article']['id'])); ?>
+			<?php echo $this->Html->link($usersArticle['Article']['title'], array('controller' => 'articles', 'action' => 'view', $usersArticle['Article']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $usersArticle['UsersArticle']['id'])); ?>

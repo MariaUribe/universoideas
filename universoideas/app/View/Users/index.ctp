@@ -5,9 +5,9 @@
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('username'); ?></th>
 			<th><?php echo $this->Paginator->sort('password'); ?></th>
-			<th><?php echo $this->Paginator->sort('nombre'); ?></th>
-			<th><?php echo $this->Paginator->sort('apellido'); ?></th>
-			<th><?php echo $this->Paginator->sort('correo'); ?></th>
+			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('lastname'); ?></th>
+			<th><?php echo $this->Paginator->sort('mail'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
@@ -17,9 +17,9 @@
 		<td><?php echo h($user['User']['id']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['password']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['nombre']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['apellido']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['correo']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['name']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['lastname']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['mail']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['created']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['modified']); ?>&nbsp;</td>
 		<td class="actions">
@@ -48,9 +48,13 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Roles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Role'), array('controller' => 'roles', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Forums'), array('controller' => 'forums', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Forum'), array('controller' => 'forums', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Articles'), array('controller' => 'articles', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Article'), array('controller' => 'articles', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Roles'), array('controller' => 'roles', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Role'), array('controller' => 'roles', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

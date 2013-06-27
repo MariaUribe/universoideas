@@ -3,8 +3,10 @@ App::uses('AppModel', 'Model');
 /**
  * User Model
  *
- * @property Role $Role
+ * @property Comment $Comment
+ * @property Forum $Forum
  * @property Article $Article
+ * @property Role $Role
  */
 class User extends AppModel {
 
@@ -34,7 +36,7 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'nombre' => array(
+		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -44,7 +46,7 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'apellido' => array(
+		'lastname' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -54,7 +56,7 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'correo' => array(
+		'mail' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -69,16 +71,51 @@ class User extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'Comment' => array(
+			'className' => 'Comment',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Forum' => array(
+			'className' => 'Forum',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
+
+
+/**
  * hasAndBelongsToMany associations
  *
  * @var array
  */
 	public $hasAndBelongsToMany = array(
-		'Role' => array(
-			'className' => 'Role',
-			'joinTable' => 'roles_users',
+		'Article' => array(
+			'className' => 'Article',
+			'joinTable' => 'users_articles',
 			'foreignKey' => 'user_id',
-			'associationForeignKey' => 'role_id',
+			'associationForeignKey' => 'article_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',
@@ -89,11 +126,11 @@ class User extends AppModel {
 			'deleteQuery' => '',
 			'insertQuery' => ''
 		),
-		'Article' => array(
-			'className' => 'Article',
-			'joinTable' => 'users_articles',
+		'Role' => array(
+			'className' => 'Role',
+			'joinTable' => 'users_roles',
 			'foreignKey' => 'user_id',
-			'associationForeignKey' => 'article_id',
+			'associationForeignKey' => 'role_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',

@@ -4,7 +4,8 @@
 		<legend><?php echo __('Edit Role'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('tipo_rol');
+		echo $this->Form->input('role_type');
+		echo $this->Form->input('User');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
