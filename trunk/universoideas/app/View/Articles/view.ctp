@@ -1,37 +1,37 @@
 <div class="articles view">
-<h2><?php  echo __('Article'); ?></h2>
+<h2><?php  echo __('Artículo'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($article['Article']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Title'); ?></dt>
+		<dt><?php echo __('Título'); ?></dt>
 		<dd>
 			<?php echo h($article['Article']['title']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Summary'); ?></dt>
+		<dt><?php echo __('Sumario'); ?></dt>
 		<dd>
 			<?php echo h($article['Article']['summary']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Body'); ?></dt>
+		<dt><?php echo __('Cuerpo'); ?></dt>
 		<dd>
 			<?php echo h($article['Article']['body']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Enabled'); ?></dt>
+		<dt><?php echo __('Habilitado'); ?></dt>
 		<dd>
 			<?php echo h($article['Article']['enabled']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Created'); ?></dt>
+		<dt><?php echo __('Creado'); ?></dt>
 		<dd>
 			<?php echo h($article['Article']['created']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
+		<dt><?php echo __('Modificado'); ?></dt>
 		<dd>
 			<?php echo h($article['Article']['modified']); ?>
 			&nbsp;
@@ -39,22 +39,21 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Acciones'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Article'), array('action' => 'edit', $article['Article']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Article'), array('action' => 'delete', $article['Article']['id']), null, __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Articles'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Article'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Related Images'), array('controller' => 'related_images', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Related Image'), array('controller' => 'related_images', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Related Videos'), array('controller' => 'related_videos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Related Video'), array('controller' => 'related_videos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-	</ul>
+            <li><?php echo $this->Html->link(__('Nuevo Artículo'), array('action' => 'add')); ?> </li>
+            <li><?php echo $this->Html->link(__('Editar Artículo'), array('action' => 'edit', $article['Article']['id'])); ?> </li>
+            <li><?php echo $this->Form->postLink(__('Borrar Artículo'), array('action' => 'delete', $article['Article']['id']), null, __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?> </li>
+            <li><?php echo $this->Html->link(__('Listar Artículos'), array('action' => 'index')); ?> </li>
+
+<!--            <li><php echo $this->Html->link(__('List Related Images'), array('controller' => 'related_images', 'action' => 'index')); ?> </li>
+            <li><php echo $this->Html->link(__('New Related Image'), array('controller' => 'related_images', 'action' => 'add')); ?> </li>
+            <li><php echo $this->Html->link(__('List Related Videos'), array('controller' => 'related_videos', 'action' => 'index')); ?> </li>
+            <li><php echo $this->Html->link(__('New Related Video'), array('controller' => 'related_videos', 'action' => 'add')); ?> </li>-->
+        </ul>
 </div>
 <div class="related">
-	<h3><?php echo __('Related Related Images'); ?></h3>
+	<h3><?php echo __('Imagenes Relacionadas'); ?></h3>
 	<?php if (!empty($article['RelatedImage'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
