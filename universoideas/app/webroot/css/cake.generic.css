@@ -465,6 +465,20 @@ p.error,
 	background-image: linear-gradient(top, #76BF6B, #3B8230);
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
+.warning-message {
+	clear: both;
+	color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	background: #3B8230;
+	background-repeat: repeat-x;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FFCC00), to(#FBB829));
+	background-image: -webkit-linear-gradient(top, #FFCC00, #FBB829);
+	background-image: -moz-linear-gradient(top, #FFCC00, #FBB829);
+	background-image: -ms-linear-gradient(top, #FFCC00, #FBB829);
+	background-image: -o-linear-gradient(top, #FFCC00, #FBB829);
+	background-image: linear-gradient(top, #FFCC00, #FBB829);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
 p.error {
 	font-family: Monaco, Consolas, Courier, monospace;
 	font-size: 120%;
@@ -736,4 +750,20 @@ pre {
 /** Elements **/
 #url-rewriting-warning {
 	display:none;
+}
+
+.w250 {
+    width: 250px;
+}
+
+.w380 {
+    width: 380px;
+}
+
+.tal {
+    text-align: left!important;
+}
+
+.tac {
+    text-align: center!important;
 }
