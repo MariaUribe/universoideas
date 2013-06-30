@@ -1,12 +1,14 @@
 <?php
-App::uses('AppController', 'Controller');
+App::uses('AppController', 'Controller', 'RelatedImagesController');
+App::import('Controller', 'RelatedImagesController');
+App::import('Model', 'RelatedImage');
 /**
  * Articles Controller
  *
  * @property Article $Article
  */
 class ArticlesController extends AppController {
-
+    
 /**
  * index method
  *
@@ -37,14 +39,25 @@ class ArticlesController extends AppController {
  *
  * @return void
  */
-	public function add() {
+        public function add() {
 		if ($this->request->is('post')) {
+                    $this->loadModel('RelatedImage');
+                    
 			$this->Article->create();
 			if ($this->Article->save($this->request->data)) {
-				$this->Session->setFlash(__('The article has been saved'));
-				$this->redirect(array('action' => 'index'));
+                            $article_id = $this->Article->getLastInsertId();
+                            
+                            $this->request->data['RelatedImage']['article_id'] = $article_id;
+                            if($this->RelatedImage->save($this->request->data)){
+                                $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
+                                $this->redirect(array('action' => 'index'));
+                            } else {
+                                $this->Session->setFlash('Error: La imagen asociada no pudo ser guardada.', 'flash_error');
+                                $this->redirect(array('action' => 'index'));
+                            }
+                            
 			} else {
-				$this->Session->setFlash(__('The article could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('El artículo no pudo ser guardado. Intente de nuevo.'));
 			}
 		}
 		$users = $this->Article->User->find('list');
