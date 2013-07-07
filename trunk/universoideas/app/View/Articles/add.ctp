@@ -1,34 +1,51 @@
 <div class="articles form">
-<?php echo $this->Form->create('Article'); ?>
-	<fieldset>
-                <legend><?php echo __('Crear Artículo'); ?></legend>
-	<?php
-		echo $this->Form->input('Article.title', array('label' => 'Título'));
-		echo $this->Form->input('Article.summary', array('label' => 'Sumario'));
-		echo $this->Form->input('Article.body', array('label' => 'Cuerpo', 'type' => 'textarea'));
-		echo $this->Form->input('Article.enabled', array('label' => 'Habilitado'));
-
-	?>
-                <h3><?php echo __('Asociar Imagen'); ?></h3>
-        <?php 
-                echo $this->Form->input('RelatedImage.uri', array('label' => 'Uri'));
-		echo $this->Form->input('RelatedImage.width', array('label' => 'Width'));
-		echo $this->Form->input('RelatedImage.height', array('label' => 'Height'));
+<?php echo $this->Form->create('Article', array('enctype' => 'multipart/form-data')); ?>
+    <fieldset>
+        <legend><?php echo __('Crear Artículo'); ?></legend>
+        <?php
+            echo $this->Form->input('Article.title', array('label' => 'Título'));
+            echo $this->Form->input('Article.summary', array('label' => 'Sumario'));
+            echo $this->Form->input('Article.body', array('label' => 'Cuerpo', 'type' => 'textarea'));
+            echo $this->Form->input('Article.enabled', array('label' => 'Habilitado'));
         ?>
-	</fieldset>
+        <br>
+
+        <h3><?php echo __('Relacionar Media'); ?></h3>
+
+        <div>
+            <input type="radio" name="tipo_media" value="img" id="radio_img" onchange="selectMedia(this)" checked>
+            <label for="radio_img" class="ml22 mt5">Imagen</label>
+        </div>
+        <div>
+            <input type="radio" name="tipo_media" value="vid" id="radio_vid" onchange="selectMedia(this)">
+            <label for="radio_vid" class="ml22 mt5">Video</label>
+        </div>
+        <div>
+            <input type="radio" name="tipo_media" value="" id="radio_ninguno" onchange="selectMedia(this)">
+            <label for="radio_ninguno" class="ml22 mt5">Ninguno</label>
+        </div>
+
+        <div id="related_img">
+            <h3><?php echo __('Imagen'); ?></h3>
+            <?php 
+                echo $this->Form->input('RelatedImage.upload', array('type' => 'file', 'required' => 'true', 'label' => 'Seleccione Imagen', 'class' => 'related_img', 'div' => 'input file required'));
+            ?>
+        </div>
+        
+        <div id="related_vid" style="display: none">
+            <h3><?php echo __('Seleccionar Video'); ?></h3>
+            <?php 
+                echo $this->Form->input('RelatedVideo.name', array('label' => 'Nombre', 'required' => 'false', 'class' => 'related_vid'));
+                echo $this->Form->input('RelatedVideo.source', array('label' => 'Source', 'required' => 'false', 'class' => 'related_vid'));
+            ?>
+        </div>
+    </fieldset>
 <?php echo $this->Form->end(__('Guardar')); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Acciones'); ?></h3>
 	<ul>
-
-		<li><?php echo $this->Html->link(__('Listar Artículos'), array('action' => 'index')); ?></li>
-                <li><?php echo $this->Html->link(__('Listar Usuarios'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-                
-		<li><?php echo $this->Html->link(__('List Related Images'), array('controller' => 'related_images', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Related Image'), array('controller' => 'related_images', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Related Videos'), array('controller' => 'related_videos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Related Video'), array('controller' => 'related_videos', 'action' => 'add')); ?> </li>
-		
-	</ul>
+            <li><?php echo $this->Html->link(__('Listar Artículos'), array('action' => 'index')); ?></li>
+            <li><?php echo $this->Html->link(__('Listar Usuarios'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+        </ul>
 </div>

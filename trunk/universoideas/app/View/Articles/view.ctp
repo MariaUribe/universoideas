@@ -89,6 +89,14 @@
 				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'related_images', 'action' => 'delete', $relatedImage['id']), null, __('Are you sure you want to delete # %s?', $relatedImage['id'])); ?>
 			</td>
 		</tr>
+                <tr>
+                    <td colspan="6">
+                        <?php echo $this->Html->image('/app/webroot/img/uploads/' . $relatedImage['name']); ?> 
+                    </td>
+                    <td colspan="5">
+                        <?php echo $this->Html->image($relatedImage['uri_thumb']); ?> 
+                    </td>
+                </tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
