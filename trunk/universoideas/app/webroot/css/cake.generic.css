@@ -81,8 +81,8 @@ p {
 	padding: 10px 20px;
 }
 #header h1 {
-	line-height:20px;
-	background: #003d4c url('../img/cake.icon.png') no-repeat left;
+	line-height:26px;
+	background: #003d4c url('../img/icons/icon_admin24.png') no-repeat left;
 	color: #fff;
 	padding: 0px 30px;
 }
@@ -766,4 +766,28 @@ pre {
 
 .tac {
     text-align: center!important;
+}
+
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.ml22 {
+    margin-left: 22px;
+}
+
+.dnone {
+    display: none;
+}
+
+.dblock {
+    display: block;
+}
+
+.logo {
+    float: left;
+    margin: 10px;
+    background-color: #FFF;
+    padding: 15px;
 }
