@@ -1,7 +1,10 @@
 <?php
 App::uses('AppController', 'Controller', 'RelatedImagesController');
 App::import('Controller', 'RelatedImagesController');
-App::import('Model', 'RelatedImage');
+App::import('Model', 'RelatedImage', 'RelatedVideo');
+
+include("Component/resize-class.php");  
+
 /**
  * Articles Controller
  *
@@ -42,17 +45,62 @@ class ArticlesController extends AppController {
         public function add() {
 		if ($this->request->is('post')) {
                     $this->loadModel('RelatedImage');
+                    $this->loadModel('RelatedVideo');
                     
 			$this->Article->create();
 			if ($this->Article->save($this->request->data)) {
                             $article_id = $this->Article->getLastInsertId();
                             
                             $this->request->data['RelatedImage']['article_id'] = $article_id;
-                            if($this->RelatedImage->save($this->request->data)){
+                            $this->request->data['RelatedVideo']['article_id'] = $article_id;
+                            
+                            if(!empty($this->request->data['RelatedImage']['upload'])) {
+                                $file = $this->request->data['RelatedImage']['upload']; //put the data into a var for easy use
+
+                                $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //get the extension
+                                $title = strstr($file['name'], '.', true);  //get the name alone
+                                
+                                
+                                $arr_ext = array('jpg', 'jpeg', 'gif'); //set allowed extensions
+                                $width_thumb = 440;
+                                
+                                //only process if the extension is valid
+                                if(in_array($ext, $arr_ext)) {
+                                    $img_path = WWW_ROOT . 'img/uploads/' . $file['name'];
+                                    move_uploaded_file($file["tmp_name"], $img_path);
+                                    
+                                    list($width, $height) = getimagesize($img_path);
+                                  
+                                    // *** 1) Initialise / load image
+                                    $resizeObj = new resize($img_path);
+
+                                    // *** 2) Resize image (options: exact, portrait, landscape, auto, crop)
+                                    $height_thumb = $resizeObj -> getSizeByFixedWidth($width_thumb);
+                                    $resizeObj -> resizeImage($width_thumb, $height_thumb, 'crop');
+                                    $thumb = WWW_ROOT . 'img/uploads/' . $title . '_thumb.' . $ext;
+                                    $uri_thumb = '/app/webroot/img/uploads/' . $title . '_thumb.' . $ext;
+
+                                    // *** 3) Save image
+                                    $resizeObj -> saveImage($thumb, 100);
+                                    
+                                    //prepare the filename for database entry
+                                    $this->request->data['RelatedImage']['uri'] = $img_path;
+                                    $this->request->data['RelatedImage']['name'] = $file['name'];
+                                    $this->request->data['RelatedImage']['title'] = $title;
+                                    $this->request->data['RelatedImage']['width'] = $width;
+                                    $this->request->data['RelatedImage']['height'] = $height;
+                                    $this->request->data['RelatedImage']['uri_thumb'] = $uri_thumb;
+                                    $this->request->data['RelatedImage']['width_thumb'] = $width_thumb;
+                                    $this->request->data['RelatedImage']['height_thumb'] = $height_thumb;
+                                    
+                                }
+                            }
+                            
+                            if(($this->RelatedImage->save($this->request->data)) || ($this->RelatedVideo->save($this->request->data))){
                                 $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
                                 $this->redirect(array('action' => 'index'));
                             } else {
-                                $this->Session->setFlash('Error: La imagen asociada no pudo ser guardada.', 'flash_error');
+                                $this->Session->setFlash('Error: El archivo multimedia asociado no pudo ser guardado.', 'flash_error');
                                 $this->redirect(array('action' => 'index'));
                             }
                             
