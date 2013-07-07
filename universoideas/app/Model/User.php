@@ -3,72 +3,37 @@ App::uses('AppModel', 'Model');
 /**
  * User Model
  *
+ * @property Roles $Roles
  * @property Comment $Comment
  * @property Forum $Forum
  * @property Article $Article
- * @property Role $Role
  */
 class User extends AppModel {
 
 /**
- * Validation rules
+ * Display field
+ *
+ * @var string
+ */
+	public $displayField = 'name';
+
+
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * belongsTo associations
  *
  * @var array
  */
-	public $validate = array(
-		'username' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'password' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'name' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'lastname' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'mail' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+	public $belongsTo = array(
+		'Roles' => array(
+			'className' => 'Roles',
+			'foreignKey' => 'roles_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
 	);
-
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
  * hasMany associations
@@ -116,21 +81,6 @@ class User extends AppModel {
 			'joinTable' => 'users_articles',
 			'foreignKey' => 'user_id',
 			'associationForeignKey' => 'article_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
-		),
-		'Role' => array(
-			'className' => 'Role',
-			'joinTable' => 'users_roles',
-			'foreignKey' => 'user_id',
-			'associationForeignKey' => 'role_id',
 			'unique' => 'keepExisting',
 			'conditions' => '',
 			'fields' => '',
