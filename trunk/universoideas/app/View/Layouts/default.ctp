@@ -17,8 +17,8 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$universoDescription = __d('universo', 'UniversoIdeas: Sitio Web');
-$title_for_layout = 'UniversoIdeas';
+$universoDescription = __d('universo', 'Universoideas: Administración');
+$title_for_layout = 'Universoideas';
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,6 +31,9 @@ $title_for_layout = 'UniversoIdeas';
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.generic');
+                
+                echo $this->Html->script('http://code.jquery.com/jquery-1.9.1.js');
+                echo $this->Html->script('generic');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -40,7 +43,8 @@ $title_for_layout = 'UniversoIdeas';
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($universoDescription, 'http://localhost/universoideas/articles'); ?></h1>
+			<h1><?php echo $this->Html->link($universoDescription, 'http://localhost/universoideas/'); ?></h1>
+<!--                    <div class="logo"><a href="/universoideas/"><img src="img/logo.png" width="256" height="65" alt="Universo Ideas"></a></div>-->
 		</div>
 		<div id="content">
 
