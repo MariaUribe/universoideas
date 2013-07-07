@@ -1,10 +1,11 @@
 <div class="relatedImages form">
-<?php echo $this->Form->create('RelatedImage'); ?>
+<?php echo $this->Form->create('RelatedImage', array('enctype' => 'multipart/form-data')); ?>
 	<fieldset>
 		<legend><?php echo __('Add Related Image'); ?></legend>
 	<?php
-		echo $this->Form->input('uri');
-		echo $this->Form->input('name');
+		echo $this->Form->input('upload', array('type' => 'file'));
+//		echo $this->Form->input('uri');
+                echo $this->Form->input('name');
 		echo $this->Form->input('title');
 		echo $this->Form->input('uri_thumb');
 		echo $this->Form->input('width');
