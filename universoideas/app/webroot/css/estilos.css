@@ -1,0 +1,82 @@
+/* 
+    Document   : estilos
+    Created on : Jul 5, 2013, 5:41:03 PM
+    Author     : maya
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+BODY{ background-color:#FFF; font-family:Verdana, Geneva, sans-serif} 
+DIV {}
+SPAN{margin-left:10px}
+A{text-decoration:none}
+A:HOVER{text-decoration:underline}
+#conten_ppal{width:900px; overflow:hidden;margin:0 auto;}
+#content_head {background-color:#003355; overflow:hidden}
+#content_dos_col{ margin:10px 0 }
+#content_col_izq{ width:620px; float:left; margin-bottom:10px}
+#content_col_der{ width:270px; float:right}
+#content_foot{ margin-top:20px; border-top:#333 solid 2px; text-align:center; font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#333}
+.sprite{background-image: url(../imag/icons/sprite.png);background-repeat:no-repeat;display:inline;cursor:hand}
+.sprite-lupa{background-position:0 0}
+
+.logo{ float:left; margin:10px; background-color:#FFF; padding:15px}
+
+.menu{ clear:both;background-image:url(../imag/back_menu.png);background-repeat:repeat-x; padding:5px; overflow:hidden; border-top:#FFF 1px solid ; margin-top:15px}
+.menu UL { margin:0!important}
+.menu UL LI{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:12px; font-weight:bold; list-style:none; margin-right:5px;color:#FFFFFF}
+.menu UL LI A{color:#FFFFFF}
+
+.siguenos{ font-family:Verdana, Geneva, sans-serif; font-size:10px; font-weight:bold;}
+.siguenos .sprite{ background-image:;background-repeat:no-repeat;display:inline;cursor:hand}
+.siguenos .sprite-twitter{background-position:0 0}
+
+.box{ padding:5px; border-bottom:#333 1px solid; margin-bottom:10px}
+.left{float:left}
+.right{float:right}
+.bold{font-weight:bold}
+.fecha{font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#fff; float:right}
+.clear{clear:both}
+.fff{color:#FFF}
+.b023{background-color:#002233}
+.boton_buscar{border:#FFF 2px solid;padding:2px 5px; margin:0 5px;text-decoration:none!important;font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#fff;}
+.fs11{font-size:11px}
+.mr10{margin-right:10px}
+.pr5{padding-right:5px}
+.pl5{padding-left:5px}
+.pt5{padding-top:5px}
+.pb5{padding-bottom:5px}
+.mt15{margin-top:15px}
+.tal{text-align:left}
+.tac{text-align:center}
+.tar{text-align:right}
+
+.destacada{ background-color:#999; overflow:hidden; border:#333 solid 2px}
+.destacada .titulo{ background-color:#333; text-align:left; padding:5px; font-size:12px; color:#FFF;font-weight:bold}
+.destacada .contenido{ padding:5px; font-family:Georgia, "Times New Roman", Times, serif; font-size:12px}
+.destacada .contenido OL{ margin:0 0 0 -10px;}
+.destacada .contenido OL LI{ border-bottom:#333 1px solid; list-style:decimal; color:#004080;font-weight:bold; padding:3px 0}
+.destacada .contenido OL LI A{color:#333; font-weight:normal!important}
+
+.rio{ overflow:hidden}
+
+.notas{ overflow:hidden}
+.notas H2{ margin:0; background-color:#003559; color:#FFF; font-size:20px; text-align:left; padding:2px; font-family:Georgia, "Times New Roman", Times, serif}
+.notas H2 A{color:#FFF;}
+.notas DIV {font-size:12px;color:#333}
+.notas DIV A{color: #004080}
+.notas DIV IMG { margin:5px}
+
+.doble { overflow:hidden; clear:both}
+.doble .izq{float:left; width:360px}
+.doble .izq .title{background-color:#325e7b; color:#FFF; font-size:12px; font-weight:bold; padding:2px 15px}
+.doble .izq .caja{ margin:3px 0 0 0; background:#fff; overflow:hidden}
+.doble .izq .caja .dia{ background-color:#003559; color:#FFF; font-size:9px; text-align:right; padding:2px}
+.doble .izq .caja .txt A{ clear:both; color:#333; font-size:10px}
+.doble .izq .caja .txt A IMG{ margin: 3px}
+.doble .der{float:right; width: 250px; color:#FFF} 
+.doble .der .title{font-size:12px; font-weight:bold; padding:2px 15px; background-color:#325e7b;}
+.doble .der .caja{ margin:5px 0 0 0; padding:2px; overflow:hidden; margin-top:3px; background-color:#325e7b;}
+.doble .der .caja .dia{ color:#FFF; font-size:9px; text-align:right; padding:2px;background-color:#003559;}
+.doble .der .caja .txt A{ clear:both; font-size:10px; color:#FFF}
+.doble .der .caja .txt A IMG{ margin: 3px}
