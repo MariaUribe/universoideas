@@ -1,4 +1,7 @@
 <IfModule mod_rewrite.c>
+    AddType text/html .shtml
+    AddOutputFilter INCLUDES .shtml .html .htm
+
     Options Indexes FollowSymLinks Includes
 
     RewriteEngine On
