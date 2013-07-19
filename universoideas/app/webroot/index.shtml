@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Compañía comprometida a brindar un servicio profesional de alta calidad a nuestros clientes, para esto contamos con la mejor calidad de Profesionales en las áreas de Contaduría, Auditoria, Administración y Asesoría Tributaria">
+<meta name="keywords" content="Auditorias, Asesorías, Impuestos, Nacionales, Municipales, Tramites, actualización, Registros, Solvencias, Permisos, Redacción, Documentos Legales, Asesoría Laboral, Empleado, Empleador, Traducción Documentos Legales, Imagen Corporativa, Diseño Web" />
+<title>Universoideas</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="css/estilos.css" type="text/css">
+</head>
+
+<body>
+<div id="conten_ppal">
+
+<div id="content_head" class="pt5">
+<!--#include file="includes/head.htm" -->
+</div>
+
+ <div id="content_dos_col">
+ <div id="content_col_izq">
+ <!--#include file="includes/galeria.htm" -->
+ <!--#include file="includes/rio.htm" -->
+ <div class="doble">
+	    <div class="izq">
+        <!--#include file="includes/prox_actividades.htm" -->
+        </div>
+        
+        <div class="der">
+        <!--#include file="includes/talleres_cursos.htm" -->
+        </div>
+</div>
+ </div>
+  <div id="content_col_der">
+  
+   <!--#include file="includes/siguenos.htm" -->
+ <!--#include file="includes/noticias_destacadas.htm" -->
+  <!--#include file="includes/twitter.htm" -->
+   <!--#include file="includes/facebook.htm" -->
+  
+  </div>
+ </div>
+
+
+
+
+<!--#include file="includes/foot.htm" -->
+</div>
+
+
+
+</body>
+</html>
