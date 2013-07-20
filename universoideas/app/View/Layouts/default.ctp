@@ -41,15 +41,13 @@ $title_for_layout = 'Universoideas';
 	?>
 </head>
 <body>
+        <?php echo $this->Session->flash(); ?>
 	<div id="container">
 		<div id="header">
 			<h1><?php echo $this->Html->link($universoDescription, 'http://localhost/universoideas/'); ?></h1>
 <!--                    <div class="logo"><a href="/universoideas/"><img src="img/logo.png" width="256" height="65" alt="Universo Ideas"></a></div>-->
 		</div>
 		<div id="content">
-
-			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
