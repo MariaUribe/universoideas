@@ -10,25 +10,27 @@
         ?>
         <br>
 
-        <h3><?php echo __('Relacionar Media'); ?></h3>
+        <h3><?php echo __('Relacionar Multimedia'); ?></h3>
 
         <div>
-            <input type="radio" name="tipo_media" value="img" id="radio_img" onchange="selectMedia(this)" checked>
+            <input type="radio" name="tipo_media" value="img" id="radio_img" onchange="selectMedia(this.value)" checked>
             <label for="radio_img" class="ml22 mt5">Imagen</label>
         </div>
         <div>
-            <input type="radio" name="tipo_media" value="vid" id="radio_vid" onchange="selectMedia(this)">
+            <input type="radio" name="tipo_media" value="vid" id="radio_vid" onchange="selectMedia(this.value)">
             <label for="radio_vid" class="ml22 mt5">Video</label>
         </div>
         <div>
-            <input type="radio" name="tipo_media" value="" id="radio_ninguno" onchange="selectMedia(this)">
+            <input type="radio" name="tipo_media" value="" id="radio_ninguno" onchange="selectMedia(this.value)">
             <label for="radio_ninguno" class="ml22 mt5">Ninguno</label>
         </div>
+        
+        <?php echo $this->Form->input('Article.media', array('type' => 'hidden', 'value' => 'imagen')); ?>
 
         <div id="related_img">
             <h3><?php echo __('Imagen'); ?></h3>
             <?php 
-                echo $this->Form->input('RelatedImage.upload', array('type' => 'file', 'required' => 'true', 'label' => 'Seleccione Imagen', 'class' => 'related_img', 'div' => 'input file required'));
+                echo $this->Form->input('RelatedImage.upload', array('type' => 'file', 'required' => 'true', 'label' => 'Seleccione Imagen', 'class' => 'related_img', 'div' => 'input file required', 'onchange' => 'validateInputFile(this)'));
             ?>
         </div>
         

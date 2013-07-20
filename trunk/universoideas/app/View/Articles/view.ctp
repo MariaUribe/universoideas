@@ -45,15 +45,10 @@
             <li><?php echo $this->Html->link(__('Editar Artículo'), array('action' => 'edit', $article['Article']['id'])); ?> </li>
             <li><?php echo $this->Form->postLink(__('Borrar Artículo'), array('action' => 'delete', $article['Article']['id']), null, __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?> </li>
             <li><?php echo $this->Html->link(__('Listar Artículos'), array('action' => 'index')); ?> </li>
-
-<!--            <li><php echo $this->Html->link(__('List Related Images'), array('controller' => 'related_images', 'action' => 'index')); ?> </li>
-            <li><php echo $this->Html->link(__('New Related Image'), array('controller' => 'related_images', 'action' => 'add')); ?> </li>
-            <li><php echo $this->Html->link(__('List Related Videos'), array('controller' => 'related_videos', 'action' => 'index')); ?> </li>
-            <li><php echo $this->Html->link(__('New Related Video'), array('controller' => 'related_videos', 'action' => 'add')); ?> </li>-->
         </ul>
 </div>
 <div class="related">
-	<h3><?php echo __('Imagenes Relacionadas'); ?></h3>
+	<h3><?php echo __('Imagen Relacionada'); ?></h3>
 	<?php if (!empty($article['RelatedImage'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
