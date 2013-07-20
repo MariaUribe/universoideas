@@ -747,6 +747,67 @@ pre {
 	color: #0a0;
 }
 
+/* Inicio message plugin */
+.text-message-jq {
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0,0,0,.5);
+}
+
+.message-jq {
+    background-size: 40px 40px;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                                      transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                                      transparent 75%, transparent);										
+    box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
+    width: 100%;
+    border: 1px solid;
+    color: #fff;
+    padding: 15px;
+    position: fixed;
+    _position: absolute;
+    text-shadow: 0 1px 0 rgba(0,0,0,.5);
+    animation: animate-bg 5s linear infinite;
+}
+
+.info-jq {
+    background-color: #4ea5cd;
+    border-color: #3b8eb5;
+}
+
+.error-jq {
+    background-color: #de4343;
+    border-color: #c43d3d;
+}
+		 
+.warning-jq {
+    background-color: #eaaf51;
+    border-color: #d99a36;
+}
+
+.success-jq {
+    background-color: #61b832;
+    border-color: #55a12c;
+}
+
+.message-jq h3{
+    margin: 0 0 5px 0;													 
+}
+
+.message-jq p{
+    margin: 0;													 
+}
+
+@keyframes animate-bg {
+    from {
+        background-position: 0 0;
+    }
+    to {
+       background-position: -80px 0;
+    }
+}
+/* Fin message plugin */
+
+
 /** Elements **/
 #url-rewriting-warning {
 	display:none;
