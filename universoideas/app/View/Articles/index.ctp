@@ -21,7 +21,7 @@
 		<td class="actions tal">
 			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $article['Article']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $article['Article']['id'])); ?>
-<!--			<php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $article['Article']['id']), null, __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?>-->
+			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $article['Article']['id']), null, __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
