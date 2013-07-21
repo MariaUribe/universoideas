@@ -186,6 +186,41 @@ ENGINE = InnoDB;
 
 CREATE INDEX `fk_related_videos_articles1_idx` ON `estudiantes`.`related_videos` (`article_id` ASC) ;
 
+
+-- -----------------------------------------------------
+-- Table `estudiantes`.`cursos`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `estudiantes`.`cursos` ;
+
+CREATE  TABLE IF NOT EXISTS `estudiantes`.`cursos` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NOT NULL ,
+  `description` VARCHAR(300) NOT NULL ,
+  `date` DATE NOT NULL ,
+  `image` VARCHAR(100) NULL ,
+  `created` DATE NOT NULL ,
+  `modified` DATE NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `estudiantes`.`events`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `estudiantes`.`events` ;
+
+CREATE  TABLE IF NOT EXISTS `estudiantes`.`events` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(45) NOT NULL ,
+  `place` VARCHAR(65) NOT NULL ,
+  `event_date` DATE NOT NULL ,
+  `init_time` VARCHAR(8) NOT NULL ,
+  `end_time` VARCHAR(8) NOT NULL ,
+  `created` DATE NOT NULL ,
+  `modified` DATE NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
 USE `estudiantes` ;
 
 
