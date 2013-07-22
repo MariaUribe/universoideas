@@ -18,7 +18,7 @@
  */
 
 $universoDescription = __d('universo', 'Universoideas: Administración');
-$title_for_layout = 'Universoideas';
+$title_for_layout = 'Universoideas Admin';
 ?>
 <!DOCTYPE html>
 <html>
