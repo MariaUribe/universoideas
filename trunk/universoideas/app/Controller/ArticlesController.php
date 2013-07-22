@@ -313,7 +313,7 @@ class ArticlesController extends AppController {
 
 
         $arr_ext = array('jpg', 'jpeg', 'gif'); //set allowed extensions
-        $width_thumb = 440;
+        $width_thumb = 320;
 
         //only process if the extension is valid
         if(in_array($ext, $arr_ext)) {
