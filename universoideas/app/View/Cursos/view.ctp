@@ -21,6 +21,11 @@
 			<?php echo h($curso['Curso']['date']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Enabled'); ?></dt>
+		<dd>
+			<?php echo h($curso['Curso']['enabled']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Image'); ?></dt>
 		<dd>
 			<?php echo h($curso['Curso']['image']); ?>
