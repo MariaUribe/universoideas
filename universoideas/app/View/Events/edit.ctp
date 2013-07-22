@@ -9,7 +9,6 @@
         echo $this->Form->input('Event.event_date');
         echo $this->Form->input('Event.init_time');
         echo $this->Form->input('Event.end_time');
-        echo $this->Form->input('Event.image_thumb');
         echo $this->Form->input('Event.upload', array('type' => 'file', 'label' => 'Seleccione Imagen', 'onchange' => 'validateInputFile(this)'));
         
         $image_thumb = "";
