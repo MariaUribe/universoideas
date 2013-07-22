@@ -194,10 +194,12 @@ DROP TABLE IF EXISTS `estudiantes`.`cursos` ;
 
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`cursos` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(45) NOT NULL ,
+  `name` VARCHAR(65) NOT NULL ,
   `description` VARCHAR(300) NOT NULL ,
   `date` DATE NOT NULL ,
+  `enabled` TINYINT(1) NOT NULL ,
   `image` VARCHAR(100) NULL ,
+  `image_thumb` VARCHAR(100) NULL ,
   `created` DATE NOT NULL ,
   `modified` DATE NOT NULL ,
   PRIMARY KEY (`id`) )
@@ -211,11 +213,14 @@ DROP TABLE IF EXISTS `estudiantes`.`events` ;
 
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`events` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(45) NOT NULL ,
+  `name` VARCHAR(65) NOT NULL ,
   `place` VARCHAR(65) NOT NULL ,
   `event_date` DATE NOT NULL ,
   `init_time` VARCHAR(8) NOT NULL ,
   `end_time` VARCHAR(8) NOT NULL ,
+  `image` VARCHAR(100) NULL ,
+  `image_thumb` VARCHAR(100) NULL ,
+  `enabled` TINYINT(1) NOT NULL ,
   `created` DATE NOT NULL ,
   `modified` DATE NOT NULL ,
   PRIMARY KEY (`id`) )
