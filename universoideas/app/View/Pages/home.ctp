@@ -7,7 +7,7 @@
         </div>
 
         <div class="der">
-            <?php include ("includes/talleres_cursos.htm") ?>
+            <?php include ("talleres_cursos.ctp") ?>
         </div>
     </div>
 </div>
