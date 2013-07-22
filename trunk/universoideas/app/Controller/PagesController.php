@@ -82,6 +82,7 @@ class PagesController extends AppController {
     public function home() {
         $this->loadModel('Article');
         $this->loadModel('Event');
+        $this->loadModel('Curso');
         
         $this->layout = 'page';
         
@@ -106,8 +107,9 @@ class PagesController extends AppController {
         $articles_rio = $this->getArticles(5);
         $articles_dest = $this->getArticles(10);
         $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('event_date' => 'desc'), 'limit' => 4));
+        $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('date' => 'desc'), 'limit' => 4));
         
-        $this->set(compact('page', 'subpage', 'page', 'articles_rio', 'articles_dest', 'events'));
+        $this->set(compact('page', 'subpage', 'page', 'articles_rio', 'articles_dest', 'events', 'cursos'));
         $this->render(implode('/', $path));
     }
     
@@ -134,6 +136,14 @@ class PagesController extends AppController {
     
     public function noticias_destacadas() {
         $this->layout = 'page';
+        
+        $articles_dest = $this->getArticles(10);
+        
+        $this->set(compact('articles_dest'));
+    }
+    
+    public function admin() {
+        $this->layout = 'default';
         
         $articles_dest = $this->getArticles(10);
         
