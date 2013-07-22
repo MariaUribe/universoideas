@@ -6,6 +6,7 @@
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('date'); ?></th>
+			<th><?php echo $this->Paginator->sort('enabled'); ?></th>
 			<th><?php echo $this->Paginator->sort('image'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
@@ -17,6 +18,7 @@
 		<td><?php echo h($curso['Curso']['name']); ?>&nbsp;</td>
 		<td><?php echo h($curso['Curso']['description']); ?>&nbsp;</td>
 		<td><?php echo h($curso['Curso']['date']); ?>&nbsp;</td>
+		<td><?php echo h($curso['Curso']['enabled']); ?>&nbsp;</td>
 		<td><?php echo h($curso['Curso']['image']); ?>&nbsp;</td>
 		<td><?php echo h($curso['Curso']['created']); ?>&nbsp;</td>
 		<td><?php echo h($curso['Curso']['modified']); ?>&nbsp;</td>

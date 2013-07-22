@@ -7,6 +7,7 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
 		echo $this->Form->input('date');
+		echo $this->Form->input('enabled');
 		echo $this->Form->input('image');
 	?>
 	</fieldset>
