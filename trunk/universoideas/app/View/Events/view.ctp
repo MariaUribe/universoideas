@@ -31,6 +31,16 @@
 			<?php echo h($event['Event']['end_time']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Image'); ?></dt>
+		<dd>
+			<?php echo h($event['Event']['image']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Enabled'); ?></dt>
+		<dd>
+			<?php echo h($event['Event']['enabled']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Created'); ?></dt>
 		<dd>
 			<?php echo h($event['Event']['created']); ?>
