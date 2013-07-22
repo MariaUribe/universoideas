@@ -12,19 +12,19 @@ TD A{color:#00355a}
 #content_col_izq{ width:620px; float:left; margin-bottom:10px}
 #content_col_der{ width:270px; float:right}
 #content_foot{ margin-top:20px; border-top:#333 solid 2px; text-align:center; font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#333}
-.sprite{background-image: url(../imag/icons/sprite.png);background-repeat:no-repeat;display:inline;cursor:hand}
+.sprite{background-image: url(/universoideas/app/webroot/img/icons/sprite.png);background-repeat:no-repeat;display:inline;cursor:hand}
 .sprite-lupa{background-position:0 0}
 
 .logo{ float:left; margin:10px; padding:15px}
 
-.menu{ clear:both;background-image:url(../imag/back_menu.png);background-repeat:repeat-x; padding:5px; overflow:hidden; border-top:#FFF 1px solid ; margin-top:15px}
+.menu{ clear:both;background-image:url(/universoideas/app/webroot/img/back_menu.png);background-repeat:repeat-x; padding:5px; overflow:hidden; border-top:#FFF 1px solid ; margin-top:15px}
 .menu UL { margin:0!important}
 .menu UL LI{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:12px; font-weight:bold; list-style:none; margin-right:5px;color:#FFFFFF}
 .menu UL LI A{color:#FFFFFF}
 
 .siguenos{ font-family:Verdana, Geneva, sans-serif; font-size:10px; font-weight:bold; border-bottom:1px solid #333; overflow:hidden}
 /*SPRITE*/
-.redes span{ background-image:url(../imag/icons/sprite_redes.png); background-repeat:no-repeat; display: inline;width:31px;height:34px;cursor: pointer}
+.redes span{ background-image:url(/universoideas/app/webroot/img/icons/sprite_redes.png); background-repeat:no-repeat; display: inline;width:31px;height:34px;cursor: pointer}
 .twitter{ background-position:0 0 }
 .facebook{ background-position:-42px 0}
 .youtube{ background-position:-82px 0}
