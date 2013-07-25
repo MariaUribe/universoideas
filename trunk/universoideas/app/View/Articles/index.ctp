@@ -40,10 +40,3 @@
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Acciones'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Nuevo Artículo'), array('action' => 'add')); ?></li>
-                <li><?php echo $this->Html->link(__('Listar Usuarios'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-	</ul>
-</div>

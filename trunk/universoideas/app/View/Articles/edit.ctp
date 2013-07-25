@@ -4,7 +4,7 @@
     });
 </script>
 
-<div class="articles form">
+<div class="articles border">
     <?php echo $this->Form->create('Article', array('enctype' => 'multipart/form-data')); ?>
         <fieldset>
             <legend><?php echo __('Editar Artículo'); ?></legend>
@@ -80,7 +80,5 @@
     <h3><?php echo __('Acciones'); ?></h3>
     <ul>
         <li><?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $this->Form->value('Article.id')), null, __('¿Está seguro que desea eliminar el artículo # %s?', $this->Form->value('Article.id'))); ?></li>
-        <li><?php echo $this->Html->link(__('Nuevo Artículo'), array('action' => 'add')); ?> </li>
-        <li><?php echo $this->Html->link(__('Listar Artículos'), array('action' => 'index')); ?></li>
     </ul>
 </div>

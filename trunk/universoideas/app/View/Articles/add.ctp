@@ -1,4 +1,4 @@
-<div class="articles form">
+<div class="articles border">
 <?php echo $this->Form->create('Article', array('enctype' => 'multipart/form-data')); ?>
     <fieldset>
         <legend><?php echo __('Crear Artículo'); ?></legend>
@@ -43,11 +43,4 @@
         </div>
     </fieldset>
 <?php echo $this->Form->end(__('Guardar')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Acciones'); ?></h3>
-	<ul>
-            <li><?php echo $this->Html->link(__('Listar Artículos'), array('action' => 'index')); ?></li>
-            <li><?php echo $this->Html->link(__('Listar Usuarios'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-        </ul>
 </div>
