@@ -56,6 +56,7 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`articles` (
   `title` VARCHAR(45) NOT NULL ,
   `summary` VARCHAR(256) NOT NULL ,
   `body` VARCHAR(1024) NOT NULL ,
+  `channel` VARCHAR(45) NOT NULL ,
   `enabled` TINYINT(1) NOT NULL ,
   `created` DATE NOT NULL ,
   `modified` DATE NOT NULL ,
@@ -124,8 +125,10 @@ DROP TABLE IF EXISTS `estudiantes`.`forums` ;
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`forums` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `title` VARCHAR(100) NOT NULL ,
+  `field` VARCHAR(100) NOT NULL ,
   `aproved` TINYINT(1) NOT NULL ,
   `created` DATE NOT NULL ,
+  `modified` DATE NOT NULL ,
   `user_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
   CONSTRAINT `fk_forums_users1`
@@ -225,6 +228,48 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`events` (
   `modified` DATE NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `estudiantes`.`enterprises`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `estudiantes`.`enterprises` ;
+
+CREATE  TABLE IF NOT EXISTS `estudiantes`.`enterprises` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `enterprise` VARCHAR(65) NOT NULL ,
+  `email` VARCHAR(45) NOT NULL ,
+  `description` VARCHAR(150) NOT NULL ,
+  `duration` VARCHAR(50) NOT NULL ,
+  `enabled` TINYINT(1) NOT NULL ,
+  `created` DATE NOT NULL ,
+  `modified` DATE NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `estudiantes`.`postulations`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `estudiantes`.`postulations` ;
+
+CREATE  TABLE IF NOT EXISTS `estudiantes`.`postulations` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `description` VARCHAR(100) NOT NULL ,
+  `duration` VARCHAR(50) NOT NULL ,
+  `enabled` TINYINT(1) NOT NULL ,
+  `created` DATE NOT NULL ,
+  `modified` DATE NOT NULL ,
+  `user_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  CONSTRAINT `fk_postulations_users1`
+    FOREIGN KEY (`user_id` )
+    REFERENCES `estudiantes`.`users` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE INDEX `fk_postulations_users1_idx` ON `estudiantes`.`postulations` (`user_id` ASC) ;
 
 USE `estudiantes` ;
 
