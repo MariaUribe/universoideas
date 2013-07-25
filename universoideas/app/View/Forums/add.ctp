@@ -1,23 +1,12 @@
-<div class="forums form">
+<div class="forums border">
 <?php echo $this->Form->create('Forum'); ?>
 	<fieldset>
-		<legend><?php echo __('Add Forum'); ?></legend>
+		<legend><?php echo __('Crear Foro'); ?></legend>
 	<?php
-		echo $this->Form->input('title');
-		echo $this->Form->input('aproved');
-		echo $this->Form->input('user_id');
+		echo $this->Form->input('Forum.title', array('label' => 'Nombre'));
+		echo $this->Form->input('Forum.aproved', array('label' => 'Aprobado'));
+		echo $this->Form->input('Forum.user_id', array('label' => 'Usuario'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Forums'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
-	</ul>
+<?php echo $this->Form->end(__('Guardar')); ?>
 </div>
