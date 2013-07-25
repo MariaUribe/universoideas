@@ -315,11 +315,13 @@ label {
 	margin-bottom:3px;
 }
 input, textarea {
-	clear: both;
-	font-size: 140%;
-	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
-	padding: 1%;
-	width:98%;
+    clear: both;
+/*	font-size: 140%;*/
+/*	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;*/
+    font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif";
+    font-size: 14px;
+    padding: 1%;
+    width:98%;
 }
 select {
 	clear: both;
