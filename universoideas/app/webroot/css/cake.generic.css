@@ -22,18 +22,19 @@
 }
 
 /** General Style Info **/
-body {
+/*body {
 	background: #003d4c;
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
-	font-size:90%;
+	font-size:80%;
 	margin: 0;
-}
-a {
+}*/
+/*a {
 	color: #003d4c;
-	text-decoration: underline;
-	font-weight: bold;
-}
+        text-decoration: none;
+	text-decoration: underline;*/
+/*	font-weight: bold;
+}*/
 a:hover {
 	color: #367889;
 	text-decoration:none;
@@ -51,15 +52,17 @@ h1 {
 	font-size: 100%;
 }
 h2 {
-	background:#fff;
-	color: #e32;
-	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
-	font-size: 190%;
+    background:#fff;
+/*	color: #e32;*/
+    color: #2e6e9e;
+    font-size: 30px;
+    line-height: 36px;
 }
 h3 {
-	color: #2c6877;
-	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
-	font-size: 165%;
+/*	color: #2c6877;*/
+/*	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;*/
+        color: #e17009;
+	font-size: 150%;
 }
 h4 {
 	color: #993;
@@ -266,10 +269,12 @@ fieldset {
 	padding: 16px 10px;
 }
 fieldset legend {
-	color: #e32;
-	font-size: 160%;
-	font-weight: bold;
+/*	color: #e32;*/
+    color: #2e6e9e;
+    font-size: 30px;
+    line-height: 36px;
 }
+
 fieldset fieldset {
 	margin-top: 0;
 	padding: 10px 0 0;
@@ -807,48 +812,3 @@ pre {
 }
 /* Fin message plugin */
 
-
-/** Elements **/
-#url-rewriting-warning {
-	display:none;
-}
-
-.w250 {
-    width: 250px;
-}
-
-.w380 {
-    width: 380px;
-}
-
-.tal {
-    text-align: left!important;
-}
-
-.tac {
-    text-align: center!important;
-}
-
-
-.mt5 {
-    margin-top: 5px;
-}
-
-.ml22 {
-    margin-left: 22px;
-}
-
-.dnone {
-    display: none;
-}
-
-.dblock {
-    display: block;
-}
-
-.logo {
-    float: left;
-    margin: 10px;
-    background-color: #FFF;
-    padding: 15px;
-}
