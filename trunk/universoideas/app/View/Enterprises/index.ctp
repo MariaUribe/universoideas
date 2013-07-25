@@ -23,9 +23,9 @@
 		<td><?php echo h($enterprise['Enterprise']['created']); ?>&nbsp;</td>
 		<td><?php echo h($enterprise['Enterprise']['modified']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $enterprise['Enterprise']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $enterprise['Enterprise']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $enterprise['Enterprise']['id']), null, __('Are you sure you want to delete # %s?', $enterprise['Enterprise']['id'])); ?>
+			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $enterprise['Enterprise']['id'])); ?>
+			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $enterprise['Enterprise']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $enterprise['Enterprise']['id']), null, __('Are you sure you want to delete # %s?', $enterprise['Enterprise']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
