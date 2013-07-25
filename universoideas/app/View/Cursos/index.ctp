@@ -3,14 +3,14 @@
     <table cellpadding="0" cellspacing="0">
         <tr>
 <!--            <th><php echo $this->Paginator->sort('id'); ?></th>-->
-            <th><?php echo $this->Paginator->sort('name'); ?></th>
-            <th><?php echo $this->Paginator->sort('description'); ?></th>
-            <th><?php echo $this->Paginator->sort('date'); ?></th>
-            <th><?php echo $this->Paginator->sort('enabled'); ?></th>
+            <th><?php echo $this->Paginator->sort('name', 'Nombre'); ?></th>
+            <th><?php echo $this->Paginator->sort('description', 'Descripción'); ?></th>
+            <th><?php echo $this->Paginator->sort('date', 'Fecha'); ?></th>
+            <th><?php echo $this->Paginator->sort('enabled', 'Habilitado'); ?></th>
 <!--            <th><php echo $this->Paginator->sort('image'); ?></th>-->
-            <th><?php echo $this->Paginator->sort('created'); ?></th>
-            <th><?php echo $this->Paginator->sort('modified'); ?></th>
-            <th class="actions"><?php echo __('Actions'); ?></th>
+            <th><?php echo $this->Paginator->sort('created', 'Creado'); ?></th>
+            <th><?php echo $this->Paginator->sort('modified', 'Modificado'); ?></th>
+            <th class="actions"><?php echo __('Acciones'); ?></th>
         </tr>
         <?php foreach ($cursos as $curso): ?>
         <tr>
@@ -44,10 +44,4 @@
         echo $this->Paginator->next(__('siguiente') . ' >', array(), null, array('class' => 'next disabled'));
     ?>
     </div>
-</div>
-<div class="actions">
-    <h3><?php echo __('Acciones'); ?></h3>
-    <ul>
-        <li><?php echo $this->Html->link(__('Nuevo Curso'), array('action' => 'add')); ?></li>
-    </ul>
 </div>
