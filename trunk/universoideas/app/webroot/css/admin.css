@@ -1,0 +1,63 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+    background: #003d4c; /*cake*/
+    margin: 0; /*cake*/
+    color: #333;
+    font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif";
+    font-size: 14px;
+/*    font-size: 80%;*/
+}
+
+a {
+    color: #003d4c;
+    text-decoration: none;
+}
+
+/** Elements **/
+#url-rewriting-warning {
+	display:none;
+}
+
+.w250 {
+    width: 250px;
+}
+
+.w380 {
+    width: 380px;
+}
+
+.tal {
+    text-align: left!important;
+}
+
+.tac {
+    text-align: center!important;
+}
+
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.ml22 {
+    margin-left: 22px;
+}
+
+.dnone {
+    display: none;
+}
+
+.dblock {
+    display: block;
+}
+
+.logo {
+    float: left;
+    margin: 10px;
+    background-color: #FFF;
+    padding: 15px;
+}
