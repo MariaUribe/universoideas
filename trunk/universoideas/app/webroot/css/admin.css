@@ -61,3 +61,14 @@ a {
     background-color: #FFF;
     padding: 15px;
 }
+
+.border {
+    border: 1px #333 solid;
+    width: 650px;
+    overflow: hidden;
+    background: #f9f9f9;
+    padding: 10px 2%;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
