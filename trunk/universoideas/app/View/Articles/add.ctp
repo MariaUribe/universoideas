@@ -7,6 +7,7 @@
             echo $this->Form->input('Article.summary', array('label' => 'Sumario'));
             echo $this->Form->input('Article.body', array('label' => 'Cuerpo', 'type' => 'textarea'));
             echo $this->Form->input('Article.enabled', array('label' => 'Habilitado'));
+            echo $this->Form->input('Article.highlight', array('label' => 'Destacada'));
         ?>
         <br>
 
