@@ -36,7 +36,6 @@ $title_for_layout = 'Universoideas Admin';
                 
                 echo $this->Html->script('jquery/jquery-1.9.1');
                 echo $this->Html->script('generic');
-                echo $this->Html->script('jquery/jmenu');
                 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -60,5 +59,6 @@ $title_for_layout = 'Universoideas Admin';
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
+        <?php echo $this->Html->script('jquery/jmenu'); ?>
 </body>
 </html>

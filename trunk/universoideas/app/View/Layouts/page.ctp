@@ -43,7 +43,8 @@ $title_for_layout = 'Universoideas';
     <?php echo $this->Session->flash(); ?>
     <div id="conten_ppal">
         <div id="content_head" class="pt5">
-            <?php include ("includes/head.htm") ?>
+            <?php $dir =  dirname(__DIR__); ?>
+            <?php include $dir . "/Pages/head.ctp"; ?>
         </div>
         <div id="content_dos_col">
             <?php echo $this->fetch('content'); ?>
