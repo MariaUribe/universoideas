@@ -10,6 +10,20 @@ include("Component/resize-class.php");
  */
 class CursosController extends AppController {
 
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $user = $this->Auth->user();
+        
+        if(!empty($user)) {
+            if($user['role_id'] === '1')
+                $this->Auth->allow(array('index', 'view', 'add', 'edit', 'delete'));
+            else
+                $this->Auth->deny(array('index', 'view', 'add', 'edit', 'delete'));
+        } else {
+            $this->Auth->deny(array('index', 'view', 'add', 'edit', 'delete'));
+        }
+    }
+    
     /**
     * index method
     *
@@ -100,10 +114,10 @@ class CursosController extends AppController {
         }
         $this->request->onlyAllow('post', 'delete');
         if ($this->Curso->delete()) {
-            $this->Session->setFlash(__('Curso deleted'));
+            $this->Session->setFlash('El curso fue eliminado.', 'flash_success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Curso was not deleted'));
+        $this->Session->setFlash('El curso no pudo ser eliminado.', 'flash_error');
         $this->redirect(array('action' => 'index'));
     }
         
