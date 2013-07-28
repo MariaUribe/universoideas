@@ -10,6 +10,20 @@ include("Component/resize-class.php");
  */
 class EventsController extends AppController {
 
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $user = $this->Auth->user();
+        
+        if(!empty($user)) {
+            if($user['role_id'] === '1')
+                $this->Auth->allow(array('index', 'view', 'add', 'edit', 'delete'));
+            else
+                $this->Auth->deny(array('index', 'view', 'add', 'edit', 'delete'));
+        } else {
+            $this->Auth->deny(array('index', 'view', 'add', 'edit', 'delete'));
+        }
+    }
+    
     /**
     * index method
     *
@@ -100,10 +114,10 @@ class EventsController extends AppController {
         }
         $this->request->onlyAllow('post', 'delete');
         if ($this->Event->delete()) {
-            $this->Session->setFlash(__('Event deleted'));
+            $this->Session->setFlash('El evento fue eliminado.', 'flash_success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Event was not deleted'));
+        $this->Session->setFlash('El evento no pudo ser eliminado.', 'flash_error');
         $this->redirect(array('action' => 'index'));
     }
     

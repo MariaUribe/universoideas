@@ -7,90 +7,104 @@ App::uses('AppController', 'Controller');
  */
 class EnterprisesController extends AppController {
 
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
-		$this->Enterprise->recursive = 0;
-		$this->set('enterprises', $this->paginate());
-	}
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $user = $this->Auth->user();
+        
+        if(!empty($user)) {
+            if($user['role_id'] === '1')
+                $this->Auth->allow(array('index', 'view', 'add', 'edit', 'delete'));
+            else
+                $this->Auth->deny(array('index', 'view', 'add', 'edit', 'delete'));
+        } else {
+            $this->Auth->deny(array('index', 'view', 'add', 'edit', 'delete'));
+        }
+    }
+    
+    /**
+    * index method
+    *
+    * @return void
+    */
+    public function index() {
+        $this->Enterprise->recursive = 0;
+        $this->set('enterprises', $this->paginate());
+    }
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->Enterprise->exists($id)) {
-			throw new NotFoundException(__('Invalid enterprise'));
-		}
-		$options = array('conditions' => array('Enterprise.' . $this->Enterprise->primaryKey => $id));
-		$this->set('enterprise', $this->Enterprise->find('first', $options));
-	}
+    /**
+    * view method
+    *
+    * @throws NotFoundException
+    * @param string $id
+    * @return void
+    */
+    public function view($id = null) {
+        if (!$this->Enterprise->exists($id)) {
+            throw new NotFoundException(__('Invalid enterprise'));
+        }
+        $options = array('conditions' => array('Enterprise.' . $this->Enterprise->primaryKey => $id));
+        $this->set('enterprise', $this->Enterprise->find('first', $options));
+    }
 
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Enterprise->create();
-			if ($this->Enterprise->save($this->request->data)) {
-				$this->Session->setFlash(__('The enterprise has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The enterprise could not be saved. Please, try again.'));
-			}
-		}
-	}
+    /**
+    * add method
+    *
+    * @return void
+    */
+    public function add() {
+        if ($this->request->is('post')) {
+            $this->Enterprise->create();
+            if ($this->Enterprise->save($this->request->data)) {
+                $this->Session->setFlash('La información de la empresa fue creada exitosamente.', 'flash_success');
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash('La información de la empresa no pudo ser creada.', 'flash_error');
+            }
+        }
+    }
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		if (!$this->Enterprise->exists($id)) {
-			throw new NotFoundException(__('Invalid enterprise'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Enterprise->save($this->request->data)) {
-				$this->Session->setFlash(__('The enterprise has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The enterprise could not be saved. Please, try again.'));
-			}
-		} else {
-			$options = array('conditions' => array('Enterprise.' . $this->Enterprise->primaryKey => $id));
-			$this->request->data = $this->Enterprise->find('first', $options);
-		}
-	}
+    /**
+    * edit method
+    *
+    * @throws NotFoundException
+    * @param string $id
+    * @return void
+    */
+    public function edit($id = null) {
+        if (!$this->Enterprise->exists($id)) {
+            throw new NotFoundException(__('Invalid enterprise'));
+        }
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if ($this->Enterprise->save($this->request->data)) {
+                $this->Session->setFlash('La información de la empresa fue modificada exitosamente.', 'flash_success');
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash('La información de la empresa no pudo ser modificada. Intente de nuevo.', 'flash_error');
+            }
+        } else {
+            $options = array('conditions' => array('Enterprise.' . $this->Enterprise->primaryKey => $id));
+            $this->request->data = $this->Enterprise->find('first', $options);
+        }
+    }
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		$this->Enterprise->id = $id;
-		if (!$this->Enterprise->exists()) {
-			throw new NotFoundException(__('Invalid enterprise'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Enterprise->delete()) {
-			$this->Session->setFlash(__('Enterprise deleted'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('Enterprise was not deleted'));
-		$this->redirect(array('action' => 'index'));
-	}
+    /**
+    * delete method
+    *
+    * @throws NotFoundException
+    * @param string $id
+    * @return void
+    */
+    public function delete($id = null) {
+        $this->Enterprise->id = $id;
+        if (!$this->Enterprise->exists()) {
+            throw new NotFoundException(__('Invalid enterprise'));
+        }
+        $this->request->onlyAllow('post', 'delete');
+        if ($this->Enterprise->delete()) {
+            $this->Session->setFlash('La información de la empresa fue eliminada.', 'flash_success');
+            $this->redirect(array('action' => 'index'));
+        }
+        $this->Session->setFlash('La información de la empresa no pudo ser eliminada.', 'flash_error');
+        $this->redirect(array('action' => 'index'));
+    }
 }
