@@ -33,6 +33,8 @@
 //	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
         Router::connect('/pages/home_cake', array('controller' => 'pages', 'action' => 'home_cake'));
 	Router::connect('/pages/cronograma', array('controller' => 'pages', 'action' => 'cronograma'));
+	Router::connect('/pages/contacto', array('controller' => 'pages', 'action' => 'contacto'));
+	Router::connect('/pages/home_pasantias', array('controller' => 'pages', 'action' => 'home_pasantias'));
 	Router::connect('/pages/rio', array('controller' => 'pages', 'action' => 'rio'));
 	Router::connect('/pages/noticias_destacadas', array('controller' => 'pages', 'action' => 'noticias_destacadas'));
 
