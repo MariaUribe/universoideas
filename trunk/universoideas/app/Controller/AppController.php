@@ -33,6 +33,28 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-public $components = array('DebugKit.Toolbar', 'Session');
+    public $components = array(
+            'DebugKit.Toolbar', 
+            'Session',
+            'Auth' => array(
+                'loginRedirect' => array('controller' => 'pages', 'action' => 'home'),
+                'logoutRedirect' => array('controller' => 'pages', 'action' => 'home'),
+                'authorize' => array('Controller') 
+            )
+    );
+    
+    public function isAuthorized($user) {
+        // Admin can access every action
+        if (isset($user['role_id']) && $user['role_id'] === '1') {
+            return true;
+        }
+
+        // Default deny
+        return false;
+    }
+
+    public function beforeFilter() {
+        $this->Auth->allow('index', 'view');
+    }
 
 }
