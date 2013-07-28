@@ -12,15 +12,50 @@ include("Component/resize-class.php");
  */
 class ArticlesController extends AppController {
     
-   
+    public $paginate = array(
+        'order' => array(
+            'Article.modified' => 'desc'
+        )
+    );
+    
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $user = $this->Auth->user();
+        
+        if(!empty($user)) {
+            if($user['role_id'] === '1')
+                $this->Auth->allow(array('index', 'view', 'add', 'edit', 'delete'));
+            else
+                $this->Auth->deny(array('index', 'view', 'add', 'edit', 'delete'));
+        } else {
+            $this->Auth->deny(array('index', 'view', 'add', 'edit', 'delete'));
+        }
+    }
+    
+    public function isAuthorized($user) {
+        
+        if($user['role_id'] === '1') {
+            if ($this->action === 'add' || $this->action === 'edit' ||
+                $this->action === 'view' || $this->action === 'index' || $this->action === 'delete') {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
+        return parent::isAuthorized($user);
+    }
+    
     /**
     * index method
     *
     * @return void
     */
     public function index() {
+        $user_id = $this->Auth->user('id');
         $this->Article->recursive = 0;
         $this->set('articles', $this->paginate());
+        $this->set('user_id', $user_id);
     }
 
     /**
@@ -179,7 +214,7 @@ class ArticlesController extends AppController {
                     $this->redirect(array('action' => 'index'));
                 }
             } else {
-                $this->Session->setFlash(__('El artículo no pudo ser guardado. Intente de nuevo.'));
+                $this->Session->setFlash('El artículo no pudo ser guardado. Intente de nuevo.', 'flash_error');
             }
         } else {
             $options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
@@ -205,10 +240,11 @@ class ArticlesController extends AppController {
         }
         $this->request->onlyAllow('post', 'delete');
         if ($this->Article->delete()) {
-            $this->Session->setFlash(__('Article deleted'));
+            $this->Session->setFlash('El artículo fue eliminado.', 'flash_success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Article was not deleted'));
+        $this->Session->setFlash('El artículo no pudo ser eliminado. Intente de nuevo.', 'flash_error');
+        
         $this->redirect(array('action' => 'index'));
     }
     
@@ -313,7 +349,7 @@ class ArticlesController extends AppController {
 
 
         $arr_ext = array('jpg', 'jpeg', 'gif'); //set allowed extensions
-        $width_thumb = 320;
+        $width_thumb = 200;
 
         //only process if the extension is valid
         if(in_array($ext, $arr_ext)) {
@@ -330,12 +366,13 @@ class ArticlesController extends AppController {
             $resizeObj -> resizeImage($width_thumb, $height_thumb, 'crop');
             $thumb = WWW_ROOT . 'img/uploads/' . $title . '_thumb.' . $ext;
             $uri_thumb = '/app/webroot/img/uploads/' . $title . '_thumb.' . $ext;
+            $uri_img = '/app/webroot/img/uploads/' . $title . '.' . $ext;
 
             // *** 3) Save image
             $resizeObj -> saveImage($thumb, 100);
 
             //prepare the filename for database entry
-            $this->request->data['RelatedImage']['uri'] = $img_path;
+            $this->request->data['RelatedImage']['uri'] = $uri_img;
             $this->request->data['RelatedImage']['name'] = $file['name'];
             $this->request->data['RelatedImage']['title'] = $title;
             $this->request->data['RelatedImage']['width'] = $width;
