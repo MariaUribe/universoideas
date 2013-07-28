@@ -5,7 +5,7 @@
 	<?php
 		echo $this->Form->input('Forum.id');
 		echo $this->Form->input('Forum.title', array('label' => 'Nombre'));
-		echo $this->Form->input('Forum.aproved', array('label' => 'Aprobado'));
+		echo $this->Form->input('Forum.enabled', array('label' => 'Habilitado'));
 		echo $this->Form->input('Forum.user_id', array('label' => 'Usuario'));
 	?>
 	</fieldset>

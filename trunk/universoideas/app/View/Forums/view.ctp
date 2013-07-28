@@ -11,9 +11,9 @@
 			<?php echo h($forum['Forum']['title']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Aproved'); ?></dt>
+		<dt><?php echo __('Habilitado'); ?></dt>
 		<dd>
-			<?php echo h($forum['Forum']['aproved']); ?>
+			<?php echo h($forum['Forum']['enabled']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Created'); ?></dt>
