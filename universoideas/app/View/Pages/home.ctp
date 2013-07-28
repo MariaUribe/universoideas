@@ -1,5 +1,5 @@
 <div id="content_col_izq">
-    <?php include ("includes/galeria.htm") ?>
+    <?php include ("galeria.ctp") ?>
     <?php include('rio.ctp'); ?>
     <div class="doble">
         <div class="izq">
