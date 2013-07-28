@@ -26,6 +26,11 @@
 			<?php echo h($article['Article']['enabled']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Destacada'); ?></dt>
+		<dd>
+			<?php echo h($article['Article']['highlight']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Creado'); ?></dt>
 		<dd>
 			<?php echo h($article['Article']['created']); ?>
