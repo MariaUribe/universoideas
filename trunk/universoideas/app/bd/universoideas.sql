@@ -32,10 +32,10 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`users` (
   `mail` VARCHAR(45) NOT NULL ,
   `created` DATE NOT NULL ,
   `modified` DATE NOT NULL ,
-  `roles_id` INT NOT NULL ,
+  `role_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
   CONSTRAINT `fk_users_roles1`
-    FOREIGN KEY (`roles_id` )
+    FOREIGN KEY (`role_id` )
     REFERENCES `estudiantes`.`roles` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -43,7 +43,7 @@ ENGINE = InnoDB;
 
 CREATE UNIQUE INDEX `username_UNIQUE` ON `estudiantes`.`users` (`username` ASC) ;
 
-CREATE INDEX `fk_users_roles1_idx` ON `estudiantes`.`users` (`roles_id` ASC) ;
+CREATE INDEX `fk_users_roles1_idx` ON `estudiantes`.`users` (`role_id` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -56,7 +56,7 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`articles` (
   `title` VARCHAR(45) NOT NULL ,
   `summary` VARCHAR(256) NOT NULL ,
   `body` VARCHAR(1024) NOT NULL ,
-  `channel` VARCHAR(45) NOT NULL ,
+  `highlight` TINYINT(1) NOT NULL ,
   `enabled` TINYINT(1) NOT NULL ,
   `created` DATE NOT NULL ,
   `modified` DATE NOT NULL ,
@@ -125,8 +125,7 @@ DROP TABLE IF EXISTS `estudiantes`.`forums` ;
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`forums` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `title` VARCHAR(100) NOT NULL ,
-  `field` VARCHAR(100) NOT NULL ,
-  `aproved` TINYINT(1) NOT NULL ,
+  `enabled` TINYINT(1) NOT NULL ,
   `created` DATE NOT NULL ,
   `modified` DATE NOT NULL ,
   `user_id` INT NOT NULL ,
@@ -151,6 +150,8 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`comments` (
   `description` VARCHAR(400) NOT NULL ,
   `forum_id` INT NOT NULL ,
   `user_id` INT NOT NULL ,
+  `created` DATE NOT NULL ,
+  `modified` DATE NOT NULL ,
   PRIMARY KEY (`id`) ,
   CONSTRAINT `fk_comments_forums1`
     FOREIGN KEY (`forum_id` )
