@@ -22,7 +22,8 @@ class UsersController extends AppController {
         if(!empty($user)) {
             $this->Auth->allow(array('index', 'view', 'add', 'edit', 'logout'));
         } else {
-            $this->Auth->deny(array('index', 'view', 'add', 'edit', 'delete'));
+            $this->Auth->allow('add');
+            $this->Auth->deny(array('index', 'view', 'edit', 'delete'));
         }
     }
     
