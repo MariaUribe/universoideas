@@ -26,10 +26,24 @@ class User extends AppModel {
                 'message' => 'Nombre de usuario es requerido'
             )
         ),
-        'password' => array(
-            'required' => array(
-                'rule' => array('notEmpty'),
-                'message' => 'La contaseña es requerida'
+        'name' => array(
+            'notempty' => array(
+                    'rule' => array('notempty')
+            )
+        ),
+        'lastname' => array(
+            'notempty' => array(
+                    'rule' => array('notempty')
+            )
+        ),
+        'mail' => array(
+            'notempty' => array(
+                    'rule' => array('notempty')
+            )
+        ),
+        'gender' => array(
+            'notempty' => array(
+                    'rule' => array('notempty')
             )
         )
 //        'role' => array(
@@ -48,6 +62,9 @@ class User extends AppModel {
         return true;
     }
     
+    function equalToField($array, $field) {
+        return strcmp($this->data[$this->alias][key($array)], $this->data[$this->alias][$field]) == 0;
+    } 
 
     /**
     * belongsTo associations
