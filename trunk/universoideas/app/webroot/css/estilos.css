@@ -1,30 +1,33 @@
-BODY{ background-color:#FFF; font-family:Verdana, Geneva, sans-serif; margin:0 auto} 
+BODY{ background-color:#fff; font-family:Verdana, Geneva, sans-serif; margin:0 auto} 
+body#index a.selec1,body#calendario a.selec2,body#vida a.selec3,body#encuentrame a.selec4,body#pasantias a.selec5,body#emprendedor a.selec6,body#foros a.selec7,body#conocenos a.selec8{ color: #960!important; text-decoration:underline; padding:5px 10px;  background:#fff; }
 DIV {}
+IMG {border:0px}
 SPAN{margin-left:10px}
 A{text-decoration:none;}
 A:HOVER{text-decoration:underline}
 TR{ vertical-align:top; }
-TD{ text-align:left;  border-bottom:1px solid #333; border-left:1px solid #333;}
+TD{ text-align:left;}
 TD A{color:#00355a}
 #conten_ppal{width:900px; overflow:hidden;margin:0 auto;}
-#content_head {background-color:#003355; overflow:hidden}
+#content_head {background-color:#003355; background-image:url(/universoideas/img/fondo_head.png); overflow:hidden}
 #content_dos_col{ margin:10px 0 }
-#content_col_izq{ width:620px; float:left; margin-bottom:10px}
-#content_col_der{ width:270px; float:right}
-#content_foot{ margin-top:20px; border-top:#333 solid 2px; text-align:center; font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#333}
-.sprite{background-image: url(/universoideas/app/webroot/img/icons/sprite.png);background-repeat:no-repeat;display:inline;cursor:hand}
+#content_col_izq{ width:570px; float:left; margin-bottom:10px}
+#content_col_der{ width:320px; float:right}
+#content_foot{ margin-top:20px; border-top:#333 solid 2px; text-align:center; font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#333; width:900px}
+.sprite{background-image: url(/universoideas/img/icons/sprite.png);background-repeat:no-repeat;display:inline;cursor:hand}
 .sprite-lupa{background-position:0 0}
-
 .logo{ float:left; margin:10px; padding:15px}
-
-.menu{ clear:both;background-image:url(/universoideas/app/webroot/img/back_menu.png);background-repeat:repeat-x; padding:5px; overflow:hidden; border-top:#FFF 1px solid ; margin-top:15px}
-.menu UL { margin:0!important}
+.sleyendo{ font-size:10px; float:right; margin:10px; color:#004080}
+.menu{ clear:both;background-image:url(/universoideas/img/back_menu.png);background-repeat:repeat-x; padding:5px; overflow:hidden; border-top:#FFF 1px solid ; margin-top:15px}
+.menu UL { margin:0 0 0 -30px!important}
 .menu UL LI{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:12px; font-weight:bold; list-style:none; margin-right:5px;color:#FFFFFF}
 .menu UL LI A{color:#FFFFFF}
+.menu UL LI A{color:#FFFFFF}
 
-.siguenos{ font-family:Verdana, Geneva, sans-serif; font-size:10px; font-weight:bold; border-bottom:1px solid #333; overflow:hidden}
+.publicidad{ font-size:6px; color:#424242;}
+.siguenos{ font-family:Verdana, Geneva, sans-serif; font-size:10px; font-weight:bold; border:1px solid #666; overflow:hidden; background-color:#ddd}
 /*SPRITE*/
-.redes span{ background-image:url(/universoideas/app/webroot/img/icons/sprite_redes.png); background-repeat:no-repeat; display: inline;width:31px;height:34px;cursor: pointer}
+.redes span{ background-image:url(/universoideas/img/icons/sprite_redes.png); background-repeat:no-repeat; display: inline;width:31px;height:42px;cursor: pointer}
 .twitter{ background-position:0 0 }
 .facebook{ background-position:-42px 0}
 .youtube{ background-position:-82px 0}
@@ -41,15 +44,18 @@ TD A{color:#00355a}
 .clear{clear:both}
 .fff{color:#FFF}
 .b023{background-color:#002233}
-.boton_buscar{border:#FFF 2px solid;padding:2px 5px; margin:0 5px;text-decoration:none!important;font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#fff;}
+.boton_buscar{ background-color:#003355;border:#FFF 2px solid;padding:2px 5px; margin:0 5px;text-decoration:none!important;font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#fff;}
 .fs11{font-size:11px}
 .mr10{margin-right:10px}
+.mr5{margin-right:5px}
 .pr5{padding-right:5px}
 .pl5{padding-left:5px}
 .pt5{padding-top:5px}
 .pb5{padding-bottom:5px}
+.p10{ padding:10px}
 .mt15{margin-top:15px}
 .mt10{margin-top:10px}
+.mt20{margin-top:20px}
 .mb10{margin-bottom:10px}
 .tal{text-align:left}
 .tac{text-align:center}
@@ -61,6 +67,10 @@ TD A{color:#00355a}
 .bgddd{ background-color:#ddd}
 .color00355a{ color:#00355a}
 .colorfff{ color:#fff}
+.p5{ padding:5px}
+.b1333{ border:#333 solid 1px}
+.w400{ width:400px}
+.oh{ overflow:hidden}
 
 
 .destacada{ background-color:#999; overflow:hidden; border:#333 solid 2px; clear:both; margin-top:10px}
@@ -71,29 +81,31 @@ TD A{color:#00355a}
 .destacada .contenido OL LI A{color:#333; font-weight:normal!important}
 
 .rio{ overflow:hidden; margin-top:20px}
-
+.boton A { padding:2px 10px; background-color:#004000; color:#fff; font-weight:bold; border:#030303 1px solid}
 .notas{ overflow:hidden}
 .notas H2{ margin:0; background-color:#003559; color:#FFF; font-size:20px; text-align:left; padding:2px; font-family:Georgia, "Times New Roman", Times, serif}
 .notas H2 A{color:#FFF;}
-.notas H3{ margin:5px 0; background-color:#333; color:#FFF; font-size:15px; text-align:center; padding:2px; font-family: Verdana, Geneva, sans-serif}
+.notas H3{ margin:5px 0; color:#333; font-size:18px; text-align: left; padding:2px; font-family: Georgia, "Times New Roman", Times, serif}
 .notas H3 A{color:#FFF;}
 .notas DIV {font-size:12px;color:#333}
 .notas DIV A{color: #004080}
 .notas DIV IMG { margin:5px}
+.notas .dia{ background-color:#ccc; color:#333; font-size:9px; text-align:left; padding:2px; margin-top:2px;}
 
 .doble { overflow:hidden; clear:both}
-.doble .izq{float:left; width:360px}
-.doble .izq .title{background-color:#325e7b; color:#FFF; font-size:12px; font-weight:bold; padding:2px 15px}
-.doble .izq .caja{ margin:3px 0 0 0; background:#fff; overflow:hidden}
-.doble .izq .caja .dia{ background-color:#003559; color:#FFF; font-size:9px; text-align:right; padding:2px}
-.doble .izq .caja .txt A{ clear:both; color:#333; font-size:10px}
-.doble .izq .caja .txt A IMG{ margin: 3px}
+.doble .calendario .title{background-color:#325e7b; color:#FFF; font-size:12px; font-weight:bold; padding:2px 15px; margin-top:15px}
+.doble .calendario .caja { background: none repeat scroll 0 0 #ddd; margin: 3px 0 5px; overflow: hidden; }
+.doble .calendario .caja .dia{ background-color:#003559; color:#FFF; font-size:9px; text-align:right; padding:2px}
+.doble .calendario .caja .txt{ font-size:10px; padding:5px}
+.doble .calendario .caja .txt A{ clear:both; color:#333;}
+.doble .calendario .caja .txt A IMG{ margin: 3px}
+/*
 .doble .der{float:right; width: 250px; color:#FFF} 
 .doble .der .title{font-size:12px; font-weight:bold; padding:2px 15px; background-color:#325e7b;}
 .doble .der .caja{ margin:5px 0 0 0; padding:2px; overflow:hidden; margin-top:3px; background-color:#325e7b;}
 .doble .der .caja .dia{ color:#FFF; font-size:9px; text-align:right; padding:2px;background-color:#003559;}
 .doble .der .caja .txt A{ clear:both; font-size:10px; color:#FFF}
-.doble .der .caja .txt A IMG{ margin: 3px}
+.doble .der .caja .txt A IMG{ margin: 3px}/*
 
 /*GALERIA*/
 #slider1 { width: 620px; height: 300px; position: relative;  overflow: hidden; margin-top:12px }
@@ -102,13 +114,13 @@ TD A{color:#00355a}
 .slider1Image span { position: absolute; font: 10px/15px Arial, Helvetica, sans-serif; padding: 10px 13px;  width: 620px; background-color: #000; filter: alpha(opacity=70); -moz-opacity: 0.7; -khtml-opacity: 0.7; opacity: 0.7; color: #fff;  display: none; }
 .clear { clear: both; }
 .slider1Image span strong { font-size: 14px; }
-.gleft { top: 0;  left: 0; width: 180px !important; height: 280px; }
-.gright { right: 0; bottom: 13px; width: 180px !important; height: 290px; }
-ul { list-style-type: none;}
+.gleft { top: 0;  left: 0; width: 180px !important; height: 266px; }
+.gright { right: 0; bottom: 3px; width: 180px !important; height: 252px; }
+ul{list-style-type: none;}
 
 
 
-ul#thumbs, ul#thumbs li { list-style: none; margin: 25px; padding: 0 }
+ul#thumbs, ul#thumbs li { list-style: none; margin: 5px 30px; padding: 0 }
 ul#thumbs li{ float:left; margin-right:5px; border:1px solid #999; padding:2px; }
 ul#thumbs a{ display:block; float:left; width:100px; height:100px; line-height:100px; overflow:hidden; position:relative; z-index:1;}
 ul#thumbs a img{ float:left; position:absolute; top:-20px; left:-50px; }
@@ -124,3 +136,15 @@ p.thumb a img{ float:left; position:absolute; top:-20px; left:-50px; }
 p.thumb a:hover{ overflow:visible; z-index:1000; border:none; }
 p.thumb a:hover img{ border:1px solid #999; background:#fff; padding:2px; }
 .M10 { margin: 40px }
+
+.error_val {
+	color: red; 
+	font-style: normal; 
+	font-variant: normal; 
+	font-size: 12px; 
+	font-family: "Trebuchet MS","Helvetica","Arial","Verdana","sans-serif"; 
+}
+
+.error {
+    margin-top: 10px;
+}
