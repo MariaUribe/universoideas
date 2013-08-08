@@ -5,6 +5,7 @@
 	<?php
 		echo $this->Form->input('Forum.id');
 		echo $this->Form->input('Forum.title', array('label' => 'Nombre'));
+                echo $this->Form->input('Forum.content', array('label' => 'Content', 'type' => 'textarea'));
 		echo $this->Form->input('Forum.enabled', array('label' => 'Habilitado'));
 		echo $this->Form->input('Forum.user_id', array('label' => 'Usuario'));
 	?>
