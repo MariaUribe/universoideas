@@ -4,6 +4,7 @@
 		<legend><?php echo __('Crear Foro'); ?></legend>
 	<?php
 		echo $this->Form->input('Forum.title', array('label' => 'Nombre'));
+		echo $this->Form->input('Forum.content', array('label' => 'Content', 'type' => 'textarea'));
 //		echo $this->Form->input('Forum.enabled', array('label' => 'Habilitado'));
 	?>
 	</fieldset>
