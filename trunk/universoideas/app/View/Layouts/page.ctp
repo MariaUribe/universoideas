@@ -39,17 +39,20 @@ $title_for_layout = 'Universoideas';
         echo $this->fetch('script');
     ?>
 </head>
-<body>
-    <?php echo $this->Session->flash(); ?>
+<body id="index">
     <div id="conten_ppal">
+        <div id="publicidadtop1" class="p5 tac"><div class="publicidad tal">ESPACIO PUBLICITARIO</div><a href="#"><img src="/universoideas/img/publicidad/728x90.gif" width="728" height="90" alt="Publicidad" /></a></div>
         <div id="content_head" class="pt5">
             <?php $dir =  dirname(__DIR__); ?>
             <?php include $dir . "/Pages/head.ctp"; ?>
         </div>
+        <?php echo $this->Session->flash(); ?>
         <div id="content_dos_col">
             <?php echo $this->fetch('content'); ?>
         </div>
     </div>
     <?php include ("includes/foot.htm") ?>
+    <?php echo $this->Html->script('jquery/jquery.validate'); ?>
+    <script type="text/javascript">setMenuSelected()</script>
 </body>
 </html>
