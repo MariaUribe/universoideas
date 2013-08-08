@@ -1,3 +1,4 @@
+
 <script language="Javascript"> 
 
 var muestra;
@@ -43,47 +44,49 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
 }
 </script>
 
-<div class="logo">
-    <img src="/universoideas/app/webroot/img/logo.png" width="256" height="65" alt="Universo Ideas" />
-</div>
+<div class="logo"><a href="#"><img src="/universoideas/img/logo.png" alt="Universo Ideas" /></a></div>
+
 
 <div class="right">
-    <div class="fecha pr5 mt15">
-        <script type="text/javascript" language="JavaScript">
-            document.write (Muestrafecha());
-        </script>
-    </div>
+<div class="fecha pr5 mt15">
+<script type="text/javascript" language="JavaScript">
+document.write (Muestrafecha());
+</script>
+</div>
     <div class="bold fecha clear pr5 mt15">
         <?php 
             if(!empty($user)) {
                 echo "<span>Bienvenido, " . $user['username']. "</span><br><br>";
                 echo "<span><a href='/universoideas/users/edit/" . $user['id'] . "' class='fff'>Mi Perfil</a> | <a href='/universoideas/users/logout' class='fff'>Cerrar Sesión</a></span>";
             } else {
-                echo "<span><a href='/universoideas/users/add' class='fff'>Regístrate</a></span>";
-                echo "<span><a href='/universoideas/users/login' class='fff'>Inicia Sesión</a></span>";
+                echo "<span><a href='/universoideas/users/login' class='fff'>Registrate / Inicia Sesión</a></span>";
             }
         ?>
     </div>
-    <div class="clear right mt15 pb5">
-        <img src="/universoideas/app/webroot/img/icons/icon_lupa.png" width="20" height="21" alt="lupa" class=" left mr10">
-        <input name="Busqueda" type="text" value="Buscar" size="20" maxlength="50" class="fs11 left" >
-        <a href="#" class="boton_buscar fff tdno fecha">Buscar</a>
-    </div>
+<div class="clear right mt15 pb5">
+<img src="/universoideas/img/icons/icon_lupa.png" width="20" height="21" alt="lupa" class=" left mr5">
+<input name="Busqueda" type="text" value="Buscar" size="20" maxlength="50" class="fs11 left" >
+<a href="#" class="boton_buscar fff tdno fecha">Buscar</a>
+</div>
 </div>
 
 <div class="menu mt15">
     <ul class="">
-        <li><a href="/universoideas/pages/home">Inicio</a></li>
+        <li><a class="selec1" href="/universoideas/pages/home">Inicio</a></li>
         <li>|</li>
-        <li><a href="/universoideas/pages/contacto">Quienes Somos</a></li>
+        <li><a class="selec2" href="/universoideas/pages/cronograma">Calendario</a></li>
         <li>|</li>
-        <li><a href="/universoideas/pages/cronograma">Cronograma</a></li>
+        <li><a class="selec3" href="/universoideas/vida_universitaria.shtml">Vida Universitaria</a></li>
         <li>|</li>
-        <li><a href="/universoideas/pages/home_pasantias">Pasantías</a></li>
+        <li><a class="selec4" href="/universoideas/pages/encuentrame">Encuéntrame</a></li>
         <li>|</li>
-        <li><a href="/universoideas/vida_universitaria.shtml">Vida Universitaria</a></li>
+        <li><a class="selec5" href="/universoideas/pages/home_pasantias">Pasantías</a></li>
         <li>|</li>
-        <li><a href="/universoideas/foros.shtml">Foros </a></li>
+        <li><a class="selec6" href="/universoideas/emprendedor.shtml">Soy emprendedor</a></li>
+        <li>|</li>
+        <li><a class="selec7" href="/universoideas/foros.shtml">Foros </a></li>
+        <li>|</li>
+        <li><a class="selec8" href="/universoideas/pages/contacto">Conócenos</a></li>
         
         <?php 
             if(!empty($user)) {
