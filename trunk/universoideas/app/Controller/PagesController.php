@@ -47,7 +47,7 @@ class PagesController extends AppController {
     
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow(array('display', 'home', 'contacto', 'cronograma', 'home_pasantias'));
+        $this->Auth->allow(array('display', 'home', 'contacto', 'cronograma', 'home_pasantias', 'encuentrame'));
 //        $this->Auth->allow('vida_universitaria', 'forums');
     }
 
@@ -109,9 +109,9 @@ class PagesController extends AppController {
         }
         
         $user = $this->Auth->user();
-        $articles_gallery = $this->getArticlesGallery(5);
-        $articles_rio = $this->getArticles(15);
-        $articles_dest = $this->getArticles(10);
+        $articles_gallery = $this->getArticlesGallery(5, null);
+        $articles_rio = $this->getArticles(15, null);
+        $articles_dest = $this->getArticles(10, null);
         $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
         $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
         
@@ -125,7 +125,7 @@ class PagesController extends AppController {
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_dest = $this->getArticles(10);
+        $articles_dest = $this->getArticles(10, null);
         $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('event_date' => 'desc'), 'limit' => 10));
         
         $this->set(compact('articles_dest', 'events', 'user'));
@@ -136,7 +136,7 @@ class PagesController extends AppController {
         
         $this->layout = 'page';
         
-        $articles_rio = $this->getArticles(5);
+        $articles_rio = $this->getArticles(5, null);
         
         $this->set(compact('articles_rio'));
     }
@@ -150,12 +150,30 @@ class PagesController extends AppController {
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_dest = $this->getArticles(10);
+        $articles_dest = $this->getArticles(10, null);
         $enterprises = $this->Enterprise->find('all', array('conditions' => array('Enterprise.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 15));
         $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
         $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
         
         $this->set(compact('articles_dest', 'events', 'cursos', 'enterprises', 'user'));
+    }
+    
+    public function encuentrame() {
+        $channel = 'encuentrame';
+        $this->loadModel('Article');
+        $this->loadModel('Event');
+        $this->loadModel('Curso');
+        
+        $this->layout = 'page';
+        
+        $user = $this->Auth->user();
+        $articles_gallery = $this->getArticlesGallery(5, $channel);
+        $articles_rio = $this->getArticles(10, $channel);
+        $articles_dest = $this->getArticles(10, null);
+        $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
+        $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
+        
+        $this->set(compact('articles_gallery', 'articles_rio', 'articles_dest', 'events', 'cursos', 'user'));
     }
     
     public function contacto() {
@@ -164,14 +182,14 @@ class PagesController extends AppController {
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_dest = $this->getArticles(10);
+        $articles_dest = $this->getArticles(10, null);
         $this->set(compact('articles_dest', 'user'));
     }
     
     public function noticias_destacadas() {
         $this->layout = 'page';
         
-        $articles_dest = $this->getArticles(10);
+        $articles_dest = $this->getArticles(10, null);
         
         $this->set(compact('articles_dest'));
     }
@@ -179,22 +197,29 @@ class PagesController extends AppController {
     public function admin() {
         $this->layout = 'default';
         
-        $articles_dest = $this->getArticles(10);
+        $articles_dest = $this->getArticles(10, null);
         
         $this->set(compact('articles_dest'));
     }
     
-    public function getArticles($limit) {
+    public function getArticles($limit, $channel) {
         $this->loadModel('Article');
-        $sql = "SELECT art.id, art.title, art.summary, art.enabled, art.created, art.modified, 
+        $join = "";
+        
+        if($channel != "" && $channel != null) {
+            $join = "AND art.channel = '" . $channel . "'";
+        }
+        
+        $sql = "SELECT art.id, art.channel, art.title, art.summary, art.enabled, art.created, art.modified, 
                        img.id as image_id, img.uri, img.uri_thumb, img.title, img.article_id as img_article_id, 
                        vid.id as video_id, vid.name as video_name, vid.source, vid.article_id as vid_article_id 
                 FROM articles art 
                 LEFT JOIN related_images img on art.id = img.article_id 
                 LEFT JOIN related_videos vid on art.id = vid.article_id 
                 WHERE art.enabled = 1 
-                AND art.highlight = 0
-                ORDER BY art.modified desc, art.id asc 
+                AND art.highlight = 0 " 
+                . $join .
+               "ORDER BY art.modified desc, art.id asc 
                 LIMIT " . $limit . ""; 
         
         $articles = $this->Article->query($sql);
@@ -202,17 +227,24 @@ class PagesController extends AppController {
         return $articles;
     }
     
-    public function getArticlesGallery($limit) {
+    public function getArticlesGallery($limit, $channel) {
         $this->loadModel('Article');
-        $sql = "SELECT art.id, art.title, art.summary, art.enabled, art.created, art.modified, 
+        $join = "";
+        
+        if($channel != "" && $channel != null) {
+            $join = "AND art.channel = '" . $channel . "'";
+        }
+        
+        $sql = "SELECT art.id, art.channel, art.title, art.summary, art.enabled, art.created, art.modified, 
                        img.id as image_id, img.uri, img.uri_thumb, img.title, img.article_id as img_article_id, 
                        vid.id as video_id, vid.name as video_name, vid.source, vid.article_id as vid_article_id 
                 FROM articles art 
                 LEFT JOIN related_images img on art.id = img.article_id 
                 LEFT JOIN related_videos vid on art.id = vid.article_id 
                 WHERE art.enabled = 1 
-                AND art.highlight = 1
-                ORDER BY art.modified desc, art.id asc 
+                AND art.highlight = 1 "
+                . $join .
+               "ORDER BY art.modified desc, art.id asc 
                 LIMIT " . $limit . ""; 
         
         $articles = $this->Article->query($sql);
