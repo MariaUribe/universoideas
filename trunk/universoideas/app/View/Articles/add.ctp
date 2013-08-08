@@ -3,6 +3,7 @@
     <fieldset>
         <legend><?php echo __('Crear Artículo'); ?></legend>
         <?php
+            echo $this->Form->input('Article.channel', array('label' => 'Canal'));
             echo $this->Form->input('Article.title', array('label' => 'Título'));
             echo $this->Form->input('Article.summary', array('label' => 'Sumario'));
             echo $this->Form->input('Article.body', array('label' => 'Cuerpo', 'type' => 'textarea'));
