@@ -7,11 +7,15 @@
         
         echo "<div class='caja'>";
         echo "<div class='dia'>" . $curso['Curso']['date'] . "</div>";
-        echo "<div class='txt'><a href='#'>";
+        echo "<div class='txt'>"; 
+        echo "<a href='#'>";
         if($img != "")
             echo $this->Html->image($img, array('align' => 'left', 'border' => '0', 'width' => '50', 'height' => '49'));
-        echo $curso['Curso']['name'];
-        echo "</a></div>";
+        echo "<strong>" . $curso['Curso']['name'] . "</strong>";
+        echo "</a><br/>";
+        echo $curso['Curso']['description'];
+        echo "</div>";
+        echo "<div><a href='#' class='sleyendo'>Más información &raquo;</a></div>";
         echo "</div>";
     }
 ?>
