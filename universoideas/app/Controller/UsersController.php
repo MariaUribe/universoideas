@@ -41,6 +41,10 @@ class UsersController extends AppController {
                 $this->Session->setFlash('Nombre de usuario y/o contraseña inválidos. Intente de nuevo.', 'flash_error');
             }
         }
+        $genders = array("F" => "Femenino", 
+                         "M" => "Masculino"
+                        );
+        $this->set(compact('genders'));
     }
 
     /**
@@ -120,7 +124,10 @@ class UsersController extends AppController {
         }
         $user = $this->Auth->user();
         $roles = $this->User->Role->find('list');
-        $this->set(compact('roles', 'user'));
+        $genders = array("F" => "Femenino", 
+                         "M" => "Masculino"
+                        );
+        $this->set(compact('roles', 'user', 'genders'));
     }
 
     /**

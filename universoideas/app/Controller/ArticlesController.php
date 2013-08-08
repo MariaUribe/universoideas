@@ -11,7 +11,7 @@ include("Component/resize-class.php");
  * @property Article $Article
  */
 class ArticlesController extends AppController {
-    
+
     public $paginate = array(
         'order' => array(
             'Article.modified' => 'desc'
@@ -123,7 +123,16 @@ class ArticlesController extends AppController {
             }
         }
         $users = $this->Article->User->find('list');
-        $this->set(compact('users'));
+        $channels = array("principal" => "Principal", 
+                          "encuentrame" => "Encuéntrame", 
+                          "rumba" => "Rumba", 
+                          "arte" => "Arte y Cultura", 
+                          "ciencia" => "Ciencia y Tecnología", 
+                          "sexualidad" => "Sexualidad al día", 
+                          "moda" => "Moda"
+                         );
+        
+        $this->set(compact('users', 'channels'));
     }
     
     /**
@@ -223,7 +232,15 @@ class ArticlesController extends AppController {
         
         $relatedImage = $this->RelatedImage->find('first', array('conditions' => array('RelatedImage.article_id' => $id)));
         $relatedVideo = $this->RelatedVideo->find('first', array('conditions' => array('RelatedVideo.article_id' => $id)));
-        $this->set(compact('relatedImage', 'relatedVideo'));
+        $channels = array("principal" => "Principal", 
+                          "encuentrame" => "Encuéntrame", 
+                          "rumba" => "Rumba", 
+                          "arte" => "Arte y Cultura", 
+                          "ciencia" => "Ciencia y Tecnología", 
+                          "sexualidad" => "Sexualidad al día", 
+                          "moda" => "Moda"
+                         );
+        $this->set(compact('relatedImage', 'relatedVideo', 'channels'));
     }
 
     /**
