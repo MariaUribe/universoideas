@@ -20,6 +20,33 @@ $(document).ready(function(){
     });
     
     setTimeout(function(){hideAllMessages()},3000);
+    
+    $('form').each(function () {
+        $(this).validate({
+            rules: {
+                "data[User][password]": {
+                    required: true,
+                    minlength: 5
+                },
+                password_confirm : {
+                    required: true,
+                    minlength: 5,
+                    equalTo : "#password"
+                }
+            },
+            messages: {
+                "data[User][password]": {
+                    required: "Campo requerido",
+                    minlength: "La contraseña debe contener al menos 5 caracteres."
+                },
+                password_confirm: {
+                    required: "Campo requerido",
+                    minlength: "La contraseña debe contener al menos 5 caracteres.",
+                    equalTo: "Las contraseñas no coinciden. Por favor, intente de nuevo."
+                }
+            }
+        });
+    });  
 });  
 
 
@@ -110,4 +137,56 @@ function loadMultimedia() {
         $('#radio_ninguno').attr('checked', 'true');
         selectMedia($('#radio_ninguno').val());
     }
+}
+
+function changePais(id) {
+    var replacementDiv;
+
+    if (document.getElementById("locationId").value == "")						
+        document.getElementById("locationId").value=id;
+
+    if (document.getElementById("selectDiv" + id)!= null){
+        replacementDiv = document.getElementById("selectDiv" + id);
+    }
+    else{
+        replacementDiv = document.getElementById("selectDivDef");
+    }
+    document.getElementById("Planilla").innerHTML = replacementDiv.innerHTML;
+    showForm(false);			
+}
+
+function showForm(show){
+    var globalDiv;
+
+    if(show == true){
+        if (document.getElementById("showDiv")!= null){
+            globalDiv = document.getElementById("showDiv");
+        }
+        else{
+            globalDiv = document.getElementById("selectDivDef");
+        }
+    } else {
+        globalDiv = document.getElementById("selectDivDef");
+    }
+}
+
+function setLocationForm(id){
+    if (id==0){
+        document.getElementById("locationId").value=document.userForm.countryId.value;				
+    } else {
+        document.getElementById("locationId").locationId.value=id;
+    }					
+}
+
+function changePassword() {
+    $('.new_pass').css('display', '');
+}
+
+function cancelChangePassword() {
+    $('.new_pass').css('display', 'none');
+}
+
+function setMenuSelected() {
+    var page = $('#page_code').val();
+    $('body').attr('id', page);
 }
