@@ -1,10 +1,11 @@
+<input id="page_code" type="hidden" value="calendario"/>
 <div id="content_col_izq">
     <div class="rio">
-        <div class="notas"><h2>Cronograma de Eventos</h2></div>
-        <table width="620" cellspacing="0" cellpadding="5" class="fs10 mt15" style="border:#333 solid 1px">
+        <div class="notas"><h2>Calendario de Eventos</h2></div>
+        <table width="570" cellspacing="0" cellpadding="5" class="fs10 mt15" style="border:#333 solid 1px">
             <tr class="bg00355a colorfff">
                 <td width="300">Evento</td>
-                <td width="150">Lugar</td>
+                <td width="100">Lugar</td>
                 <td width="85">Fecha</td>
                 <td width="85">Hora</td>
             </tr>
@@ -31,6 +32,7 @@
 
 <div id="content_col_der">
     <?php include ("includes/siguenos.htm") ?>
+    <div id="publicidadventana2" class="p5 tac"><div class="publicidad tal">ESPACIO PUBLICITARIO</div><a href="#"><img src="/universoideas/img/publicidad/300x250.gif" width="300" height="250" alt="Publicidad" /></a></div>
     <?php include('noticias_destacadas.ctp'); ?>
 <!--    <php include ("includes/twitter.htm") ?>
     <php include ("includes/facebook.htm") ?>-->
