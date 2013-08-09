@@ -84,7 +84,7 @@ document.write (Muestrafecha());
         <li>|</li>
         <li><a class="selec6" href="/universoideas/emprendedor.shtml">Soy emprendedor</a></li>
         <li>|</li>
-        <li><a class="selec7" href="/universoideas/foros.shtml">Foros </a></li>
+        <li><a class="selec7" href="/universoideas/pages/forums">Foros </a></li>
         <li>|</li>
         <li><a class="selec8" href="/universoideas/pages/contacto">Conócenos</a></li>
         
