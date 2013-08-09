@@ -47,7 +47,7 @@ class PagesController extends AppController {
     
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow(array('display', 'home', 'contacto', 'cronograma', 'home_pasantias', 'encuentrame'));
+        $this->Auth->allow(array('display', 'home', 'contacto', 'cronograma', 'home_pasantias', 'encuentrame', 'forums'));
 //        $this->Auth->allow('vida_universitaria', 'forums');
     }
 
@@ -156,6 +156,19 @@ class PagesController extends AppController {
         $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
         
         $this->set(compact('articles_dest', 'events', 'cursos', 'enterprises', 'user'));
+    }
+    
+    public function forums() {
+        $this->loadModel('Article');
+        $this->loadModel('Forum');
+        
+        $this->layout = 'page';
+        
+        $user = $this->Auth->user();
+        $articles_dest = $this->getArticles(10, null);
+        $forums = $this->Forum->find('all', array('conditions' => array('Forum.enabled' => 1), 'order' => array('Forum.modified' => 'desc'), 'limit' => 15));
+        
+        $this->set(compact('articles_dest', 'user', 'forums'));
     }
     
     public function encuentrame() {
