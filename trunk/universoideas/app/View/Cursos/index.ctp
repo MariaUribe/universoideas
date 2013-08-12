@@ -7,23 +7,27 @@
             <th><?php echo $this->Paginator->sort('description', 'Descripción'); ?></th>
             <th><?php echo $this->Paginator->sort('date', 'Fecha'); ?></th>
             <th><?php echo $this->Paginator->sort('enabled', 'Habilitado'); ?></th>
-<!--            <th><php echo $this->Paginator->sort('image'); ?></th>-->
             <th><?php echo $this->Paginator->sort('created', 'Creado'); ?></th>
             <th><?php echo $this->Paginator->sort('modified', 'Modificado'); ?></th>
             <th class="actions"><?php echo __('Acciones'); ?></th>
         </tr>
         <?php foreach ($cursos as $curso): ?>
+        <?php 
+            $date_created = $this->Time->format('D-F-j-Y-h:i A', $curso['Curso']['created']);
+            list($dia_sem_crea, $mes_crea, $dia_crea, $ano_crea) = explode('-', $date_created);
+            
+            $date_modified = $this->Time->format('D-F-j-Y-h:i A', $curso['Curso']['modified']);
+            list($dia_sem_mod, $mes_mod, $dia_mod, $ano_mod) = explode('-', $date_modified);
+        ?>
         <tr>
             <td><?php echo h($curso['Curso']['id']); ?>&nbsp;</td>
             <td><?php echo h($curso['Curso']['name']); ?>&nbsp;</td>
             <td><?php echo h($curso['Curso']['description']); ?>&nbsp;</td>
             <td><?php echo h($curso['Curso']['date']); ?>&nbsp;</td>
             <td><?php echo h($curso['Curso']['enabled']); ?>&nbsp;</td>
-<!--            <td><php echo h($curso['Curso']['image']); ?>&nbsp;</td>-->
-            <td><?php echo h($curso['Curso']['created']); ?>&nbsp;</td>
-            <td><?php echo h($curso['Curso']['modified']); ?>&nbsp;</td>
+            <td><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) ?>&nbsp;</td>
+            <td><?php echo __($dia_sem_mod) . " " . __($mes_mod) . " " . __($dia_mod) . ", " . __($ano_mod) ?>&nbsp;</td>
             <td class="actions">
-<!--                <php echo $this->Html->link(__('Ver'), array('action' => 'view', $curso['Curso']['id'])); ?>-->
                 <?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $curso['Curso']['id'])); ?>
                 <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $curso['Curso']['id']), null, __('Are you sure you want to delete # %s?', $curso['Curso']['id'])); ?>
             </td>
