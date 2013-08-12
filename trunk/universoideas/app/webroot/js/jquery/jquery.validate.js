@@ -689,7 +689,7 @@ $.extend($.validator, {
 				label = $("<" + this.settings.errorElement + ">")
 					.attr("for", this.idOrName(element))
 					.addClass(this.settings.errorClass)
-					.html(message || "").before("<br/><br/>");
+					.html(message || "").before("<br/>");
 				if ( this.settings.wrapper ) {
 					// make sure the element is visible, even in IE
 					// actually showing the wrapped element is handled elsewhere
