@@ -13,6 +13,8 @@ class Comment extends AppModel {
  *
  * @var array
  */
+        public $displayField = 'description';
+
 	public $validate = array(
 		'description' => array(
 			'notempty' => array(
