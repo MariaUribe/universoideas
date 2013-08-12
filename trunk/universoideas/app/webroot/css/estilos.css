@@ -46,6 +46,8 @@ TD A{color:#00355a}
 .b023{background-color:#002233}
 .boton_buscar{ background-color:#003355;border:#FFF 2px solid;padding:2px 5px; margin:0 5px;text-decoration:none!important;font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#fff;}
 .fs11{font-size:11px}
+.fs12{font-size:12px}
+.fs13{font-size:13px}
 .mr10{margin-right:10px}
 .mr5{margin-right:5px}
 .pr5{padding-right:5px}
@@ -56,6 +58,7 @@ TD A{color:#00355a}
 .mt15{margin-top:15px}
 .mt10{margin-top:10px}
 .mt20{margin-top:20px}
+.mt50{margin-top:50px}
 .mb10{margin-bottom:10px}
 .tal{text-align:left}
 .tac{text-align:center}
@@ -147,4 +150,13 @@ p.thumb a:hover img{ border:1px solid #999; background:#fff; padding:2px; }
 
 .error {
     margin-top: 10px;
+}
+
+#submit-button {
+    padding: 2px 10px;
+    background-color: #004000;
+    color: #fff;
+    font-weight: bold;
+    border: #030303 1px solid;
+    cursor: pointer;
 }
