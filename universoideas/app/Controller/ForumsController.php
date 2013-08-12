@@ -7,6 +7,24 @@ App::uses('AppController', 'Controller');
  * @property Forum $Forum
  */
 class ForumsController extends AppController {
+    
+    public $paginate = array(
+        'conditions' => array('Forum.enabled' => 1), 
+        'fields' => array('Forum.count', 'Forum.max_comment', 'Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
+                        'User.id', 'User.username', 'User.name', 'User.lastname', 'User.mail', 'User.role_id'),
+        'group' => array('Forum.id'),
+        'joins' => array(
+                array(
+                    'table' => 'comments',
+                    'alias' => 'Comment',
+                    'type' => 'LEFT',
+                    'conditions' => array(
+                        'Comment.forum_id = Forum.id'
+                    )
+                )
+            ),
+        'order' => array('Forum.modified' => 'desc')
+);
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -20,7 +38,8 @@ class ForumsController extends AppController {
                 $this->Auth->deny(array('index'));
             }
         } else {
-            $this->Auth->deny(array('index', 'view', 'add', 'edit', 'delete'));
+            $this->Auth->allow(array('view'));
+            $this->Auth->deny(array('index', 'add', 'edit', 'delete'));
         }
     }
     
@@ -42,13 +61,14 @@ class ForumsController extends AppController {
     public function list_all() {
 //        $this->layout = 'page';
         $user_id = $this->Auth->user('id');
+        $user = $this->Auth->user();
         
         $this->paginate = array(
             'conditions' => array('Forum.user_id' => $user_id),
             'order' => array('Forum.modified' => 'desc')
             );
         $forums = $this->paginate('Forum');
-        $this->set(compact('forums'));
+        $this->set(compact('forums', 'user'));
     }
 
     /**
@@ -59,11 +79,32 @@ class ForumsController extends AppController {
     * @return void
     */
     public function view($id = null) {
+        $this->loadModel('Comment');
+        $this->loadModel('User');
+        
+        $this->layout = 'page';
+        
         if (!$this->Forum->exists($id)) {
             throw new NotFoundException(__('Invalid forum'));
         }
-        $options = array('conditions' => array('Forum.' . $this->Forum->primaryKey => $id));
-        $this->set('forum', $this->Forum->find('first', $options));
+        $users = $this->Forum->User->find('list');
+        $user = $this->Auth->user();
+        $options = array('conditions' => array('Forum.' . $this->Forum->primaryKey => $id),
+                         'fields' => array('Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
+                                           'User.id', 'User.username', 'User.name', 'User.lastname', 'User.mail', 'User.role_id'),
+                        );
+        $forum = $this->Forum->find('first', $options);
+        
+        $sql = "SELECT Comment.id, Comment.description, Comment.forum_id, Comment.user_id, Comment.created, Comment.modified,  
+                       usr.id as userid, usr.username, usr.name, usr.lastname, usr.mail, usr.role_id 
+                FROM comments Comment 
+                LEFT JOIN users usr on Comment.user_id = usr.id 
+                WHERE Comment.forum_id = " . $id . " " .
+               "ORDER BY Comment.modified desc"; 
+        
+        $comments = $this->Forum->query($sql);
+        
+        $this->set(compact('user', 'users', 'forum', 'comments'));
     }
 
     /**
@@ -79,10 +120,10 @@ class ForumsController extends AppController {
             $this->request->data['Forum']['user_id'] = $user['id'];
             $this->request->data['Forum']['enabled'] = 1;
             if ($this->Forum->save($this->request->data)) {
-                $this->Session->setFlash(__('El foro fue creado exitosamente.'));
-                $this->redirect(array('controller' => 'forums','action' => 'index'));
+                $this->Session->setFlash('El foro fue guardado exitosamente.', 'flash_success');
+                $this->redirect(array('controller' => 'pages','action' => 'forums'));
             } else {
-                $this->Session->setFlash(__('The forum could not be saved. Please, try again.'));
+                $this->Session->setFlash('El foro no pudo ser guardado. Intente de nuevo.', 'flash_error');
             }
         }
         $users = $this->Forum->User->find('list');
@@ -97,22 +138,26 @@ class ForumsController extends AppController {
     * @return void
     */
     public function edit($id = null) {
+        $user = $this->Auth->user();
         if (!$this->Forum->exists($id)) {
             throw new NotFoundException(__('Invalid forum'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Forum->save($this->request->data)) {
-                $this->Session->setFlash(__('The forum has been saved'));
+                        $this->Session->setFlash('El foro fue guardado exitosamente.', 'flash_success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The forum could not be saved. Please, try again.'));
+                $this->Session->setFlash('El foro no pudo ser guardado. Intente de nuevo.', 'flash_error');
             }
         } else {
-            $options = array('conditions' => array('Forum.' . $this->Forum->primaryKey => $id));
+            $options = array('conditions' => array('Forum.' . $this->Forum->primaryKey => $id),
+                         'fields' => array('Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
+                                           'User.id', 'User.username', 'User.name', 'User.lastname', 'User.mail', 'User.role_id'),
+                        );
             $this->request->data = $this->Forum->find('first', $options);
         }
         $users = $this->Forum->User->find('list');
-        $this->set(compact('users'));
+        $this->set(compact('users', 'user'));
     }
 
     /**
@@ -123,16 +168,18 @@ class ForumsController extends AppController {
     * @return void
     */
     public function delete($id = null) {
+        $user = $this->Auth->user();
         $this->Forum->id = $id;
         if (!$this->Forum->exists()) {
-            throw new NotFoundException(__('Invalid forum'));
+            throw new NotFoundException(__('Foro inválido'));
         }
         $this->request->onlyAllow('post', 'delete');
         if ($this->Forum->delete()) {
-            $this->Session->setFlash(__('Forum deleted'));
+            $this->Session->setFlash('El foro fue eliminado.', 'flash_success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Forum was not deleted'));
+        $this->Session->setFlash('El foro no pudo ser eliminado. Intente de nuevo.', 'flash_error');
         $this->redirect(array('action' => 'index'));
+        $this->set(compact('user'));
     }
 }
