@@ -90,6 +90,7 @@ class UsersController extends AppController {
         $this->layout = 'page';
         if ($this->request->is('post')) {
             $this->User->create();
+            $this->request->data['User']['role_id'] = 2;
             if ($this->User->save($this->request->data)) {
                 $this->redirect(array('controller' => 'pages','action' => 'home'));
             } else {
@@ -112,16 +113,22 @@ class UsersController extends AppController {
         if (!$this->User->exists($id)) {
             throw new NotFoundException(__('Invalid user'));
         }
-        if ($this->request->is('post') || $this->request->is('put')) {
-            if ($this->User->save($this->request->data)) {
-                $this->redirect(array('controller' => 'pages','action' => 'home'));
-            } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-            }
+        
+        if($id !== $this->Auth->user('id')){
+            $this->redirect(array($this->Auth->user('id')));
         } else {
-            $options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-            $this->request->data = $this->User->find('first', $options);
+            if ($this->request->is('post') || $this->request->is('put')) {
+                if ($this->User->save($this->request->data)) {
+                    $this->redirect(array('controller' => 'pages','action' => 'home'));
+                } else {
+                    $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+                }
+            } else {
+                $options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+                $this->request->data = $this->User->find('first', $options);
+            }
         }
+        
         $user = $this->Auth->user();
         $roles = $this->User->Role->find('list');
         $genders = array("F" => "Femenino", 
