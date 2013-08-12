@@ -60,5 +60,11 @@ $title_for_layout = 'Universoideas Admin';
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
         <?php echo $this->Html->script('jquery/jmenu'); ?>
+    
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#jMenu").jMenu();
+            });
+        </script>
 </body>
 </html>
