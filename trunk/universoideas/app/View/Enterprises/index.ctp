@@ -13,6 +13,13 @@
             <th class="actions"><?php echo __('Acciones'); ?></th>
         </tr>
         <?php foreach ($enterprises as $enterprise): ?>
+        <?php 
+            $date_created = $this->Time->format('D-F-j-Y-h:i A', $enterprise['Enterprise']['created']);
+            list($dia_sem_crea, $mes_crea, $dia_crea, $ano_crea) = explode('-', $date_created);
+            
+            $date_modified = $this->Time->format('D-F-j-Y-h:i A', $enterprise['Enterprise']['modified']);
+            list($dia_sem_mod, $mes_mod, $dia_mod, $ano_mod) = explode('-', $date_modified);
+        ?>
         <tr>
             <td><?php echo h($enterprise['Enterprise']['id']); ?>&nbsp;</td>
             <td><?php echo h($enterprise['Enterprise']['enterprise']); ?>&nbsp;</td>
@@ -20,8 +27,8 @@
             <td><?php echo h($enterprise['Enterprise']['description']); ?>&nbsp;</td>
             <td><?php echo h($enterprise['Enterprise']['duration']); ?>&nbsp;</td>
             <td><?php echo h($enterprise['Enterprise']['enabled']); ?>&nbsp;</td>
-            <td><?php echo h($enterprise['Enterprise']['created']); ?>&nbsp;</td>
-            <td><?php echo h($enterprise['Enterprise']['modified']); ?>&nbsp;</td>
+            <td><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) ?>&nbsp;</td>
+            <td><?php echo __($dia_sem_mod) . " " . __($mes_mod) . " " . __($dia_mod) . ", " . __($ano_mod) ?>&nbsp;</td>
             <td class="actions">
                 <!-- <php echo $this->Html->link(__('Ver'), array('action' => 'view', $enterprise['Enterprise']['id'])); ?>-->
                 <?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $enterprise['Enterprise']['id'])); ?>
