@@ -8,13 +8,19 @@
             <th><?php echo $this->Paginator->sort('event_date', 'Fecha'); ?></th>
             <th><?php echo $this->Paginator->sort('init_time', 'Hora Inicio'); ?></th>
             <th><?php echo $this->Paginator->sort('end_time', 'Hora Fin'); ?></th>
-<!--        <th><php echo $this->Paginator->sort('image'); ?></th>-->
             <th><?php echo $this->Paginator->sort('enabled', 'Habilitado'); ?></th>
             <th><?php echo $this->Paginator->sort('created', 'Creado'); ?></th>
             <th><?php echo $this->Paginator->sort('modified', 'Modificado'); ?></th>
             <th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	<?php foreach ($events as $event): ?>
+        <?php 
+            $date_created = $this->Time->format('D-F-j-Y-h:i A', $event['Event']['created']);
+            list($dia_sem_crea, $mes_crea, $dia_crea, $ano_crea) = explode('-', $date_created);
+            
+            $date_modified = $this->Time->format('D-F-j-Y-h:i A', $event['Event']['modified']);
+            list($dia_sem_mod, $mes_mod, $dia_mod, $ano_mod) = explode('-', $date_modified);
+        ?>
 	<tr>
             <td><?php echo h($event['Event']['id']); ?>&nbsp;</td>
             <td><?php echo h($event['Event']['name']); ?>&nbsp;</td>
@@ -22,12 +28,10 @@
             <td><?php echo h($event['Event']['event_date']); ?>&nbsp;</td>
             <td><?php echo h($event['Event']['init_time']); ?>&nbsp;</td>
             <td><?php echo h($event['Event']['end_time']); ?>&nbsp;</td>
-<!--        <td><php echo h($event['Event']['image']); ?>&nbsp;</td>-->
             <td><?php echo h($event['Event']['enabled']); ?>&nbsp;</td>
-            <td><?php echo h($event['Event']['created']); ?>&nbsp;</td>
-            <td><?php echo h($event['Event']['modified']); ?>&nbsp;</td>
+            <td><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) ?>&nbsp;</td>
+            <td><?php echo __($dia_sem_mod) . " " . __($mes_mod) . " " . __($dia_mod) . ", " . __($ano_mod) ?>&nbsp;</td>
             <td class="actions">
-<!--                <php echo $this->Html->link(__('View'), array('action' => 'view', $event['Event']['id'])); ?>-->
                 <?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $event['Event']['id'])); ?>
                 <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $event['Event']['id']), null, __('Are you sure you want to delete # %s?', $event['Event']['id'])); ?>
             </td>
