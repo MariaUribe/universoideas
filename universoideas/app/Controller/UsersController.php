@@ -109,6 +109,8 @@ class UsersController extends AppController {
     * @return void
     */
     public function edit($id = null) {
+        $this->loadModel('Comment');
+
         $this->layout = 'page';
         if (!$this->User->exists($id)) {
             throw new NotFoundException(__('Invalid user'));
@@ -124,17 +126,23 @@ class UsersController extends AppController {
                     $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
                 }
             } else {
-                $options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+                $options = array('conditions' => array('User.' . $this->User->primaryKey => $id),
+                                 'fields' => array('User.id', 'User.username', 'User.password', 'User.name', 'User.lastname', 
+                                                   'User.mail', 'User.birthdate', 'User.gender', 'User.role_id', 'User.created', 'User.modified'),
+                                 );
+                unset($this->User->Forum->virtualFields['count']);
+                unset($this->User->Forum->virtualFields['max_comment']);
                 $this->request->data = $this->User->find('first', $options);
             }
         }
         
         $user = $this->Auth->user();
         $roles = $this->User->Role->find('list');
+        $comments = $this->User->Comment->find('list');
         $genders = array("F" => "Femenino", 
                          "M" => "Masculino"
                         );
-        $this->set(compact('roles', 'user', 'genders'));
+        $this->set(compact('roles', 'user', 'genders', 'comments'));
     }
 
     /**
