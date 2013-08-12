@@ -1,13 +1,13 @@
 <div class="forums border">
 <?php echo $this->Form->create('Foro'); ?>
 	<fieldset>
-		<legend><?php echo __('Editar Foro'); ?></legend>
+		<legend><?php echo __('Editar Tema'); ?></legend>
 	<?php
 		echo $this->Form->input('Forum.id');
 		echo $this->Form->input('Forum.title', array('label' => 'Nombre'));
-                echo $this->Form->input('Forum.content', array('label' => 'Content', 'type' => 'textarea'));
+                echo $this->Form->input('Forum.content', array('label' => 'Descripción', 'type' => 'textarea', 'cols' => 58, 'rows' => 12, 'maxlength' => 1500));
 		echo $this->Form->input('Forum.enabled', array('label' => 'Habilitado'));
-		echo $this->Form->input('Forum.user_id', array('label' => 'Usuario'));
+		echo $this->Form->input('Forum.user_id', array('label' => 'Usuario', 'type' => 'hidden'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Guardar')); ?>
