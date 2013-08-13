@@ -83,7 +83,7 @@
             </div>
         </div>
     </div>
-    <span><a href="/universoideas/forums/list_all">Ver Mis Foros</a></span>
+    <span><a href="/universoideas/pages/list_all">Ver Mis Foros</a></span>
 </div>
 
 <div id="content_col_der">
