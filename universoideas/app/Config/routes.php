@@ -36,6 +36,7 @@
 	Router::connect('/pages/contacto', array('controller' => 'pages', 'action' => 'contacto'));
 	Router::connect('/pages/home_pasantias', array('controller' => 'pages', 'action' => 'home_pasantias'));
 	Router::connect('/pages/forums', array('controller' => 'pages', 'action' => 'forums'));
+	Router::connect('/pages/list_all', array('controller' => 'pages', 'action' => 'list_all'));
 	Router::connect('/pages/encuentrame', array('controller' => 'pages', 'action' => 'encuentrame'));
 	Router::connect('/pages/rio', array('controller' => 'pages', 'action' => 'rio'));
 	Router::connect('/pages/noticias_destacadas', array('controller' => 'pages', 'action' => 'noticias_destacadas'));
