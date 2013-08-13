@@ -49,6 +49,14 @@ class PagesController extends AppController {
         parent::beforeFilter();
         $this->Auth->allow(array('display', 'home', 'contacto', 'cronograma', 'home_pasantias', 'encuentrame', 'forums'));
 //        $this->Auth->allow('vida_universitaria', 'forums');
+        
+        $user = $this->Auth->user();
+
+        if(!empty($user)) {
+            $this->Auth->allow(array('list_all'));
+        } else {
+            $this->Auth->deny(array('list_all'));
+        }
     }
 
     /**
@@ -169,6 +177,38 @@ class PagesController extends AppController {
         $articles_dest = $this->getArticles(10, null);
         
         $forums = $this->Forum->find('all', array('conditions' => array('Forum.enabled' => 1), 
+                                                  'fields' => array('Forum.count', 'Forum.max_comment', 'Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
+                                                                    'User.id', 'User.username', 'User.name', 'User.lastname', 'User.mail', 'User.role_id'),
+                                                  'group' => array('Forum.id'),
+                                                  'joins' => array(
+                                                            array(
+                                                                'table' => 'comments',
+                                                                'alias' => 'Comment',
+                                                                'type' => 'LEFT',
+                                                                'conditions' => array(
+                                                                    'Comment.forum_id = Forum.id'
+                                                                )
+                                                            )
+                                                        ),
+                                                  'order' => array('Forum.modified' => 'desc'), 
+                                                  'limit' => 100));
+        
+        $this->set(compact('articles_dest', 'user', 'forums'));
+    }
+    
+    public function list_all() {
+        $this->loadModel('Article');
+        $this->loadModel('Forum');
+        $this->loadModel('Comment');
+        
+        $this->layout = 'page';
+        
+        $user_id = $this->Auth->user('id');
+        $user = $this->Auth->user();
+        $articles_dest = $this->getArticles(10, null);
+        
+        $forums = $this->Forum->find('all', array('conditions' => array('Forum.enabled' => 1, 
+                                                                        'Forum.user_id' => $user_id), 
                                                   'fields' => array('Forum.count', 'Forum.max_comment', 'Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
                                                                     'User.id', 'User.username', 'User.name', 'User.lastname', 'User.mail', 'User.role_id'),
                                                   'group' => array('Forum.id'),

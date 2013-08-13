@@ -34,7 +34,7 @@ class ForumsController extends AppController {
             if($user['id'] === '1')
                 $this->Auth->allow(array('index', 'view', 'add', 'edit', 'delete'));
             else {
-                $this->Auth->allow(array('list_all', 'view', 'add', 'edit', 'delete'));
+                $this->Auth->allow(array('view', 'add', 'edit', 'delete'));
                 $this->Auth->deny(array('index'));
             }
         } else {
@@ -51,24 +51,6 @@ class ForumsController extends AppController {
     public function index() {
         $this->Forum->recursive = 0;
         $this->set('forums', $this->paginate());
-    }
-    
-    /**
-    * list_all method
-    *
-    * @return void
-    */
-    public function list_all() {
-//        $this->layout = 'page';
-        $user_id = $this->Auth->user('id');
-        $user = $this->Auth->user();
-        
-        $this->paginate = array(
-            'conditions' => array('Forum.user_id' => $user_id),
-            'order' => array('Forum.modified' => 'desc')
-            );
-        $forums = $this->paginate('Forum');
-        $this->set(compact('forums', 'user'));
     }
 
     /**
