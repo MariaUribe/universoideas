@@ -1,7 +1,7 @@
 <div class="comments index">
-    <?php echo $this->Form->input('Forum.id', array('type' => 'hidden', 'value' => $comments['0']['Forum']['id'])); ?> 
+    <?php echo $this->Form->input('Forum.id', array('type' => 'hidden', 'value' => $forum_id)); ?> 
     <h2><?php echo __('Commentarios del Tema: '); ?></h2>
-    <h3><?php echo __($comments['0']['Forum']['title']); ?></h3>
+    <h3><?php echo $forum['Forum']['title']; ?></h3>
     <table cellpadding="0" cellspacing="0">
         <tr>
             <th style="width: 550px"><?php echo $this->Paginator->sort('description', 'Comentario'); ?></th>
