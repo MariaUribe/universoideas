@@ -30,6 +30,8 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`users` (
   `name` VARCHAR(45) NOT NULL ,
   `lastname` VARCHAR(45) NOT NULL ,
   `mail` VARCHAR(45) NOT NULL ,
+  `birthdate` DATE NULL ,
+  `gender` VARCHAR(1) NOT NULL ,
   `created` DATE NOT NULL ,
   `modified` DATE NOT NULL ,
   `role_id` INT NOT NULL ,
@@ -53,9 +55,10 @@ DROP TABLE IF EXISTS `estudiantes`.`articles` ;
 
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`articles` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `title` VARCHAR(45) NOT NULL ,
-  `summary` VARCHAR(256) NOT NULL ,
-  `body` VARCHAR(1024) NOT NULL ,
+  `title` VARCHAR(50) NOT NULL ,
+  `summary` VARCHAR(600) NOT NULL ,
+  `body` VARCHAR(5500) NOT NULL ,
+  `channel` VARCHAR(20) NOT NULL ,
   `highlight` TINYINT(1) NOT NULL ,
   `enabled` TINYINT(1) NOT NULL ,
   `created` DATE NOT NULL ,
@@ -125,9 +128,10 @@ DROP TABLE IF EXISTS `estudiantes`.`forums` ;
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`forums` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `title` VARCHAR(100) NOT NULL ,
+  `content` VARCHAR(1500) NOT NULL ,
   `enabled` TINYINT(1) NOT NULL ,
-  `created` DATE NOT NULL ,
-  `modified` DATE NOT NULL ,
+  `created` DATETIME NOT NULL ,
+  `modified` DATETIME NOT NULL ,
   `user_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
   CONSTRAINT `fk_forums_users1`
@@ -147,11 +151,11 @@ DROP TABLE IF EXISTS `estudiantes`.`comments` ;
 
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`comments` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `description` VARCHAR(400) NOT NULL ,
+  `description` VARCHAR(1500) NOT NULL ,
   `forum_id` INT NOT NULL ,
   `user_id` INT NOT NULL ,
-  `created` DATE NOT NULL ,
-  `modified` DATE NOT NULL ,
+  `created` DATETIME NOT NULL ,
+  `modified` DATETIME NOT NULL ,
   PRIMARY KEY (`id`) ,
   CONSTRAINT `fk_comments_forums1`
     FOREIGN KEY (`forum_id` )
@@ -199,7 +203,7 @@ DROP TABLE IF EXISTS `estudiantes`.`cursos` ;
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`cursos` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(65) NOT NULL ,
-  `description` VARCHAR(300) NOT NULL ,
+  `description` VARCHAR(1000) NOT NULL ,
   `date` DATE NOT NULL ,
   `enabled` TINYINT(1) NOT NULL ,
   `image` VARCHAR(100) NULL ,
@@ -218,6 +222,7 @@ DROP TABLE IF EXISTS `estudiantes`.`events` ;
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`events` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(65) NOT NULL ,
+  `description` VARCHAR(1000) NOT NULL ,
   `place` VARCHAR(65) NOT NULL ,
   `event_date` DATE NOT NULL ,
   `init_time` VARCHAR(8) NOT NULL ,
