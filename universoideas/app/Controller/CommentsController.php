@@ -30,6 +30,7 @@ class CommentsController extends AppController {
     * @return void
     */
     public function index() {
+        $this->loadModel('Forum');
         $user = $this->Auth->user();
         $forum_id = $this->params['url']['forum_id'];
         
@@ -39,8 +40,12 @@ class CommentsController extends AppController {
                         'conditions' => array('Comment.forum_id' => $forum_id),
                         'order' => array('Comment.modified' => 'desc')
                         );
+        unset($this->Forum->virtualFields['count']);
+        unset($this->Forum->virtualFields['max_comment']);
         $comments = $this->paginate('Comment');
-        $this->set(compact('comments', 'user', 'forum_id'));
+        $options = array('conditions' => array('Forum.id' => $forum_id));
+        $forum = $this->Forum->find('first', $options);
+        $this->set(compact('comments', 'user', 'forum_id', 'forum'));
     } 
 
     /**
@@ -98,10 +103,10 @@ class CommentsController extends AppController {
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Comment->save($this->request->data)) {
-                $this->Session->setFlash(__('The comment has been saved'));
-                $this->redirect(array('action' => 'index'));
+                $this->Session->setFlash('El comentario fue guardado exitosamente.', 'flash_success');
+                $this->redirect(array('action' => 'index?forum_id=' . $id));
             } else {
-                $this->Session->setFlash(__('The comment could not be saved. Please, try again.'));
+                $this->Session->setFlash('El comentario no pudo ser guardado. Intente de nuevo.', 'flash_error');
             }
         } else {
             $options = array('conditions' => array('Comment.' . $this->Comment->primaryKey => $id));
@@ -128,10 +133,10 @@ class CommentsController extends AppController {
         }
         $this->request->onlyAllow('post', 'delete');
         if ($this->Comment->delete()) {
-            $this->Session->setFlash(__('Comment deleted'));
+            $this->Session->setFlash('El comentario fue eliminado.', 'flash_success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Comment was not deleted'));
+        $this->Session->setFlash('El comentario no pudo ser eliminado. Intente de nuevo.', 'flash_error');
         $this->redirect(array('action' => 'index'));
     }
 }
