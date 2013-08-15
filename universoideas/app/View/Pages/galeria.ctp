@@ -16,14 +16,17 @@
                 $vid = "";
 
                 $img = $article['img']['image_id'];
+                $date = $this->Time->format('D-F-j-Y-h:i A', $article['art']['modified']);
+                list($dia_sem, $mes, $dia, $ano) = explode('-', $date);
 
                 echo "<li class='slider1Image'>";
                 echo "<input id='article_id' type='hidden' value='" . $article['art']['id'] . "'/>";
-                echo "<a href=''>";
+                echo "<a href='/universoideas/pages/article?id=" . $article['art']['id'] . "'>";
                 echo $this->Html->image($article['img']['uri'], array('width' => '550', 'height' => '266'));
                 
                 echo "<span class='gright'>";
                 echo "<strong>" . $article['art']['title'] . "</strong><br/>";
+                echo "<div class='dia'>" . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) . "</div>";
                 echo $article['art']['summary'];
                 echo "</span>";
                 
