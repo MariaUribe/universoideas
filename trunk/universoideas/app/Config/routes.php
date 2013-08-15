@@ -32,12 +32,20 @@
  */
 //	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
         Router::connect('/pages/home_cake', array('controller' => 'pages', 'action' => 'home_cake'));
+        Router::connect('/pages/article', array('controller' => 'pages', 'action' => 'article'));
+        Router::connect('/pages/event', array('controller' => 'pages', 'action' => 'event'));
+        Router::connect('/pages/curso', array('controller' => 'pages', 'action' => 'curso'));
 	Router::connect('/pages/cronograma', array('controller' => 'pages', 'action' => 'cronograma'));
 	Router::connect('/pages/contacto', array('controller' => 'pages', 'action' => 'contacto'));
 	Router::connect('/pages/home_pasantias', array('controller' => 'pages', 'action' => 'home_pasantias'));
 	Router::connect('/pages/forums', array('controller' => 'pages', 'action' => 'forums'));
 	Router::connect('/pages/list_all', array('controller' => 'pages', 'action' => 'list_all'));
 	Router::connect('/pages/encuentrame', array('controller' => 'pages', 'action' => 'encuentrame'));
+	Router::connect('/pages/arte', array('controller' => 'pages', 'action' => 'arte'));
+	Router::connect('/pages/ciencia', array('controller' => 'pages', 'action' => 'ciencia'));
+	Router::connect('/pages/moda', array('controller' => 'pages', 'action' => 'moda'));
+	Router::connect('/pages/rumba', array('controller' => 'pages', 'action' => 'rumba'));
+	Router::connect('/pages/sexualidad', array('controller' => 'pages', 'action' => 'sexualidad'));
 	Router::connect('/pages/rio', array('controller' => 'pages', 'action' => 'rio'));
 	Router::connect('/pages/noticias_destacadas', array('controller' => 'pages', 'action' => 'noticias_destacadas'));
 
