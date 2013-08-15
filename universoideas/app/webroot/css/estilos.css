@@ -8,12 +8,12 @@ A:HOVER{text-decoration:underline}
 TR{ vertical-align:top; }
 TD{ text-align:left;}
 TD A{color:#00355a}
-#conten_ppal{width:900px; overflow:hidden;margin:0 auto;}
+#conten_ppal{width:900px; overflow:hidden;margin:0 auto;padding: 0 0 10px 0;}
 #content_head {background-color:#003355; background-image:url(/universoideas/img/fondo_head.png); overflow:hidden}
 #content_dos_col{ margin:10px 0 }
 #content_col_izq{ width:570px; float:left; margin-bottom:10px}
 #content_col_der{ width:320px; float:right}
-#content_foot{ margin-top:20px; border-top:#333 solid 2px; text-align:center; font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#333; width:900px}
+#content_foot{ margin-top:20px; border-top:#333 solid 2px; text-align:center; font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#333; width:900px; margin:0 auto}
 .sprite{background-image: url(/universoideas/img/icons/sprite.png);background-repeat:no-repeat;display:inline;cursor:hand}
 .sprite-lupa{background-position:0 0}
 .logo{ float:left; margin:10px; padding:15px}
@@ -40,7 +40,7 @@ TD A{color:#00355a}
 .left{float:left}
 .right{float:right}
 .bold{font-weight:bold}
-.fecha{font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#fff; float:right}
+.fecha{font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#fff; float:right; text-align:right}
 .clear{clear:both}
 .fff{color:#FFF}
 .b023{background-color:#002233}
