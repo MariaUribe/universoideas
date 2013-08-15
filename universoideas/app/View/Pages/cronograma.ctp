@@ -13,14 +13,16 @@
             <?php 
                 $cont = 0;
                 foreach ($events as $event) {
+                    $date = $this->Time->format('D-F-j-Y-h:i A', $event['Event']['event_date']);
+                    list($dia_sem, $mes, $dia, $ano) = explode('-', $date);
                     if (($cont % 2) == 0)
                         echo "<tr>";
                     if (($cont % 2) == 1)
                         echo "<tr class='bgbebe'>";
                     
-                    echo "<td><a href='#'>" . $event['Event']['name'] . "</a></td>";
+                    echo "<td><a href='/universoideas/pages/event?id=" . $event['Event']['id'] . "'>" . $event['Event']['name'] . "</a></td>";
                     echo "<td>" . $event['Event']['place'] . "</td>";
-                    echo "<td>" . $event['Event']['event_date'] . "</td>";
+                    echo "<td>" . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) . "</td>";
                     echo "<td>" . $event['Event']['init_time'] . " <br/> a <br/>" . $event['Event']['end_time'] . "</td>";
                     echo "</tr>";
                     $cont ++;
