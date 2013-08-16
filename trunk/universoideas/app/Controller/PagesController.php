@@ -235,7 +235,7 @@ class PagesController extends AppController {
                                                             )
                                                         ),
                                                   'order' => array('Forum.modified' => 'desc'), 
-                                                  'limit' => 100));
+                                                  'limit' => 70));
         
         $this->set(compact('articles_dest', 'user', 'forums'));
     }
