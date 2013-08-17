@@ -4,7 +4,7 @@
     <legend><?php echo __('Crear Evento'); ?></legend>
     <?php
         echo $this->Form->input('Event.name', array('label' => 'Nombre'));
-        echo $this->Form->input('Event.description', array('label' => 'Descripción'));
+        echo $this->Form->input('Event.description', array('label' => 'Descripción', 'type' => 'textarea', 'rows' => '10'));
         echo $this->Form->input('Event.place', array('label' => 'Lugar'));
         echo $this->Form->input('Event.event_date', array('label' => 'Fecha'));
         echo $this->Form->input('Event.init_time', array('label' => 'Hora Inicio'));
