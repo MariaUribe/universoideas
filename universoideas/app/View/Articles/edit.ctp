@@ -12,8 +12,8 @@
                 echo $this->Form->input('Article.id');
                 echo $this->Form->input('Article.channel', array('label' => 'Canal'));
                 echo $this->Form->input('Article.title', array('label' => 'Título'));
-                echo $this->Form->input('Article.summary', array('label' => 'Sumario'));
-                echo $this->Form->input('Article.body', array('label' => 'Cuerpo', 'type' => 'textarea'));
+                echo $this->Form->input('Article.summary', array('label' => 'Sumario', 'type' => 'textarea'));
+                echo $this->Form->input('Article.body', array('label' => 'Cuerpo', 'type' => 'textarea', 'rows' => '10'));
                 echo $this->Form->input('Article.enabled', array('label' => 'Habilitado'));
                 echo $this->Form->input('Article.highlight', array('label' => 'Destacada'));
             ?>
