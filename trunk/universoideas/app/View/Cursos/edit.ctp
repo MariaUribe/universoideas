@@ -5,7 +5,7 @@
     <?php
         echo $this->Form->input('Curso.id');
         echo $this->Form->input('Curso.name', array('label' => 'Nombre'));
-        echo $this->Form->input('Curso.description', array('label' => 'Descripción'));
+        echo $this->Form->input('Curso.description', array('label' => 'Descripción', 'type' => 'textarea', 'rows' => '10'));
         echo $this->Form->input('Curso.date', array('label' => 'Fecha'));
         echo $this->Form->input('Curso.upload', array('type' => 'file', 'label' => 'Seleccione Imagen', 'onchange' => 'validateInputFile(this)'));
         
