@@ -251,8 +251,7 @@ class PagesController extends AppController {
         $user = $this->Auth->user();
         $articles_dest = $this->getArticles(10, null);
         
-        $forums = $this->Forum->find('all', array('conditions' => array('Forum.enabled' => 1, 
-                                                                        'Forum.user_id' => $user_id), 
+        $forums = $this->Forum->find('all', array('conditions' => array('Forum.user_id' => $user_id), 
                                                   'fields' => array('Forum.count', 'Forum.max_comment', 'Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
                                                                     'User.id', 'User.username', 'User.name', 'User.lastname', 'User.mail', 'User.role_id'),
                                                   'group' => array('Forum.id'),
