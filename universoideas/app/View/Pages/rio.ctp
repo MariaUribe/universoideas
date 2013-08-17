@@ -18,7 +18,9 @@
             if($img != "") {
                 echo $this->Html->image($article['img']['uri_thumb'], array('alt' => $article['img']['title'], 'align' => 'left', 'border' => '0'));
             } elseif ($vid != "") {
-                echo "<div>" . $article['vid']['source'] . "</div>";
+                echo "<div>" .  
+                     "<iframe width='320' height='215' src='//" . $article['vid']['source'] . "' frameborder='0' allowfullscreen></iframe>" .
+                     "</div>";
             }
             echo $article['art']['summary'];
             echo "<div><a href='/universoideas/pages/article?id=" . $article['art']['id'] . "' class='sleyendo'>Seguir Leyendo &raquo;</a></div>";

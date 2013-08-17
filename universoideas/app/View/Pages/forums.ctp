@@ -56,7 +56,7 @@
         <tfoot>
             <tr class="bg00355a colorfff vam h30">
                 <th>TEMAS</th>
-                <th>RESPUESTAS</th>
+                <th style='text-align: center'>RESPUESTAS</th>
                 <th>ÚLTIMO MENSAJE</th>
             </tr>
         </tfoot>

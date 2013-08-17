@@ -20,7 +20,9 @@
                         if($img != "") {
                             echo $this->Html->image($art['img']['uri'], array('alt' => $art['img']['title'], 'align' => 'left', 'border' => '0', 'width' => 440));
                         } elseif ($vid != "") {
-                            echo "<div>" . $art['vid']['source'] . "</div>";
+                            echo "<div>" .  
+                                 "<iframe width='560' height='380' src='//" . $art['vid']['source'] . "' frameborder='0' allowfullscreen></iframe>" .
+                                 "</div>";
                         } 
                         
                         echo "<strong>" . $art['art']['summary'] . "</strong>";
