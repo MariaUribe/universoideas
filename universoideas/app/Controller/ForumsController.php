@@ -34,12 +34,12 @@ class ForumsController extends AppController {
             if($user['id'] === '1')
                 $this->Auth->allow(array('index', 'view', 'add', 'edit', 'delete'));
             else {
-                $this->Auth->allow(array('view', 'add', 'edit', 'delete'));
-                $this->Auth->deny(array('index'));
+                $this->Auth->allow(array('view', 'add', 'edit_forum', 'delete'));
+                $this->Auth->deny(array('index', 'edit'));
             }
         } else {
             $this->Auth->allow(array('view'));
-            $this->Auth->deny(array('index', 'add', 'edit', 'delete'));
+            $this->Auth->deny(array('index', 'add', 'edit', 'delete', 'edit_forum'));
         }
     }
     
@@ -65,7 +65,7 @@ class ForumsController extends AppController {
         $this->loadModel('User');
         
         $this->layout = 'page';
-        
+                    
         if (!$this->Forum->exists($id)) {
             throw new NotFoundException(__('Invalid forum'));
         }
@@ -140,6 +140,48 @@ class ForumsController extends AppController {
         }
         $users = $this->Forum->User->find('list');
         $this->set(compact('users', 'user'));
+    }
+    
+    /**
+    * edit_forum method
+    *
+    * @throws NotFoundException
+    * @param string $id
+    * @return void
+    */
+    public function edit_forum($id = null) {
+        $this->layout = 'page';
+        
+        $user = $this->Auth->user();
+        $options = array('conditions' => array('Forum.' . $this->Forum->primaryKey => $id),
+                         'fields' => array('Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
+                                           'User.id', 'User.username', 'User.name', 'User.lastname', 'User.mail', 'User.role_id'),
+                        );
+        $forum = $this->Forum->find('first', $options);
+        $user_id = $forum['Forum']['user_id'];
+        
+        if (!$this->Forum->exists($id)) {
+            throw new NotFoundException(__('Invalid forum'));
+        }
+        
+        if($user_id !== $this->Auth->user('id')){
+            $this->redirect(array('controller' => 'pages','action' => 'list_all'));
+        } else {
+            if ($this->request->is('post') || $this->request->is('put')) {
+                if ($this->Forum->save($this->request->data)) {
+                    $this->Session->setFlash('El foro fue guardado exitosamente.', 'flash_success');
+                    $this->redirect(array('controller' => 'pages','action' => 'list_all'));
+                } else {
+                    $this->Session->setFlash('El foro no pudo ser guardado. Intente de nuevo.', 'flash_error');
+                }
+            } else {
+                $this->request->data = $this->Forum->find('first', $options);
+            }
+            
+        }
+  
+        $users = $this->Forum->User->find('list');
+        $this->set(compact('users', 'user', 'forum'));
     }
 
     /**
