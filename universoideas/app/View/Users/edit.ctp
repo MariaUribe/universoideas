@@ -1,7 +1,7 @@
 <div id="content_col_izq">
     <div class="registro">
         <div class="rio">
-            <div class="notas fs11 bgddd p10">
+            <div class="notas fs11 bgddd p10 pb30">
                 <h2>Mi Perfil</h2>
                 <input type="hidden" id="locationId" value="" name="locationId">
                 <input type="hidden" value="success" name="forward">
@@ -11,6 +11,15 @@
                 <table width="400" cellpadding="3" cellspacing="0" style="border:0" class="mt20">
                     <?php
                         echo $this->Form->input('id');
+                        echo "<tr>";
+                        echo "<td class='tar' width='150'><a href='/universoideas/pages/list_all' style='font-size: 12px; font-weight: bold'>Ver Mis Foros</a></td>";
+                        echo "<td class='tal'></td>";
+                        echo "</tr>";
+                        
+                        echo "<tr>";
+                        echo "<td colspan='2'>&nbsp;</td>";
+                        echo "</tr>";
+                        
                         echo "<tr>";
                         echo "<td class='tar' width='150'>Nombre de Usuario: </td>";
                         echo "<td class='tal'>" . $this->Form->input('username', array('label' => false, 'class' => 'left required', 'size' => '40')) . "</td>";
@@ -83,7 +92,6 @@
             </div>
         </div>
     </div>
-    <span><a href="/universoideas/pages/list_all">Ver Mis Foros</a></span>
 </div>
 
 <div id="content_col_der">
