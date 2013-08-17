@@ -23,7 +23,7 @@
         <?php if (!empty($forum['Comment'])): ?>
         <?php
             $cont = 0;
-
+            
             foreach ($comments as $comment) { 
                 $comment_date = $this->Time->format('D-F-j-Y-h:i A', $comment['Comment']['modified']);
                 list($dia_sem_com, $mes_com, $dia_com, $ano_com, $hora_com) = explode('-', $comment_date);
@@ -56,6 +56,12 @@
     </div>
     <div class="boton fs11 mt20">
         <?php echo $this->Html->link(__('Responder'), array('controller' => 'comments', 'action' => 'add?forum_id='.$forum['Forum']['id'])); ?>
+        
+    </div>
+    <div class="fs11" style="color: #00355a; margin-top: 20px; font-weight: bold;">
+        <?php 
+            echo "<a href='/universoideas/pages/list_all'>Ir a Mis Temas</a>";
+        ?>
     </div>
 </div>
 

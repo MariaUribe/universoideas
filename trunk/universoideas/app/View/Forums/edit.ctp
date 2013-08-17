@@ -1,5 +1,5 @@
 <div class="forums border">
-<?php echo $this->Form->create('Foro'); ?>
+<?php echo $this->Form->create('Forum'); ?>
 	<fieldset>
 		<legend><?php echo __('Editar Tema'); ?></legend>
 	<?php
