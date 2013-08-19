@@ -49,7 +49,8 @@ class PagesController extends AppController {
         parent::beforeFilter();
         $this->Auth->allow(array('article', 'display', 'home', 'contacto', 'cronograma', 'home_pasantias', 
                                  'encuentrame', 'forums', 'arte', 'ciencia', 'moda', 'rumba', 'sexualidad', 
-                                 'event', 'curso'));
+                                 'event', 'curso', 'search_all', 'search_articles', 'search_events', 
+                                 'search_cursos', 'search_forums'));
         
         $user = $this->Auth->user();
 
@@ -389,6 +390,69 @@ class PagesController extends AppController {
         $this->set(compact('articles_dest', 'user'));
     }
     
+    public function search_all() {
+        $this->loadModel('Article');
+        
+        $this->layout = 'page';
+        
+        $text = $this->params['url']['q'];
+        $articles = $this->searchArticles($text, 5);
+        $events = $this->searchEvents($text, 5);
+        $cursos = $this->searchCursos($text, 5);
+        $forums = $this->searchForums($text, 5);
+        $articles_dest = $this->getArticles(10, null);
+        
+        $this->set(compact('articles', 'events', 'cursos', 'forums', 'articles_dest', 'text'));
+    }
+    
+    public function search_articles() {
+        $this->loadModel('Article');
+        
+        $this->layout = 'page';
+        
+        $text = $this->params['url']['q'];
+        $articles = $this->searchArticles($text, 50);
+        $articles_dest = $this->getArticles(10, null);
+        
+        $this->set(compact('articles', 'articles_dest', 'text'));
+    }
+    
+    public function search_events() {
+        $this->loadModel('Event');
+        
+        $this->layout = 'page';
+        
+        $text = $this->params['url']['q'];
+        $events = $this->searchEvents($text, 50);
+        $articles_dest = $this->getArticles(10, null);
+        
+        $this->set(compact('events', 'articles_dest', 'text'));
+    }
+    
+    public function search_cursos() {
+        $this->loadModel('Curso');
+        
+        $this->layout = 'page';
+        
+        $text = $this->params['url']['q'];
+        $cursos = $this->searchCursos($text, 50);
+        $articles_dest = $this->getArticles(10, null);
+        
+        $this->set(compact('cursos', 'articles_dest', 'text'));
+    }
+    
+    public function search_forums() {
+        $this->loadModel('Forum');
+        
+        $this->layout = 'page';
+        
+        $text = $this->params['url']['q'];
+        $forums = $this->searchForums($text, 50);
+        $articles_dest = $this->getArticles(10, null);
+        
+        $this->set(compact('forums', 'articles_dest', 'text'));
+    }
+    
     public function noticias_destacadas() {
         $this->layout = 'page';
         
@@ -403,6 +467,67 @@ class PagesController extends AppController {
         $articles_dest = $this->getArticles(10, null);
         
         $this->set(compact('articles_dest'));
+    }
+    
+    public function searchArticles($text, $limit) {
+        $this->loadModel('Article');
+
+        $sql = "SELECT article.id, article.title, article.summary, article.enabled, article.created, article.modified 
+                FROM articles article 
+                WHERE (article.title LIKE '%" . $text . "%'
+                       OR article.summary LIKE '%" . $text . "%')
+                AND article.enabled = 1
+                LIMIT " . $limit . "";
+        
+        $articles = $this->Article->query($sql);
+        
+        return $articles;
+    }
+    
+    public function searchEvents($text, $limit) {
+        $this->loadModel('Event');
+
+        $sql = "SELECT event.id, event.name, event.description, event.enabled, event.created, event.modified 
+                FROM events event 
+                WHERE (event.name LIKE '%" . $text . "%'
+                       OR event.description LIKE '%" . $text . "%')
+                AND event.enabled = 1
+                LIMIT " . $limit . "";
+        
+        $events = $this->Event->query($sql);
+        
+        return $events;
+    }
+    
+    public function searchCursos($text, $limit) {
+        $this->loadModel('Curso');
+
+        $sql = "SELECT curso.id, curso.name, curso.description, curso.enabled, curso.created, curso.modified 
+                FROM cursos curso 
+                WHERE (curso.name LIKE '%" . $text . "%'
+                       OR curso.description LIKE '%" . $text . "%')
+                AND curso.enabled = 1
+                LIMIT " . $limit . "";
+
+        $cursos = $this->Curso->query($sql);
+        
+        return $cursos;
+    }
+    
+    public function searchForums($text, $limit) {
+        $this->loadModel('Forum');
+
+        $sql = "SELECT forum.id, forum.title, forum.content, forum.enabled, forum.created, forum.modified, user.username 
+                FROM forums forum 
+                LEFT JOIN users user ON user.id = forum.user_id
+                WHERE (forum.title LIKE '%" . $text . "%'
+                        OR forum.content LIKE '%" . $text . "%')
+                AND forum.enabled = 1
+                LIMIT " . $limit . "";
+
+        $forums = $this->Forum->query($sql);
+        
+        return $forums;
     }
     
     public function getArticleById($id) {
