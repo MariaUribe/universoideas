@@ -45,7 +45,7 @@ TD A{color:#00355a}
 .fff{color:#FFF}
 .b023{background-color:#002233}
 .boton_buscar{ background-color:#003355;border:#FFF 2px solid;padding:2px 5px; margin:0 5px;text-decoration:none!important;font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#fff;}
-.fs11{font-size:11px}
+.fs11{font-size:11px!important}
 .fs12{font-size:12px}
 .fs13{font-size:13px}
 .mr10{margin-right:10px}
@@ -59,6 +59,7 @@ TD A{color:#00355a}
 .m0{margin: 0!important}
 .ml0{margin-left:0px}
 .mt15{margin-top:15px}
+.mt5{margin-top:5px}
 .mt10{margin-top:10px}
 .mt20{margin-top:20px}
 .mt30{margin-top:30px}
@@ -66,7 +67,7 @@ TD A{color:#00355a}
 .mt50{margin-top:50px}
 .mb10{margin-bottom:10px}
 .mb5{margin-bottom:5px!important}
-.mb20{margin-bottom:20px}
+.mb20{margin-bottom:20px!important}
 .tal{text-align:left}
 .tac{text-align:center}
 .tar{text-align:right}
