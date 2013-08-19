@@ -14,7 +14,7 @@
                 
                     echo "<div style='width: 100%'>";
                     if($img != "") {
-                        echo $this->Html->image($curso['Curso']['image'], array('alt' => $curso['Curso']['name'], 'align' => 'left', 'border' => '0', 'width' => 440));
+                        echo $this->Html->image($curso['Curso']['image'], array('alt' => $curso['Curso']['name'], 'align' => 'left', 'border' => '0', 'width' => 200));
                     } 
                     echo "</div>";
 

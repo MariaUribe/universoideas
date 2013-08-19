@@ -18,7 +18,7 @@
                 <div>
                     <?php 
                         if($img != "") {
-                            echo $this->Html->image($art['img']['uri'], array('alt' => $art['img']['title'], 'align' => 'left', 'border' => '0', 'width' => 440));
+                            echo $this->Html->image($art['img']['uri_thumb'], array('alt' => $art['img']['title'], 'align' => 'left', 'border' => '0'));
                         } elseif ($vid != "") {
                             echo "<div>" .  
                                  "<iframe width='560' height='380' src='//" . $art['vid']['source'] . "' frameborder='0' allowfullscreen></iframe>" .
