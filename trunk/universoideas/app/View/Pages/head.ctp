@@ -44,15 +44,60 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
 }
 </script>
 
+<style type="text/css">
+    input.watermark { color: #999; }
+    input {
+        width:200px;
+        height: 15px;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        var watermark = 'Buscar';
+
+        //init, set watermark text and class
+        $('#buscarText').val(watermark).addClass('watermark');
+
+        //if blur and no value inside, set watermark text and class again.
+        $('#buscarText').blur(function(){
+            if ($(this).val().length == 0){
+                $(this).val(watermark).addClass('watermark');
+            }
+        });
+
+        //if focus and text is watermrk, set it to empty and remove the watermark class
+        $('#buscarText').focus(function(){
+            if ($(this).val() == watermark){
+                $(this).val('').removeClass('watermark');
+            }
+        });
+        
+        $('#buscarText')
+            .keypress( function(event) {
+                if(event.keyCode==13) {
+                    window.location = "/universoideas/pages/search_all?q=" + $('#buscarText').val();
+                    return false;
+                }
+            });
+            
+            $('#buscarButton')
+                .click( function() {
+                    window.location = "/universoideas/pages/search_all?q=" + $('#buscarText').val();
+            });
+    });
+</script>
+
 <div class="logo"><a href="#"><img src="/universoideas/img/logo.png" alt="Universo Ideas" /></a></div>
 
 
 <div class="right">
-<div class="fecha pr5 mt15">
-<script type="text/javascript" language="JavaScript">
-document.write (Muestrafecha());
-</script>
-</div>
+    <div class="fecha pr5 mt15">
+        <script type="text/javascript" language="JavaScript">
+        document.write (Muestrafecha());
+        </script>
+    </div>
     <div class="bold fecha clear pr5 mt15">
         <?php 
             if(!empty($user)) {
@@ -63,11 +108,11 @@ document.write (Muestrafecha());
             }
         ?>
     </div>
-<div class="clear right mt15 pb5">
-<img src="/universoideas/img/icons/icon_lupa.png" width="20" height="21" alt="lupa" class=" left mr5">
-<input name="Busqueda" type="text" value="Buscar" size="20" maxlength="50" class="fs11 left" >
-<a href="#" class="boton_buscar fff tdno fecha">Buscar</a>
-</div>
+    <div class="clear right mt15 pb5">
+        <img src="/universoideas/img/icons/icon_lupa.png" width="20" height="21" alt="lupa" class=" left mr5">
+        <input id="buscarText" name="Busqueda" type="text" size="20" maxlength="50" class="fs11 left">
+        <a id="buscarButton" class="boton_buscar fff tdno fecha" style="cursor: pointer;">Buscar</a>
+    </div>
 </div>
 
 <div class="menu mt15">

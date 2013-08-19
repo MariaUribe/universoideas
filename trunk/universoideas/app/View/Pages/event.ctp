@@ -10,13 +10,13 @@
                     $img = "";
                     $vid = "";
 
-                    $img = $event['Event']['image'];
+                    $img = $event['Event']['image_thumb'];
                 ?>
                 
                     <?php 
                         echo "<div style='width: 100%'>";
                         if($img != "") {
-                            echo $this->Html->image($event['Event']['image'], array('alt' => $event['Event']['name'], 'align' => 'left', 'border' => '0', 'width' => 440));
+                            echo $this->Html->image($event['Event']['image'], array('alt' => $event['Event']['name'], 'align' => 'left', 'border' => '0', 'width' => 200));
                         } 
                         echo "</div>";
                         
