@@ -9287,7 +9287,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Mostrando _START_ a _END_ de _TOTAL_ temas",
+			"sInfo": "Mostrando _START_ a _END_ de _TOTAL_ resultados",
 		
 		
 			/**
@@ -9306,7 +9306,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Mostrando 0 a 0 de 0 temas",
+			"sInfoEmpty": "Mostrando 0 a 0 de 0 resultados",
 		
 		
 			/**
@@ -9326,7 +9326,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(filtered from _MAX_ total temas)",
+			"sInfoFiltered": "(filtered from _MAX_ total resultados)",
 		
 		
 			/**
@@ -9407,7 +9407,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Mostrar _MENU_ temas",
+			"sLengthMenu": "Mostrar _MENU_",
 		
 		
 			/**
