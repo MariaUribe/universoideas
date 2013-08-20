@@ -46,7 +46,7 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
 
 <style type="text/css">
     input.watermark { color: #999; }
-    input {
+    input#buscarText {
         width:200px;
         height: 15px;
     }

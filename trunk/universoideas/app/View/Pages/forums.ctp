@@ -41,7 +41,7 @@
                     if (($cont % 2) == 1)
                         echo "<tr class='bgbebe'>";
 
-                    echo "<td><a href='/universoideas/forums/view/" . $forum['Forum']['id']."' style='font-weight: bold'>" . $forum['Forum']['title'] . "</a> <br> Creado por: " . $forum['User']['username'] . " » " . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) .  " " . $hora  . "</td>";
+                    echo "<td><a href='/universoideas/forums/view/" . $forum['Forum']['id']."' style='font-weight: bold; font-size: 12px'>" . $forum['Forum']['title'] . "</a> <br> Creado por: " . $forum['User']['username'] . " » " . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) .  " " . $hora  . "</td>";
                     echo "<td class='tac'>" . $forum['Forum']['count'] . "</td>";
 
                     if($date_comment !== "")

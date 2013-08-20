@@ -1,8 +1,16 @@
 <input id="page_code" type="hidden" value="index"/>
 <div id="content_col_izq">
     <div class="rio">
+        <?php 
+            if (sizeof($articles) === 0 && sizeof($events) === 0 && sizeof($cursos) === 0 && sizeof($forums) === 0) {
+                echo "<h2>No se encontraron resultados para la búsqueda: \"" . $text . "\"</h2>";
+            } else {
+        ?>
+        
         <?php echo "<h2>Resultados de búsqueda para: \"" . $text . "\"</h2>"?>
         <div class="notas">
+            <?php if (sizeof($articles) !== 0) { ?>
+            
             <h2>Artículos</h2>
             <?php
                 echo "<div class='mt5 mb20'><a href='/universoideas/pages/search_articles?q=" . $text . "'>Ver todos los resultados de Artículos</a></div>";
@@ -23,7 +31,9 @@
                     echo "</div>";
                     echo "</div>";
                 }
-            ?>
+            } ?>
+            
+            <?php if (sizeof($events) !== 0) { ?>
             
             <h2>Eventos</h2>
             <?php
@@ -45,7 +55,9 @@
                     echo "</div>";
                     echo "</div>";
                 }
-            ?>
+            } ?>
+            
+            <?php if (sizeof($cursos) !== 0) { ?>
             
             <h2>Cursos</h2>
             <?php
@@ -67,8 +79,11 @@
                     echo "</div>";
                     echo "</div>";
                 }
+            }
             ?>
             
+            <?php if (sizeof($forums) !== 0) { ?>
+             
             <h2>Temas del Foro</h2>
             <?php
                 echo "<div class='mt5 mb20'><a href='/universoideas/pages/search_forums?q=" . $text . "'>Ver todos los resultados de Foros</a></div>";
@@ -89,8 +104,10 @@
                     echo "</div>";
                     echo "</div>";
                 }
+            }
             ?>
         </div>
+        <?php } ?>
     </div>
 </div>
 
