@@ -392,6 +392,7 @@ class PagesController extends AppController {
     
     public function search_all() {
         $this->loadModel('Article');
+        $user = $this->Auth->user();
         
         $this->layout = 'page';
         
@@ -402,11 +403,12 @@ class PagesController extends AppController {
         $forums = $this->searchForums($text, 5);
         $articles_dest = $this->getArticles(10, null);
         
-        $this->set(compact('articles', 'events', 'cursos', 'forums', 'articles_dest', 'text'));
+        $this->set(compact('articles', 'events', 'cursos', 'forums', 'articles_dest', 'text', 'user'));
     }
     
     public function search_articles() {
         $this->loadModel('Article');
+        $user = $this->Auth->user();
         
         $this->layout = 'page';
         
@@ -414,11 +416,12 @@ class PagesController extends AppController {
         $articles = $this->searchArticles($text, 50);
         $articles_dest = $this->getArticles(10, null);
         
-        $this->set(compact('articles', 'articles_dest', 'text'));
+        $this->set(compact('articles', 'articles_dest', 'text', 'user'));
     }
     
     public function search_events() {
         $this->loadModel('Event');
+        $user = $this->Auth->user();
         
         $this->layout = 'page';
         
@@ -426,11 +429,12 @@ class PagesController extends AppController {
         $events = $this->searchEvents($text, 50);
         $articles_dest = $this->getArticles(10, null);
         
-        $this->set(compact('events', 'articles_dest', 'text'));
+        $this->set(compact('events', 'articles_dest', 'text', 'user'));
     }
     
     public function search_cursos() {
         $this->loadModel('Curso');
+        $user = $this->Auth->user();
         
         $this->layout = 'page';
         
@@ -438,11 +442,12 @@ class PagesController extends AppController {
         $cursos = $this->searchCursos($text, 50);
         $articles_dest = $this->getArticles(10, null);
         
-        $this->set(compact('cursos', 'articles_dest', 'text'));
+        $this->set(compact('cursos', 'articles_dest', 'text', 'user'));
     }
     
     public function search_forums() {
         $this->loadModel('Forum');
+        $user = $this->Auth->user();
         
         $this->layout = 'page';
         
@@ -450,7 +455,7 @@ class PagesController extends AppController {
         $forums = $this->searchForums($text, 50);
         $articles_dest = $this->getArticles(10, null);
         
-        $this->set(compact('forums', 'articles_dest', 'text'));
+        $this->set(compact('forums', 'articles_dest', 'text', 'user'));
     }
     
     public function noticias_destacadas() {
