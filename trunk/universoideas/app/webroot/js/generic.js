@@ -190,3 +190,13 @@ function setMenuSelected() {
     var page = $('#page_code').val();
     $('body').attr('id', page);
 }
+
+function displayMail() {
+    $('#login').css('display', 'none');
+    $('#forgot').css('display', '');
+}
+
+function cancelForgot() {
+    $('#login').css('display', '');
+    $('#forgot').css('display', 'none');
+}
