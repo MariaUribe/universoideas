@@ -175,3 +175,12 @@ p.thumb a:hover img{ border:1px solid #999; background:#fff; padding:2px; }
     border: #030303 1px solid;
     cursor: pointer;
 }
+
+#submit-forgot {
+    padding: 2px 10px;
+    background-color: #004000;
+    color: #fff;
+    font-weight: bold;
+    border: #030303 1px solid;
+    cursor: pointer;
+}
