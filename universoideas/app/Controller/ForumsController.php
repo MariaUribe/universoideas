@@ -61,6 +61,16 @@ class ForumsController extends AppController {
     * @return void
     */
     public function view($id = null) {
+        $this->layout = 'page';
+                    
+        if (!$this->Forum->exists($id)) {
+            throw new NotFoundException(__('Invalid forum'));
+        }
+   
+        $this->set(compact('id'));
+    }
+    
+    public function forum_detail($id = null) {
         $this->loadModel('Comment');
         $this->loadModel('User');
         
@@ -102,12 +112,16 @@ class ForumsController extends AppController {
             $this->request->data['Forum']['user_id'] = $user['id'];
             $this->request->data['Forum']['enabled'] = 1;
             if ($this->Forum->save($this->request->data)) {
+                $forum_id = $this->Forum->getLastInsertId();
                 $this->Session->setFlash('El foro fue guardado exitosamente.', 'flash_success');
+                $this->publishForum($forum_id);
+                $this->publishForums();
                 $this->redirect(array('controller' => 'pages','action' => 'forums'));
             } else {
                 $this->Session->setFlash('El foro no pudo ser guardado. Intente de nuevo.', 'flash_error');
             }
         }
+        
         $users = $this->Forum->User->find('list');
         $this->set(compact('users', 'user'));
     }
@@ -126,16 +140,18 @@ class ForumsController extends AppController {
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Forum->save($this->request->data)) {
-                        $this->Session->setFlash('El foro fue guardado exitosamente.', 'flash_success');
+                $this->Session->setFlash('El foro fue guardado exitosamente.', 'flash_success');
+                $this->publishForum($id);
+                $this->publishForums();
                 $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash('El foro no pudo ser guardado. Intente de nuevo.', 'flash_error');
             }
         } else {
             $options = array('conditions' => array('Forum.' . $this->Forum->primaryKey => $id),
-                         'fields' => array('Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
-                                           'User.id', 'User.username', 'User.name', 'User.lastname', 'User.mail', 'User.role_id'),
-                        );
+                             'fields' => array('Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
+                                               'User.id', 'User.username', 'User.name', 'User.lastname', 'User.mail', 'User.role_id'),
+                            );
             $this->request->data = $this->Forum->find('first', $options);
         }
         $users = $this->Forum->User->find('list');
@@ -170,6 +186,8 @@ class ForumsController extends AppController {
             if ($this->request->is('post') || $this->request->is('put')) {
                 if ($this->Forum->save($this->request->data)) {
                     $this->Session->setFlash('El foro fue guardado exitosamente.', 'flash_success');
+                    $this->publishForum($id);
+                    $this->publishForums();
                     $this->redirect(array('controller' => 'pages','action' => 'list_all'));
                 } else {
                     $this->Session->setFlash('El foro no pudo ser guardado. Intente de nuevo.', 'flash_error');
@@ -200,10 +218,34 @@ class ForumsController extends AppController {
         $this->request->onlyAllow('post', 'delete');
         if ($this->Forum->delete()) {
             $this->Session->setFlash('El foro fue eliminado.', 'flash_success');
+            $this->publishForums();
             $this->redirect(array('action' => 'index'));
         }
         $this->Session->setFlash('El foro no pudo ser eliminado. Intente de nuevo.', 'flash_error');
         $this->redirect(array('action' => 'index'));
         $this->set(compact('user'));
+    }
+
+    public function writeFile($data, $file_name) {
+        $file = WWW_ROOT . 'includes/published/' . $file_name . '.htm';
+        $handle = fopen($file, 'w') or die('Cannot open file:  '.$file);
+        
+        fwrite($handle, $data);
+    }
+    
+    public function publishView($view, $file_name) {
+        $result = $this->requestAction('/forums/' . $view, array('return')); 
+        
+        $this->writeFile($result, $file_name);
+    }
+    
+    public function publishForum($id) {
+        $this->publishView("forum_detail/" . $id, "forums/forum-" . $id);
+    }
+    
+    public function publishForums() {
+        /* PUBLICAR TEMAS DEL FORO */
+        $this->publishView("forums_table", "forums_table");
+        $this->publishView("list_all_table", "list_all_table");
     }
 }

@@ -63,7 +63,10 @@ class EventsController extends AppController {
             } 
             
             if ($this->Event->save($this->request->data)) {
+                $event_id = $this->Event->getLastInsertId();
                 $this->Session->setFlash('El evento fue guardado exitosamente.', 'flash_success');
+                $this->publishEvent($event_id);
+                $this->publishCalendar();
                 $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash('El evento no pudo ser guardado.', 'flash_error');
@@ -90,6 +93,8 @@ class EventsController extends AppController {
             
             if ($this->Event->save($this->request->data)) {
                 $this->Session->setFlash('El evento fue guardado exitosamente.', 'flash_success');
+                $this->publishEvent($id);
+                $this->publishCalendar();
                 $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash('El evento no pudo ser guardado.', 'flash_error');
@@ -115,6 +120,7 @@ class EventsController extends AppController {
         $this->request->onlyAllow('post', 'delete');
         if ($this->Event->delete()) {
             $this->Session->setFlash('El evento fue eliminado.', 'flash_success');
+            $this->publishCalendar();
             $this->redirect(array('action' => 'index'));
         }
         $this->Session->setFlash('El evento no pudo ser eliminado.', 'flash_error');
@@ -159,5 +165,30 @@ class EventsController extends AppController {
             $this->request->data['Event']['image'] = $uri_img;
             $this->request->data['Event']['image_thumb'] = $uri_thumb;
         }
+    }
+    
+    public function writeFile($data, $file_name) {
+        $file = WWW_ROOT . 'includes/published/' . $file_name . '.htm';
+        $handle = fopen($file, 'w') or die('Cannot open file:  '.$file);
+        
+        fwrite($handle, $data);
+    }
+    
+    public function publishView($view, $file_name) {
+        $result = $this->requestAction('/pages/' . $view, array('return')); 
+        
+        $this->writeFile($result, $file_name);
+    }
+    
+    public function publishEvent($id) {
+        $this->publishView("event_detail?id=" . $id, "events/event-" . $id);
+    }
+    
+    public function publishCalendar(){
+        /* PUBLICAR CALENDARIO EVENTOS */
+        $this->publishView("calendario_eventos", "calendario_eventos");
+        
+        /* PUBLICAR MODULO DE CALENDARIO */
+        $this->publishView("prox_actividades", "prox_actividades");
     }
 }

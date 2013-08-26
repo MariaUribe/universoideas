@@ -2,6 +2,8 @@
 App::uses('AppController', 'Controller', 'RelatedImagesController');
 App::import('Controller', 'RelatedImagesController');
 App::import('Model', 'RelatedImage', 'RelatedVideo');
+//App::import('Time');
+//App::uses('CakeTime', 'Utility');
 
 include("Component/resize-class.php");
 
@@ -11,6 +13,8 @@ include("Component/resize-class.php");
  * @property Article $Article
  */
 class ArticlesController extends AppController {
+    
+//    public $helpers = array('Form', 'Html', 'Js', 'Time');
 
     public $paginate = array(
         'order' => array(
@@ -98,6 +102,8 @@ class ArticlesController extends AppController {
 
                     if($this->RelatedImage->save($this->request->data)){
                         $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
+                        $this->publishAll();
+                        $this->publishArticle($article_id);
                         $this->redirect(array('action' => 'index'));
                     } else {
                         $this->Session->setFlash('La imagen no pudo ser guardada.', 'flash_error');
@@ -109,6 +115,8 @@ class ArticlesController extends AppController {
                     
                     if($this->RelatedVideo->save($this->request->data)) {
                         $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
+                        $this->publishAll();
+                        $this->publishArticle($article_id);
                         $this->redirect(array('action' => 'index'));
                     } else {
                         $this->Session->setFlash('El video no pudo ser guardado.', 'flash_error');
@@ -116,12 +124,15 @@ class ArticlesController extends AppController {
                     }
                 } else { 
                     $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
+                    $this->publishAll();
+                    $this->publishArticle($article_id);
                     $this->redirect(array('action' => 'index'));
                 }
             } else {
                 $this->Session->setFlash(__('El artículo no pudo ser guardado. Intente de nuevo.'));
             }
         }
+        
         $users = $this->Article->User->find('list');
         $channels = array("principal" => "Principal", 
                           "encuentrame" => "Encuéntrame", 
@@ -168,6 +179,8 @@ class ArticlesController extends AppController {
                     else {
                         if($this->RelatedImage->save($this->request->data)){
                             $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
+                            $this->publishArticle($id);
+                            $this->publishAll();
                             $this->redirect(array('action' => 'index'));
                         } else {
                             $this->Session->setFlash('La imagen no pudo ser guardada.', 'flash_error');
@@ -180,6 +193,8 @@ class ArticlesController extends AppController {
                     
                     if($result_img == 1) {
                         $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
+                        $this->publishArticle($id);
+                        $this->publishAll();
                         $this->redirect(array('action' => 'index'));
                     } else {
                         $this->Session->setFlash('La imagen no pudo ser guardada.', 'flash_error');
@@ -195,6 +210,8 @@ class ArticlesController extends AppController {
                     else {
                         if($this->RelatedVideo->save($this->request->data)) {
                             $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
+                            $this->publishArticle($id);
+                            $this->publishAll();
                             $this->redirect(array('action' => 'index'));
                         } else {
                             $this->Session->setFlash('El video no pudo ser guardado.', 'flash_error');
@@ -207,6 +224,8 @@ class ArticlesController extends AppController {
                         
                     if($result_vid == 1) {
                         $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
+                        $this->publishArticle($id);
+                        $this->publishAll();
                         $this->redirect(array('action' => 'index'));
                     } else {
                         $this->Session->setFlash('El video no pudo ser guardado.', 'flash_error');
@@ -220,6 +239,8 @@ class ArticlesController extends AppController {
                         $this->deleteRelatedVideo($video_id);
                     
                     $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
+                    $this->publishArticle($id);
+                    $this->publishAll();
                     $this->redirect(array('action' => 'index'));
                 }
             } else {
@@ -258,6 +279,7 @@ class ArticlesController extends AppController {
         $this->request->onlyAllow('post', 'delete');
         if ($this->Article->delete()) {
             $this->Session->setFlash('El artículo fue eliminado.', 'flash_success');
+            $this->publishAll();
             $this->redirect(array('action' => 'index'));
         }
         $this->Session->setFlash('El artículo no pudo ser eliminado. Intente de nuevo.', 'flash_error');
@@ -398,5 +420,69 @@ class ArticlesController extends AppController {
             $this->request->data['RelatedImage']['width_thumb'] = $width_thumb;
             $this->request->data['RelatedImage']['height_thumb'] = $height_thumb;
         }
+    }
+    
+    public function getArticles($limit, $channel) {
+        $join = "";
+        
+        if($channel != "" && $channel != null) {
+            $join = "AND art.channel = '" . $channel . "'";
+        }
+        
+        $sql = "SELECT art.id, art.channel, art.title, art.summary, art.enabled, art.created, art.modified, 
+                       img.id as image_id, img.uri, img.uri_thumb, img.title, img.article_id as img_article_id, 
+                       vid.id as video_id, vid.name as video_name, vid.source, vid.article_id as vid_article_id 
+                FROM articles art 
+                LEFT JOIN related_images img on art.id = img.article_id 
+                LEFT JOIN related_videos vid on art.id = vid.article_id 
+                WHERE art.enabled = 1 
+                AND art.highlight = 0 " 
+                . $join .
+               "ORDER BY art.modified desc, art.id asc 
+                LIMIT " . $limit . ""; 
+        
+        $articles = $this->Article->query($sql);
+        
+        return $articles;
+    }
+    
+    public function writeFile($data, $file_name) {
+        $file = WWW_ROOT . 'includes/published/' . $file_name . '.htm';
+        $handle = fopen($file, 'w') or die('Cannot open file:  '.$file);
+        
+        fwrite($handle, $data);
+    }
+    
+    public function publishView($view, $file_name) {
+        $result = $this->requestAction('/pages/' . $view, array('return')); 
+        
+        $this->writeFile($result, $file_name);
+    }
+    
+    public function publishAll() {
+        /* PUBLICAR RIOS */
+        $this->publishView("rio", "rios/rio");
+        $this->publishView("rio/encuentrame", "rios/rio-encuentrame");
+        $this->publishView("rio/arte", "rios/rio-arte");
+        $this->publishView("rio/ciencia", "rios/rio-ciencia");
+        $this->publishView("rio/moda", "rios/rio-moda");
+        $this->publishView("rio/rumba", "rios/rio-rumba");
+        $this->publishView("rio/sexualidad", "rios/rio-sexualidad");
+        
+        /* PUBLICAR GALERIAS */
+        $this->publishView("galeria", "galleries/galeria");
+        $this->publishView("galeria/encuentrame", "galleries/galeria-encuentrame");
+        $this->publishView("galeria/arte", "galleries/galeria-arte");
+        $this->publishView("galeria/ciencia", "galleries/galeria-ciencia");
+        $this->publishView("galeria/moda", "galleries/galeria-moda");
+        $this->publishView("galeria/rumba", "galleries/galeria-rumba");
+        $this->publishView("galeria/sexualidad", "galleries/galeria-sexualidad");
+        
+        /* PUBLICAR MODULO DE NOTICIAS DESTACADAS */
+        $this->publishView("noticias_destacadas", "noticias_destacadas");
+    }
+    
+    public function publishArticle($id) {
+        $this->publishView("article_detail?id=" . $id, "articles/article-" . $id);
     }
 }
