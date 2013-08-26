@@ -48,11 +48,14 @@
 	Router::connect('/pages/sexualidad', array('controller' => 'pages', 'action' => 'sexualidad'));
 	Router::connect('/pages/rio', array('controller' => 'pages', 'action' => 'rio'));
 	Router::connect('/pages/noticias_destacadas', array('controller' => 'pages', 'action' => 'noticias_destacadas'));
+	Router::connect('/pages/prox_actividades', array('controller' => 'pages', 'action' => 'prox_actividades'));
+	Router::connect('/pages/talleres_cursos', array('controller' => 'pages', 'action' => 'talleres_cursos'));
 	Router::connect('/pages/search_all', array('controller' => 'pages', 'action' => 'search_all'));
 	Router::connect('/pages/search_articles', array('controller' => 'pages', 'action' => 'search_articles'));
 	Router::connect('/pages/search_events', array('controller' => 'pages', 'action' => 'search_events'));
 	Router::connect('/pages/search_cursos', array('controller' => 'pages', 'action' => 'search_cursos'));
 	Router::connect('/pages/search_forums', array('controller' => 'pages', 'action' => 'search_forums'));
+	Router::connect('/pages/galeria', array('controller' => 'pages', 'action' => 'galeria'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on
