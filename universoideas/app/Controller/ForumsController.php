@@ -234,18 +234,18 @@ class ForumsController extends AppController {
     }
     
     public function publishView($view, $file_name) {
-        $result = $this->requestAction('/forums/' . $view, array('return')); 
+        $result = $this->requestAction($view, array('return')); 
         
         $this->writeFile($result, $file_name);
     }
     
     public function publishForum($id) {
-        $this->publishView("forum_detail/" . $id, "forums/forum-" . $id);
+        $this->publishView("/forums/forum_detail/" . $id, "forums/forum-" . $id);
     }
     
     public function publishForums() {
         /* PUBLICAR TEMAS DEL FORO */
-        $this->publishView("forums_table", "forums_table");
-        $this->publishView("list_all_table", "list_all_table");
+        $this->publishView("/pages/forums_table", "forums_table");
+        $this->publishView("/pages/list_all_table", "list_all_table");
     }
 }
