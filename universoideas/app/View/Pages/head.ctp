@@ -121,13 +121,13 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
         <li>|</li>
         <li><a class="selec2" href="/universoideas/pages/cronograma">Calendario</a></li>
         <li>|</li>
-        <li><a class="selec3" href="/universoideas/vida_universitaria.shtml">Vida Universitaria</a></li>
+        <li><a class="selec3" href="">Vida Universitaria</a></li>
         <li>|</li>
         <li><a class="selec4" href="/universoideas/pages/encuentrame">Encuéntrame</a></li>
         <li>|</li>
         <li><a class="selec5" href="/universoideas/pages/home_pasantias">Pasantías</a></li>
         <li>|</li>
-        <li><a class="selec6" href="/universoideas/emprendedor.shtml">Soy emprendedor</a></li>
+        <li><a class="selec6" href="">Soy emprendedor</a></li>
         <li>|</li>
         <li><a class="selec7" href="/universoideas/pages/forums">Foros </a></li>
         <li>|</li>
