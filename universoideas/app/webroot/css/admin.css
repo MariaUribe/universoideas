@@ -43,8 +43,16 @@ a {
     margin-top: 5px;
 }
 
+.ml15 {
+    margin-left: 15px;
+}
+
 .ml22 {
     margin-left: 22px;
+}
+
+.ml20 {
+    margin-left: 20px;
 }
 
 .dnone {
@@ -71,4 +79,8 @@ a {
     margin-top: 30px;
     margin-left: 30px;
     margin-bottom: 30px;
+}
+
+.br-menu {
+    border-right: #404040 1px solid;
 }
