@@ -1,9 +1,3 @@
-<script type="text/javascript">
-    $(document).ready(function(){
-        loadMultimedia();
-    });
-</script>
-
 <div class="articles border">
     <?php echo $this->Form->create('Article', array('enctype' => 'multipart/form-data')); ?>
         <fieldset>
@@ -84,3 +78,7 @@
         <li><?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $this->Form->value('Article.id')), null, __('¿Está seguro que desea eliminar el artículo # %s?', $this->Form->value('Article.id'))); ?></li>
     </ul>
 </div>
+
+<script type="text/javascript">
+    loadMultimedia();
+</script>
