@@ -63,12 +63,15 @@ class CursosController extends AppController {
             } 
             
             if ($this->Curso->save($this->request->data)) {
+                $curso_id = $this->Curso->getLastInsertId();
                 $this->Session->setFlash('El curso fue guardado exitosamente.', 'flash_success');
+                $this->publishCurso($curso_id);
+                $this->publishModuloCursos();
                 $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash('El curso no pudo ser guardado.', 'flash_error');
             }
-        }
+        } 
     }
 
     /**
@@ -90,6 +93,8 @@ class CursosController extends AppController {
             
             if ($this->Curso->save($this->request->data)) {
                 $this->Session->setFlash('El curso fue guardado exitosamente.', 'flash_success');
+                $this->publishCurso($id);
+                $this->publishModuloCursos();
                 $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash('El curso no pudo ser guardado.', 'flash_error');
@@ -115,6 +120,7 @@ class CursosController extends AppController {
         $this->request->onlyAllow('post', 'delete');
         if ($this->Curso->delete()) {
             $this->Session->setFlash('El curso fue eliminado.', 'flash_success');
+            $this->publishModuloCursos();
             $this->redirect(array('action' => 'index'));
         }
         $this->Session->setFlash('El curso no pudo ser eliminado.', 'flash_error');
@@ -159,5 +165,27 @@ class CursosController extends AppController {
             $this->request->data['Curso']['image'] = $uri_img;
             $this->request->data['Curso']['image_thumb'] = $uri_thumb;
         }
+    }
+    
+    public function writeFile($data, $file_name) {
+        $file = WWW_ROOT . 'includes/published/' . $file_name . '.htm';
+        $handle = fopen($file, 'w') or die('Cannot open file:  '.$file);
+        
+        fwrite($handle, $data);
+    }
+    
+    public function publishView($view, $file_name) {
+        $result = $this->requestAction('/pages/' . $view, array('return')); 
+        
+        $this->writeFile($result, $file_name);
+    }
+    
+    public function publishCurso($id) {
+        $this->publishView("curso_detail?id=" . $id, "cursos/curso-" . $id);
+    }
+    
+    public function publishModuloCursos() {
+        /* PUBLICAR MODULO DE TALLERES Y CURSOS */
+        $this->publishView("talleres_cursos", "talleres_cursos");
     }
 }

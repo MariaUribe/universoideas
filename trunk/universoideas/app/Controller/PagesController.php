@@ -119,13 +119,8 @@ class PagesController extends AppController {
         }
         
         $user = $this->Auth->user();
-        $articles_gallery = $this->getArticlesGallery(5, null);
-        $articles_rio = $this->getArticles(15, null);
-        $articles_dest = $this->getArticles(10, null);
-        $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
-        $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
         
-        $this->set(compact('page', 'subpage', 'page', 'articles_rio', 'articles_dest', 'events', 'cursos', 'articles_gallery', 'user'));
+        $this->set(compact('page', 'subpage', 'page', 'user'));
         $this->render(implode('/', $path));
     }
     
@@ -135,11 +130,20 @@ class PagesController extends AppController {
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_dest = $this->getArticles(10, null);
+        $id = $this->params['url']['id'];
+        
+        $this->set(compact('user', 'id'));
+    }
+    
+    public function article_detail() {
+        $this->loadModel('Article');
+        
+        $this->layout = 'page';
+        
         $id = $this->params['url']['id'];
         $article = $this->getArticleById($id);
         
-        $this->set(compact('articles_dest', 'user', 'article'));
+        $this->set(compact('article'));
     }
     
     public function event() {
@@ -148,13 +152,22 @@ class PagesController extends AppController {
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_dest = $this->getArticles(10, null);
+        $id = $this->params['url']['id'];
+        
+        $this->set(compact('user', 'id'));
+    }
+    
+    public function event_detail() {
+        $this->loadModel('Event');
+        
+        $this->layout = 'page';
+        
         $id = $this->params['url']['id'];
         
         $options = array('conditions' => array('Event.' . $this->Event->primaryKey => $id));
         $event = $this->Event->find('first', $options);
         
-        $this->set(compact('articles_dest', 'user', 'event'));
+        $this->set(compact('event'));
     }
     
     public function curso() {
@@ -163,23 +176,42 @@ class PagesController extends AppController {
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_dest = $this->getArticles(10, null);
+        $id = $this->params['url']['id'];
+        
+        $this->set(compact('user', 'id'));
+    }
+    
+    public function curso_detail() {
+        $this->loadModel('Curso');
+        
+        $this->layout = 'page';
+        
         $id = $this->params['url']['id'];
         
         $options = array('conditions' => array('Curso.' . $this->Curso->primaryKey => $id));
         $curso = $this->Curso->find('first', $options);
         
-        $this->set(compact('articles_dest', 'user', 'curso'));
+        $this->set(compact('curso'));
     }
     
-     public function rio() {
+     public function rio($channel = null) {
         $this->loadModel('Article');
         
         $this->layout = 'page';
         
-        $articles_rio = $this->getArticles(5, null);
+        $articles_rio = $this->getArticles(15, $channel);
         
         $this->set(compact('articles_rio'));
+    }
+    
+     public function galeria($channel = null) {
+        $this->loadModel('Article');
+        
+        $this->layout = 'page';
+        
+        $articles_gallery = $this->getArticlesGallery(5, $channel);
+        
+        $this->set(compact('articles_gallery'));
     }
     
     public function cronograma() {
@@ -188,38 +220,35 @@ class PagesController extends AppController {
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_dest = $this->getArticles(10, null);
-        $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('event_date' => 'desc'), 'limit' => 10));
         
-        $this->set(compact('articles_dest', 'events', 'user'));
+        $this->set(compact('user'));
     }
    
     public function home_pasantias() {
         $this->loadModel('Article');
         $this->loadModel('Enterprise');
-        $this->loadModel('Event');
-        $this->loadModel('Curso');
         
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_dest = $this->getArticles(10, null);
         $enterprises = $this->Enterprise->find('all', array('conditions' => array('Enterprise.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 15));
-        $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
-        $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
         
-        $this->set(compact('articles_dest', 'events', 'cursos', 'enterprises', 'user'));
+        $this->set(compact('enterprises', 'user'));
     }
     
     public function forums() {
-        $this->loadModel('Article');
+        $this->layout = 'page';
+        
+        $user = $this->Auth->user();
+        
+        $this->set(compact('user'));
+    }
+    
+    public function forums_table() {
         $this->loadModel('Forum');
         $this->loadModel('Comment');
         
         $this->layout = 'page';
-        
-        $user = $this->Auth->user();
-        $articles_dest = $this->getArticles(10, null);
         
         $forums = $this->Forum->find('all', array('conditions' => array('Forum.enabled' => 1), 
                                                   'fields' => array('Forum.count', 'Forum.max_comment', 'Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
@@ -237,12 +266,20 @@ class PagesController extends AppController {
                                                         ),
                                                   'order' => array('Forum.modified' => 'desc'), 
                                                   'limit' => 70));
-        
-        $this->set(compact('articles_dest', 'user', 'forums'));
+            
+        $this->set(compact('forums'));
     }
     
-    public function list_all() {
-        $this->loadModel('Article');
+    public function list_all() {       
+        $this->layout = 'page';
+        
+        $user_id = $this->Auth->user('id');
+        $user = $this->Auth->user();
+             
+        $this->set(compact('user'));
+    }
+    
+    public function list_all_table() {
         $this->loadModel('Forum');
         $this->loadModel('Comment');
         
@@ -250,7 +287,6 @@ class PagesController extends AppController {
         
         $user_id = $this->Auth->user('id');
         $user = $this->Auth->user();
-        $articles_dest = $this->getArticles(10, null);
         
         $forums = $this->Forum->find('all', array('conditions' => array('Forum.user_id' => $user_id), 
                                                   'fields' => array('Forum.count', 'Forum.max_comment', 'Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
@@ -269,115 +305,67 @@ class PagesController extends AppController {
                                                   'order' => array('Forum.modified' => 'desc'), 
                                                   'limit' => 100));
         
-        $this->set(compact('articles_dest', 'user', 'forums'));
+        $this->set(compact('forums'));
     }
     
     public function encuentrame() {
         $channel = 'encuentrame';
-        $this->loadModel('Article');
-        $this->loadModel('Event');
-        $this->loadModel('Curso');
         
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_gallery = $this->getArticlesGallery(5, $channel);
-        $articles_rio = $this->getArticles(10, $channel);
-        $articles_dest = $this->getArticles(10, null);
-        $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
-        $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
         
-        $this->set(compact('articles_gallery', 'articles_rio', 'articles_dest', 'events', 'cursos', 'user'));
+        $this->set(compact('user'));
     }
     
     public function arte() {
         $channel = 'arte';
-        $this->loadModel('Article');
-        $this->loadModel('Event');
-        $this->loadModel('Curso');
         
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_gallery = $this->getArticlesGallery(5, $channel);
-        $articles_rio = $this->getArticles(10, $channel);
-        $articles_dest = $this->getArticles(10, null);
-        $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
-        $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
         
-        $this->set(compact('articles_gallery', 'articles_rio', 'articles_dest', 'events', 'cursos', 'user'));
+        $this->set(compact('user'));
     }
     
     public function ciencia() {
         $channel = 'ciencia';
-        $this->loadModel('Article');
-        $this->loadModel('Event');
-        $this->loadModel('Curso');
         
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_gallery = $this->getArticlesGallery(5, $channel);
-        $articles_rio = $this->getArticles(10, $channel);
-        $articles_dest = $this->getArticles(10, null);
-        $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
-        $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
         
-        $this->set(compact('articles_gallery', 'articles_rio', 'articles_dest', 'events', 'cursos', 'user'));
+        $this->set(compact('user'));
     }
     
     public function moda() {
         $channel = 'moda';
-        $this->loadModel('Article');
-        $this->loadModel('Event');
-        $this->loadModel('Curso');
         
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_gallery = $this->getArticlesGallery(5, $channel);
-        $articles_rio = $this->getArticles(10, $channel);
-        $articles_dest = $this->getArticles(10, null);
-        $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
-        $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
         
-        $this->set(compact('articles_gallery', 'articles_rio', 'articles_dest', 'events', 'cursos', 'user'));
+        $this->set(compact('user'));
     }
     
     public function rumba() {
         $channel = 'rumba';
-        $this->loadModel('Article');
-        $this->loadModel('Event');
-        $this->loadModel('Curso');
         
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_gallery = $this->getArticlesGallery(5, $channel);
-        $articles_rio = $this->getArticles(10, $channel);
-        $articles_dest = $this->getArticles(10, null);
-        $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
-        $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
         
-        $this->set(compact('articles_gallery', 'articles_rio', 'articles_dest', 'events', 'cursos', 'user'));
+        $this->set(compact('user'));
     }
     
     public function sexualidad() {
         $channel = 'sexualidad';
-        $this->loadModel('Article');
-        $this->loadModel('Event');
-        $this->loadModel('Curso');
         
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_gallery = $this->getArticlesGallery(5, $channel);
-        $articles_rio = $this->getArticles(10, $channel);
-        $articles_dest = $this->getArticles(10, null);
-        $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
-        $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
         
-        $this->set(compact('articles_gallery', 'articles_rio', 'articles_dest', 'events', 'cursos', 'user'));
+        $this->set(compact('user'));
     }
     
     public function contacto() {
@@ -386,8 +374,7 @@ class PagesController extends AppController {
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-        $articles_dest = $this->getArticles(10, null);
-        $this->set(compact('articles_dest', 'user'));
+        $this->set(compact('user'));
     }
     
     public function search_all() {
@@ -401,9 +388,8 @@ class PagesController extends AppController {
         $events = $this->searchEvents($text, 5);
         $cursos = $this->searchCursos($text, 5);
         $forums = $this->searchForums($text, 5);
-        $articles_dest = $this->getArticles(10, null);
         
-        $this->set(compact('articles', 'events', 'cursos', 'forums', 'articles_dest', 'text', 'user'));
+        $this->set(compact('articles', 'events', 'cursos', 'forums', 'text', 'user'));
     }
     
     public function search_articles() {
@@ -414,9 +400,8 @@ class PagesController extends AppController {
         
         $text = $this->params['url']['q'];
         $articles = $this->searchArticles($text, 50);
-        $articles_dest = $this->getArticles(10, null);
         
-        $this->set(compact('articles', 'articles_dest', 'text', 'user'));
+        $this->set(compact('articles', 'text', 'user'));
     }
     
     public function search_events() {
@@ -427,9 +412,8 @@ class PagesController extends AppController {
         
         $text = $this->params['url']['q'];
         $events = $this->searchEvents($text, 50);
-        $articles_dest = $this->getArticles(10, null);
         
-        $this->set(compact('events', 'articles_dest', 'text', 'user'));
+        $this->set(compact('events', 'text', 'user'));
     }
     
     public function search_cursos() {
@@ -440,9 +424,8 @@ class PagesController extends AppController {
         
         $text = $this->params['url']['q'];
         $cursos = $this->searchCursos($text, 50);
-        $articles_dest = $this->getArticles(10, null);
         
-        $this->set(compact('cursos', 'articles_dest', 'text', 'user'));
+        $this->set(compact('cursos', 'text', 'user'));
     }
     
     public function search_forums() {
@@ -453,9 +436,8 @@ class PagesController extends AppController {
         
         $text = $this->params['url']['q'];
         $forums = $this->searchForums($text, 50);
-        $articles_dest = $this->getArticles(10, null);
         
-        $this->set(compact('forums', 'articles_dest', 'text', 'user'));
+        $this->set(compact('forums', 'text', 'user'));
     }
     
     public function noticias_destacadas() {
@@ -464,6 +446,33 @@ class PagesController extends AppController {
         $articles_dest = $this->getArticles(10, null);
         
         $this->set(compact('articles_dest'));
+    }
+    
+    public function prox_actividades() {
+        $this->loadModel('Event');
+        $this->layout = 'page';
+        
+        $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
+        
+        $this->set(compact('events'));
+    }
+    
+    public function talleres_cursos() {
+        $this->loadModel('Curso');
+        $this->layout = 'page';
+        
+        $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
+        
+        $this->set(compact('cursos'));
+    }
+    
+    public function calendario_eventos() {
+        $this->loadModel('Event');
+        $this->layout = 'page';
+        
+        $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('event_date' => 'desc'), 'limit' => 10));
+                
+        $this->set(compact('events'));
     }
     
     public function admin() {
