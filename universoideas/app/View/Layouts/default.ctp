@@ -23,48 +23,49 @@ $title_for_layout = 'Universoideas Admin';
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $title_for_layout ?>
-	</title>
-	<?php
-		echo $this->Html->meta('icon');
+    <?php echo $this->Html->charset(); ?>
+    <title>
+        <?php echo $title_for_layout ?>
+    </title>
+    <?php
+        echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
-		echo $this->Html->css('admin');
-		echo $this->Html->css('jMenu.jquery');
-                
-                echo $this->Html->script('jquery/jquery-1.9.1');
-                echo $this->Html->script('generic');
-                
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
+        echo $this->Html->css('cake.generic');
+        echo $this->Html->css('admin');
+        echo $this->Html->css('jMenu.jquery');
+
+        echo $this->Html->script('jquery/jquery-1.9.1');
+        echo $this->Html->script('generic');
+
+        echo $this->fetch('meta');
+        echo $this->fetch('css');
+        echo $this->fetch('script');
+    ?>
 </head>
 <body>
-    
-        <?php echo $this->Session->flash(); ?>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($universoDescription, 'http://localhost/universoideas/'); ?></h1>
-<!--                    <div class="logo"><a href="/universoideas/"><img src="img/logo.png" width="256" height="65" alt="Universo Ideas"></a></div>-->
-		</div>
-                <?php include ("includes/admin_menu.html") ?>
-		<div id="content">
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link($universoDescription, 'http://localhost/universoideas/articles'); ?>
-		</div>
-	</div>
-	<?php echo $this->element('sql_dump'); ?>
-        <?php echo $this->Html->script('jquery/jmenu'); ?>
-    
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $("#jMenu").jMenu();
-            });
-        </script>
+    <?php echo $this->Session->flash(); ?>
+    <div id="container">
+        <div id="header">
+            <h1><a href="/universoideas/" class="ml15">Universoideas: Ir a la página</a></h1>
+        </div>
+        <?php include ("includes/admin_menu.html") ?>
+        <div id="content">
+            <?php echo $this->fetch('content'); ?>
+        </div>
+        <div id="footer">
+            <?php echo $this->Html->link($universoDescription, '/universoideas/articles'); ?>
+        </div>
+    </div>
+    <?php echo $this->element('sql_dump'); ?>
+    <?php echo $this->Html->script('jquery/jmenu'); ?>
+
+    <script type="text/javascript">
+//      $(document).ready(function() {
+        window.onload=function() {
+            $("#jMenu").jMenu();
+        };
+            
+//      });
+    </script>
 </body>
 </html>
