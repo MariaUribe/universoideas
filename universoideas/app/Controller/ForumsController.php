@@ -63,11 +63,13 @@ class ForumsController extends AppController {
     public function view($id = null) {
         $this->layout = 'page';
                     
+        $user = $this->Auth->user();
+        
         if (!$this->Forum->exists($id)) {
             throw new NotFoundException(__('Invalid forum'));
         }
    
-        $this->set(compact('id'));
+        $this->set(compact('id', 'user'));
     }
     
     public function forum_detail($id = null) {
