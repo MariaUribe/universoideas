@@ -80,6 +80,8 @@ class CommentsController extends AppController {
             $this->request->data['Comment']['forum_id'] = $forum_id;
             if ($this->Comment->save($this->request->data)) {
                 $this->Session->setFlash(__('Tu comentario fue enviado con éxito.'));
+                $this->publishForum($forum_id);
+                $this->publishForums();
                 $this->redirect(array('controller' => 'forums', 'action' => 'view/' . $forum_id));
             } else {
                 $this->Session->setFlash(__('El comentario no pudo ser enviado. Intenta nuevamente.'));
@@ -102,9 +104,11 @@ class CommentsController extends AppController {
             throw new NotFoundException(__('Invalid comment'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
+            $forum_id = $this->params['url']['forum_id'];
             if ($this->Comment->save($this->request->data)) {
                 $this->Session->setFlash('El comentario fue guardado exitosamente.', 'flash_success');
-                $this->redirect(array('action' => 'index?forum_id=' . $id));
+                // buscar el id del foro al que pertenece el comentario $id
+                $this->redirect(array('action' => 'index?forum_id=' . $forum_id));
             } else {
                 $this->Session->setFlash('El comentario no pudo ser guardado. Intente de nuevo.', 'flash_error');
             }
@@ -134,9 +138,33 @@ class CommentsController extends AppController {
         $this->request->onlyAllow('post', 'delete');
         if ($this->Comment->delete()) {
             $this->Session->setFlash('El comentario fue eliminado.', 'flash_success');
+            $this->publishForums();
             $this->redirect(array('action' => 'index'));
         }
         $this->Session->setFlash('El comentario no pudo ser eliminado. Intente de nuevo.', 'flash_error');
         $this->redirect(array('action' => 'index'));
+    }
+    
+    public function writeFile($data, $file_name) {
+        $file = WWW_ROOT . 'includes/published/' . $file_name . '.htm';
+        $handle = fopen($file, 'w') or die('Cannot open file:  '.$file);
+        
+        fwrite($handle, $data);
+    }
+    
+    public function publishView($view, $file_name) {
+        $result = $this->requestAction($view, array('return')); 
+        
+        $this->writeFile($result, $file_name);
+    }
+    
+    public function publishForum($id) {
+        $this->publishView("/forums/forum_detail/" . $id, "forums/forum-" . $id);
+    }
+    
+    public function publishForums() {
+        /* PUBLICAR TEMAS DEL FORO */
+        $this->publishView("/pages/forums_table", "forums_table");
+        $this->publishView("/pages/list_all_table", "list_all_table");
     }
 }
