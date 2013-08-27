@@ -4,12 +4,12 @@
 	<tr>
             <th><?php echo $this->Paginator->sort('id'); ?></th>
             <th><?php echo $this->Paginator->sort('channel', 'Canal'); ?></th>
-            <th><?php echo $this->Paginator->sort('title', 'Título'); ?></th>
+            <th class="w200"><?php echo $this->Paginator->sort('title', 'Título'); ?></th>
             <th class="w380"><?php echo $this->Paginator->sort('summary', 'Sumario'); ?></th>
             <th><?php echo $this->Paginator->sort('enabled', 'Habilitado'); ?></th>
             <th><?php echo $this->Paginator->sort('highlight', 'Destacada'); ?></th>
-            <th><?php echo $this->Paginator->sort('created', 'Creado'); ?></th>
-            <th><?php echo $this->Paginator->sort('modified', 'Modificado'); ?></th>
+            <th class="w130"><?php echo $this->Paginator->sort('created', 'Creado'); ?></th>
+            <th class="w130"><?php echo $this->Paginator->sort('modified', 'Modificado'); ?></th>
             <th class="actions"><?php echo __('Acciones'); ?></th>
         </tr>
                          
@@ -35,10 +35,10 @@
         ?>
         <?php 
             $date_created = $this->Time->format('D-F-j-Y-h:i A', $article['Article']['created']);
-            list($dia_sem_crea, $mes_crea, $dia_crea, $ano_crea) = explode('-', $date_created);
+            list($dia_sem_crea, $mes_crea, $dia_crea, $ano_crea, $hora_crea) = explode('-', $date_created);
             
             $date_modified = $this->Time->format('D-F-j-Y-h:i A', $article['Article']['modified']);
-            list($dia_sem_mod, $mes_mod, $dia_mod, $ano_mod) = explode('-', $date_modified);
+            list($dia_sem_mod, $mes_mod, $dia_mod, $ano_mod, $hora_mod) = explode('-', $date_modified);
         ?>
 	<tr>
             <td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
@@ -47,8 +47,8 @@
             <td><?php echo h($article['Article']['summary']); ?>&nbsp;</td>
             <td class="tac"><?php echo h(($article['Article']['enabled']==1?"SI":"NO")); ?>&nbsp;</td>
             <td class="tac"><?php echo h(($article['Article']['highlight']==1?"SI":"NO")); ?>&nbsp;</td>
-            <td><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) ?>&nbsp;</td>
-            <td><?php echo __($dia_sem_mod) . " " . __($mes_mod) . " " . __($dia_mod) . ", " . __($ano_mod) ?>&nbsp;</td>
+            <td><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) .  " " . $hora_crea ?>&nbsp;</td>
+            <td><?php echo __($dia_sem_mod) . " " . __($mes_mod) . " " . __($dia_mod) . ", " . __($ano_mod) .  " " . $hora_mod ?>&nbsp;</td>
             <td class="actions tal">
                 <?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $article['Article']['id'])); ?>
                 <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $article['Article']['id']), null, __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?>
