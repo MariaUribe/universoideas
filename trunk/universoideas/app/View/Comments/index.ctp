@@ -1,6 +1,6 @@
 <div class="comments index">
     <?php echo $this->Form->input('Forum.id', array('type' => 'hidden', 'value' => $forum_id)); ?> 
-    <h2><?php echo __('Commentarios del Tema: '); ?></h2>
+    <h2><?php echo __('Comentarios del Tema: '); ?></h2>
     <h3><?php echo $forum['Forum']['title']; ?></h3>
     <table cellpadding="0" cellspacing="0">
         <tr>
@@ -32,7 +32,7 @@
                 </td>
             
                 <td class="actions tac">
-                    <?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $comment['Comment']['id'])); ?>
+                    <?php echo "<a href='/universoideas/comments/edit/" . $comment['Comment']['id'] . "?forum_id=" . $forum_id . "'>Editar</a>" ?>
                     <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $comment['Comment']['id']), null, __('Are you sure you want to delete # %s?', $comment['Comment']['id'])); ?>
                 </td>
         </tr>
@@ -41,7 +41,7 @@
     <p>
     <?php
     echo $this->Paginator->counter(array(
-    'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total.')
+    'format' => __('Página {:page} de {:pages}, mostrando {:current} comentarios de {:count} en total.')
     ));
     ?>	</p>
     <div class="paging">
