@@ -1,6 +1,6 @@
 <input id="page_code" type="hidden" value="pasantias"/>
 <div id="content_col_izq">
-    <?php include ("pasantias.ctp") ?>
+    <?php include ("includes/published/pasantias.htm") ?>
 
     <div class="box mt15">&nbsp;</div>
 
