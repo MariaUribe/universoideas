@@ -225,13 +225,9 @@ class PagesController extends AppController {
     }
    
     public function home_pasantias() {
-//        $this->loadModel('Article');
-//        $this->loadModel('Enterprise');
-        
         $this->layout = 'page';
         
         $user = $this->Auth->user();
-//        $enterprises = $this->Enterprise->find('all', array('conditions' => array('Enterprise.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 15));
         
         $this->set(compact('user'));
     }
@@ -242,7 +238,6 @@ class PagesController extends AppController {
         
         $this->layout = 'page';
         
-//        $user = $this->Auth->user();
         $enterprises = $this->Enterprise->find('all', array('conditions' => array('Enterprise.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 15));
         
         $this->set(compact('enterprises'));
