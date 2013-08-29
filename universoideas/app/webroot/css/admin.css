@@ -92,3 +92,10 @@ a {
 .br-menu {
     border-right: #404040 1px solid;
 }
+
+.error_val {
+    font-weight: normal;
+    color: red;
+    font-size: 11px;
+    margin-top: 5px;
+}
