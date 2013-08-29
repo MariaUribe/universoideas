@@ -1,6 +1,6 @@
 <div class="rio">
     <div class="notas"><h2>Empresas buscando pasantes</h2></div>
-    <table width="620" cellspacing="0" cellpadding="5" class="fs10 mt15" style="border:#333 solid 1px">
+    <table width="100%" cellspacing="0" cellpadding="5" class="fs10 mt15" style="border:#333 solid 1px">
         <tr class="bg00355a colorfff">
             <td width="300">Empresa</td>
             <td width="200">Cargo-Funciones</td>
