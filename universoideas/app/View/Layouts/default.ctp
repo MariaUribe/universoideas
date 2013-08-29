@@ -35,6 +35,7 @@ $title_for_layout = 'Universoideas Admin';
         echo $this->Html->css('jMenu.jquery');
 
         echo $this->Html->script('jquery/jquery-1.9.1');
+        echo $this->Html->script('jquery/jquery.validate');
         echo $this->Html->script('generic');
 
         echo $this->fetch('meta');
