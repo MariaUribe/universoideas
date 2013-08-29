@@ -26,7 +26,7 @@
             <td><?php echo h($enterprise['Enterprise']['email']); ?>&nbsp;</td>
             <td><?php echo h($enterprise['Enterprise']['description']); ?>&nbsp;</td>
             <td><?php echo h($enterprise['Enterprise']['duration']); ?>&nbsp;</td>
-            <td><?php echo h($enterprise['Enterprise']['enabled']); ?>&nbsp;</td>
+            <td><?php echo h($enterprise['Enterprise']['enabled']==1?"SI":"NO"); ?>&nbsp;</td>
             <td><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) ?>&nbsp;</td>
             <td><?php echo __($dia_sem_mod) . " " . __($mes_mod) . " " . __($dia_mod) . ", " . __($ano_mod) ?>&nbsp;</td>
             <td class="actions">
