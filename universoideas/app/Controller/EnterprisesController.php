@@ -56,6 +56,7 @@ class EnterprisesController extends AppController {
             $this->Enterprise->create();
             if ($this->Enterprise->save($this->request->data)) {
                 $this->Session->setFlash('La información de la empresa fue creada exitosamente.', 'flash_success');
+                $this->publishPasantias();
                 $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash('La información de la empresa no pudo ser creada.', 'flash_error');
@@ -77,6 +78,7 @@ class EnterprisesController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Enterprise->save($this->request->data)) {
                 $this->Session->setFlash('La información de la empresa fue modificada exitosamente.', 'flash_success');
+                $this->publishPasantias();
                 $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash('La información de la empresa no pudo ser modificada. Intente de nuevo.', 'flash_error');
@@ -102,9 +104,29 @@ class EnterprisesController extends AppController {
         $this->request->onlyAllow('post', 'delete');
         if ($this->Enterprise->delete()) {
             $this->Session->setFlash('La información de la empresa fue eliminada.', 'flash_success');
+            $this->publishPasantias();
             $this->redirect(array('action' => 'index'));
         }
         $this->Session->setFlash('La información de la empresa no pudo ser eliminada.', 'flash_error');
         $this->redirect(array('action' => 'index'));
+    }
+    
+    
+    public function writeFile($data, $file_name) {
+        $file = WWW_ROOT . 'includes/published/' . $file_name . '.htm';
+        $handle = fopen($file, 'w') or die('Cannot open file:  '.$file);
+        
+        fwrite($handle, $data);
+    }
+    
+    public function publishView($view, $file_name) {
+        $result = $this->requestAction('/pages/' . $view, array('return')); 
+        
+        $this->writeFile($result, $file_name);
+    }
+    
+    public function publishPasantias() {
+        /* PUBLICAR MODULO DE EMPRESAS BUSCANDO PASANTES */
+        $this->publishView("pasantias", "pasantias");
     }
 }
