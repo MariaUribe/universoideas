@@ -108,6 +108,8 @@ class CommentsController extends AppController {
             if ($this->Comment->save($this->request->data)) {
                 $this->Session->setFlash('El comentario fue guardado exitosamente.', 'flash_success');
                 // buscar el id del foro al que pertenece el comentario $id
+                $this->publishForum($forum_id);
+                $this->publishForums();
                 $this->redirect(array('action' => 'index?forum_id=' . $forum_id));
             } else {
                 $this->Session->setFlash('El comentario no pudo ser guardado. Intente de nuevo.', 'flash_error');
@@ -131,15 +133,22 @@ class CommentsController extends AppController {
     * @return void
     */
     public function delete($id = null) {
+        $this->loadModel('Forum');
+        
         $this->Comment->id = $id;
         if (!$this->Comment->exists()) {
             throw new NotFoundException(__('Invalid comment'));
         }
         $this->request->onlyAllow('post', 'delete');
+        $options = array('conditions' => array('Comment.' . $this->Comment->primaryKey => $id));
+        $comment = $this->Comment->find('first', $options);
+        $forum_id = $comment['Comment']['forum_id'];
+        
         if ($this->Comment->delete()) {
             $this->Session->setFlash('El comentario fue eliminado.', 'flash_success');
+            $this->publishForum($forum_id);
             $this->publishForums();
-            $this->redirect(array('action' => 'index'));
+            $this->redirect(array('action' => 'index?forum_id=' . $forum_id));
         }
         $this->Session->setFlash('El comentario no pudo ser eliminado. Intente de nuevo.', 'flash_error');
         $this->redirect(array('action' => 'index'));

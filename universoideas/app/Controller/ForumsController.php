@@ -8,8 +8,7 @@ App::uses('AppController', 'Controller');
  */
 class ForumsController extends AppController {
     
-    public $paginate = array(
-        'conditions' => array('Forum.enabled' => 1), 
+    public $paginate = array( 
         'fields' => array('Forum.count', 'Forum.max_comment', 'Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
                         'User.id', 'User.username', 'User.name', 'User.lastname', 'User.mail', 'User.role_id'),
         'group' => array('Forum.id'),
