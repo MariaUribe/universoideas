@@ -50,7 +50,8 @@
             <td><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) .  " " . $hora_crea ?>&nbsp;</td>
             <td><?php echo __($dia_sem_mod) . " " . __($mes_mod) . " " . __($dia_mod) . ", " . __($ano_mod) .  " " . $hora_mod ?>&nbsp;</td>
             <td class="actions tal">
-                <?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $article['Article']['id'])); ?>
+                <?php echo '<a href="/articles/edit/' . $article['Article']['id'] . '">Editar</a>'; ?>
+<!--                <php echo $this->Html->link(__('Editar'), array('action' => 'edit', $article['Article']['id'])); ?>-->
                 <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $article['Article']['id']), null, __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?>
             </td>
 	</tr>
