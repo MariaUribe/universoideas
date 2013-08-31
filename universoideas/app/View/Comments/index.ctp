@@ -32,7 +32,7 @@
                 </td>
             
                 <td class="actions tac">
-                    <?php echo "<a href='/universoideas/comments/edit/" . $comment['Comment']['id'] . "?forum_id=" . $forum_id . "'>Editar</a>" ?>
+                    <?php echo "<a href='/comments/edit/" . $comment['Comment']['id'] . "?forum_id=" . $forum_id . "'>Editar</a>" ?>
 <!--                    <php echo "<a href='/universoideas/comments/delete/" . $comment['Comment']['id'] . "?forum_id=" . $forum_id . "'>Eliminar</a>" ?>-->
                     
 <!--                    <a href="#" onclick="if (confirm('¿Estás seguro que deseas eliminar el comentario # 5?')) { document.post_521eabca70de6508606410.submit(); } event.returnValue = false; return false;">Eliminar</a>-->
