@@ -58,6 +58,6 @@
 </div>
 <div class="fs11" style="color: #00355a; margin-top: 20px; font-weight: bold;">
     <?php 
-        echo "<a href='/universoideas/pages/list_all'>Ir a Mis Temas</a>";
+        echo "<a href='/pages/list_all'>Ir a Mis Temas</a>";
     ?>
 </div>
