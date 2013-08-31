@@ -47,14 +47,14 @@ $title_for_layout = 'Universoideas Admin';
     <?php echo $this->Session->flash(); ?>
     <div id="container">
         <div id="header">
-            <h1><a href="/universoideas/" class="ml15">Universoideas: Ir a la página</a></h1>
+            <h1><a href="/" class="ml15">Universoideas: Ir a la página</a></h1>
         </div>
         <?php include ("includes/admin_menu.html") ?>
         <div id="content">
             <?php echo $this->fetch('content'); ?>
         </div>
         <div id="footer">
-            <?php echo $this->Html->link($universoDescription, '/universoideas/articles'); ?>
+            <?php echo $this->Html->link($universoDescription, '/articles'); ?>
         </div>
     </div>
     <?php echo $this->element('sql_dump'); ?>
