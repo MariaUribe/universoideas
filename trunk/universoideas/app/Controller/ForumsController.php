@@ -117,7 +117,8 @@ class ForumsController extends AppController {
                 $this->Session->setFlash('El foro fue guardado exitosamente.', 'flash_success');
                 $this->publishForum($forum_id);
                 $this->publishForums();
-                $this->redirect(array('controller' => 'pages','action' => 'forums'));
+//                $this->redirect(array('controller' => 'pages','action' => 'forums'));
+                $this->redirect("/pages/forums"); 
             } else {
                 $this->Session->setFlash('El foro no pudo ser guardado. Intente de nuevo.', 'flash_error');
             }
