@@ -4,7 +4,7 @@
         <ol>
             <?php 
                 foreach ($articles_dest as $article) { 
-                    echo "<li><a href='/universoideas/pages/article?id=" . $article['art']['id'] . "'>" . $article['art']['title'] . "</a></li>";
+                    echo "<li><a href='/pages/article?id=" . $article['art']['id'] . "'>" . $article['art']['title'] . "</a></li>";
                 }
             ?>
         </ol>

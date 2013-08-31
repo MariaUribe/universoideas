@@ -77,14 +77,14 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
         $('#buscarText')
             .keypress( function(event) {
                 if(event.keyCode==13) {
-                    window.location = "/universoideas/pages/search_all?q=" + $('#buscarText').val();
+                    window.location = "pages/search_all?q=" + $('#buscarText').val();
                     return false;
                 }
             });
             
             $('#buscarButton')
                 .click( function() {
-                    window.location = "/universoideas/pages/search_all?q=" + $('#buscarText').val();
+                    window.location = "pages/search_all?q=" + $('#buscarText').val();
             });
     });
 </script>
@@ -102,9 +102,9 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
         <?php 
             if(!empty($user)) {
                 echo "<span>Bienvenido, " . $user['username']. "</span><br><br>";
-                echo "<span><a href='/universoideas/users/edit/" . $user['id'] . "' class='fff'>Mi Perfil</a> | <a href='/universoideas/users/logout' class='fff'>Cerrar Sesión</a></span>";
+                echo "<span><a href='/users/edit/" . $user['id'] . "' class='fff'>Mi Perfil</a> | <a href='/users/logout' class='fff'>Cerrar Sesión</a></span>";
             } else {
-                echo "<span><a href='/universoideas/users/login' class='fff'>Registrate / Inicia Sesión</a></span>";
+                echo "<span><a href='/users/login' class='fff'>Registrate / Inicia Sesión</a></span>";
             }
         ?>
     </div>
@@ -117,27 +117,25 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
 
 <div class="menu mt15">
     <ul class="">
-        <li><a class="selec1" href="/universoideas/pages/home">Inicio</a></li>
+        <li><a class="selec1" href="/">Inicio</a></li>
         <li>|</li>
-        <li><a class="selec2" href="/universoideas/pages/cronograma">Calendario</a></li>
+        <li><a class="selec2" href="/pages/cronograma">Calendario</a></li>
         <li>|</li>
         <li><a class="selec3" href="">Vida Universitaria</a></li>
         <li>|</li>
-        <li><a class="selec4" href="/universoideas/pages/encuentrame">Encuéntrame</a></li>
+        <li><a class="selec4" href="/pages/encuentrame">Encuéntrame</a></li>
         <li>|</li>
-        <li><a class="selec5" href="/universoideas/pages/home_pasantias">Pasantías</a></li>
+        <li><a class="selec5" href="/pages/home_pasantias">Pasantías</a></li>
         <li>|</li>
-        <li><a class="selec6" href="">Soy emprendedor</a></li>
+        <li><a class="selec7" href="/pages/forums">Foros </a></li>
         <li>|</li>
-        <li><a class="selec7" href="/universoideas/pages/forums">Foros </a></li>
-        <li>|</li>
-        <li><a class="selec8" href="/universoideas/pages/contacto">Conócenos</a></li>
+        <li><a class="selec8" href="/pages/contacto">Conócenos</a></li>
         
         <?php 
             if(!empty($user)) {
                 if($user['role_id'] == '1') { 
                     echo "<li>|</li>";
-                    echo "<li><a href='/universoideas/articles'>Administración</a></li>";
+                    echo "<li><a href='/articles'>Administración</a></li>";
                 }
             }
         ?>

@@ -35,11 +35,11 @@
                         
                         echo "<div class='box oh'>";
                         echo "<input id='event_id' type='hidden' value='" . $event['event']['id'] . "'/>";
-                        echo "<a href='/universoideas/pages/event?id=" . $event['event']['id'] . "'><strong>" . $event['event']['name'] . "</strong></a>";
+                        echo "<a href='/pages/event?id=" . $event['event']['id'] . "'><strong>" . $event['event']['name'] . "</strong></a>";
                         echo "<div class='dia'>" . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) . "</div>";
                         echo "<div>";
                         echo $event['event']['description'];
-                        echo "<div><a href='/universoideas/pages/event?id=" . $event['event']['id'] . "' class='sleyendo'>Ir al detalle &raquo;</a></div>";
+                        echo "<div><a href='/pages/event?id=" . $event['event']['id'] . "' class='sleyendo'>Ir al detalle &raquo;</a></div>";
                         echo "</div>";
                         echo "</div>";
                         

@@ -35,11 +35,11 @@
                         
                         echo "<div class='box oh'>";
                         echo "<input id='curso_id' type='hidden' value='" . $curso['curso']['id'] . "'/>";
-                        echo "<a href='/universoideas/pages/curso?id=" . $curso['curso']['id'] . "'><strong>" . $curso['curso']['name'] . "</strong></a>";
+                        echo "<a href='/pages/curso?id=" . $curso['curso']['id'] . "'><strong>" . $curso['curso']['name'] . "</strong></a>";
                         echo "<div class='dia'>" . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) . "</div>";
                         echo "<div>";
                         echo $curso['curso']['description'];
-                        echo "<div><a href='/universoideas/pages/curso?id=" . $curso['curso']['id'] . "' class='sleyendo'>Ir al detalle &raquo;</a></div>";
+                        echo "<div><a href='/pages/curso?id=" . $curso['curso']['id'] . "' class='sleyendo'>Ir al detalle &raquo;</a></div>";
                         echo "</div>";
                         echo "</div>";
                         

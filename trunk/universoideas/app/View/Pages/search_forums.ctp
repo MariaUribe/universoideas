@@ -36,11 +36,11 @@
                         
                         echo "<div class='box oh'>";
                         echo "<input id='forum_id' type='hidden' value='" . $forum['forum']['id'] . "'/>";
-                        echo "<a href='/universoideas/forums/view/" . $forum['forum']['id'] . "'><strong>" . $forum['forum']['title'] . "</strong></a>";
+                        echo "<a href='/forums/view/" . $forum['forum']['id'] . "'><strong>" . $forum['forum']['title'] . "</strong></a>";
                         echo "<div class='fs11'> Creado por: " . $forum['user']['username'] . " » " . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) .  " " . $hora  . "</div>";
                         echo "<div class='mt10'>";
                         echo $forum['forum']['content'];
-                        echo "<div><a href='/universoideas/forums/view/" . $forum['forum']['id'] . "' class='sleyendo'>Ir al detalle &raquo;</a></div>";
+                        echo "<div><a href='/forums/view/" . $forum['forum']['id'] . "' class='sleyendo'>Ir al detalle &raquo;</a></div>";
                         echo "</div>";
                         echo "</div>";
                         

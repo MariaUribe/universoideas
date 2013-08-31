@@ -34,11 +34,11 @@
                         
                         echo "<div class='box oh'>";
                         echo "<input id='article_id' type='hidden' value='" . $article['article']['id'] . "'/>";
-                        echo "<a href='/universoideas/pages/article?id=" . $article['article']['id'] . "'><strong>" . $article['article']['title'] . "</strong></a>";
+                        echo "<a href='/pages/article?id=" . $article['article']['id'] . "'><strong>" . $article['article']['title'] . "</strong></a>";
                         echo "<div class='dia'>" . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) . "</div>";
                         echo "<div>";
                         echo $article['article']['summary'];
-                        echo "<div><a href='/universoideas/pages/article?id=" . $article['article']['id'] . "' class='sleyendo'>Ir al detalle &raquo;</a></div>";
+                        echo "<div><a href='/pages/article?id=" . $article['article']['id'] . "' class='sleyendo'>Ir al detalle &raquo;</a></div>";
                         echo "</div>";
                         echo "</div>";
                         

@@ -1,7 +1,7 @@
 <div class="notas"><h2>Mis Temas</h2></div>
 
 <div class="boton fs11 mt20 mb20">
-    <a href="/universoideas/forums/add" class="mt20" style="cursor: pointer;">Nuevo Tema</a>
+    <a href="/forums/add" class="mt20" style="cursor: pointer;">Nuevo Tema</a>
 </div>
 <?php if(!empty($forums)) {?>
     <table id="table-forums" width="570" cellspacing="0" cellpadding="5" class="display fs10 mt15 mb5" style="border:#333 solid 1px">
@@ -30,9 +30,9 @@
                     if (($cont % 2) == 1)
                         echo "<tr class='bgbebe'>";
 
-                    echo "<td><a href='/universoideas/forums/view/" . $forum['Forum']['id']."' style='font-weight: bold; font-size: 12px'>" . $forum['Forum']['title'] . "</a>" . 
+                    echo "<td><a href='/forums/view/" . $forum['Forum']['id']."' style='font-weight: bold; font-size: 12px'>" . $forum['Forum']['title'] . "</a>" . 
                             "<br> Creado por: " . $forum['User']['username'] . " » " . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) .  " " . $hora .
-                            "<br> <a href='/universoideas/forums/edit_forum/" . $forum['Forum']['id']."' style='font-weight: bold; text-decoration: underline;'>Editar</a>". "</td>";
+                            "<br> <a href='/forums/edit_forum/" . $forum['Forum']['id']."' style='font-weight: bold; text-decoration: underline;'>Editar</a>". "</td>";
                     echo "<td class='tac'>" . $forum['Forum']['count'] . "</td>";
 
                     if($date_comment !== "")
@@ -59,7 +59,7 @@
 <?php } ?>
 
 <div class="boton fs11 mt35">
-    <a href="/universoideas/forums/add" class="mt20" style="cursor: pointer;">Nuevo Tema</a>
+    <a href="/forums/add" class="mt20" style="cursor: pointer;">Nuevo Tema</a>
 </div>
 
 <div class="box mt15">&nbsp;</div>
