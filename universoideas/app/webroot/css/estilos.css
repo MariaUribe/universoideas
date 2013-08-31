@@ -184,3 +184,46 @@ p.thumb a:hover img{ border:1px solid #999; background:#fff; padding:2px; }
     border: #030303 1px solid;
     cursor: pointer;
 }
+
+.message {
+    margin: 0px;
+    border: solid 1px #C0F0B9;
+    background: #D5FFC6;
+    color: #48A41C;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    border-color: #55a12c;
+    font-size: 12px;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.success-jq {
+    margin: 0px;
+    border: solid 1px #C0F0B9;
+    background: #D5FFC6;
+    color: #48A41C;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    border-color: #55a12c;
+    font-size: 12px;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+#flashMessage p {
+    margin: 5px;
+}
+
+/* error
+padding:2px 4px;
+margin:0px;
+border:solid 1px #FBD3C6;
+background:#FDE4E1;
+color:#CB4721;
+font-family:Arial, Helvetica, sans-serif;
+font-size:14px;
+font-weight:bold;
+text-align:center;*/
