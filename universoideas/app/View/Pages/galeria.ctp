@@ -21,7 +21,7 @@
 
                 echo "<li class='slider1Image'>";
                 echo "<input id='article_id' type='hidden' value='" . $article['art']['id'] . "'/>";
-                echo "<a href='/universoideas/pages/article?id=" . $article['art']['id'] . "'>";
+                echo "<a href='/pages/article?id=" . $article['art']['id'] . "'>";
                 echo $this->Html->image($article['img']['uri'], array('width' => '550', 'height' => '266'));
                 
                 echo "<span class='gright'>";
