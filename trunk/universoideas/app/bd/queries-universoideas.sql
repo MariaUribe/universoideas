@@ -6,6 +6,9 @@ select *
 from estudiantes.related_videos;
 -- where article_id = 1;
 
+select * 
+from estudiantes.questions;
+
 select *
 from estudiantes.articles
 where enabled = 1
@@ -34,10 +37,17 @@ limit 5;
 
 select * 
 from estudiantes.articles
-where enabled = 1
-order by modified desc, id asc
-limit 5;
+where enabled = 0
+order by id asc;
+-- limit 5;
 
+select * 
+from estudiantes.forums
+order by id asc;
+
+select * 
+from estudiantes.cursos
+order by id asc;
 
 select *
 from estudiantes.events
@@ -47,6 +57,8 @@ order by event_date desc;
 select *
 from estudiantes.users;
 
+select *
+from estudiantes.emprendedores;
 
 select *
 from estudiantes.roles;
@@ -105,6 +117,13 @@ GROUP BY forum.id
 ORDER BY forum.modified desc
 LIMIT 100;
 
+
+ALTER DATABASE estudiantes CHARACTER SET utf8 COLLATE ISO-8859-1;
+
+
+
+select * 
+from estudiantes.questions;
 
 
 select *
@@ -185,12 +204,28 @@ WHERE (curso.name LIKE '%dolor%'
 AND curso.enabled = 1
 LIMIT 5;
 
-SELECT forum.id, forum.title, forum.content, forum.enabled, forum.created, forum.modified 
+SELECT forum.id, forum.title, forum.content, forum.enabled, forum.created, forum.modified, user.username 
 FROM estudiantes.forums forum 
+LEFT JOIN estudiantes.users user ON user.id = forum.user_id
 WHERE (forum.title LIKE '%dolor%'
 	   OR forum.content LIKE '%dolor%')
 AND forum.enabled = 1
 LIMIT 5;
 
 
+select * from estudiantes.users; 
 
+SELECT user.id, user.username, user.name, user.lastname, user.mail, user.role_id
+FROM estudiantes.users user
+WHERE user.mail = 'mariale.uribe@gmail.com';
+
+UPDATE `estudiantes`.`users` SET `mail` = 'mariale.uribe@gmail.com', `id` = 4, `password` = 'efe96bad621fca17332bd9dd1a4b304ef7ae0865', `modified` = '2013-08-19'
+WHERE `estudiantes`.`users`.`id` = '4';
+
+UPDATE `estudiantes`.`users` SET `mail` = 'mariale.uribe@gmail.com', `password` = '44a3ebd4efddb3902afdc1e63c06d63f89389537', `modified` = '2013-08-19' WHERE `estudiantes`.`users`.`id` = '4';
+
+ALTER TABLE `estudiantes`.`users` CHANGE COLUMN `twitter` `twitter` VARCHAR(15) NULL DEFAULT NULL  ;
+
+ALTER TABLE `estudiantes`.`users` ADD COLUMN `is_enterprise` TINYINT(1) NOT NULL  AFTER `twitter` ;
+
+ALTER TABLE `estudiantes`.`emprendedores` ADD COLUMN `resume` VARCHAR(600) NOT NULL  AFTER `title` ;
