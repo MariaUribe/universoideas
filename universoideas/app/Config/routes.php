@@ -40,6 +40,7 @@
 	Router::connect('/pages/home_pasantias', array('controller' => 'pages', 'action' => 'home_pasantias'));
 	Router::connect('/pages/forums', array('controller' => 'pages', 'action' => 'forums'));
 	Router::connect('/pages/list_all', array('controller' => 'pages', 'action' => 'list_all'));
+	Router::connect('/pages/mis_emprendimientos', array('controller' => 'pages', 'action' => 'mis_emprendimientos'));
 	Router::connect('/pages/encuentrame', array('controller' => 'pages', 'action' => 'encuentrame'));
 	Router::connect('/pages/arte', array('controller' => 'pages', 'action' => 'arte'));
 	Router::connect('/pages/ciencia', array('controller' => 'pages', 'action' => 'ciencia'));
