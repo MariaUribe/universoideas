@@ -1,8 +1,8 @@
 BODY{ background-color:#fff; font-family:Verdana, Geneva, sans-serif; margin:0 auto} 
 body#index a.selec1,body#calendario a.selec2,body#vida a.selec3,body#encuentrame a.selec4,body#pasantias a.selec5,body#emprendedor a.selec6,body#foros a.selec7,body#conocenos a.selec8{ color: #960!important; text-decoration:underline; padding:5px 10px;  background:#fff; }
 DIV {}
+SPAN { padding-left:10px}
 IMG {border:0px}
-SPAN{margin-left:10px}
 A{text-decoration:none;}
 A:HOVER{text-decoration:underline}
 TR{ vertical-align:top; }
@@ -18,16 +18,16 @@ TD A{color:#00355a}
 .sprite-lupa{background-position:0 0}
 .logo{ float:left; margin:10px; padding:15px}
 .sleyendo{ font-size:10px; float:right; margin:10px; color:#004080}
-.menu{ clear:both;background-image:url(/universoideas/img/back_menu.png);background-repeat:repeat-x; padding:5px; overflow:hidden; border-top:#FFF 1px solid ; margin-top:15px}
-.menu UL { margin:0 0 0 -30px!important}
+.menu{ height:14px; clear:both;background-image:url(/universoideas/img/back_menu.png);background-repeat:repeat-x; padding:5px; overflow:hidden; border-top:#FFF 1px solid ; margin-top:15px}
+.menu UL { margin:0!important}
 .menu UL LI{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:12px; font-weight:bold; list-style:none; margin-right:5px;color:#FFFFFF}
 .menu UL LI A{color:#FFFFFF}
 .menu UL LI A{color:#FFFFFF}
 
 .publicidad{ font-size:6px; color:#424242;}
-.siguenos{ font-family:Verdana, Geneva, sans-serif; font-size:10px; font-weight:bold; border:1px solid #666; overflow:hidden; background-color:#ddd}
+.siguenos{ font-family:Verdana, Geneva, sans-serif; font-size:10px; font-weight:bold; border:1px solid #666; overflow:hidden; background-color:#ddd; padding-left:10px}
 /*SPRITE*/
-.redes span{ background-image:url(/universoideas/img/icons/sprite_redes.png); background-repeat:no-repeat; display: inline;width:31px;height:42px;cursor: pointer}
+.redes span{ background-image:url(/universoideas/img/icons/sprite_redes.png); background-repeat:no-repeat; display: inline;width:28px;height:42px;cursor: pointer}
 .twitter{ background-position:0 0 }
 .facebook{ background-position:-42px 0}
 .youtube{ background-position:-82px 0}
@@ -82,8 +82,11 @@ TD A{color:#00355a}
 .p5{ padding:5px}
 .b1333{ border:#333 solid 1px}
 .w400{ width:400px}
+.w450{ width:450px}
+.w500{ width:500px}
 .oh{ overflow:hidden}
 .vam{vertical-align: middle}
+.vat{vertical-align: top}
 .h30{height: 30px}
 
 .span-pag {
@@ -217,13 +220,29 @@ p.thumb a:hover img{ border:1px solid #999; background:#fff; padding:2px; }
     margin: 5px;
 }
 
-/* error
-padding:2px 4px;
-margin:0px;
-border:solid 1px #FBD3C6;
-background:#FDE4E1;
-color:#CB4721;
-font-family:Arial, Helvetica, sans-serif;
-font-size:14px;
-font-weight:bold;
-text-align:center;*/
+.cpointer {
+    cursor: pointer;
+}
+
+.lh14 {
+    line-height: 14px;
+}
+
+.menu2 {padding:0; margin:0; margin-bottom:0; list-style:none; position: absolute; font-family:arial, verdana, sans-serif; z-index:9999999 }
+.menu2 li.top {display:block; float:left; position:relative;}
+.menu2 li a.top_link {display:block; height:25px; color:#fff; text-decoration:none; cursor:pointer;}
+.menu2 li a.top_link span { display:block;}
+.menu2 li a.top_link:hover {color:#fff;}
+.menu2 li:hover > a.top_link {color:#fff;}
+.menu2 table {border-collapse:collapse; width:0; height:0; position:absolute; top:0; left:0;}
+.menu2 a:hover {visibility:visible;}
+.menu2 li:hover {position:relative; z-index:200;}
+.menu2 ul, 
+.menu2 :hover ul ul, 
+.menu2 :hover ul :hover ul ul,
+.menu2 :hover ul :hover ul :hover ul ul,
+.menu2 :hover ul :hover ul :hover ul :hover ul ul {position:absolute; left:-9999px; top:-9999px; width:0; height:0; margin:0; padding:0; list-style:none;}
+.menu2 :hover ul.sub {left:6px; top:20px; background:#003355; padding:0; width: 152px; height:auto; font-weight:normal; color:#fff}
+.menu2 :hover ul.sub li {display:block; /*height:20px; */position:relative; float:left; width: 150px; border-bottom:1px solid #999; border-left:1px solid #999; border-right:1px solid #999; margin-bottom:0;}
+.menu2 :hover ul.sub li a {display:block; height:auto; font-size:11px; padding:4px 3px; line-height:1; color:#fff; text-decoration:none;}
+.menu2 :hover ul.sub li a:hover {background:#fff; color:#960;}
