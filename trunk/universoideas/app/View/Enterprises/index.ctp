@@ -1,5 +1,7 @@
 <div class="enterprises index">
     <h2><?php echo __('Empresas'); ?></h2>
+    <h3><?php echo __('Sección para el manejo de empresas buscando pasantes'); ?></h3>
+
     <table cellpadding="0" cellspacing="0">
         <tr>
             <th><?php echo $this->Paginator->sort('id'); ?></th>
