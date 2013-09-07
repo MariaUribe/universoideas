@@ -49,15 +49,20 @@ class PagesController extends AppController {
         parent::beforeFilter();
         $this->Auth->allow(array('article', 'display', 'home', 'contacto', 'cronograma', 'home_pasantias', 
                                  'encuentrame', 'forums', 'arte', 'ciencia', 'moda', 'rumba', 'sexualidad', 
-                                 'event', 'curso', 'search_all', 'search_articles', 'search_events', 
-                                 'search_cursos', 'search_forums'));
+                                 'event', 'curso', 'search_all', 'search_articles', 'search_events', 'search_cursos', 
+                                 'search_forums'));
         
         $user = $this->Auth->user();
 
         if(!empty($user)) {
-            $this->Auth->allow(array('list_all'));
+            if(($user['role_id'] === '1') || ($user['role_id'] === '3')) // administrador o empresa 
+                $this->Auth->allow(array('list_all', 'list_all_table', 'forums_table', 'mis_emprendimientos','emprendedores_table', 'mis_emprendimientos_table', 'emprendedores'));
+            else {
+                $this->Auth->allow(array('list_all', 'list_all_table', 'forums_table', 'mis_emprendimientos','emprendedores_table', 'mis_emprendimientos_table'));
+                $this->Auth->deny(array('emprendedores'));
+            }   
         } else {
-            $this->Auth->deny(array('list_all'));
+            $this->Auth->deny(array('list_all', 'list_all_table','forums_table', 'mis_emprendimientos','emprendedores_table', 'mis_emprendimientos_table', 'emprendedores'));
         }
     }
 
@@ -277,22 +282,77 @@ class PagesController extends AppController {
         $this->set(compact('forums'));
     }
     
-    public function list_all() {       
+    public function emprendedores() {
         $this->layout = 'page';
         
-        $user_id = $this->Auth->user('id');
         $user = $this->Auth->user();
-             
+        
         $this->set(compact('user'));
     }
     
-    public function list_all_table() {
+    public function emprendedores_table() {
+        $this->loadModel('Emprendedore');
+        
+        $this->layout = 'page';
+        $emprendedores = $this->Emprendedore->find('all', array('conditions' => array('Emprendedore.status' => 'AP'), 'limit' => 80));
+
+        $this->set(compact('emprendedores'));
+    }
+    
+    public function mis_emprendimientos($id = null) {
+        $this->loadModel('Emprendedore');
+        $this->layout = 'page';
+        
+        $has_emp = false;
+        $user = $this->Auth->user();
+        $emprendedores = $this->Emprendedore->find('all', array('conditions' => array('Emprendedore.user_id' => $user['id']), 'limit' => 80));
+        
+        if(sizeof($emprendedores) > 0)
+            $has_emp = true;
+        else
+            $has_emp = false;
+        
+        $this->set(compact('user', 'has_emp'));
+    }
+    
+    public function mis_emprendimientos_table($user_id = null) {
+        $this->loadModel('Emprendedore');
+        
+        $this->layout = 'page';
+//        $user_id = $this->Auth->user('id');
+        $user = $this->Auth->user();
+        
+        $emprendedores = $this->Emprendedore->find('all', array('conditions' => array('Emprendedore.user_id' => $user_id), 'limit' => 80));
+
+        $this->set(compact('emprendedores', 'user'));
+    }
+    
+    public function list_all() {
+        $this->loadModel('Forum');
+        $this->layout = 'page';
+        
+        $has_forum = false;
+        $user_id = $this->Auth->user('id');
+        $user = $this->Auth->user();
+        unset($this->Forum->virtualFields['count']);
+        unset($this->Forum->virtualFields['max_comment']);
+        $forums = $this->Forum->find('all', array('conditions' => array('Forum.user_id' => $user['id']), 'limit' => 80));
+        
+        if(sizeof($forums) > 0)
+            $has_forum = true;
+        else
+            $has_forum = false;
+             
+        $this->set(compact('user', 'has_forum'));
+    }
+    
+    public function list_all_table($user_id = null) {
         $this->loadModel('Forum');
         $this->loadModel('Comment');
         
         $this->layout = 'page';
         
-        $user_id = $this->Auth->user('id');
+//        $user_id = $this->Auth->user('id');
         $user = $this->Auth->user();
         
         $forums = $this->Forum->find('all', array('conditions' => array('Forum.user_id' => $user_id), 
