@@ -186,6 +186,14 @@ function cancelChangePassword() {
     $('.new_pass').css('display', 'none');
 }
 
+function changeAnswer() {
+    $('.new_ans').css('display', '');
+}
+
+function cancelChangeAnswer() {
+    $('.new_ans').css('display', 'none');
+}
+
 function setMenuSelected() {
     var page = $('#page_code').val();
     $('body').attr('id', page);
