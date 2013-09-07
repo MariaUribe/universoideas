@@ -19,6 +19,18 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `estudiantes`.`questions`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `estudiantes`.`questions` ;
+
+CREATE  TABLE IF NOT EXISTS `estudiantes`.`questions` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `question` VARCHAR(200) NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `estudiantes`.`users`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `estudiantes`.`users` ;
@@ -34,11 +46,20 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`users` (
   `gender` VARCHAR(1) NOT NULL ,
   `created` DATE NOT NULL ,
   `modified` DATE NOT NULL ,
+  `twitter` VARCHAR(15) NULL ,
+  `is_enterprise` TINYINT(1) NOT NULL ,
+  `securityAnswer` VARCHAR(100) NOT NULL ,
+  `question_id` INT NOT NULL ,
   `role_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
   CONSTRAINT `fk_users_roles1`
     FOREIGN KEY (`role_id` )
     REFERENCES `estudiantes`.`roles` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_users_questions1`
+    FOREIGN KEY (`question_id` )
+    REFERENCES `estudiantes`.`questions` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -46,6 +67,10 @@ ENGINE = InnoDB;
 CREATE UNIQUE INDEX `username_UNIQUE` ON `estudiantes`.`users` (`username` ASC) ;
 
 CREATE INDEX `fk_users_roles1_idx` ON `estudiantes`.`users` (`role_id` ASC) ;
+
+CREATE UNIQUE INDEX `mail_UNIQUE` ON `estudiantes`.`users` (`mail` ASC) ;
+
+CREATE INDEX `fk_users_questions1_idx` ON `estudiantes`.`users` (`question_id` ASC) ;
 
 
 -- -----------------------------------------------------
@@ -61,8 +86,8 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`articles` (
   `channel` VARCHAR(20) NOT NULL ,
   `highlight` TINYINT(1) NOT NULL ,
   `enabled` TINYINT(1) NOT NULL ,
-  `created` DATE NOT NULL ,
-  `modified` DATE NOT NULL ,
+  `created` DATETIME NOT NULL ,
+  `modified` DATETIME NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -245,7 +270,7 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`enterprises` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `enterprise` VARCHAR(65) NOT NULL ,
   `email` VARCHAR(45) NOT NULL ,
-  `description` VARCHAR(150) NOT NULL ,
+  `description` VARCHAR(1500) NOT NULL ,
   `duration` VARCHAR(50) NOT NULL ,
   `enabled` TINYINT(1) NOT NULL ,
   `created` DATE NOT NULL ,
@@ -277,9 +302,53 @@ ENGINE = InnoDB;
 
 CREATE INDEX `fk_postulations_users1_idx` ON `estudiantes`.`postulations` (`user_id` ASC) ;
 
+
+-- -----------------------------------------------------
+-- Table `estudiantes`.`emprendedores`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `estudiantes`.`emprendedores` ;
+
+CREATE  TABLE IF NOT EXISTS `estudiantes`.`emprendedores` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `title` VARCHAR(100) NOT NULL ,
+  `resume` VARCHAR(600) NOT NULL ,
+  `description` VARCHAR(1500) NOT NULL ,
+  `status` VARCHAR(2) NOT NULL ,
+  `created` DATETIME NOT NULL ,
+  `modified` DATETIME NOT NULL ,
+  `user_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  CONSTRAINT `fk_emprendedores_users1`
+    FOREIGN KEY (`user_id` )
+    REFERENCES `estudiantes`.`users` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+CREATE INDEX `fk_emprendedores_users1_idx` ON `estudiantes`.`emprendedores` (`user_id` ASC) ;
+
 USE `estudiantes` ;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `estudiantes`.`questions`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `estudiantes`;
+INSERT INTO `estudiantes`.`questions` (`id`, `question`) VALUES (1, '¿Cuál era tu sobrenombre de niño?');
+INSERT INTO `estudiantes`.`questions` (`id`, `question`) VALUES (2, '¿Cuál era el nombre de tu mejor amigo en la infancia?');
+INSERT INTO `estudiantes`.`questions` (`id`, `question`) VALUES (3, '¿Cuál es el segundo nombre de tu hijo mayor?');
+INSERT INTO `estudiantes`.`questions` (`id`, `question`) VALUES (4, '¿Cuál es el nombre de tu primer colegio?');
+INSERT INTO `estudiantes`.`questions` (`id`, `question`) VALUES (5, '¿Cuál es el nombre de tu primera mascota?');
+INSERT INTO `estudiantes`.`questions` (`id`, `question`) VALUES (6, '¿En qué ciudad se conocieron tus padres?');
+INSERT INTO `estudiantes`.`questions` (`id`, `question`) VALUES (7, '¿Cuándo es el cumpleaños de tu hermano (a) mayor?');
+INSERT INTO `estudiantes`.`questions` (`id`, `question`) VALUES (8, '¿Cuál es el segundo nombre de tu abuela materna?');
+INSERT INTO `estudiantes`.`questions` (`id`, `question`) VALUES (9, '¿Cuál es tu libro favorito y quién es el autor?');
+INSERT INTO `estudiantes`.`questions` (`id`, `question`) VALUES (10, '¿Cómo se llamaba tu profesor favorito?');
+INSERT INTO `estudiantes`.`questions` (`id`, `question`) VALUES (11, '¿Cuál es tu canción favorita?');
+
+COMMIT;
