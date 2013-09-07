@@ -30,6 +30,7 @@
                 <?php echo $this->Html->link($forum['User']['name'], array('controller' => 'users', 'action' => 'view', $forum['User']['id'])); ?>
             </td>
             <td class="actions tac">
+                <?php echo $this->Html->link(__('View'), array('action' => 'view', $forum['Forum']['id'])); ?>
                 <?php echo $this->Html->link(__('Ver Comentarios'), array('controller' => 'comments', 'action' => 'index?forum_id=' . $forum['Forum']['id'])); ?>
                 <?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $forum['Forum']['id'])); ?>
 <!--                <php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $forum['Forum']['id']), null, __('Are you sure you want to delete # %s?', $forum['Forum']['id'])); ?>-->

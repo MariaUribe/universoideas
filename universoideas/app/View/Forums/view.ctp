@@ -1,6 +1,6 @@
 <input id="page_code" type="hidden" value="foros"/>
 <div id="content_col_izq">
-    <?php include ("includes/published/forums/forum-" . $id . ".htm") ?>
+    <?php include ("includes/published/forums/detail/forum-" . $id . ".htm") ?>
 </div>
 
 <div id="content_col_der">
