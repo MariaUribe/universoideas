@@ -45,6 +45,11 @@ class User extends AppModel {
             'notempty' => array(
                     'rule' => array('notempty')
             )
+        ),
+        'securityAnswer' => array(
+            'notempty' => array(
+                    'rule' => array('notempty')
+            )
         )
 //        'role' => array(
 //            'valid' => array(
@@ -75,6 +80,13 @@ class User extends AppModel {
             'Role' => array(
                     'className' => 'Role',
                     'foreignKey' => 'role_id',
+                    'conditions' => '',
+                    'fields' => '',
+                    'order' => ''
+            ),
+            'Question' => array(
+                    'className' => 'Question',
+                    'foreignKey' => 'question_id',
                     'conditions' => '',
                     'fields' => '',
                     'order' => ''
@@ -138,4 +150,23 @@ class User extends AppModel {
                     'insertQuery' => ''
             )
     );
+    
+    /*function createTempPassword($len) {
+        $pass = '';
+        $lchar = 0;
+        $char = 0;
+        
+        for($i = 0; $i < $len; $i++) {
+            while($char == $lchar) {
+                $char = rand(48, 109);
+                if($char > 57) $char += 7;
+                if($char > 90) $char += 6;
+            }
+
+            $pass .= chr($char);
+            $lchar = $char;
+        }
+
+        return $pass;
+    }*/
 }
