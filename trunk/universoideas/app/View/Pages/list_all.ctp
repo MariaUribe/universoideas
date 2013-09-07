@@ -10,7 +10,16 @@
 
 <input id="page_code" type="hidden" value="foros"/>
 <div id="content_col_izq" class="fs11">
-    <?php include('includes/published/list_all_table.htm'); ?>
+    <?php 
+        if($has_forum === true)
+            include('includes/published/forums/rios/list_all_table_' . $user['id'] . '.htm' );
+        else {
+            echo "<div>Usted no ha creado ningún tema en el foro aún. Para crearlo puede hacerlo haciendo click aquí:</div>";
+            echo '<div class="boton fs11 mt20 mb20">';
+            echo '<a href="/forums/add" class="mt20" style="cursor: pointer;">Nuevo Tema</a>';
+            echo '</div>';
+        }
+    ?>
 </div>
 
 <div id="content_col_der">
