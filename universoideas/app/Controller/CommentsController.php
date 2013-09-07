@@ -70,21 +70,31 @@ class CommentsController extends AppController {
     * @return void
     */
     public function add() {
+        $this->loadModel('Forum');
         $this->layout = 'page';
         $this->set(compact('users', 'user'));
         $user = $this->Auth->user();
+        
         if ($this->request->is('post')) {
             $this->Comment->create();
             $this->request->data['Comment']['user_id'] = $user['id'];
             $forum_id = $this->params['url']['forum_id'];
             $this->request->data['Comment']['forum_id'] = $forum_id;
+            
+            $options = array('conditions' => array('Forum.' . $this->Forum->primaryKey => $forum_id),
+                             'fields' => array('Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
+                                               'User.id', 'User.username', 'User.name', 'User.lastname', 'User.mail', 'User.role_id'),
+                             );
+            $forum = $this->Forum->find('first', $options);
+            $user_id = $forum['Forum']['user_id'];
+            
             if ($this->Comment->save($this->request->data)) {
-                $this->Session->setFlash(__('Tu comentario fue enviado con éxito.'));
+                $this->Session->setFlash('Tu comentario fue enviado exitosamente.', 'flash_success');
                 $this->publishForum($forum_id);
-                $this->publishForums();
+                $this->publishForums($user_id);
                 $this->redirect(array('controller' => 'forums', 'action' => 'view/' . $forum_id));
             } else {
-                $this->Session->setFlash(__('El comentario no pudo ser enviado. Intenta nuevamente.'));
+                $this->Session->setFlash('Tu comentario no pudo ser enviado. Intente de nuevo.', 'flash_error');
             }
         }
         $forums = $this->Comment->Forum->find('list');
@@ -100,16 +110,27 @@ class CommentsController extends AppController {
     * @return void
     */
     public function edit($id = null) {
+        $this->loadModel('Forum');
+        $user = $this->Auth->user();
+        
         if (!$this->Comment->exists($id)) {
             throw new NotFoundException(__('Invalid comment'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             $forum_id = $this->params['url']['forum_id'];
+            
+            $options = array('conditions' => array('Forum.' . $this->Forum->primaryKey => $forum_id),
+                             'fields' => array('Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
+                                               'User.id', 'User.username', 'User.name', 'User.lastname', 'User.mail', 'User.role_id'),
+                             );
+            $forum = $this->Forum->find('first', $options);
+            $user_id = $forum['Forum']['user_id'];
+            
             if ($this->Comment->save($this->request->data)) {
                 $this->Session->setFlash('El comentario fue guardado exitosamente.', 'flash_success');
                 // buscar el id del foro al que pertenece el comentario $id
                 $this->publishForum($forum_id);
-                $this->publishForums();
+                $this->publishForums($user_id);
                 $this->redirect(array('action' => 'index?forum_id=' . $forum_id));
             } else {
                 $this->Session->setFlash('El comentario no pudo ser guardado. Intente de nuevo.', 'flash_error');
@@ -144,10 +165,17 @@ class CommentsController extends AppController {
         $comment = $this->Comment->find('first', $options);
         $forum_id = $comment['Comment']['forum_id'];
         
+        $options = array('conditions' => array('Forum.' . $this->Forum->primaryKey => $forum_id),
+                             'fields' => array('Forum.id', 'Forum.title', 'Forum.content', 'Forum.enabled', 'Forum.user_id', 'Forum.created', 'Forum.modified',
+                                               'User.id', 'User.username', 'User.name', 'User.lastname', 'User.mail', 'User.role_id'),
+                        );
+        $forum = $this->Forum->find('first', $options);
+        $user_id = $forum['Forum']['user_id'];
+        
         if ($this->Comment->delete()) {
             $this->Session->setFlash('El comentario fue eliminado.', 'flash_success');
             $this->publishForum($forum_id);
-            $this->publishForums();
+            $this->publishForums($user_id);
             $this->redirect(array('action' => 'index?forum_id=' . $forum_id));
         }
         $this->Session->setFlash('El comentario no pudo ser eliminado. Intente de nuevo.', 'flash_error');
@@ -168,12 +196,12 @@ class CommentsController extends AppController {
     }
     
     public function publishForum($id) {
-        $this->publishView("/forums/forum_detail/" . $id, "forums/forum-" . $id);
+        $this->publishView("/forums/forum_detail/" . $id, "forums/detail/forum-" . $id);
     }
     
-    public function publishForums() {
+    public function publishForums($user_id) {
         /* PUBLICAR TEMAS DEL FORO */
         $this->publishView("/pages/forums_table", "forums_table");
-        $this->publishView("/pages/list_all_table", "list_all_table");
+        $this->publishView("/pages/list_all_table/" . $user_id, "forums/rios/list_all_table_". $user_id);
     }
 }
