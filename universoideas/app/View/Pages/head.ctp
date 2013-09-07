@@ -116,16 +116,34 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
 </div>
 
 <div class="menu mt15">
-    <ul class="">
+    <ul class="menu2">
         <li><a class="selec1" href="/">Inicio</a></li>
         <li>|</li>
         <li><a class="selec2" href="/pages/cronograma">Calendario</a></li>
         <li>|</li>
-        <li><a class="selec3" href="">Vida Universitaria</a></li>
+        <li class="top"><a class="selec3" href="#"><strong class="down">Vida Universitaria</strong></a>
+            <ul class="sub">			
+                <li><a href="/pages/arte">Arte</a></li>
+                <li><a href="/pages/ciencia">Ciencia</a></li>
+                <li><a href="/pages/moda">Moda</a></li>
+                <li><a href="/pages/rumba">Rumba</a></li>
+                <li><a href="/pages/sexualidad">Sexualidad</a></li>
+            </ul>
+        </li>
         <li>|</li>
         <li><a class="selec4" href="/pages/encuentrame">Encuéntrame</a></li>
         <li>|</li>
         <li><a class="selec5" href="/pages/home_pasantias">Pasantías</a></li>
+        
+        <?php 
+            if(!empty($user)) {
+                if($user['role_id'] == '1' || $user['role_id'] == '3') { 
+                    echo "<li>|</li>";
+                    echo "<li><a class='selec6' href='/pages/emprendedores'>Soy emprendedor</a></li>";
+                }
+            }
+        ?>
+        
         <li>|</li>
         <li><a class="selec7" href="/pages/forums">Foros </a></li>
         <li>|</li>
