@@ -27,10 +27,10 @@
             <td><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) .  " " . $hora_crea ?>&nbsp;</td>
             <td><?php echo __($dia_sem_mod) . " " . __($mes_mod) . " " . __($dia_mod) . ", " . __($ano_mod) .  " " . $hora_mod ?>&nbsp;</td>
             <td>
-                <?php echo $this->Html->link($forum['User']['name'], array('controller' => 'users', 'action' => 'view', $forum['User']['id'])); ?>
+                <?php echo $this->Html->link($forum['User']['username'], array('controller' => 'users', 'action' => 'view', $forum['User']['id'])); ?>
             </td>
             <td class="actions tac">
-                <?php echo $this->Html->link(__('View'), array('action' => 'view', $forum['Forum']['id'])); ?>
+                <?php echo $this->Html->link(__('Ver'), array('action' => 'view', $forum['Forum']['id'])); ?>
                 <?php echo $this->Html->link(__('Ver Comentarios'), array('controller' => 'comments', 'action' => 'index?forum_id=' . $forum['Forum']['id'])); ?>
                 <?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $forum['Forum']['id'])); ?>
 <!--                <php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $forum['Forum']['id']), null, __('Are you sure you want to delete # %s?', $forum['Forum']['id'])); ?>-->
