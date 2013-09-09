@@ -1,6 +1,6 @@
 <input id="page_code" type="hidden" value="emprendedor"/>
 <div id="content_col_izq">
-    <div class="notas"><h2>Publicar trabajo de emprendimiento</h2></div>
+    <div class="notas"><h2>Editar trabajo de emprendimiento</h2></div>
     <?php echo $this->Form->create('Emprendedore'); ?>
         <table width="570" cellspacing="0" cellpadding="5" class="fs12 mt20" style="border:#333 solid 1px;padding-left: 20px;padding-top: 10px;">
             <?php
