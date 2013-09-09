@@ -16,16 +16,10 @@
         $image_thumb = $this->Form->value('Event.image');
         
         if($image_thumb != "")
-            echo $this->Html->image($image_thumb);
+            echo $this->Html->image($image_thumb, array('width' => 200));
         
         echo $this->Form->input('Event.enabled', array('label' => 'Habilitado'));
     ?>
     </fieldset>
 <?php echo $this->Form->end(__('Guardar')); ?>
-</div>
-<div class="actions">
-    <h3><?php echo __('Acciones'); ?></h3>
-    <ul>
-        <li><?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $this->Form->value('Event.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Event.id'))); ?></li>
-    </ul>
 </div>
