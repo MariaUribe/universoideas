@@ -39,7 +39,6 @@
         <div id="related_vid" style="display: none">
             <h3><?php echo __('Seleccionar Video'); ?></h3>
             <?php 
-                echo $this->Form->input('RelatedVideo.name', array('label' => 'Nombre', 'required' => 'false', 'class' => 'related_vid'));
                 echo $this->Form->input('RelatedVideo.source', array('label' => 'Source', 'required' => 'false', 'class' => 'related_vid'));
             ?>
         </div>
