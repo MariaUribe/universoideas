@@ -13,9 +13,3 @@
     </fieldset>
 <?php echo $this->Form->end(__('Guardar')); ?>
 </div>
-<div class="actions">
-    <h3><?php echo __('Acciones'); ?></h3>
-    <ul>
-        <li><?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $this->Form->value('Enterprise.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Enterprise.id'))); ?></li>
-    </ul>
-</div>
