@@ -33,7 +33,7 @@
             <td class="actions">
                 <?php echo '<a href="/pages/curso?id=' . $curso['Curso']['id'] . '">Ver</a>'; ?>
                 <?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $curso['Curso']['id'])); ?>
-                <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $curso['Curso']['id']), null, __('Are you sure you want to delete # %s?', $curso['Curso']['id'])); ?>
+                <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $curso['Curso']['id']), null, __('¿Estás seguro que deseas eliminar el curso # %s?', $curso['Curso']['id'])); ?>
             </td>
         </tr>
         <?php endforeach; ?>
