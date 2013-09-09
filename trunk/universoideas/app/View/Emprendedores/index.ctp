@@ -43,7 +43,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $emprendedore['Emprendedore']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $emprendedore['Emprendedore']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $emprendedore['Emprendedore']['id']), null, __('Are you sure you want to delete # %s?', $emprendedore['Emprendedore']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $emprendedore['Emprendedore']['id']), null, __('¿Estás seguro que deseas eliminar el emprendimiento # %s?', $emprendedore['Emprendedore']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
