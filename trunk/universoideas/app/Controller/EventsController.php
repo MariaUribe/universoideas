@@ -9,6 +9,12 @@ include("Component/resize-class.php");
  * @property Event $Event
  */
 class EventsController extends AppController {
+    
+    public $paginate = array(
+        'order' => array(
+            'Event.modified' => 'desc'
+        )
+    );
 
     public function beforeFilter() {
         parent::beforeFilter();

@@ -66,17 +66,30 @@ class EmprendedoresController extends AppController {
     * @return void
     */
     public function view($id = null) {
+        $this->loadModel('User');
         $this->layout = 'page';
         
         if (!$this->Emprendedore->exists($id)) {
             throw new NotFoundException(__('Invalid emprendedore'));
         }
         $user = $this->Auth->user();
+        $user_id = $this->Auth->user('id');
         $options = array('conditions' => array('Emprendedore.' . $this->Emprendedore->primaryKey => $id));
         $emprends = $this->Emprendedore->find('first', $options);
         
-        if($emprends['Emprendedore']['user_id'] !== $this->Auth->user('id')){
-            $this->redirect("/pages/mis_emprendimientos");
+        unset($this->User->Forum->virtualFields['count']);
+        unset($this->User->Forum->virtualFields['max_comment']);
+        $options2 = array('conditions' => array('User.id' => $user_id));
+        $user_logged = $this->User->find('first', $options2);
+        
+        
+        if (($user_logged['User']['role_id'] !== '1') && ($user_logged['User']['role_id'] !== '3')) {
+            if(($emprends['Emprendedore']['user_id'] !== $this->Auth->user('id'))) {
+                $this->redirect("/pages/mis_emprendimientos");
+            } else {
+                $options = array('conditions' => array('Emprendedore.' . $this->Emprendedore->primaryKey => $id));
+                $this->set('emprendedore', $this->Emprendedore->find('first', $options));
+            }
         } else {
             $options = array('conditions' => array('Emprendedore.' . $this->Emprendedore->primaryKey => $id));
             $this->set('emprendedore', $this->Emprendedore->find('first', $options));

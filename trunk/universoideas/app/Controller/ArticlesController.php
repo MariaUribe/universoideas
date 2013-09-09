@@ -97,7 +97,7 @@ class ArticlesController extends AppController {
                     $this->request->data['RelatedImage']['article_id'] = $article_id;
                     
                     if(!empty($this->request->data['RelatedImage']['upload'])) {
-                        $this->manageImage();
+                        $this->manageImage($article_id);
                     }
 
                     if($this->RelatedImage->save($this->request->data)){
@@ -112,6 +112,7 @@ class ArticlesController extends AppController {
                     
                 } else if($selectedMedia == 'video') {
                     $this->request->data['RelatedVideo']['article_id'] = $article_id;
+                    $this->request->data['RelatedVideo']['name'] = 'video';
                     
                     if($this->RelatedVideo->save($this->request->data)) {
                         $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
@@ -171,7 +172,7 @@ class ArticlesController extends AppController {
                     $this->request->data['RelatedImage']['article_id'] = $id;
                     
                     if(!empty($this->request->data['RelatedImage']['upload'])) {
-                        $this->manageImage();
+                        $this->manageImage($id);
                     }
                     
                     if($image_id != null)
@@ -203,6 +204,7 @@ class ArticlesController extends AppController {
                     
                 } else if($selectedMedia == 'video') {
                     $this->request->data['RelatedVideo']['article_id'] = $id;
+                    $this->request->data['RelatedVideo']['name'] = 'video';
                     $result_vid = 0;
                     
                     if($video_id != null)
@@ -380,7 +382,7 @@ class ArticlesController extends AppController {
     *
     * @return void
     */
-    public function manageImage() {
+    public function manageImage($article_id) {
         $file = $this->request->data['RelatedImage']['upload']; //put the data into a var for easy use
 
         $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //get the extension
@@ -403,17 +405,17 @@ class ArticlesController extends AppController {
 
             // *** 2) Resize image (options: exact, portrait, landscape, auto, crop)
             $resizeObj -> resizeImage($width_thumb, $height_thumb, 'crop');
-            $thumb = WWW_ROOT . 'img/uploads/' . $title . '_thumb.' . $ext;
-            $uri_thumb = '/app/webroot/img/uploads/' . $title . '_thumb.' . $ext;
-            $uri_img = '/app/webroot/img/uploads/' . $title . '.' . $ext;
+            $thumb = WWW_ROOT . 'img/uploads/' . $title . '_' . $article_id . '_thumb.' . $ext;
+            $uri_thumb = '/app/webroot/img/uploads/' . $title . '_' . $article_id .'_thumb.' . $ext;
+            $uri_img = '/app/webroot/img/uploads/' . $title . '_' . $article_id . '.' . $ext;
 
             // *** 3) Save image
             $resizeObj -> saveImage($thumb, 100);
 
             //prepare the filename for database entry
             $this->request->data['RelatedImage']['uri'] = $uri_img;
-            $this->request->data['RelatedImage']['name'] = $file['name'];
-            $this->request->data['RelatedImage']['title'] = $title;
+            $this->request->data['RelatedImage']['name'] = $title . '_' . $article_id . '.' . $ext;
+            $this->request->data['RelatedImage']['title'] = $title . '_' . $article_id;
             $this->request->data['RelatedImage']['width'] = $width;
             $this->request->data['RelatedImage']['height'] = $height;
             $this->request->data['RelatedImage']['uri_thumb'] = $uri_thumb;
