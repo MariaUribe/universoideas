@@ -52,7 +52,7 @@
             <td class="actions tac">
                 <?php echo '<a href="/pages/article?id=' . $article['Article']['id'] . '">Ver</a>'; ?>
                 <?php echo '<a href="/articles/edit/' . $article['Article']['id'] . '">Editar</a>'; ?>
-                <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $article['Article']['id']), null, __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?>
+                <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $article['Article']['id']), null, __('¿Estás seguro que deseas eliminar el artículo # %s?', $article['Article']['id'])); ?>
             </td>
 	</tr>
         <?php endforeach; ?>
