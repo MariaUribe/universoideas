@@ -3,31 +3,35 @@
     <table cellpadding="0" cellspacing="0">
         <tr>
             <th><?php echo $this->Paginator->sort('id'); ?></th>
-            <th><?php echo $this->Paginator->sort('name', 'Nombre'); ?></th>
+            <th class="w130"><?php echo $this->Paginator->sort('name', 'Nombre'); ?></th>
             <th><?php echo $this->Paginator->sort('description', 'Descripción'); ?></th>
-            <th><?php echo $this->Paginator->sort('date', 'Fecha'); ?></th>
+            <th class="w130 tac"><?php echo $this->Paginator->sort('date', 'Fecha'); ?></th>
             <th><?php echo $this->Paginator->sort('enabled', 'Habilitado'); ?></th>
-            <th><?php echo $this->Paginator->sort('created', 'Creado'); ?></th>
-            <th><?php echo $this->Paginator->sort('modified', 'Modificado'); ?></th>
-            <th class="actions"><?php echo __('Acciones'); ?></th>
+            <th class="w130 tac"><?php echo $this->Paginator->sort('created', 'Creado'); ?></th>
+            <th class="w130 tac"><?php echo $this->Paginator->sort('modified', 'Modificado'); ?></th>
+            <th class="actions tac"><?php echo __('Acciones'); ?></th>
         </tr>
         <?php foreach ($cursos as $curso): ?>
         <?php 
+            $date = $this->Time->format('D-F-j-Y-h:i A', $curso['Curso']['date']);
+            list($dia_sem, $mes, $dia, $ano) = explode('-', $date);
+            
             $date_created = $this->Time->format('D-F-j-Y-h:i A', $curso['Curso']['created']);
-            list($dia_sem_crea, $mes_crea, $dia_crea, $ano_crea) = explode('-', $date_created);
+            list($dia_sem_crea, $mes_crea, $dia_crea, $ano_crea, $hora_crea) = explode('-', $date_created);
             
             $date_modified = $this->Time->format('D-F-j-Y-h:i A', $curso['Curso']['modified']);
-            list($dia_sem_mod, $mes_mod, $dia_mod, $ano_mod) = explode('-', $date_modified);
+            list($dia_sem_mod, $mes_mod, $dia_mod, $ano_mod, $hora_mod) = explode('-', $date_modified);
         ?>
         <tr>
             <td><?php echo h($curso['Curso']['id']); ?>&nbsp;</td>
             <td><?php echo h($curso['Curso']['name']); ?>&nbsp;</td>
-            <td><?php echo h($curso['Curso']['description']); ?>&nbsp;</td>
-            <td><?php echo h($curso['Curso']['date']); ?>&nbsp;</td>
-            <td><?php echo h($curso['Curso']['enabled']); ?>&nbsp;</td>
-            <td><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) ?>&nbsp;</td>
-            <td><?php echo __($dia_sem_mod) . " " . __($mes_mod) . " " . __($dia_mod) . ", " . __($ano_mod) ?>&nbsp;</td>
+            <td><?php echo substr($curso['Curso']['description'], 0, 200) . "..."; ?>&nbsp;</td>
+            <td><?php echo __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) ?>&nbsp;</td>
+            <td class="tac"><?php echo h(($curso['Curso']['enabled']==1?"SI":"NO")); ?>&nbsp;</td>
+            <td><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) . " " . $hora_crea ?>&nbsp;</td>
+            <td><?php echo __($dia_sem_mod) . " " . __($mes_mod) . " " . __($dia_mod) . ", " . __($ano_mod) . " " . $hora_mod ?>&nbsp;</td>
             <td class="actions">
+                <?php echo '<a href="/pages/curso?id=' . $curso['Curso']['id'] . '">Ver</a>'; ?>
                 <?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $curso['Curso']['id'])); ?>
                 <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $curso['Curso']['id']), null, __('Are you sure you want to delete # %s?', $curso['Curso']['id'])); ?>
             </td>
