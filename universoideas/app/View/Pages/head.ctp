@@ -77,14 +77,14 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
         $('#buscarText')
             .keypress( function(event) {
                 if(event.keyCode==13) {
-                    window.location = "pages/search_all?q=" + $('#buscarText').val();
+                    window.location = "/pages/search_all?q=" + $('#buscarText').val();
                     return false;
                 }
             });
             
             $('#buscarButton')
                 .click( function() {
-                    window.location = "pages/search_all?q=" + $('#buscarText').val();
+                    window.location = "/pages/search_all?q=" + $('#buscarText').val();
             });
     });
 </script>

@@ -1,5 +1,6 @@
-<input id="page_code" type="hidden" value="encuentrame"/>
+<input id="page_code" type="hidden" value="vida"/>
 <div id="content_col_izq">
+    <div class="channel_name">Arte</div>
     <?php include ("includes/published/galleries/galeria-arte.htm") ?>
  
     <div id="publicidadrio1" class="p5 tac"><div class="publicidad tal">ESPACIO PUBLICITARIO</div><a href="#"><img src="/universoideas/img/publicidad/500x90.gif" width="500" height="90" alt="Publicidad" /></a></div>
