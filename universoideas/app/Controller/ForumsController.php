@@ -112,6 +112,17 @@ class ForumsController extends AppController {
             $this->Forum->create();
             $this->request->data['Forum']['user_id'] = $user['id'];
             $this->request->data['Forum']['enabled'] = 1;
+            
+            $title = $this->request->data['Forum']['title'];
+            $content = $this->request->data['Forum']['content'];
+            
+            $exclude = array(" coño", " coño ", " puta ", "mierda");
+            $result_title = str_replace($exclude, "", $title);
+            $result_content = str_replace($exclude, "", $content);
+            
+            $this->request->data['Forum']['title'] = $result_title;
+            $this->request->data['Forum']['content'] = $result_content;
+            
             if ($this->Forum->save($this->request->data)) {
                 $forum_id = $this->Forum->getLastInsertId();
                 $this->Session->setFlash('El foro fue guardado exitosamente.', 'flash_success');
@@ -146,6 +157,16 @@ class ForumsController extends AppController {
             throw new NotFoundException(__('Invalid forum'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
+            $title = $this->request->data['Forum']['title'];
+            $content = $this->request->data['Forum']['content'];
+            
+            $exclude = array(" coño", " coño ", " puta ", "mierda");
+            $result_title = str_replace($exclude, "", $title);
+            $result_content = str_replace($exclude, "", $content);
+            
+            $this->request->data['Forum']['title'] = $result_title;
+            $this->request->data['Forum']['content'] = $result_content;
+            
             if ($this->Forum->save($this->request->data)) {
                 $this->Session->setFlash('El foro fue guardado exitosamente.', 'flash_success');
                 $this->publishForum($id);

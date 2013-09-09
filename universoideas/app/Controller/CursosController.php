@@ -9,7 +9,13 @@ include("Component/resize-class.php");
  * @property Curso $Curso
  */
 class CursosController extends AppController {
-
+ 
+    public $paginate = array(
+        'order' => array(
+            'Curso.modified' => 'desc'
+        )
+    );
+    
     public function beforeFilter() {
         parent::beforeFilter();
         $user = $this->Auth->user();
