@@ -1,18 +1,18 @@
 <div class="enterprises index">
     <h2><?php echo __('Empresas'); ?></h2>
-    <h3><?php echo __('Sección para el manejo de empresas buscando pasantes'); ?></h3>
+    <h3><?php echo __('Sección para el manejo de empresas buscando pasantes'); ?></h3><br>
 
     <table cellpadding="0" cellspacing="0">
         <tr>
             <th><?php echo $this->Paginator->sort('id'); ?></th>
-            <th><?php echo $this->Paginator->sort('enterprise', 'Empresa'); ?></th>
+            <th class="w130"><?php echo $this->Paginator->sort('enterprise', 'Empresa'); ?></th>
             <th><?php echo $this->Paginator->sort('email', 'Correo'); ?></th>
             <th><?php echo $this->Paginator->sort('description', 'Cargo/Funciones'); ?></th>
-            <th><?php echo $this->Paginator->sort('duration', 'Duración'); ?></th>
+            <th class="w80"><?php echo $this->Paginator->sort('duration', 'Duración'); ?></th>
             <th><?php echo $this->Paginator->sort('enabled', 'Habilitado'); ?></th>
-            <th><?php echo $this->Paginator->sort('created', 'Creado'); ?></th>
-            <th><?php echo $this->Paginator->sort('modified', 'Modificado'); ?></th>
-            <th class="actions"><?php echo __('Acciones'); ?></th>
+            <th class="w130 tac"><?php echo $this->Paginator->sort('created', 'Creado'); ?></th>
+            <th class="w130 tac"><?php echo $this->Paginator->sort('modified', 'Modificado'); ?></th>
+            <th class="actions tac"><?php echo __('Acciones'); ?></th>
         </tr>
         <?php foreach ($enterprises as $enterprise): ?>
         <?php 
@@ -28,11 +28,10 @@
             <td><?php echo h($enterprise['Enterprise']['email']); ?>&nbsp;</td>
             <td><?php echo h($enterprise['Enterprise']['description']); ?>&nbsp;</td>
             <td><?php echo h($enterprise['Enterprise']['duration']); ?>&nbsp;</td>
-            <td><?php echo h($enterprise['Enterprise']['enabled']==1?"SI":"NO"); ?>&nbsp;</td>
+            <td class="tac"><?php echo h($enterprise['Enterprise']['enabled']==1?"SI":"NO"); ?>&nbsp;</td>
             <td><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) ?>&nbsp;</td>
             <td><?php echo __($dia_sem_mod) . " " . __($mes_mod) . " " . __($dia_mod) . ", " . __($ano_mod) ?>&nbsp;</td>
-            <td class="actions">
-                <!-- <php echo $this->Html->link(__('Ver'), array('action' => 'view', $enterprise['Enterprise']['id'])); ?>-->
+            <td class="actions tac">
                 <?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $enterprise['Enterprise']['id'])); ?>
                 <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $enterprise['Enterprise']['id']), null, __('Are you sure you want to delete # %s?', $enterprise['Enterprise']['id'])); ?>
             </td>

@@ -2,7 +2,7 @@
 <?php echo $this->Form->create('Enterprise'); ?>
     <fieldset>
         <legend><?php echo __('Crear Empresa'); ?></legend>
-        <h3><?php echo __('Sección para crear empresas buscando pasantes'); ?></h3>
+        <h3><?php echo __('Sección para crear empresas buscando pasantes'); ?></h3><br>
         <?php
             echo $this->Form->input('enterprise', array('label' => 'Empresa'));
             echo $this->Form->input('email', array('label' => 'Correo'));
