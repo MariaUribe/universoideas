@@ -39,7 +39,7 @@
             <td class="actions">
                 <?php echo '<a href="/pages/event?id=' . $event['Event']['id'] . '">Ver</a>'; ?>
                 <?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $event['Event']['id'])); ?>
-                <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $event['Event']['id']), null, __('Are you sure you want to delete # %s?', $event['Event']['id'])); ?>
+                <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $event['Event']['id']), null, __('¿Estás seguro que deseas eliminar el evento # %s?', $event['Event']['id'])); ?>
             </td>
 	</tr>
         <?php endforeach; ?>
