@@ -14,10 +14,13 @@
         if($has_emp === true)
             include('includes/published/emprendedores/rios/mis_emprendimientos_table_' . $user['id'] . '.htm'); 
         else {
-            echo "<div>Usted no ha creado ningún trabajo de emprendimiento aún. Para crearlo puede hacerlo haciendo click aquí:</div>";
-            echo '<div class="boton fs11 mt20 mb20">';
+            echo "<div style='margin-top: 20px;margin-right: 10px;font-size: 12px!important;font-weight: bold;text-align: justify;border: #333 1px solid;padding: 10px;'>";
+            echo "<div>En esta sección puedes ingresar información acerca de trabajos de emprendimientos que estés llevando a cabo actualmente, las empresas que ingresen al site podrán visualizarlas y contactarse contigo.</div><br>";
+            echo "<div>No has creado ningún trabajo de emprendimiento aún. Para crearlo puedes hacerlo haciendo click aquí:</div>";
+            echo '<div class="boton fs11 mt20 mb10">';
             echo '<a href="/emprendedores/add" class="mt20" style="cursor: pointer;">Nuevo Emprendimiento</a>';
             echo '</div>';
+            echo "</div>";
         }
     ?>
 </div>

@@ -14,10 +14,12 @@
         if($has_forum === true)
             include('includes/published/forums/rios/list_all_table_' . $user['id'] . '.htm' );
         else {
-            echo "<div>Usted no ha creado ningún tema en el foro aún. Para crearlo puede hacerlo haciendo click aquí:</div>";
-            echo '<div class="boton fs11 mt20 mb20">';
+            echo "<div style='margin-top: 20px;margin-right: 10px;font-size: 12px!important;font-weight: bold;text-align: justify;border: #333 1px solid;padding: 10px;'>";
+            echo "<div>No has creado ningún tema en el foro aún. Para crearlo puedes hacerlo haciendo click aquí:</div>";
+            echo '<div class="boton fs11 mt20 mb10">';
             echo '<a href="/forums/add" class="mt20" style="cursor: pointer;">Nuevo Tema</a>';
             echo '</div>';
+            echo "</div>";
         }
     ?>
 </div>
