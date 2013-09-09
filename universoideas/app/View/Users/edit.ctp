@@ -44,7 +44,7 @@
                         echo "</tr>";
                         
                         echo "<tr>";
-                        echo "<td width='150' colspan='2' style='text-align: center;'><a href='/pages/mis_emprendimientos' style='font-size: 12px; font-weight: bold'>Ver Mi Emprendimiento</a></td>";
+                        echo "<td width='150' colspan='2' style='text-align: center;'><a href='/pages/mis_emprendimientos' style='font-size: 12px; font-weight: bold'>Ver Mis Emprendimientos</a></td>";
                         echo "</tr>";
                         
                         echo "<tr>";
