@@ -118,7 +118,7 @@ class EmprendedoresController extends AppController {
                 $this->Session->setFlash('Su información ha sido guardada exitosamente.', 'flash_success');
                 $this->publishEmprendedor($emp_id);
                 $this->publishEmprendedores($user_id);
-                $this->redirect("/pages/emprendedores"); 
+                $this->redirect("/pages/mis_emprendimientos"); 
             } else {
                 $this->Session->setFlash('Su información no pudo ser procesada. Intente de nuevo.', 'flash_error');
             }
