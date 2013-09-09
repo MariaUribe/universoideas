@@ -64,19 +64,12 @@
             <div id="related_vid" style="display: none">
                 <h3><?php echo __('Seleccionar Video'); ?></h3>
                 <?php 
-                    echo $this->Form->input('RelatedVideo.name', array('label' => 'Nombre', 'required' => 'false', 'class' => 'related_vid', 'value' => $vid_name));
                     echo $this->Form->input('RelatedVideo.source', array('label' => 'Source', 'required' => 'false', 'class' => 'related_vid', 'value' => $vid_src));
                 ?>
             </div>
             
         </fieldset>
     <?php echo $this->Form->end(__('Guardar')); ?>
-</div>
-<div class="actions">
-    <h3><?php echo __('Acciones'); ?></h3>
-    <ul>
-        <li><?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $this->Form->value('Article.id')), null, __('¿Está seguro que desea eliminar el artículo # %s?', $this->Form->value('Article.id'))); ?></li>
-    </ul>
 </div>
 
 <script type="text/javascript">

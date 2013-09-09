@@ -10,7 +10,7 @@
             <th><?php echo $this->Paginator->sort('highlight', 'Destacada'); ?></th>
             <th class="w130"><?php echo $this->Paginator->sort('created', 'Creado'); ?></th>
             <th class="w130"><?php echo $this->Paginator->sort('modified', 'Modificado'); ?></th>
-            <th class="actions"><?php echo __('Acciones'); ?></th>
+            <th class="actions tac"><?php echo __('Acciones'); ?></th>
         </tr>
                          
 	<?php foreach ($articles as $article): ?>
@@ -49,9 +49,9 @@
             <td class="tac"><?php echo h(($article['Article']['highlight']==1?"SI":"NO")); ?>&nbsp;</td>
             <td><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) .  " " . $hora_crea ?>&nbsp;</td>
             <td><?php echo __($dia_sem_mod) . " " . __($mes_mod) . " " . __($dia_mod) . ", " . __($ano_mod) .  " " . $hora_mod ?>&nbsp;</td>
-            <td class="actions tal">
+            <td class="actions tac">
+                <?php echo '<a href="/pages/article?id=' . $article['Article']['id'] . '">Ver</a>'; ?>
                 <?php echo '<a href="/articles/edit/' . $article['Article']['id'] . '">Editar</a>'; ?>
-<!--                <php echo $this->Html->link(__('Editar'), array('action' => 'edit', $article['Article']['id'])); ?>-->
                 <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $article['Article']['id']), null, __('Are you sure you want to delete # %s?', $article['Article']['id'])); ?>
             </td>
 	</tr>
