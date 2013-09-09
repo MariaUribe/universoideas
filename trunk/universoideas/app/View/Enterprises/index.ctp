@@ -33,7 +33,7 @@
             <td><?php echo __($dia_sem_mod) . " " . __($mes_mod) . " " . __($dia_mod) . ", " . __($ano_mod) ?>&nbsp;</td>
             <td class="actions tac">
                 <?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $enterprise['Enterprise']['id'])); ?>
-                <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $enterprise['Enterprise']['id']), null, __('Are you sure you want to delete # %s?', $enterprise['Enterprise']['id'])); ?>
+                <?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $enterprise['Enterprise']['id']), null, __('¿Estás seguro que deseas eliminar la empresa # %s?', $enterprise['Enterprise']['id'])); ?>
             </td>
         </tr>
         <?php endforeach; ?>
