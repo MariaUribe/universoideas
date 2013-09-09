@@ -3,7 +3,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('title', 'Título'); ?></th>
+			<th width="200px"><?php echo $this->Paginator->sort('title', 'Título'); ?></th>
 			<th><?php echo $this->Paginator->sort('description', 'Resumen'); ?></th>
 			<th width="80px"><?php echo $this->Paginator->sort('status', 'Estatus'); ?></th>
 			<th width="120px"><?php echo $this->Paginator->sort('created', 'Creado'); ?></th>
