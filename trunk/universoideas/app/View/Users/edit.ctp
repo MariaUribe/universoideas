@@ -23,6 +23,30 @@
             } 
         });
     }
+      
+    /*
+     * Funcion para determinar si el registro es una empresa o una persona
+     * e inhabilitar o habilitar los campos necesarios segun sea el caso 
+     **/
+    function setRegisterType() {
+        var is_ent = $('#UserIsEnterprise').val();
+        
+        if(is_ent == 1) { // Es empresa 
+            $('#apellido_row').css('display', 'none');
+            $('#nacimiento_row').css('display', 'none');
+            $('#sexo_row').css('display', 'none');
+            $('#UserIsEnterprise').val("1");
+            
+            $('#UserLastname').removeClass('required');
+        } else {
+            $('#apellido_row').css('display', '');
+            $('#nacimiento_row').css('display', '');
+            $('#sexo_row').css('display', '');
+            $('#UserIsEnterprise').val("0");
+            
+            $('#UserLastname').addClass('required');
+        }
+    }
     
 </script>
 
@@ -39,6 +63,9 @@
                 <table width="500" cellpadding="3" cellspacing="0" style="border:0" class="mt20">
                     <?php
                         echo $this->Form->input('id');
+                        
+                        echo $this->Form->input('is_enterprise', array('label' => false, 'type' => 'hidden'));
+                        
                         echo "<tr>";
                         echo "<td width='150' colspan='2' style='text-align: center;'><a href='/pages/list_all' style='font-size: 12px; font-weight: bold'>Ver Mis Foros</a></td>";
                         echo "</tr>";
@@ -56,7 +83,7 @@
                         echo "<td class='tal'>" . $this->Form->input('name', array('label' => false, 'class' => 'left required', 'size' => '45')) . "</td>";
                         echo "</tr>";
 
-                        echo "<tr>";
+                        echo "<tr id='apellido_row'>";
                         echo "<td class='tar vam'>Apellido: </td>";
                         echo "<td class='tal'>" . $this->Form->input('lastname', array('label' => false, 'class' => 'left required', 'size' => '45')) . "</td>";
                         echo "</tr>";
@@ -74,7 +101,7 @@
                         echo "<td class='tal'>" . $this->Form->input('twitter', array('label' => false, 'class' => 'left', 'size' => '45')) . "</td>";
                         echo "</tr>";
                        
-                        echo "<tr>";
+                        echo "<tr id='nacimiento_row'>";
                         echo "<td class='tar vam'>Fecha de Nacimiento: </td>";
                         echo "<td class='tal'>";
                         echo $this->Form->day('User.birthdate', array('label' => false, 'class' => 'left', 'empty' => 'Día'));
@@ -83,16 +110,11 @@
                         echo "</td>";
                         echo "</tr>";
 
-                        echo "<tr>";
+                        echo "<tr id='sexo_row'>";
                         echo "<td class='tar vam'>Sexo: </td>";
                         echo "<td class='tal'>" . $this->Form->input('gender', array('label' => false, 'class' => 'left')) . "</td>";
                         echo "</tr>";
                         
-                        echo "<tr>";
-                        echo "<td class='tar vam'>" . $this->Form->input('is_enterprise', array('label' => false, 'class' => 'right')) ."</td>";
-                        echo "<td class='tal vam'><label class='lh14'>Registrarme como empresa</label></td>";
-                        echo "</tr>";
-
                         echo "<tr>";
                         echo "<td class='tac' colspan='2' style='padding-top: 20px;'><a onclick='changePassword()' class='mt20' style='cursor: pointer;'>Cambiar contraseña</a></td>";
                         echo "</tr>";
@@ -128,7 +150,7 @@
                         echo "<td class='tar boton'><br/><br/></td>";
                         echo "</tr>";
                     ?>
-
+                    
                     <tr>
                         <td class="tar">
                             <a onclick="document.forms[0].reset();" href="javascript://" class="mt20">Borrar</a>
@@ -141,6 +163,7 @@
                     </tr>
                 </table>
                 <?php echo $this->Form->end(); ?>
+                <script type="text/javascript">setRegisterType();</script>
             </div>
         </div>
     </div>

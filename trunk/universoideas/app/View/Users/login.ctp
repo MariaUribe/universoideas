@@ -38,6 +38,28 @@
         });
     }
     
+    /*
+     * Funcion para determinar si el registro es una empresa o una persona
+     * e inhabilitar o habilitar los campos necesarios segun sea el caso 
+     **/
+    function setRegisterType() {
+        var is_checked = $('#UserIsEnterprise').is(':checked');
+        
+        if (is_checked) { // Es empresa 
+            $('#apellido_row').css('display', 'none');
+            $('#nacimiento_row').css('display', 'none');
+            $('#sexo_row').css('display', 'none');
+            
+            $('#UserLastname').removeClass('required');
+        } else {
+            $('#apellido_row').css('display', '');
+            $('#nacimiento_row').css('display', '');
+            $('#sexo_row').css('display', '');
+            
+            $('#UserLastname').addClass('required');
+        }
+    }
+    
 </script>
 
 <div class="registro left w450">
@@ -51,6 +73,12 @@
             
             <table width="100%" cellpadding="3" cellspacing="0" style="border:0" class="mt20">
                 <?php
+                    
+                    echo "<tr>";
+                    echo "<td class='tar vam'>" . $this->Form->input('is_enterprise', array('label' => false, 'class' => 'right', 'onchange' => 'setRegisterType()')) ."</td>";
+                    echo "<td class='tal vam'><label class='lh14'>Registrarme como empresa</label></td>";
+                    echo "</tr>";
+                
                     echo "<tr>";
                     echo "<td class='tar vam' width='35%'><label class='lh14' style='width: 140px;'>Nombre de Usuario: </label></td>";
                     echo "<td class='tal' width='20%'>" . $this->Form->input('username', array('label' => false, 'class' => 'left required lh14', 'size' => '35', 'onkeyup' => 'checkUserName(this.value)')) . "<label class='img_error error_val' style='display: none'>Este nombre de usuario ya existe</label></td>";
@@ -64,7 +92,7 @@
                     echo "<td class='tal'>" . $this->Form->input('name', array('label' => false, 'class' => 'left required lh14', 'size' => '35')) . "</td>";
                     echo "</tr>";
 
-                    echo "<tr>";
+                    echo "<tr id='apellido_row'>";
                     echo "<td class='tar vam'><label class='lh14'>Apellido: </label></td>";
                     echo "<td class='tal'>" . $this->Form->input('lastname', array('label' => false, 'class' => 'left required lh14', 'size' => '35')) . "</td>";
                     echo "</tr>";
@@ -78,7 +106,7 @@
                     echo "</tr>";
                     
                     echo "<tr>";
-                    echo "<td class='tar vam'><label class='lh14'>Cuenta de Twitter: </label></td>";
+                    echo "<td class='tar vam'><label class='lh14'>Cuenta de Twitter: @</label></td>";
                     echo "<td class='tal'>" . $this->Form->input('twitter', array('label' => false, 'class' => 'left lh14', 'size' => '35')) . "</td>";
                     echo "</tr>";
 
@@ -92,7 +120,7 @@
                     echo "<td class='tal'>" . $this->Form->input('re_password', array('label' => false, 'class' => 'left password_confirm lh14', 'type' => 'password', 'size' => '35', 'id' => 'password_confirm', 'name' => 'password_confirm')). "</td>";
                     echo "</tr>";
                       
-                    echo "<tr>";
+                    echo "<tr id='nacimiento_row'>";
                     echo "<td class='tar vam'>Fecha de Nacimiento: </td>";
                     echo "<td class='tal' colspan='2'>";
                     echo $this->Form->day('User.birthdate', array('label' => false, 'class' => 'left', 'empty' => 'Día'));
@@ -101,7 +129,7 @@
                     echo "</td>";
                     echo "</tr>";
                     
-                    echo "<tr>";
+                    echo "<tr id='sexo_row'>";
                     echo "<td class='tar vam'>Sexo: </td>";
                     echo "<td class='tal'>" . $this->Form->input('gender', array('label' => false, 'class' => 'left')) . "</td>";
                     echo "</tr>";
@@ -114,11 +142,6 @@
                     echo "<tr>";
                     echo "<td class='tar'></td>";
                     echo "<td class='tal' colspan='2'>" . $this->Form->input('securityAnswer', array('label' => false, 'class' => 'left lh14', 'style' => 'width: 220px;')) . "</td>";
-                    echo "</tr>";
-                    
-                    echo "<tr>";
-                    echo "<td class='tar vam'>" . $this->Form->input('is_enterprise', array('label' => false, 'class' => 'right')) ."</td>";
-                    echo "<td class='tal vam'><label class='lh14'>Registrarme como empresa</label></td>";
                     echo "</tr>";
                     
                     echo "<tr>";
