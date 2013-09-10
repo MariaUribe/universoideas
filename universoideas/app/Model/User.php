@@ -31,17 +31,7 @@ class User extends AppModel {
                     'rule' => array('notempty')
             )
         ),
-        'lastname' => array(
-            'notempty' => array(
-                    'rule' => array('notempty')
-            )
-        ),
         'mail' => array(
-            'notempty' => array(
-                    'rule' => array('notempty')
-            )
-        ),
-        'gender' => array(
             'notempty' => array(
                     'rule' => array('notempty')
             )
