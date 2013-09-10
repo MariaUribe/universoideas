@@ -43,7 +43,8 @@ class UsersController extends AppController {
                 $this->Session->setFlash('Nombre de usuario y/o contraseña inválidos. Intente de nuevo.', 'flash_error');
             }
         }
-        $genders = array("F" => "Femenino", 
+        $genders = array("" => "Seleccione", 
+                         "F" => "Femenino",
                          "M" => "Masculino"
                         );
         
@@ -153,6 +154,9 @@ class UsersController extends AppController {
         }
         
         if ($this->request->is('post') || $this->request->is('put')) {
+            if(empty($this->request->data['User']['password'])) {
+                unset($this->request->data['User']['password']);
+            }
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash('El usuario fue guardado exitosamente.', 'flash_success');
                 $this->redirect(array('controller' => 'users','action' => 'edit/' . $id));
@@ -163,7 +167,8 @@ class UsersController extends AppController {
             $options = array('conditions' => array('User.' . $this->User->primaryKey => $id),
                                 'fields' => array('User.id', 'User.username', 'User.password', 'User.name', 'User.lastname', 
                                                 'User.mail', 'User.birthdate', 'User.gender', 'User.role_id', 'User.created', 
-                                                'User.modified', 'User.twitter', 'User.question_id', 'User.securityAnswer'),
+                                                'User.modified', 'User.twitter', 'User.question_id', 'User.securityAnswer', 
+                                                'User.is_enterprise'),
                                 );
             unset($this->User->Forum->virtualFields['count']);
             unset($this->User->Forum->virtualFields['max_comment']);
@@ -173,9 +178,11 @@ class UsersController extends AppController {
         $user = $this->Auth->user();
         $roles = $this->User->Role->find('list');
         $comments = $this->User->Comment->find('list');
-        $genders = array("F" => "Femenino", 
+        $genders = array("" => "Seleccione", 
+                         "F" => "Femenino",
                          "M" => "Masculino"
                         );
+        
         $questions = $this->User->Question->find('list');
         $this->set(compact('roles', 'user', 'genders', 'comments', 'questions'));
     }
@@ -267,7 +274,7 @@ class UsersController extends AppController {
     
     function findByMail($mail) {
 
-        $sql = "SELECT user.id, user.username, user.name, user.lastname, user.mail, user.role_id, user.question_id, user.securityAnswer
+        $sql = "SELECT user.id, user.username, user.name, user.lastname, user.mail, user.role_id, user.question_id, user.securityAnswer, user.is_enterprise 
                 FROM users user
                 WHERE user.mail = '" . $mail . "'";
         
