@@ -16,11 +16,11 @@ class ArticlesController extends AppController {
     
 //    public $helpers = array('Form', 'Html', 'Js', 'Time');
 
-    public $paginate = array(
-        'order' => array(
-            'Article.modified' => 'desc'
-        )
-    );
+//    public $paginate = array(
+//        'order' => array(
+//            'Article.modified' => 'desc'
+//        )
+//    );
     
     public function beforeFilter() {
         parent::beforeFilter();
@@ -57,10 +57,19 @@ class ArticlesController extends AppController {
     */
     public function index() {
         $user_id = $this->Auth->user('id');
+        
         $this->Article->recursive = 0;
-        $this->set('articles', $this->paginate());
+        $articles = $this->Article->find('all');
+        
+        $this->set('articles', $articles);
         $this->set('user_id', $user_id);
     }
+//    public function index() {
+//        $user_id = $this->Auth->user('id');
+//        $this->Article->recursive = 0;
+//        $this->set('articles', $this->paginate());
+//        $this->set('user_id', $user_id);
+//    }
 
     /**
     * view method
