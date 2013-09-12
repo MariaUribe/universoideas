@@ -10,9 +10,10 @@ table.dataTable {
 
 table.dataTable thead th {
 	padding: 3px 18px 3px 10px;
-	border-bottom: 1px solid black;
+	border-bottom: 2px solid #555;
 	font-weight: bold;
 	cursor: pointer;
+        color: #003d4c;
 	*cursor: hand;
 }
 
@@ -32,14 +33,14 @@ table.dataTable td.dataTables_empty {
 }
 
 table.dataTable tr.odd { background-color: white; }
-table.dataTable tr.even { background-color: #BEBEBE; }
+table.dataTable tr.even { background-color: #f9f9f9; }
 
 table.dataTable tr.odd td.sorting_1 { background-color: white; }
 table.dataTable tr.odd td.sorting_2 { background-color: white; }
 table.dataTable tr.odd td.sorting_3 { background-color: white; }
-table.dataTable tr.even td.sorting_1 { background-color: #BEBEBE; }
-table.dataTable tr.even td.sorting_2 { background-color: #BEBEBE; }
-table.dataTable tr.even td.sorting_3 { background-color: #BEBEBE; }
+table.dataTable tr.even td.sorting_1 { background-color: #f9f9f9; }
+table.dataTable tr.even td.sorting_2 { background-color: #f9f9f9; }
+table.dataTable tr.even td.sorting_3 { background-color: #f9f9f9; }
 
 /*table.dataTable tr.odd td.sorting_1 { background-color: #D3D6FF; }
 table.dataTable tr.odd td.sorting_2 { background-color: #DADCFF; }
@@ -89,8 +90,8 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }*/
  * Pagination
  */
 .dataTables_paginate {
-	float: right;
-	text-align: right;
+	text-align: center;
+        clear: both;
 }
 
 /* Two button pagination - previous / next */
@@ -145,7 +146,9 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }*/
 	line-height: 22px;
 }
 .paging_full_numbers a:active {
-	outline: none
+	outline: none;
+        
+       
 }
 .paging_full_numbers a:hover {
 	text-decoration: none;
@@ -153,20 +156,21 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }*/
 
 .paging_full_numbers a.paginate_button,
 .paging_full_numbers a.paginate_active {
-	border: 1px solid #aaa;
-	-webkit-border-radius: 5px;
+	border: 1px solid #ccc;
+/*	border: 1px solid #aaa;*/
+/*	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
-	border-radius: 5px;
-	padding: 2px 5px;
-	margin: 0 3px;
+	border-radius: 5px;*/
+	padding: 5px 8px;
 	cursor: pointer;
-	*cursor: hand;
-	color: #333 !important;
+	color: #003d4c;
+        text-decoration: none;
+        border-left: 0;
 }
 
-.paging_full_numbers a.paginate_button {
-	background-color: #ddd;
-}
+/*.paging_full_numbers a.paginate_button {*/
+/*	background-color: #ddd;*/
+/*}*/
 
 .paging_full_numbers a.paginate_button:hover {
 	background-color: #ccc;
@@ -175,26 +179,37 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }*/
 
 .paging_full_numbers a.paginate_active {
 /*	background-color: #99B3FF;*/
-	background-color: #aaa;
+	background-color: #efefef;
+        color: #c73e14!important;
+        font-weight: bold;
 }
 
 .paginate_button_disabled{
-    opacity: .35!important;
+    color: #ddd!important;
     cursor: default !important;
 }
 
+#table-forums_previous:hover {
+    background-color: transparent;
+}
+
 #table-forums_first {
-    border-top-left-radius: 5px!important;
-    border-bottom-left-radius: 5px!important;
+    border-left: 1px solid #ccc;
+    -moz-border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
 }
 
 #table-forums_last {
-    border-top-right-radius: 5px!important;
-    border-bottom-right-radius: 5px!important;
+    -moz-border-radius: 0 4px 4px 0;
+-webkit-border-radius: 0 4px 4px 0;
+border-radius: 0 4px 4px 0;
 }
 
 #table-forums_filter {
     margin-bottom: 5px;
+    white-space: nowrap;
+    margin-right: 50px;
 }
 
 
@@ -221,9 +236,17 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }*/
 /*
  * Sorting
  */
-.sorting { background: url('/universoideas/img/paging/sort_both.png') no-repeat center right; }
-.sorting_asc { background: url('/universoideas/img/paging/sort_asc.png') no-repeat center right; }
-.sorting_desc { background: url('/universoideas/img/paging/sort_desc.png') no-repeat center right; }
+/*.sorting { background: url('/universoideas/img/paging/sort_both.png') no-repeat center right; }*/
+/*.sorting_asc { background: url('/universoideas/img/paging/sort_asc.png') no-repeat center right; }
+.sorting_desc { background: url('/universoideas/img/paging/sort_desc.png') no-repeat center right; }*/
+
+
+.sorting_asc:after {
+	content: ' ⇣';
+}
+.sorting_desc:after {
+	content: ' ⇡';
+}
 
 .sorting_asc_disabled { background: url('/universoideas/img/paging/sort_asc_disabled.png') no-repeat center right; }
 .sorting_desc_disabled { background: url('/universoideas/img/paging/sort_desc_disabled.png') no-repeat center right; }
@@ -247,9 +270,6 @@ table.dataTable thead td:active {
 }
 
 #table-forums_paginate {
-    margin-top: 10px;
+    margin-top: 45px;
 }
 
-#table-forums_info {
-    width: 100%;
-}
