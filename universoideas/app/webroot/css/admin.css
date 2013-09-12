@@ -22,6 +22,10 @@ a {
 	display:none;
 }
 
+.w50 {
+    width: 50px;
+}
+
 .w80 {
     width: 80px;
 }
@@ -59,6 +63,10 @@ a {
     margin-top: 5px;
 }
 
+.dataTables_info {
+    margin-top: 10px;
+}
+
 .ml15 {
     margin-left: 15px;
 }
@@ -69,6 +77,14 @@ a {
 
 .ml20 {
     margin-left: 20px;
+}
+
+.pt15 {
+    padding-top: 15px;
+}
+
+.vam {
+    vertical-align: middle;
 }
 
 .dnone {
