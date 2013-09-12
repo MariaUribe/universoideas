@@ -4,7 +4,7 @@
     <legend><?php echo __('Editar Evento'); ?></legend>
     <?php
         echo $this->Form->input('Event.id');
-        echo $this->Form->input('Event.name', array('label' => 'Nombre'));
+        echo $this->Form->input('Event.name', array('label' => 'Nombre', 'maxlength' => '150'));
         echo $this->Form->input('Event.description', array('label' => 'Descripción', 'type' => 'textarea', 'rows' => '10'));
         echo $this->Form->input('Event.place', array('label' => 'Lugar'));
         echo $this->Form->input('Event.event_date', array('label' => 'Fecha'));
