@@ -4,7 +4,7 @@
         <legend><?php echo __('Crear Artículo'); ?></legend>
         <?php
             echo $this->Form->input('Article.channel', array('label' => 'Canal'));
-            echo $this->Form->input('Article.title', array('label' => 'Título'));
+            echo $this->Form->input('Article.title', array('label' => 'Título', 'maxlength' => '150'));
             echo $this->Form->input('Article.summary', array('label' => 'Sumario', 'type' => 'textarea'));
             echo $this->Form->input('Article.body', array('label' => 'Cuerpo', 'type' => 'textarea', 'rows' => '10'));
             echo $this->Form->input('Article.enabled', array('label' => 'Habilitado'));

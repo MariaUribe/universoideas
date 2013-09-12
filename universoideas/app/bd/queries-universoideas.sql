@@ -213,7 +213,7 @@ AND forum.enabled = 1
 LIMIT 5;
 
 
-select * from estudiantes.users; 
+select * from estudiantes.users;
 
 SELECT user.id, user.username, user.name, user.lastname, user.mail, user.role_id
 FROM estudiantes.users user
@@ -224,8 +224,10 @@ WHERE `estudiantes`.`users`.`id` = '4';
 
 UPDATE `estudiantes`.`users` SET `mail` = 'mariale.uribe@gmail.com', `password` = '44a3ebd4efddb3902afdc1e63c06d63f89389537', `modified` = '2013-08-19' WHERE `estudiantes`.`users`.`id` = '4';
 
-ALTER TABLE `estudiantes`.`users` CHANGE COLUMN `twitter` `twitter` VARCHAR(15) NULL DEFAULT NULL  ;
 
-ALTER TABLE `estudiantes`.`users` ADD COLUMN `is_enterprise` TINYINT(1) NOT NULL  AFTER `twitter` ;
+ALTER TABLE `estudiantes`.`events` CHANGE COLUMN `created` `created` DATETIME NOT NULL  , CHANGE COLUMN `modified` `modified` DATETIME NOT NULL  ;
 
-ALTER TABLE `estudiantes`.`emprendedores` ADD COLUMN `resume` VARCHAR(600) NOT NULL  AFTER `title` ;
+ALTER TABLE `estudiantes`.`cursos` CHANGE COLUMN `created` `created` DATETIME NOT NULL  , CHANGE COLUMN `modified` `modified` DATETIME NOT NULL  ;
+
+ALTER TABLE `estudiantes`.`users` CHANGE COLUMN `lastname` `lastname` VARCHAR(45) NULL DEFAULT NULL  , CHANGE COLUMN `gender` `gender` VARCHAR(1) NULL DEFAULT NULL  ;
+

@@ -40,10 +40,10 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`users` (
   `username` VARCHAR(20) NOT NULL ,
   `password` VARCHAR(45) NOT NULL ,
   `name` VARCHAR(45) NOT NULL ,
-  `lastname` VARCHAR(45) NOT NULL ,
+  `lastname` VARCHAR(45) NULL ,
   `mail` VARCHAR(45) NOT NULL ,
   `birthdate` DATE NULL ,
-  `gender` VARCHAR(1) NOT NULL ,
+  `gender` VARCHAR(1) NULL ,
   `created` DATE NOT NULL ,
   `modified` DATE NOT NULL ,
   `twitter` VARCHAR(15) NULL ,
@@ -233,8 +233,8 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`cursos` (
   `enabled` TINYINT(1) NOT NULL ,
   `image` VARCHAR(100) NULL ,
   `image_thumb` VARCHAR(100) NULL ,
-  `created` DATE NOT NULL ,
-  `modified` DATE NOT NULL ,
+  `created` DATETIME NOT NULL ,
+  `modified` DATETIME NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -255,8 +255,8 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`events` (
   `image` VARCHAR(100) NULL ,
   `image_thumb` VARCHAR(100) NULL ,
   `enabled` TINYINT(1) NOT NULL ,
-  `created` DATE NOT NULL ,
-  `modified` DATE NOT NULL ,
+  `created` DATETIME NOT NULL ,
+  `modified` DATETIME NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
