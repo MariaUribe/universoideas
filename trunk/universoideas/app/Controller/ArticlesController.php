@@ -403,7 +403,7 @@ class ArticlesController extends AppController {
 
         //only process if the extension is valid
         if(in_array($ext, $arr_ext)) {
-            $img_path = WWW_ROOT . 'img/uploads/' . $file['name'];
+            $img_path = WWW_ROOT . 'img/uploads/' . $title . '_' . $article_id . '.' . $ext;
             move_uploaded_file($file["tmp_name"], $img_path);
 
             list($width, $height) = getimagesize($img_path);
