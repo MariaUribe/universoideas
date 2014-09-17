@@ -1,11 +1,9 @@
 <IfModule mod_rewrite.c>
-    AddType text/html .shtml
-    AddOutputFilter INCLUDES .shtml .html .htm
-
-    Options Indexes FollowSymLinks Includes
-
+#    AddType text/html .shtml
+#    AddOutputFilter INCLUDES .shtml .html .htm
+#    Options Indexes FollowSymLinks Includes
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*)$ index.php [QSA,L]
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 </IfModule>
