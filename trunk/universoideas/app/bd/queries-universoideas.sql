@@ -231,3 +231,18 @@ ALTER TABLE `estudiantes`.`cursos` CHANGE COLUMN `created` `created` DATETIME NO
 
 ALTER TABLE `estudiantes`.`users` CHANGE COLUMN `lastname` `lastname` VARCHAR(45) NULL DEFAULT NULL  , CHANGE COLUMN `gender` `gender` VARCHAR(1) NULL DEFAULT NULL  ;
 
+
+
+
+
+
+
+ALTER TABLE `estudiantes`.`articles` CHANGE COLUMN `title` `title` VARCHAR(150) NOT NULL  ;
+
+ALTER TABLE `estudiantes`.`cursos` CHANGE COLUMN `name` `name` VARCHAR(150) NOT NULL  ;
+
+ALTER TABLE `estudiantes`.`events` CHANGE COLUMN `name` `name` VARCHAR(150) NOT NULL  ;
+
+ALTER TABLE `estudiantes`.`enterprises` CHANGE COLUMN `enterprise` `enterprise` VARCHAR(150) NOT NULL  ;
+
+ALTER TABLE `estudiantes`.`emprendedores` CHANGE COLUMN `title` `title` VARCHAR(150) NOT NULL  ;
