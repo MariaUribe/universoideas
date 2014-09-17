@@ -398,7 +398,7 @@ class ArticlesController extends AppController {
         $title = strstr($file['name'], '.', true);  //get the name alone
 
 
-        $arr_ext = array('jpg', 'jpeg', 'gif'); //set allowed extensions
+        $arr_ext = array('jpg', 'jpeg', 'gif', 'png'); //set allowed extensions
         $width_thumb = 200;
 
         //only process if the extension is valid
