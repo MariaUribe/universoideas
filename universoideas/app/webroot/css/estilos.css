@@ -1,5 +1,5 @@
 BODY{ background-color:#fff; font-family:Verdana, Geneva, sans-serif; margin:0 auto} 
-body#index a.selec1,body#calendario a.selec2,body#vida a.selec3,body#encuentrame a.selec4,body#pasantias a.selec5,body#emprendedor a.selec6,body#foros a.selec7,body#conocenos a.selec8{ color: #960!important; text-decoration:underline; padding:5px 10px;  background:#fff; }
+body#index a.selec1,body#calendario a.selec2,body#vida a.selec3,body#encuentrame a.selec4,body#pasantias a.selec5,body#emprendedor a.selec6,body#foros a.selec7,body#conocenos a.selec8{ color: #960!important; text-decoration:underline; padding:6px 10px;  background:#fff; }
 DIV {}
 SPAN { padding-left:10px}
 IMG {border:0px}
@@ -9,25 +9,23 @@ TR{ vertical-align:top; }
 TD{ text-align:left;}
 TD A{color:#00355a}
 #conten_ppal{width:900px; overflow:hidden;margin:0 auto;padding: 0 0 10px 0;}
-#content_head {background-color:#003355; background-image:url(/universoideas/img/fondo_head.png); overflow:hidden}
+#content_head {background-color:#003355; background-image:url(/img/fondo_head.png); overflow:hidden}
 #content_dos_col{ margin:10px 0 }
 #content_col_izq{ width:570px; float:left; margin-bottom:10px}
 #content_col_der{ width:320px; float:right}
 #content_foot{ margin-top:20px; border-top:#333 solid 2px; text-align:center; font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#333; width:900px; margin:0 auto}
-.sprite{background-image: url(/universoideas/img/icons/sprite.png);background-repeat:no-repeat;display:inline;cursor:hand}
+.sprite{background-image: url(/img/icons/sprite.png);background-repeat:no-repeat;display:inline;cursor:hand}
 .sprite-lupa{background-position:0 0}
 .logo{ float:left; margin:10px; padding:15px}
 .sleyendo{ font-size:10px; float:right; margin:10px; color:#004080}
-.menu{ height:14px; clear:both;background-image:url(/universoideas/img/back_menu.png);background-repeat:repeat-x; padding:5px; overflow:hidden; border-top:#FFF 1px solid ; margin-top:15px}
+.menu{ height:14px; clear:both;background-image:url(/img/back_menu.png);background-repeat:repeat-x; padding:5px; overflow:hidden; border-top:#FFF 1px solid ; margin-top:15px}
 .menu UL { margin:0!important}
-.menu UL LI{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:12px; font-weight:bold; list-style:none; margin-right:5px;color:#FFFFFF}
-.menu UL LI A{color:#FFFFFF}
-.menu UL LI A{color:#FFFFFF}
-
+.menu UL LI{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:12px; font-weight:bold; list-style:none;color:#FFFFFF}
+.menu UL LI A{color:#FFFFFF; padding:6px}
 .publicidad{ font-size:6px; color:#424242;}
 .siguenos{ font-family:Verdana, Geneva, sans-serif; font-size:10px; font-weight:bold; border:1px solid #666; overflow:hidden; background-color:#ddd; padding-left:10px}
 /*SPRITE*/
-.redes span{ background-image:url(/universoideas/img/icons/sprite_redes.png); background-repeat:no-repeat; display: inline;width:28px;height:42px;cursor: pointer}
+.redes span{ background-image:url(/img/icons/sprite_redes.png); background-repeat:no-repeat; display: inline;width:28px;height:42px;cursor: pointer}
 .twitter{ background-position:0 0 }
 .facebook{ background-position:-42px 0}
 .youtube{ background-position:-82px 0}
@@ -66,10 +64,12 @@ TD A{color:#00355a}
 .mt35{margin-top:35px}
 .mt50{margin-top:50px}
 .mb10{margin-bottom:10px}
+.mb15{margin-bottom:15px}
 .mb5{margin-bottom:5px!important}
 .mb20{margin-bottom:20px!important}
 .tal{text-align:left}
 .tac{text-align:center}
+.taj{text-align:justify}
 .tar{text-align:right}
 .fs10{ font-size:10px}
 .br0{border-radius: 0!important}
@@ -81,6 +81,7 @@ TD A{color:#00355a}
 .colorfff{ color:#fff}
 .p5{ padding:5px}
 .b1333{ border:#333 solid 1px}
+.w250{ width:250px}
 .w400{ width:400px}
 .w450{ width:450px}
 .w500{ width:500px}
@@ -129,7 +130,7 @@ TD A{color:#00355a}
 .doble .der .caja .txt A IMG{ margin: 3px}/*
 
 /*GALERIA*/
-#slider1 { width: 620px; height: 300px; position: relative;  overflow: hidden; margin-top:12px }
+#slider1 { width: 550px; height: 300px; position: relative;  overflow: hidden; margin-top:12px }
 #slider1Content { width: 720px; position: absolute; top: 0; margin-left: 0; }
 .slider1Image { float: left; position: relative; display: none; }
 .slider1Image span { position: absolute; font: 10px/15px Arial, Helvetica, sans-serif; padding: 10px 13px;  width: 620px; background-color: #000; filter: alpha(opacity=70); -moz-opacity: 0.7; -khtml-opacity: 0.7; opacity: 0.7; color: #fff;  display: none; }
