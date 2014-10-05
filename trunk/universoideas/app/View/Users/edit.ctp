@@ -92,8 +92,8 @@
                         echo "<td class='tar vam'><label class='lh14'>Correo: </label></td>";
                         echo "<td class='tal'>" . $this->Form->input('mail', array('label' => false, 'class' => 'left required email lh14', 'size' => '45', 'onkeyup' => 'checkMail(this, this.value)')) . "<label id='img_error_mail' class='img_error_mail error_val' style='display: none'>Este correo ya esta registrado</label></td>";
                         echo "<td><label style='vertical-align: middle;'>
-                                <img class='img_error_mail' src='/universoideas/img/icons/error.png' width='20' height='20' alt='error' class='left mr5' style='display: none;'>
-                                <img class='img_success_mail' src='/universoideas/img/icons/success.gif' width='20' height='20' alt='exito' class='left mr5' style='display: none;'></label></td>";
+                                <img class='img_error_mail' src='/img/icons/error.png' width='20' height='20' alt='error' class='left mr5' style='display: none;'>
+                                <img class='img_success_mail' src='/img/icons/success.gif' width='20' height='20' alt='exito' class='left mr5' style='display: none;'></label></td>";
                         echo "</tr>";
 
                         echo "<tr>";
@@ -171,5 +171,5 @@
 
 <div id="content_col_der">
     <?php include ("includes/siguenos.htm") ?>
-    <div id="publicidadventana5" class="p5 tac"><div class="publicidad tal">ESPACIO PUBLICITARIO</div><a href="#"><img src="/universoideas/img/publicidad/300x250.gif" width="300" height="250" alt="Publicidad" /></a></div>
+    <div id="publicidadventana5" class="p5 tac"><div class="publicidad tal">ESPACIO PUBLICITARIO</div><a href="#"><img src="/img/publicidad/300x250.gif" width="300" height="250" alt="Publicidad" /></a></div>
 </div>
