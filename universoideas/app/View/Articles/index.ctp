@@ -1,5 +1,5 @@
-<link rel="stylesheet" type="text/css" href="/universoideas/css/jquery.dataTablesAdmin.css">
-<script type="text/javascript" src="/universoideas/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/jquery.dataTablesAdmin.css">
+<script type="text/javascript" src="/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         $('#table-forums').dataTable({
@@ -14,9 +14,9 @@
         <thead>
             <tr>
                 <th class="w50"><?php echo 'ID'; ?></th>
-                <th class="w80"><?php echo 'Canal'; ?></th>
-                <th class="w200"><?php echo 'Título'; ?></th>
-                <th class="w380"><?php echo 'Sumario'; ?></th>
+                <th class="w150"><?php echo 'Canal'; ?></th>
+                <th class="w400"><?php echo 'Título'; ?></th>
+                <!--<th class="w380">php echo 'Sumario'; ?></th>-->
                 <th><?php echo 'Habilitado'; ?></th>
                 <th><?php echo 'Destacada'; ?></th>
                 <th class="w130"><?php echo 'Creado'; ?></th>
@@ -30,20 +30,21 @@
             $canal = $article['Article']['channel']; 
             $new_channel = $canal;
             
-            if($canal == "principal")
+            if($canal == "principal") {
                 $new_channel = "Principal";
-            else if($canal == "encuentrame")
+            } else if($canal == "encuentrame") {
                 $new_channel = "Encuéntrame";
-            else if($canal == "rumba")
+            } else if($canal == "rumba") {
                 $new_channel = "Rumba";
-            else if($canal == "arte")
+            } else if($canal == "arte") {
                 $new_channel = "Arte y Cultura";
-            else if($canal == "ciencia")
+            } else if($canal == "ciencia") {
                 $new_channel = "Ciencia y Tecnología";
-            else if($canal == "sexualidad")
+            } else if($canal == "sexualidad") {
                 $new_channel = "Sexualidad al día";
-            else if($canal == "moda")
+            } else if($canal == "moda") {
                 $new_channel = "Moda";
+            }
         ?>
         <?php 
             $date_created = $this->Time->format('D-F-j-Y-h:i A', $article['Article']['created']);
@@ -56,7 +57,7 @@
             <td class="vam"><?php echo h($article['Article']['id']); ?>&nbsp;</td>
             <td class="vam"><?php echo $new_channel; ?>&nbsp;</td>
             <td class="vam"><?php echo h($article['Article']['title']); ?>&nbsp;</td>
-            <td class="vam"><?php echo h($article['Article']['summary']); ?>&nbsp;</td>
+            <!--<td class="vam">php echo h($article['Article']['summary']); ?>bsp;</td>-->
             <td class="tac vam"><?php echo h(($article['Article']['enabled']==1?"SI":"NO")); ?>&nbsp;</td>
             <td class="tac vam"><?php echo h(($article['Article']['highlight']==1?"SI":"NO")); ?>&nbsp;</td>
             <td class="vam"><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) .  " " . $hora_crea ?>&nbsp;</td>
