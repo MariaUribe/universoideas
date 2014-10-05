@@ -11,8 +11,8 @@
             $img = $art['img']['image_id'];
             $vid = $art['vid']['video_id'];
         ?>
-        <div class="dia"><?php echo __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano);?></div>
-        <div>
+        <div class="dia mb15"><?php echo __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano);?></div>
+        <div class="taj">
             <?php 
                 if($img != "") {
                     echo $this->Html->image($art['img']['uri_thumb'], array('alt' => $art['img']['title'], 'align' => 'left', 'border' => '0'));
@@ -22,8 +22,8 @@
                             "</div>";
                 } 
 
-                echo "<strong>" . $art['art']['summary'] . "</strong>";
-                echo "<br>";
+                echo "<strong class='mb10'>" . $art['art']['summary'] . "</strong>";
+                echo "<br><br>";
                 echo $art['art']['body'];                        
             ?>
         </div>

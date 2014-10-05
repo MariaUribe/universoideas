@@ -30,9 +30,9 @@
                 $date = $this->Time->format('D-F-j-Y-h:i A', $emprendedor['Emprendedore']['modified']);
                 list($dia_sem, $mes, $dia, $ano, $hora) = explode('-', $date);
                 $twitter = "";
-                if($emprendedor['User']['twitter'])
+                if($emprendedor['User']['twitter']) {
                     $twitter = " » " . "@" . $emprendedor['User']['twitter'];
-                
+                }
                 echo "<tr>";
                 echo "<td>";
                 
@@ -63,8 +63,7 @@
     <a href="/emprendedores/add" class="mt20" style="cursor: pointer;">Nuevo Emprendimiento</a>
 </div>-->
 
-<div class="box mt15">&nbsp;</div>
+<div class="box mt15" style="clear: both">&nbsp;</div>
 
 <div class="doble">
-
 </div>
