@@ -89,7 +89,7 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
     });
 </script>
 
-<div class="logo"><a href="#"><img src="/universoideas/img/logo.png" alt="Universo Ideas" /></a></div>
+<div class="logo"><a href="#"><img src="/img/logo.png" alt="Universo Ideas" /></a></div>
 
 
 <div class="right">
@@ -109,7 +109,7 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
         ?>
     </div>
     <div class="clear right mt15 pb5">
-        <img src="/universoideas/img/icons/icon_lupa.png" width="20" height="21" alt="lupa" class=" left mr5">
+        <img src="/img/icons/icon_lupa.png" width="20" height="21" alt="lupa" class=" left mr5">
         <input id="buscarText" name="Busqueda" type="text" size="20" maxlength="50" class="fs11 left">
         <a id="buscarButton" class="boton_buscar fff tdno fecha" style="cursor: pointer;">Buscar</a>
     </div>
