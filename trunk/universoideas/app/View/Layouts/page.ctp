@@ -41,7 +41,7 @@ $title_for_layout = 'Universoideas';
 </head>
 <body id="index">
     <div id="conten_ppal">
-        <div id="publicidadtop1" class="p5 tac"><div class="publicidad tal">ESPACIO PUBLICITARIO</div><a href="#"><img src="/universoideas/img/publicidad/728x90.gif" width="728" height="90" alt="Publicidad" /></a></div>
+        <div id="publicidadtop1" class="p5 tac"><div class="publicidad tal">ESPACIO PUBLICITARIO</div><a href="#"><img src="/img/publicidad/728x90.gif" width="728" height="90" alt="Publicidad" /></a></div>
         <div id="content_head" class="pt5">
             <?php $dir =  dirname(__DIR__); ?>
             <?php include $dir . "/Pages/head.ctp"; ?>
