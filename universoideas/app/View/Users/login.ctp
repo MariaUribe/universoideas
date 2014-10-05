@@ -83,8 +83,8 @@
                     echo "<td class='tar vam' width='35%'><label class='lh14' style='width: 140px;'>Nombre de Usuario: </label></td>";
                     echo "<td class='tal' width='20%'>" . $this->Form->input('username', array('label' => false, 'class' => 'left required lh14', 'size' => '35', 'onkeyup' => 'checkUserName(this.value)')) . "<label class='img_error error_val' style='display: none'>Este nombre de usuario ya existe</label></td>";
                     echo "<td><label style='vertical-align: middle;'>
-                              <img id='img_error' class='img_error' src='/universoideas/img/icons/error.png' width='20' height='20' alt='error' class='left mr5' style='display: none;'>
-                              <img id='img_success' class='img_success' src='/universoideas/img/icons/success.gif' width='20' height='20' alt='exito' class='left mr5' style='display: none;'></label></td>";
+                              <img id='img_error' class='img_error' src='/img/icons/error.png' width='20' height='20' alt='error' class='left mr5' style='display: none;'>
+                              <img id='img_success' class='img_success' src='/img/icons/success.gif' width='20' height='20' alt='exito' class='left mr5' style='display: none;'></label></td>";
                     echo "</tr>";
 
                     echo "<tr>";
@@ -101,8 +101,8 @@
                     echo "<td class='tar vam'><label class='lh14'>Correo: </label></td>";
                     echo "<td class='tal'>" . $this->Form->input('mail', array('label' => false, 'class' => 'left required email lh14', 'size' => '35', 'onkeyup' => 'checkMail(this, this.value)')) . "<label id='img_error_mail' class='img_error_mail error_val' style='display: none'>Este correo ya esta registrado</label></td>";
                     echo "<td><label style='vertical-align: middle;'>
-                              <img class='img_error_mail' src='/universoideas/img/icons/error.png' width='20' height='20' alt='error' class='left mr5' style='display: none;'>
-                              <img class='img_success_mail' src='/universoideas/img/icons/success.gif' width='20' height='20' alt='exito' class='left mr5' style='display: none;'></label></td>";
+                              <img class='img_error_mail' src='/img/icons/error.png' width='20' height='20' alt='error' class='left mr5' style='display: none;'>
+                              <img class='img_success_mail' src='/img/icons/success.gif' width='20' height='20' alt='exito' class='left mr5' style='display: none;'></label></td>";
                     echo "</tr>";
                     
                     echo "<tr>";
