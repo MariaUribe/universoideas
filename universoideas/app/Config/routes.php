@@ -57,7 +57,8 @@
 	Router::connect('/pages/search_cursos', array('controller' => 'pages', 'action' => 'search_cursos'));
 	Router::connect('/pages/search_forums', array('controller' => 'pages', 'action' => 'search_forums'));
 	Router::connect('/pages/galeria', array('controller' => 'pages', 'action' => 'galeria'));
-
+        Router::connect('/pages/terminos', array('controller' => 'pages', 'action' => 'terminos'));
+        
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
