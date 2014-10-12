@@ -263,7 +263,7 @@ form {
 	clear: both;
 	margin-right: 20px;
 	padding: 0;
-	width: 95%;
+	width: 99%;
 }
 fieldset {
 	border: none;
@@ -322,8 +322,10 @@ input, textarea {
     clear: both;
     font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif";
     font-size: 14px;
-    padding: 1%;
-    width:98%;
+    //padding: 1%;
+    //width:98%;
+    padding: 6px;
+    width: 70%;
 }
 select {
 	clear: both;

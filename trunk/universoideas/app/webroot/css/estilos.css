@@ -1,4 +1,4 @@
-BODY{ background-color:#fff; font-family:Verdana, Geneva, sans-serif; margin:0 auto} 
+BODY{ background-color:#fff; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; font-size: 14px; letter-spacing: 0.3px; margin:0 auto} 
 body#index a.selec1,body#calendario a.selec2,body#vida a.selec3,body#encuentrame a.selec4,body#pasantias a.selec5,body#emprendedor a.selec6,body#foros a.selec7,body#conocenos a.selec8{ color: #960!important; text-decoration:underline; padding:6px 10px;  background:#fff; }
 DIV {}
 SPAN { padding-left:10px}
@@ -13,17 +13,17 @@ TD A{color:#00355a}
 #content_dos_col{ margin:10px 0 }
 #content_col_izq{ width:570px; float:left; margin-bottom:10px}
 #content_col_der{ width:320px; float:right}
-#content_foot{ margin-top:20px; border-top:#333 solid 2px; text-align:center; font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#333; width:900px; margin:0 auto}
+#content_foot{ margin-top:20px; border-top:#333 solid 2px; text-align:center; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; font-size: 14px; letter-spacing: 0.3px; color:#333; width:900px; margin:0 auto}
 .sprite{background-image: url(/img/icons/sprite.png);background-repeat:no-repeat;display:inline;cursor:hand}
 .sprite-lupa{background-position:0 0}
 .logo{ float:left; margin:10px; padding:15px}
 .sleyendo{ font-size:10px; float:right; margin:10px; color:#004080}
 .menu{ height:14px; clear:both;background-image:url(/img/back_menu.png);background-repeat:repeat-x; padding:5px; overflow:hidden; border-top:#FFF 1px solid ; margin-top:15px}
 .menu UL { margin:0!important}
-.menu UL LI{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:12px; font-weight:bold; list-style:none;color:#FFFFFF}
+.menu UL LI{ float:left; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; font-size: 13px; letter-spacing: 0.3px; font-weight:bold; list-style:none;color:#FFFFFF}
 .menu UL LI A{color:#FFFFFF; padding:6px}
 .publicidad{ font-size:6px; color:#424242;}
-.siguenos{ font-family:Verdana, Geneva, sans-serif; font-size:10px; font-weight:bold; border:1px solid #666; overflow:hidden; background-color:#ddd; padding-left:10px}
+.siguenos{ font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; font-size: 12px; letter-spacing: 0.3px; font-weight:bold; border:1px solid #666; overflow:hidden; background-color:#ddd; padding-left:10px}
 /*SPRITE*/
 .redes span{ background-image:url(/img/icons/sprite_redes.png); background-repeat:no-repeat; display: inline;width:28px;height:42px;cursor: pointer}
 .twitter{ background-position:0 0 }
@@ -38,7 +38,7 @@ TD A{color:#00355a}
 .left{float:left}
 .right{float:right}
 .bold{font-weight:bold}
-.fecha{font-family:Verdana, Geneva, sans-serif; font-size:10px; color:#fff; float:right; text-align:right}
+.fecha{font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; font-size: 12px; letter-spacing: 0.3px; color:#fff; float:right; text-align:right}
 .clear{clear:both}
 .fff{color:#FFF}
 .b023{background-color:#002233}
@@ -97,7 +97,7 @@ TD A{color:#00355a}
 
 .destacada{ background-color:#999; overflow:hidden; border:#333 solid 2px; clear:both; margin-top:10px}
 .destacada .titulo{ background-color:#333; text-align:left; padding:5px; font-size:12px; color:#FFF;font-weight:bold}
-.destacada .contenido{ padding:5px; font-family:Georgia, "Times New Roman", Times, serif; font-size:12px}
+.destacada .contenido{ padding:5px; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; font-size:11px }
 .destacada .contenido OL{ margin:0 0 0 -10px;}
 .destacada .contenido OL LI{ border-bottom:#333 1px solid; list-style:decimal; color:#004080;font-weight:bold; padding:3px 0}
 .destacada .contenido OL LI A{color:#333; font-weight:normal!important}
@@ -105,20 +105,22 @@ TD A{color:#00355a}
 .rio{ overflow:hidden; margin-top:20px}
 .boton A { padding:2px 10px; background-color:#004000; color:#fff; font-weight:bold; border:#030303 1px solid}
 .notas{ overflow:hidden}
-.notas H2{ margin:0; background-color:#003559; color:#FFF; font-size:20px; text-align:left; padding:2px; font-family:Georgia, "Times New Roman", Times, serif}
+.notas H2{ margin:0; text-align:left; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; font-size: 20px; letter-spacing: 0.3px; font-weight: normal; }
 .notas H2 A{color:#FFF;}
-.notas H3{ margin:5px 0; color:#333; font-size:18px; text-align: left; padding:2px; font-family: Georgia, "Times New Roman", Times, serif}
+.notas H3{ margin:5px 0; color:#333; font-size:18px; text-align: left; padding:2px; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; letter-spacing: 0.3px; font-weight: normal; }
 .notas H3 A{color:#FFF;}
-.notas DIV {font-size:12px;color:#333}
+.notas DIV {font-size:12px;color:#333; line-height: 20px;}
 .notas DIV A{color: #004080}
 .notas DIV IMG { margin:5px}
 .notas .dia{ background-color:#ccc; color:#333; font-size:9px; text-align:left; padding:2px; margin-top:2px;}
 
+.title_rio { margin:0; background-color:#003559; color:#FFF; text-align:left; padding:2px; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; font-size: 20px; letter-spacing: 0.3px; font-weight: normal; }
+
 .doble { overflow:hidden; clear:both}
-.doble .calendario .title{background-color:#325e7b; color:#FFF; font-size:12px; font-weight:bold; padding:2px 15px; margin-top:15px}
+.doble .calendario .title { background-color: #325e7b; color: #FFF; font-size: 20px; font-weight: normal; padding: 2px 10px; margin-top: 15px;}
 .doble .calendario .caja { background: none repeat scroll 0 0 #ddd; margin: 3px 0 5px; overflow: hidden; }
 .doble .calendario .caja .dia{ background-color:#003559; color:#FFF; font-size:9px; text-align:right; padding:2px}
-.doble .calendario .caja .txt{ font-size:10px; padding:5px}
+.doble .calendario .caja .txt{ font-size:12px; padding:5px; line-height: 20px; }
 .doble .calendario .caja .txt A{ clear:both; color:#333;}
 .doble .calendario .caja .txt A IMG{ margin: 3px}
 /*
@@ -133,9 +135,9 @@ TD A{color:#00355a}
 #slider1 { width: 550px; height: 300px; position: relative;  overflow: hidden; margin-top:12px }
 #slider1Content { width: 720px; position: absolute; top: 0; margin-left: 0; }
 .slider1Image { float: left; position: relative; display: none; }
-.slider1Image span { position: absolute; font: 10px/15px Arial, Helvetica, sans-serif; padding: 10px 13px;  width: 620px; background-color: #000; filter: alpha(opacity=70); -moz-opacity: 0.7; -khtml-opacity: 0.7; opacity: 0.7; color: #fff;  display: none; }
+.slider1Image span { position: absolute; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; font-size: 12px; padding: 10px 13px;  width: 620px; background-color: #000; filter: alpha(opacity=70); -moz-opacity: 0.7; -khtml-opacity: 0.7; opacity: 0.7; color: #fff;  display: none; }
 .clear { clear: both; }
-.slider1Image span strong { font-size: 14px; }
+.slider1Image span strong { font-size: 12px; }
 .gleft { top: 0;  left: 0; width: 180px !important; height: 266px; }
 .gright { right: 0; bottom: 3px; width: 180px !important; height: 252px; }
 ul{list-style-type: none;}
@@ -227,6 +229,10 @@ p.thumb a:hover img{ border:1px solid #999; background:#fff; padding:2px; }
 
 .lh14 {
     line-height: 14px;
+}
+
+.lh20 {
+    line-height: 20px;
 }
 
 .menu2 {padding:0; margin:0; margin-bottom:0; list-style:none; position: absolute; font-family:arial, verdana, sans-serif; z-index:9999999 }
