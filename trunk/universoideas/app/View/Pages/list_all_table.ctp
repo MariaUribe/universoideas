@@ -4,7 +4,7 @@
     <a href="/forums/add" class="mt20" style="cursor: pointer;">Nuevo Tema</a>
 </div>
 <?php if(!empty($forums)) {?>
-    <table id="table-forums" width="570" cellspacing="0" cellpadding="5" class="display fs10 mt15 mb5" style="border:#333 solid 1px">
+    <table id="table-forums" width="570" cellspacing="0" cellpadding="5" class="display fs11 mt15 mb5" style="border:#333 solid 1px">
         <thead>
             <tr class="bg00355a colorfff vam h30">
                 <th width="280">TEMAS</th>
