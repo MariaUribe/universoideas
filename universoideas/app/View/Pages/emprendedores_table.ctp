@@ -17,7 +17,7 @@
 <!--<div class="boton fs11 mt20 mb20">
     <a href="/emprendedores/add" class="mt20" style="cursor: pointer;">Nuevo Emprendimiento</a>
 </div>-->
-<table id="table-forums" width="570" cellspacing="0" cellpadding="5" class="display fs10 mt15 mb5" style="padding-top: 10px; padding-bottom: 10px;">
+<table id="table-forums" width="570" cellspacing="0" cellpadding="5" class="display fs11 mt15 mb5" style="padding-top: 10px; padding-bottom: 10px;">
     <thead style="display: none">
         <tr class="bg00355a colorfff vam h30">
             <th>PUBLICACIONES</th>

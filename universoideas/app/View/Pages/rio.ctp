@@ -12,7 +12,7 @@
             
             echo "<div class='box notas'>";
             echo "<input id='article_id' type='hidden' value='" . $article['art']['id'] . "'/>";
-            echo "<h2><a href='/pages/article?id=" . $article['art']['id'] . "'>" . $article['art']['title'] . "</a></h2>";
+            echo "<h2 class='title_rio'><a href='/pages/article?id=" . $article['art']['id'] . "'>" . $article['art']['title'] . "</a></h2>";
             echo "<div class='dia'>" . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) . "</div>";
             echo "<div>";
             if($img != "") {

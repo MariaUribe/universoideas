@@ -18,7 +18,7 @@
     <div class="rio">
         <?php echo "<h2>Resultados de búsqueda para: \"" . $text . "\"</h2>"?>
         <div class="notas">
-            <table id="table-forums" width="570" cellspacing="0" cellpadding="5" class="display fs10 mt15 mb5" style="border:#333 solid 1px">
+            <table id="table-forums" width="570" cellspacing="0" cellpadding="5" class="display fs11 mt15 mb5" style="border:#333 solid 1px">
                 <thead>
                     <tr class="bg00355a colorfff vam h30">
                         <th width="280">Temas del foro</th>

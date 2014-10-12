@@ -131,7 +131,7 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
             </ul>
         </li>
         <li>|</li>
-        <li><a class="selec4" href="/pages/encuentrame">Encuéntrame</a></li>
+        <li><a class="selec4" href="/pages/encuentrame">Soy emprendedor</a></li>
         <li>|</li>
         <li><a class="selec5" href="/pages/home_pasantias">Pasantías</a></li>
         
@@ -139,7 +139,7 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
             if(!empty($user)) {
                 if($user['role_id'] == '1' || $user['role_id'] == '3') { 
                     echo "<li>|</li>";
-                    echo "<li><a class='selec6' href='/pages/emprendedores'>Soy emprendedor</a></li>";
+                    echo "<li><a class='selec6' href='/pages/emprendedores'>Encuéntrame</a></li>";
                 }
             }
         ?>

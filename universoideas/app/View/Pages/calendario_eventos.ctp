@@ -1,6 +1,6 @@
 <div class="rio">
     <div class="notas"><h2>Calendario de Eventos</h2></div>
-    <table width="570" cellspacing="0" cellpadding="5" class="fs10 mt15" style="border:#333 solid 1px">
+    <table width="570" cellspacing="0" cellpadding="5" class="fs11 mt15" style="border:#333 solid 1px">
         <tr class="bg00355a colorfff">
             <td width="300">Evento</td>
             <td width="100">Lugar</td>
