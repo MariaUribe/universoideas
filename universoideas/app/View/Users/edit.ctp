@@ -53,7 +53,7 @@
 <div id="content_col_izq">
     <div class="registro">
         <div class="rio">
-            <div class="notas fs11 bgddd p10 pb30">
+            <div class="notas fs14 bgddd p10 pb30">
                 <h2>Mi Perfil</h2>
                 <input type="hidden" id="locationId" value="" name="locationId">
                 <input type="hidden" value="success" name="forward">
@@ -67,11 +67,11 @@
                         echo $this->Form->input('is_enterprise', array('label' => false, 'type' => 'hidden'));
                         
                         echo "<tr>";
-                        echo "<td width='150' colspan='2' style='text-align: center;'><a href='/pages/list_all' style='font-size: 12px; font-weight: bold'>Ver Mis Foros</a></td>";
+                        echo "<td width='150' colspan='2' style='text-align: center;'><a href='/pages/list_all' style='font-weight: bold'>Ver Mis Foros</a></td>";
                         echo "</tr>";
                         
                         echo "<tr>";
-                        echo "<td width='150' colspan='2' style='text-align: center;'><a href='/pages/mis_emprendimientos' style='font-size: 12px; font-weight: bold'>Ver Mis Emprendimientos</a></td>";
+                        echo "<td width='150' colspan='2' style='text-align: center;'><a href='/pages/mis_emprendimientos' style='font-weight: bold'>Ver Mis Emprendimientos</a></td>";
                         echo "</tr>";
                         
                         echo "<tr>";
