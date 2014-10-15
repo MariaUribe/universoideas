@@ -1,6 +1,6 @@
 <input id="page_code" type="hidden" value="terminos"/>
 <div id="content_col_izq">
-     <?php include ("includes/terminos_legales.htm") ?>
+     <?php include ("includes/published/terminos_legales.htm") ?>
 </div>
 
 <div id="content_col_der">

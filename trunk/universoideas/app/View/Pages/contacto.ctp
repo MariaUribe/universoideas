@@ -1,6 +1,6 @@
 <input id="page_code" type="hidden" value="conocenos"/>
 <div id="content_col_izq">
-     <?php include ("includes/quienes.htm") ?>
+     <?php include ("includes/published/contacto.htm") ?>
 </div>
 
 <div id="content_col_der">

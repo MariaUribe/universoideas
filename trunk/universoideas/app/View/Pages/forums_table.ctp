@@ -1,6 +1,6 @@
 <div class="notas"><h2>Temas</h2></div>
 
-<div class="boton fs11 mt20 mb20">
+<div class="boton fs13 mt20 mb20">
     <a href="/forums/add" class="mt20" style="cursor: pointer;">Nuevo Tema</a>
 </div>
 <table id="table-forums" width="570" cellspacing="0" cellpadding="5" class="display fs11 mt15 mb5" style="border:#333 solid 1px">
@@ -49,7 +49,7 @@
         </tr>
     </tfoot>
 </table>
-<div class="boton fs11 mt35">
+<div class="boton fs13 mt35">
     <a href="/forums/add" class="mt20" style="cursor: pointer;">Nuevo Tema</a>
 </div>
 
