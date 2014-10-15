@@ -14,10 +14,10 @@
 
 <div class="notas"><h2>Mis publicaciones de emprendimiento</h2></div>
 
-<div class="boton fs11 mt20 mb20">
+<div class="boton fs13 mt20 mb20">
     <a href="/emprendedores/add" class="mt20" style="cursor: pointer;">Nuevo Emprendimiento</a>
 </div>
-<table id="table-forums" width="570" cellspacing="0" cellpadding="5" class="display fs11 mt15 mb5" style="padding-top: 10px; padding-bottom: 10px;">
+<table id="table-forums" width="570" cellspacing="0" cellpadding="5" class="display fs12 mt15 mb5" style="padding-top: 10px; padding-bottom: 10px;">
     <thead style="display: none">
         <tr class="bg00355a colorfff vam h30">
             <th>PUBLICACIONES</th>
@@ -47,7 +47,7 @@
                 
                 echo "<div class='notas box' style='padding: 0px;'>";
                 echo "<div style='font-size: 12px!important;color: #666;'><label>Estatus de publicación: <strong>" . $status . "</strong></label></div>";
-                echo "<br><a href='/emprendedores/edit_emprendimiento/" . $emprendedor['Emprendedore']['id']."' style='font-weight: bold; text-decoration: underline;'>Editar</a>";
+                echo "<br><a href='/emprendedores/edit_emprendimiento/" . $emprendedor['Emprendedore']['id']."' style='font-weight: bold; text-decoration: underline; font-size: 12px;'>Editar</a>";
                 echo "<h2 style='background-color: white;'><a style='color: #00355a;' href='/emprendedores/view/" . $emprendedor['Emprendedore']['id'] . "'>" . $emprendedor['Emprendedore']['title'] . "</a></h2>";
                 echo "<div class='dia'>" . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) . " " . __($hora) ."</div>";
                 echo "<div syle='font-size: 10px!important; margin-bottom: 3px; margin-top: 3px;'>Creado por: " . $emprendedor['User']['username'] . $twitter . "</div>";
@@ -69,7 +69,7 @@
         </tr>
     </tfoot>
 </table>
-<div class="boton fs11 mt35">
+<div class="boton fs13 mt35">
     <a href="/emprendedores/add" class="mt20" style="cursor: pointer;">Nuevo Emprendimiento</a>
 </div>
 
