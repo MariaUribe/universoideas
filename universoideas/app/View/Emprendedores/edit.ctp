@@ -5,8 +5,8 @@
             <?php
                     echo $this->Form->input('id');
                     echo $this->Form->input('title', array('label' => 'Título', 'maxlength' => '150'));
-                    echo $this->Form->input('resume', array('label' => 'Resumen', 'type' => 'textarea', 'class' => 'jqte-editor'));
-                    echo $this->Form->input('description', array('label' => 'Descripción', 'type' => 'textarea', 'rows' => '10', 'class' => 'jqte-editor'));
+                    echo $this->Form->input('resume', array('label' => 'Resumen', 'type' => 'textarea', 'class' => 'ckeditor'));
+                    echo $this->Form->input('description', array('label' => 'Descripción', 'type' => 'textarea', 'rows' => '10', 'class' => 'ckeditor'));
                     echo $this->Form->input('status', array('label' => 'Estatus', 'options' => $status));
             
                     echo '<div>Creado por: ' . $user_emp['User']['username'] . '</div>';
