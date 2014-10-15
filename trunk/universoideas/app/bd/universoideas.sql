@@ -52,6 +52,10 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`users` (
   `question_id` INT NOT NULL ,
   `role_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) ,
+  INDEX `fk_users_roles1_idx` (`role_id` ASC) ,
+  UNIQUE INDEX `mail_UNIQUE` (`mail` ASC) ,
+  INDEX `fk_users_questions1_idx` (`question_id` ASC) ,
   CONSTRAINT `fk_users_roles1`
     FOREIGN KEY (`role_id` )
     REFERENCES `estudiantes`.`roles` (`id` )
@@ -80,7 +84,7 @@ DROP TABLE IF EXISTS `estudiantes`.`articles` ;
 
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`articles` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `title` VARCHAR(50) NOT NULL ,
+  `title` VARCHAR(150) NOT NULL ,
   `summary` VARCHAR(600) NOT NULL ,
   `body` VARCHAR(5500) NOT NULL ,
   `channel` VARCHAR(20) NOT NULL ,
@@ -101,6 +105,8 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`users_articles` (
   `user_id` VARCHAR(20) NOT NULL ,
   `article_id` INT NOT NULL ,
   PRIMARY KEY (`user_id`, `article_id`) ,
+  INDEX `fk_USUARIO_has_ARTICULO_ARTICULO1_idx` (`article_id` ASC) ,
+  INDEX `fk_USUARIO_has_ARTICULO_USUARIO1_idx` (`user_id` ASC) ,
   CONSTRAINT `fk_USUARIO_has_ARTICULO_USUARIO1`
     FOREIGN KEY (`user_id` )
     REFERENCES `estudiantes`.`users` (`username` )
@@ -135,6 +141,7 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`related_images` (
   `height_thumb` INT NULL ,
   `article_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
+  INDEX `fk_related_medias_articles1_idx` (`article_id` ASC) ,
   CONSTRAINT `fk_related_medias_articles1`
     FOREIGN KEY (`article_id` )
     REFERENCES `estudiantes`.`articles` (`id` )
@@ -159,6 +166,7 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`forums` (
   `modified` DATETIME NOT NULL ,
   `user_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
+  INDEX `fk_forums_users1_idx` (`user_id` ASC) ,
   CONSTRAINT `fk_forums_users1`
     FOREIGN KEY (`user_id` )
     REFERENCES `estudiantes`.`users` (`id` )
@@ -182,6 +190,8 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`comments` (
   `created` DATETIME NOT NULL ,
   `modified` DATETIME NOT NULL ,
   PRIMARY KEY (`id`) ,
+  INDEX `fk_comments_forums1_idx` (`forum_id` ASC) ,
+  INDEX `fk_comments_users1_idx` (`user_id` ASC) ,
   CONSTRAINT `fk_comments_forums1`
     FOREIGN KEY (`forum_id` )
     REFERENCES `estudiantes`.`forums` (`id` )
@@ -210,6 +220,7 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`related_videos` (
   `source` VARCHAR(500) NOT NULL ,
   `article_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
+  INDEX `fk_related_videos_articles1_idx` (`article_id` ASC) ,
   CONSTRAINT `fk_related_videos_articles1`
     FOREIGN KEY (`article_id` )
     REFERENCES `estudiantes`.`articles` (`id` )
@@ -227,9 +238,11 @@ DROP TABLE IF EXISTS `estudiantes`.`cursos` ;
 
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`cursos` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(65) NOT NULL ,
-  `description` VARCHAR(1000) NOT NULL ,
+  `name` VARCHAR(150) NOT NULL ,
+  `category` VARCHAR(100) NOT NULL ,
+  `description` VARCHAR(3000) NOT NULL ,
   `date` DATE NOT NULL ,
+  `end_date` DATE NULL ,
   `enabled` TINYINT(1) NOT NULL ,
   `image` VARCHAR(100) NULL ,
   `image_thumb` VARCHAR(100) NULL ,
@@ -246,10 +259,12 @@ DROP TABLE IF EXISTS `estudiantes`.`events` ;
 
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`events` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(65) NOT NULL ,
-  `description` VARCHAR(1000) NOT NULL ,
+  `name` VARCHAR(150) NOT NULL ,
+  `category` VARCHAR(200) NOT NULL ,
+  `description` VARCHAR(3000) NOT NULL ,
   `place` VARCHAR(65) NOT NULL ,
   `event_date` DATE NOT NULL ,
+  `event_end_date` DATE NULL ,
   `init_time` VARCHAR(8) NOT NULL ,
   `end_time` VARCHAR(8) NOT NULL ,
   `image` VARCHAR(100) NULL ,
@@ -268,7 +283,7 @@ DROP TABLE IF EXISTS `estudiantes`.`enterprises` ;
 
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`enterprises` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `enterprise` VARCHAR(65) NOT NULL ,
+  `enterprise` VARCHAR(150) NOT NULL ,
   `email` VARCHAR(45) NOT NULL ,
   `description` VARCHAR(1500) NOT NULL ,
   `duration` VARCHAR(50) NOT NULL ,
@@ -293,6 +308,7 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`postulations` (
   `modified` DATE NOT NULL ,
   `user_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
+  INDEX `fk_postulations_users1_idx` (`user_id` ASC) ,
   CONSTRAINT `fk_postulations_users1`
     FOREIGN KEY (`user_id` )
     REFERENCES `estudiantes`.`users` (`id` )
@@ -310,7 +326,7 @@ DROP TABLE IF EXISTS `estudiantes`.`emprendedores` ;
 
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`emprendedores` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `title` VARCHAR(100) NOT NULL ,
+  `title` VARCHAR(150) NOT NULL ,
   `resume` VARCHAR(600) NOT NULL ,
   `description` VARCHAR(1500) NOT NULL ,
   `status` VARCHAR(2) NOT NULL ,
@@ -318,6 +334,7 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`emprendedores` (
   `modified` DATETIME NOT NULL ,
   `user_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
+  INDEX `fk_emprendedores_users1_idx` (`user_id` ASC) ,
   CONSTRAINT `fk_emprendedores_users1`
     FOREIGN KEY (`user_id` )
     REFERENCES `estudiantes`.`users` (`id` )
@@ -326,6 +343,16 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`emprendedores` (
 ENGINE = InnoDB;
 
 CREATE INDEX `fk_emprendedores_users1_idx` ON `estudiantes`.`emprendedores` (`user_id` ASC) ;
+
+-- -----------------------------------------------------
+-- Table `estudiantes`.`custom_texts`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `estudiantes`.`custom_texts` (
+  `id` INT NOT NULL ,
+  `section` VARCHAR(45) NOT NULL ,
+  `body` VARCHAR(5500) NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
 
 USE `estudiantes` ;
 
