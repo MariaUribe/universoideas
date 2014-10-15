@@ -5,7 +5,7 @@
 	<?php
 		echo $this->Form->input('Forum.id');
 		echo $this->Form->input('Forum.title', array('label' => 'Asunto'));
-                echo $this->Form->input('Forum.content', array('label' => 'Descripción', 'type' => 'textarea', 'cols' => 58, 'rows' => 12, 'maxlength' => 1500, 'class' => 'jqte-editor'));
+                echo $this->Form->input('Forum.content', array('label' => 'Descripción', 'type' => 'textarea', 'cols' => 58, 'rows' => 12, 'maxlength' => 1500, 'class' => 'ckeditor'));
 		echo $this->Form->input('Forum.enabled', array('label' => 'Habilitado'));
 		echo $this->Form->input('Forum.user_id', array('label' => 'Usuario', 'type' => 'hidden'));
 	?>
