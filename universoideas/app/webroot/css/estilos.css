@@ -17,7 +17,7 @@ TD A{color:#00355a}
 .sprite{background-image: url(/img/icons/sprite.png);background-repeat:no-repeat;display:inline;cursor:hand}
 .sprite-lupa{background-position:0 0}
 .logo{ float:left; margin:10px; padding:15px}
-.sleyendo{ font-size:10px; float:right; margin:10px; color:#004080}
+.sleyendo{ font-size:12px; float:right; margin:10px; color:#004080!important}
 .menu{ height:14px; clear:both;background-image:url(/img/back_menu.png);background-repeat:repeat-x; padding:5px; overflow:hidden; border-top:#FFF 1px solid ; margin-top:15px}
 .menu UL { margin:0!important}
 .menu UL LI{ float:left; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; font-size: 13px; letter-spacing: 0.3px; font-weight:bold; list-style:none;color:#FFFFFF}
@@ -46,6 +46,10 @@ TD A{color:#00355a}
 .fs11{font-size:11px!important}
 .fs12{font-size:12px}
 .fs13{font-size:13px}
+.fs14{font-size:14px}
+.fs15{font-size:15px}
+.fs16{font-size:16px}
+.fs20{font-size:20px}
 .mr10{margin-right:10px}
 .mr5{margin-right:5px}
 .pr5{padding-right:5px}
@@ -96,8 +100,8 @@ TD A{color:#00355a}
 }
 
 .destacada{ background-color:#999; overflow:hidden; border:#333 solid 2px; clear:both; margin-top:10px}
-.destacada .titulo{ background-color:#333; text-align:left; padding:5px; font-size:12px; color:#FFF;font-weight:bold}
-.destacada .contenido{ padding:5px; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; font-size:11px }
+.destacada .titulo{ background-color:#333; text-align:left; padding:5px; font-size:16px; color:#FFF;}
+.destacada .contenido{ padding:5px; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; font-size:12px }
 .destacada .contenido OL{ margin:0 0 0 -10px;}
 .destacada .contenido OL LI{ border-bottom:#333 1px solid; list-style:decimal; color:#004080;font-weight:bold; padding:3px 0}
 .destacada .contenido OL LI A{color:#333; font-weight:normal!important}
@@ -107,20 +111,20 @@ TD A{color:#00355a}
 .notas{ overflow:hidden}
 .notas H2{ margin:0; text-align:left; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; font-size: 20px; letter-spacing: 0.3px; font-weight: normal; }
 .notas H2 A{color:#FFF;}
-.notas H3{ margin:5px 0; color:#333; font-size:18px; text-align: left; padding:2px; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; letter-spacing: 0.3px; font-weight: normal; }
+.notas H3{ margin:5px 0; color:#333; font-size:20px; text-align: left; padding:2px; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; letter-spacing: 0.3px; font-weight: normal; }
 .notas H3 A{color:#FFF;}
-.notas DIV {font-size:12px;color:#333; line-height: 20px;}
+.notas DIV {font-size:14px;color:#333; line-height: 20px; text-align: justify;}
 .notas DIV A{color: #004080}
 .notas DIV IMG { margin:5px}
-.notas .dia{ background-color:#ccc; color:#333; font-size:9px; text-align:left; padding:2px; margin-top:2px;}
+.notas .dia{ background-color:#ccc; color:#333; font-size:11px; text-align:left; padding:2px; margin-top:2px;}
 
 .title_rio { margin:0; background-color:#003559; color:#FFF; text-align:left; padding:2px; font-family: "Trebuchet MS", "Helvetica", "Arial", "Verdana", "sans-serif"; font-size: 20px; letter-spacing: 0.3px; font-weight: normal; }
 
 .doble { overflow:hidden; clear:both}
 .doble .calendario .title { background-color: #325e7b; color: #FFF; font-size: 20px; font-weight: normal; padding: 2px 10px; margin-top: 15px;}
 .doble .calendario .caja { background: none repeat scroll 0 0 #ddd; margin: 3px 0 5px; overflow: hidden; }
-.doble .calendario .caja .dia{ background-color:#003559; color:#FFF; font-size:9px; text-align:right; padding:2px}
-.doble .calendario .caja .txt{ font-size:12px; padding:5px; line-height: 20px; }
+.doble .calendario .caja .dia{ background-color:#003559; color:#FFF; font-size:11px; text-align:right; padding:2px}
+.doble .calendario .caja .txt{ font-size:14px; padding:15px; line-height: 20px; text-align: justify;}
 .doble .calendario .caja .txt A{ clear:both; color:#333;}
 .doble .calendario .caja .txt A IMG{ margin: 3px}
 /*
@@ -262,3 +266,5 @@ p.thumb a:hover img{ border:1px solid #999; background:#fff; padding:2px; }
     text-align: left;
     border-bottom: #004080 1px solid;
 }
+
+.weight_normal { font-weight: normal; }
