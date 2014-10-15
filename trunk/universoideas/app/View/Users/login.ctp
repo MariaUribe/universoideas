@@ -64,7 +64,7 @@
 
 <div class="registro left w450">
     <div class="rio">
-        <div class="notas fs11 bgddd p10">
+        <div class="notas fs12 bgddd p10">
             <h2>Nuevo usuario</h2>
             <input type="hidden" id="locationId" value="" name="locationId">
             <input type="hidden" value="success" name="forward">
@@ -169,7 +169,7 @@
 
 <div class="registro right w400">
     <div class="rio">
-        <div class=" notas fs11 bgddd p10">
+        <div class=" notas fs12 bgddd p10">
             <h2>Usuario registrado</h2>
 
             <?php echo $this->Session->flash('auth'); ?>
