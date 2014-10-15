@@ -444,6 +444,35 @@ class PagesController extends AppController {
         $this->set(compact('user'));
     }
     
+    public function terminos() {
+        $this->loadModel('Article');
+        
+        $this->layout = 'page';
+        
+        $user = $this->Auth->user();
+        $this->set(compact('user'));
+    }
+        
+    public function terminos_detail() {
+        $this->loadModel('CustomText');
+        
+        $this->layout = 'page';
+        
+        $terminos = $this->CustomText->find('first', array('conditions' => array('CustomText.section' => 'TERMINOS')));
+
+        $this->set(compact('terminos'));
+    }
+      
+    public function contacto_detail() {
+        $this->loadModel('CustomText');
+        
+        $this->layout = 'page';
+        
+        $contacto = $this->CustomText->find('first', array('conditions' => array('CustomText.section' => 'CONOCENOS')));
+
+        $this->set(compact('contacto'));
+    }
+    
     public function search_all() {
         $this->loadModel('Article');
         $user = $this->Auth->user();
@@ -676,5 +705,5 @@ class PagesController extends AppController {
         
         return $articles;
     }
-    
+
 }
