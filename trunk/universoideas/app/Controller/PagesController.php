@@ -50,7 +50,7 @@ class PagesController extends AppController {
         $this->Auth->allow(array('article', 'display', 'home', 'contacto', 'cronograma', 'home_pasantias', 
                                  'encuentrame', 'forums', 'arte', 'ciencia', 'moda', 'rumba', 'sexualidad', 
                                  'event', 'curso', 'search_all', 'search_articles', 'search_events', 'search_cursos', 
-                                 'search_forums'));
+                                 'search_forums', 'terminos'));
         
         $user = $this->Auth->user();
 
@@ -462,6 +462,16 @@ class PagesController extends AppController {
 
         $this->set(compact('terminos'));
     }
+        
+    public function join() {
+        $this->loadModel('CustomText');
+        
+        $this->layout = 'page';
+        
+        $join = $this->CustomText->find('first', array('conditions' => array('CustomText.section' => 'PARTICIPA')));
+
+        $this->set(compact('join'));
+    }
       
     public function contacto_detail() {
         $this->loadModel('CustomText');
@@ -471,6 +481,16 @@ class PagesController extends AppController {
         $contacto = $this->CustomText->find('first', array('conditions' => array('CustomText.section' => 'CONOCENOS')));
 
         $this->set(compact('contacto'));
+    }
+    
+    public function terminos_uso() {
+        $this->loadModel('CustomText');
+        
+        $this->layout = 'page';
+        
+        $terminos_uso = $this->CustomText->find('first', array('conditions' => array('CustomText.section' => 'TERMINOS_USO')));
+
+        $this->set(compact('terminos_uso'));
     }
     
     public function search_all() {

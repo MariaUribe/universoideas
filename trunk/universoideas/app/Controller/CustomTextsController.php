@@ -131,6 +131,8 @@ class CustomTextsController extends AppController {
     public function publishCustomText() {
         $this->publishView("terminos_detail", "terminos_legales");
         $this->publishView("contacto_detail", "contacto");
+        $this->publishView("join", "join");
+        $this->publishView("terminos_uso", "terminos_uso");
     }
     
     

@@ -145,7 +145,7 @@ class CursosController extends AppController {
         $title = strstr($file['name'], '.', true);  //get the name alone
 
         $arr_ext = array('jpg', 'jpeg', 'gif'); //set allowed extensions
-        $width_thumb = 50;
+        $height_thumb = 170;
 
         //only process if the extension is valid
         if(in_array($ext, $arr_ext)) {
@@ -156,7 +156,7 @@ class CursosController extends AppController {
 
             // *** 1) Initialise / load image
             $resizeObj = new resize($img_path);
-            $height_thumb = $resizeObj -> getSizeByFixedWidth($width_thumb);
+            $width_thumb = $resizeObj ->getSizeByFixedHeight($height_thumb);
 
             // *** 2) Resize image (options: exact, portrait, landscape, auto, crop)
             $resizeObj -> resizeImage($width_thumb, $height_thumb, 'crop');
