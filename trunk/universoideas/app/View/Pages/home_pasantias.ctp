@@ -5,8 +5,10 @@
     <div class="box mt15">&nbsp;</div>
 
     <div class="doble">
-        <div class="calendario">
+        <div class="calendario mb40">
             <?php include ("includes/published/prox_actividades.htm") ?>
+        </div>
+        <div class="calendario">
             <?php include ("includes/published/talleres_cursos.htm") ?>
         </div>
     </div>
