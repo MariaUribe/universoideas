@@ -18,7 +18,7 @@
 
 <div class="registro w500" style="display: block; margin-left: auto; margin-right: auto;">
     <div class="rio">
-        <div id="question" class=" notas fs12 bgddd p10">
+        <div id="question" class=" notas fs12 bgfff p10">
             <h2>Pregunta de seguridad</h2>
             
             <table width="480"cellpadding="3" cellspacing="0" style="border:0" class="mt20">
@@ -56,7 +56,7 @@
             </table>
         </div>
         
-        <div id="reestablish" class=" notas fs12 bgddd p10" style="display: none" >
+        <div id="reestablish" class=" notas fs12 bgfff p10" style="display: none" >
             <h2>Reestablecer contraseña</h2>
             <?php echo $this->Form->create('User', array('action' => 'edit_password')); ?> 
             <table width="480"cellpadding="3" cellspacing="0" style="border:0;padding-right: 30px;" class="mt20">

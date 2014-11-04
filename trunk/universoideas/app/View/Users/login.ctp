@@ -3,9 +3,16 @@
         $.get('/users/exists/' + value, function(data) {
             var rs = $(data).find("#result").val();
             if(rs == 0) { 
-                $('.img_success').css('display', '');
-                $('.img_error').css('display', 'none');
-                $('#submit-button').removeAttr('disabled');
+                var enable = validarSubmit();
+                if (enable == true) {
+                    $('.img_success').css('display', '');
+                    $('.img_error').css('display', 'none');
+                    $('#submit-button').removeAttr('disabled');
+                } else {
+                    $('.img_success').css('display', '');
+                    $('.img_error').css('display', 'none');
+                    $('#submit-button').attr('disabled', 'disabled');
+                }
             } else if(rs == 1){
                 $('.img_success').css('display', 'none');
                 $('.img_error').css('display', '');
@@ -20,15 +27,23 @@
             var rs = $(data).find("#result").val();
             if(rs == 0) { 
                 var contains = (clases.indexOf('error_val') > -1);
-                if(contains) {
+                var enable = validarSubmit();
+                
+                if (contains) {
                     $('.img_success_mail').css('display', 'none');
                     $('.img_error_mail').css('display', '');
                     $('#img_error_mail').css('display', 'none');
                     $('#submit-button').attr('disabled', 'disabled');
                 } else {
-                    $('.img_success_mail').css('display', '');
-                    $('.img_error_mail').css('display', 'none');
-                    $('#submit-button').removeAttr('disabled');
+                    if (enable == true) {
+                        $('.img_success_mail').css('display', '');
+                        $('.img_error_mail').css('display', 'none');
+                        $('#submit-button').removeAttr('disabled');
+                    } else {
+                        $('.img_success_mail').css('display', '');
+                        $('.img_error_mail').css('display', 'none');
+                        $('#submit-button').attr('disabled', 'disabled');
+                    }
                 }
             } else if(rs == 1){
                 $('.img_success_mail').css('display', 'none');
@@ -60,11 +75,39 @@
         }
     }
     
+    function validarSubmit() {
+        var enable = false;
+        var is_checked = $('#terminos').is(':checked');
+        
+        if (is_checked) { // Acepto los terminos
+            $('#submit-button').removeAttr('disabled');
+            enable = true;
+        } else {
+            $('#submit-button').attr('disabled', 'disabled');
+            enable = false;
+        }
+        return enable;
+    }
+    
+    function showDialog() {
+        $( "#dialog-message" ).dialog({
+            resizable: false,
+            height:500,
+            width: 500,
+            modal: true,
+            buttons: {
+                Ok: function() {
+                    $( this ).dialog( "close" );
+                }
+            }
+        });
+    }
+    
 </script>
 
-<div class="registro left w450">
+<div class="registro left w470">
     <div class="rio">
-        <div class="notas fs12 bgddd p10">
+        <div class="notas fs12 bgfff p10">
             <h2>Nuevo usuario</h2>
             <input type="hidden" id="locationId" value="" name="locationId">
             <input type="hidden" value="success" name="forward">
@@ -76,48 +119,48 @@
                     
                     echo "<tr>";
                     echo "<td class='tar vam'>" . $this->Form->input('is_enterprise', array('label' => false, 'class' => 'right', 'onchange' => 'setRegisterType()')) ."</td>";
-                    echo "<td class='tal vam'><label class='lh14'>Registrarme como empresa</label></td>";
+                    echo "<td class='tal vam'><label class='lh20'>Registrarme como empresa</label></td>";
                     echo "</tr>";
                 
                     echo "<tr>";
-                    echo "<td class='tar vam' width='35%'><label class='lh14' style='width: 140px;'>Nombre de Usuario: </label></td>";
-                    echo "<td class='tal' width='20%'>" . $this->Form->input('username', array('label' => false, 'class' => 'left required lh14', 'size' => '35', 'onkeyup' => 'checkUserName(this.value)')) . "<label class='img_error error_val' style='display: none'>Este nombre de usuario ya existe</label></td>";
+                    echo "<td class='tar vam' width='35%'><label class='lh20' style='width: 140px;'>Nombre de Usuario: </label></td>";
+                    echo "<td class='tal' width='20%'>" . $this->Form->input('username', array('label' => false, 'class' => 'left required lh20 w230', 'size' => '35', 'onkeyup' => 'checkUserName(this.value)')) . "<label class='img_error error_val' style='display: none'>Este nombre de usuario ya existe</label></td>";
                     echo "<td><label style='vertical-align: middle;'>
                               <img id='img_error' class='img_error' src='/img/icons/error.png' width='20' height='20' alt='error' class='left mr5' style='display: none;'>
                               <img id='img_success' class='img_success' src='/img/icons/success.gif' width='20' height='20' alt='exito' class='left mr5' style='display: none;'></label></td>";
                     echo "</tr>";
 
                     echo "<tr>";
-                    echo "<td class='tar vam'><label class='lh14'>Nombre: </label></td>";
-                    echo "<td class='tal'>" . $this->Form->input('name', array('label' => false, 'class' => 'left required lh14', 'size' => '35')) . "</td>";
+                    echo "<td class='tar vam'><label class='lh120'>Nombre: </label></td>";
+                    echo "<td class='tal'>" . $this->Form->input('name', array('label' => false, 'class' => 'left required lh20 w230', 'size' => '35')) . "</td>";
                     echo "</tr>";
 
                     echo "<tr id='apellido_row'>";
-                    echo "<td class='tar vam'><label class='lh14'>Apellido: </label></td>";
-                    echo "<td class='tal'>" . $this->Form->input('lastname', array('label' => false, 'class' => 'left required lh14', 'size' => '35')) . "</td>";
+                    echo "<td class='tar vam'><label class='lh20'>Apellido: </label></td>";
+                    echo "<td class='tal'>" . $this->Form->input('lastname', array('label' => false, 'class' => 'left required lh20 w230', 'size' => '35')) . "</td>";
                     echo "</tr>";
 
                     echo "<tr>";
-                    echo "<td class='tar vam'><label class='lh14'>Correo: </label></td>";
-                    echo "<td class='tal'>" . $this->Form->input('mail', array('label' => false, 'class' => 'left required email lh14', 'size' => '35', 'onkeyup' => 'checkMail(this, this.value)')) . "<label id='img_error_mail' class='img_error_mail error_val' style='display: none'>Este correo ya esta registrado</label></td>";
+                    echo "<td class='tar vam'><label class='lh20'>Correo: </label></td>";
+                    echo "<td class='tal'>" . $this->Form->input('mail', array('label' => false, 'class' => 'left required email lh20 w230', 'size' => '35', 'onkeyup' => 'checkMail(this, this.value)')) . "<label id='img_error_mail' class='img_error_mail error_val' style='display: none'>Este correo ya esta registrado</label></td>";
                     echo "<td><label style='vertical-align: middle;'>
                               <img class='img_error_mail' src='/img/icons/error.png' width='20' height='20' alt='error' class='left mr5' style='display: none;'>
                               <img class='img_success_mail' src='/img/icons/success.gif' width='20' height='20' alt='exito' class='left mr5' style='display: none;'></label></td>";
                     echo "</tr>";
                     
                     echo "<tr>";
-                    echo "<td class='tar vam'><label class='lh14'>Cuenta de Twitter: @</label></td>";
-                    echo "<td class='tal'>" . $this->Form->input('twitter', array('label' => false, 'class' => 'left lh14', 'size' => '35')) . "</td>";
+                    echo "<td class='tar vam'><label class='lh20'>Cuenta de Twitter: @</label></td>";
+                    echo "<td class='tal'>" . $this->Form->input('twitter', array('label' => false, 'class' => 'left lh20 w230', 'size' => '35')) . "</td>";
                     echo "</tr>";
 
                     echo "<tr>";
-                    echo "<td class='tar vam'><label class='lh14'>Clave: </label></td>";
-                    echo "<td class='tal'>" . $this->Form->input('password', array('label' => false, 'class' => 'left password lh14', 'size' => '35', 'id' => 'password')) . "</td>";
+                    echo "<td class='tar vam'><label class='lh20'>Clave: </label></td>";
+                    echo "<td class='tal'>" . $this->Form->input('password', array('label' => false, 'class' => 'left password lh20 w230', 'size' => '35', 'id' => 'password')) . "</td>";
                     echo "</tr>";
 
                     echo "<tr>";
-                    echo "<td class='tar vam'><label class='lh14'>Confirme su clave: </label></td>";
-                    echo "<td class='tal'>" . $this->Form->input('re_password', array('label' => false, 'class' => 'left password_confirm lh14', 'type' => 'password', 'size' => '35', 'id' => 'password_confirm', 'name' => 'password_confirm')). "</td>";
+                    echo "<td class='tar vam'><label class='lh20'>Confirme su clave: </label></td>";
+                    echo "<td class='tal'>" . $this->Form->input('re_password', array('label' => false, 'class' => 'left password_confirm lh20 w230', 'type' => 'password', 'size' => '35', 'id' => 'password_confirm', 'name' => 'password_confirm')). "</td>";
                     echo "</tr>";
                       
                     echo "<tr id='nacimiento_row'>";
@@ -136,12 +179,22 @@
                     
                     echo "<tr>";
                     echo "<td class='tar vam'>Pregunta de seguridad: </td>";
-                    echo "<td class='tal' colspan='2'>" . $this->Form->input('question_id', array('label' => false, 'class' => 'left', 'style' => 'width: 220px;')) . "</td>";
+                    echo "<td class='tal' colspan='2'>" . $this->Form->input('question_id', array('label' => false, 'class' => 'left w230')) . "</td>";
                     echo "</tr>";
                     
                     echo "<tr>";
                     echo "<td class='tar'></td>";
-                    echo "<td class='tal' colspan='2'>" . $this->Form->input('securityAnswer', array('label' => false, 'class' => 'left lh14', 'style' => 'width: 220px;')) . "</td>";
+                    echo "<td class='tal' colspan='2'>" . $this->Form->input('securityAnswer', array('label' => false, 'class' => 'left lh20', 'style' => 'width: 220px;')) . "</td>";
+                    echo "</tr>";
+                    
+                    echo "<tr>";
+                    echo "<td class='tar'></td>";
+                    echo "<td class='tar boton'><br/><br/></td>";
+                    echo "</tr>";
+                    
+                    echo "<tr>";
+                    echo "<td class='tar vam'><input id='terminos' type='checkbox' onChange='validarSubmit()'/></td>";
+                    echo "<td class='tal vam'><label class='lh20'>He leído y acepto los Términos y Condiciones de uso. (<a class='cpointer' onclick='showDialog()'>Leer términos</a>)</label></td>";
                     echo "</tr>";
                     
                     echo "<tr>";
@@ -156,7 +209,7 @@
                     </td>
                     <td class="tal boton">
                         &nbsp;
-                        <input id='submit-button' type='submit' value='Enviar' />
+                        <input id='submit-button' type='submit' value='Enviar' disabled="disabled"/>
                     </td>
                     
                 </tr>
@@ -167,9 +220,9 @@
     </div>
 </div>
 
-<div class="registro right w400">
+<div class="registro right w420">
     <div class="rio">
-        <div class=" notas fs12 bgddd p10">
+        <div class="notas fs12 bgfff p10">
             <h2>Usuario registrado</h2>
 
             <?php echo $this->Session->flash('auth'); ?>
@@ -179,12 +232,12 @@
                 <?php 
                     echo "<tr>";
                     echo "<td class='tar' width='150'>Nombre de Usuario: </td>";
-                    echo "<td class='tal' width='250'>" . $this->Form->input('username', array('label' => false, 'class' => 'left required', 'size' => '33', 'style' => 'margin-right: 30px')). "</td>";
+                    echo "<td class='tal' width='250'>" . $this->Form->input('username', array('label' => false, 'class' => 'left required lh20', 'size' => '33', 'style' => 'margin-right: 30px')). "</td>";
                     echo "</tr>";
                     
                     echo "<tr>";
                     echo "<td class='tar'>Clave: </td>";
-                    echo "<td class='tal'>" . $this->Form->input('password', array('label' => false, 'class' => 'left required', 'size' => '33', 'style' => 'margin-right: 30px')). "</td>";
+                    echo "<td class='tal'>" . $this->Form->input('password', array('label' => false, 'class' => 'left required lh20', 'size' => '33', 'style' => 'margin-right: 30px')). "</td>";
                     echo "</tr>";
                      
                     echo "<tr>";
@@ -248,3 +301,8 @@
         </div>
     </div>
 </div>
+
+<div id="dialog-message" title="Términos y Condiciones de Uso" style="display: none;">
+    <?php include ("includes/published/terminos_uso.htm") ?>
+</div>
+
