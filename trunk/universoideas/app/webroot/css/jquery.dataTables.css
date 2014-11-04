@@ -34,9 +34,9 @@ table.dataTable td.dataTables_empty {
 table.dataTable tr.odd { background-color: white; }
 table.dataTable tr.even { background-color: #BEBEBE; }
 
-table.dataTable tr.odd td.sorting_1 { background-color: white; }
-table.dataTable tr.odd td.sorting_2 { background-color: white; }
-table.dataTable tr.odd td.sorting_3 { background-color: white; }
+table.dataTable tr.odd td.sorting_1 { background-color: #fff; }
+table.dataTable tr.odd td.sorting_2 { background-color: #f5f5f5; }
+table.dataTable tr.odd td.sorting_3 { background-color: #f5f5f5; }
 table.dataTable tr.even td.sorting_1 { background-color: #BEBEBE; }
 table.dataTable tr.even td.sorting_2 { background-color: #BEBEBE; }
 table.dataTable tr.even td.sorting_3 { background-color: #BEBEBE; }
