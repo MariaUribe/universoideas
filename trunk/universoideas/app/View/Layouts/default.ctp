@@ -32,11 +32,11 @@ $title_for_layout = 'Universoideas Admin';
 
         echo $this->Html->css('cake.generic');
         echo $this->Html->css('admin');
-        echo $this->Html->css('jMenu.jquery');
 
         echo $this->Html->script('jquery/jquery-1.9.1');
         echo $this->Html->script('jquery/jquery.validate');
         echo $this->Html->script('generic');
+        echo $this->Html->script('../ckeditor/ckeditor');
 
         echo $this->fetch('meta');
         echo $this->fetch('css');
@@ -47,7 +47,7 @@ $title_for_layout = 'Universoideas Admin';
     <?php echo $this->Session->flash(); ?>
     <div id="container">
         <div id="header">
-            <h1><a href="/" class="ml15">Universoideas: Ir a la página</a></h1>
+            <h1><a target="_blank" href="/" class="ml15">Universoideas: Ir a la página</a></h1>
         </div>
         <?php include ("includes/admin_menu.html") ?>
         <div id="content">
