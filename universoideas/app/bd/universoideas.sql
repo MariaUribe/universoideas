@@ -52,10 +52,6 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`users` (
   `question_id` INT NOT NULL ,
   `role_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
-  UNIQUE INDEX `username_UNIQUE` (`username` ASC) ,
-  INDEX `fk_users_roles1_idx` (`role_id` ASC) ,
-  UNIQUE INDEX `mail_UNIQUE` (`mail` ASC) ,
-  INDEX `fk_users_questions1_idx` (`question_id` ASC) ,
   CONSTRAINT `fk_users_roles1`
     FOREIGN KEY (`role_id` )
     REFERENCES `estudiantes`.`roles` (`id` )
@@ -105,8 +101,6 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`users_articles` (
   `user_id` VARCHAR(20) NOT NULL ,
   `article_id` INT NOT NULL ,
   PRIMARY KEY (`user_id`, `article_id`) ,
-  INDEX `fk_USUARIO_has_ARTICULO_ARTICULO1_idx` (`article_id` ASC) ,
-  INDEX `fk_USUARIO_has_ARTICULO_USUARIO1_idx` (`user_id` ASC) ,
   CONSTRAINT `fk_USUARIO_has_ARTICULO_USUARIO1`
     FOREIGN KEY (`user_id` )
     REFERENCES `estudiantes`.`users` (`username` )
@@ -141,7 +135,6 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`related_images` (
   `height_thumb` INT NULL ,
   `article_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_related_medias_articles1_idx` (`article_id` ASC) ,
   CONSTRAINT `fk_related_medias_articles1`
     FOREIGN KEY (`article_id` )
     REFERENCES `estudiantes`.`articles` (`id` )
@@ -166,7 +159,6 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`forums` (
   `modified` DATETIME NOT NULL ,
   `user_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_forums_users1_idx` (`user_id` ASC) ,
   CONSTRAINT `fk_forums_users1`
     FOREIGN KEY (`user_id` )
     REFERENCES `estudiantes`.`users` (`id` )
@@ -190,8 +182,6 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`comments` (
   `created` DATETIME NOT NULL ,
   `modified` DATETIME NOT NULL ,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_comments_forums1_idx` (`forum_id` ASC) ,
-  INDEX `fk_comments_users1_idx` (`user_id` ASC) ,
   CONSTRAINT `fk_comments_forums1`
     FOREIGN KEY (`forum_id` )
     REFERENCES `estudiantes`.`forums` (`id` )
@@ -220,7 +210,6 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`related_videos` (
   `source` VARCHAR(500) NOT NULL ,
   `article_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_related_videos_articles1_idx` (`article_id` ASC) ,
   CONSTRAINT `fk_related_videos_articles1`
     FOREIGN KEY (`article_id` )
     REFERENCES `estudiantes`.`articles` (`id` )
@@ -308,7 +297,6 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`postulations` (
   `modified` DATE NOT NULL ,
   `user_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_postulations_users1_idx` (`user_id` ASC) ,
   CONSTRAINT `fk_postulations_users1`
     FOREIGN KEY (`user_id` )
     REFERENCES `estudiantes`.`users` (`id` )
@@ -334,7 +322,6 @@ CREATE  TABLE IF NOT EXISTS `estudiantes`.`emprendedores` (
   `modified` DATETIME NOT NULL ,
   `user_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_emprendedores_users1_idx` (`user_id` ASC) ,
   CONSTRAINT `fk_emprendedores_users1`
     FOREIGN KEY (`user_id` )
     REFERENCES `estudiantes`.`users` (`id` )
@@ -344,15 +331,21 @@ ENGINE = InnoDB;
 
 CREATE INDEX `fk_emprendedores_users1_idx` ON `estudiantes`.`emprendedores` (`user_id` ASC) ;
 
+
 -- -----------------------------------------------------
 -- Table `estudiantes`.`custom_texts`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `estudiantes`.`custom_texts` ;
+
 CREATE  TABLE IF NOT EXISTS `estudiantes`.`custom_texts` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `section` VARCHAR(45) NOT NULL ,
-  `body` VARCHAR(5500) NOT NULL ,
+  `body` VARCHAR(16000) NOT NULL ,
+  `description` VARCHAR(5000) NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
+
+CREATE UNIQUE INDEX `section_UNIQUE` ON `estudiantes`.`custom_texts` (`section` ASC) ;
 
 USE `estudiantes` ;
 
