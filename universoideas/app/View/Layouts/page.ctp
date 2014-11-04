@@ -30,9 +30,13 @@ $title_for_layout = 'Universoideas';
     <?php
         echo $this->Html->meta('icon');
         echo $this->Html->css('estilos');
-
+        echo $this->Html->css('jquery-ui-1.11.2.custom/jquery-ui.min');
+        echo $this->Html->css('jquery-ui-1.11.2.custom/jquery-ui.structure.min');
+        echo $this->Html->css('jquery-ui-1.11.2.custom/jquery-ui.theme.min');
+        
         echo $this->Html->script('http://code.jquery.com/jquery-1.9.1.js');
         echo $this->Html->script('generic');
+        echo $this->Html->script('../css/jquery-ui-1.11.2.custom/jquery-ui.min');
 
         echo $this->fetch('meta');
         echo $this->fetch('css');
