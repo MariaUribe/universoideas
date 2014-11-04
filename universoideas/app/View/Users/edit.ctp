@@ -53,7 +53,7 @@
 <div id="content_col_izq">
     <div class="registro">
         <div class="rio">
-            <div class="notas fs14 bgddd p10 pb30">
+            <div class="notas fs14 bgfff p10 pb30">
                 <h2>Mi Perfil</h2>
                 <input type="hidden" id="locationId" value="" name="locationId">
                 <input type="hidden" value="success" name="forward">
@@ -80,17 +80,17 @@
                         
                         echo "<tr>";
                         echo "<td class='tar vam' style='width: 43%;'>Nombre: </td>";
-                        echo "<td class='tal'>" . $this->Form->input('name', array('label' => false, 'class' => 'left required', 'size' => '45')) . "</td>";
+                        echo "<td class='tal'>" . $this->Form->input('name', array('label' => false, 'class' => 'left required lh20', 'size' => '45')) . "</td>";
                         echo "</tr>";
 
                         echo "<tr id='apellido_row'>";
                         echo "<td class='tar vam'>Apellido: </td>";
-                        echo "<td class='tal'>" . $this->Form->input('lastname', array('label' => false, 'class' => 'left required', 'size' => '45')) . "</td>";
+                        echo "<td class='tal'>" . $this->Form->input('lastname', array('label' => false, 'class' => 'left required lh20', 'size' => '45')) . "</td>";
                         echo "</tr>";
 
                         echo "<tr>";
-                        echo "<td class='tar vam'><label class='lh14'>Correo: </label></td>";
-                        echo "<td class='tal'>" . $this->Form->input('mail', array('label' => false, 'class' => 'left required email lh14', 'size' => '45', 'onkeyup' => 'checkMail(this, this.value)')) . "<label id='img_error_mail' class='img_error_mail error_val' style='display: none'>Este correo ya esta registrado</label></td>";
+                        echo "<td class='tar vam'><label class='lh20'>Correo: </label></td>";
+                        echo "<td class='tal'>" . $this->Form->input('mail', array('label' => false, 'class' => 'left required email lh20', 'size' => '45', 'onkeyup' => 'checkMail(this, this.value)')) . "<label id='img_error_mail' class='img_error_mail error_val' style='display: none'>Este correo ya esta registrado</label></td>";
                         echo "<td><label style='vertical-align: middle;'>
                                 <img class='img_error_mail' src='/img/icons/error.png' width='20' height='20' alt='error' class='left mr5' style='display: none;'>
                                 <img class='img_success_mail' src='/img/icons/success.gif' width='20' height='20' alt='exito' class='left mr5' style='display: none;'></label></td>";
@@ -98,7 +98,7 @@
 
                         echo "<tr>";
                         echo "<td class='tar vam'>Cuenta de twitter: @</td>";
-                        echo "<td class='tal'>" . $this->Form->input('twitter', array('label' => false, 'class' => 'left', 'size' => '45')) . "</td>";
+                        echo "<td class='tal'>" . $this->Form->input('twitter', array('label' => false, 'class' => 'left lh20', 'size' => '45')) . "</td>";
                         echo "</tr>";
                        
                         echo "<tr id='nacimiento_row'>";
@@ -141,7 +141,7 @@
 
                         echo "<tr class='new_ans' style='display: none'>";
                         echo "<td class='tar'></td>";
-                        echo "<td class='tal'>" . $this->Form->input('securityAnswer', array('label' => false, 'class' => 'left lh14', 'style' => 'width: 220px;'));
+                        echo "<td class='tal'>" . $this->Form->input('securityAnswer', array('label' => false, 'class' => 'left lh20', 'style' => 'width: 220px;'));
                         echo "<a onclick='cancelChangeAnswer()' class='mt20' style='cursor: pointer;'>Cancelar</a></td>";
                         echo "</tr>";
                         
