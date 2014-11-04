@@ -273,3 +273,11 @@ table.dataTable thead td:active {
     margin-top: 45px;
 }
 
+
+div#table-forums_filter.dataTables_filter {
+    margin-right: 0px;
+}
+
+div#table-forums_filter.dataTables_filter label input {
+    width: 300px;
+}
