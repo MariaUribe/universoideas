@@ -1,4 +1,4 @@
-<div class="rio">
+<div class="rio" style="background-color: #f5f5f5; border: 0px;">
     <div class="notas"><h2>Calendario de Eventos</h2></div>
     <table width="570" cellspacing="0" cellpadding="5" class="fs13 mt15" style="border:#333 solid 1px">
         <tr class="bg00355a colorfff">
@@ -14,7 +14,7 @@
                 $date = $this->Time->format('D-F-j-Y-h:i A', $event['Event']['event_date']);
                 list($dia_sem, $mes, $dia, $ano) = explode('-', $date);
                 if (($cont % 2) == 0)
-                    echo "<tr>";
+                    echo "<tr class='bgfff'>";
                 if (($cont % 2) == 1)
                     echo "<tr class='bgbebe'>";
 

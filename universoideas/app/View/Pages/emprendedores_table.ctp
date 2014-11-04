@@ -4,11 +4,11 @@
     }
     
     table.dataTable tr.even {
-        background-color: white;
+        background-color: #f5f5f5;
     }
     
     table.dataTable tr.even td.sorting_1 {
-        background-color: white;
+        background-color: #f5f5f5;
     }
 </style>
 
@@ -36,8 +36,8 @@
                 echo "<tr>";
                 echo "<td>";
                 
-                echo "<div class='notas box' style='padding: 0px;'>";
-                echo "<h2 style='background-color: white;'><a style='color: #00355a;' href='/emprendedores/view/" . $emprendedor['Emprendedore']['id'] . "'>" . $emprendedor['Emprendedore']['title'] . "</a></h2>";
+                echo "<div class='notas box' style='padding: 0px;background: #f5f5f5!important;'>";
+                echo "<h2><a style='color: #00355a;' href='/emprendedores/view/" . $emprendedor['Emprendedore']['id'] . "'>" . $emprendedor['Emprendedore']['title'] . "</a></h2>";
                 echo "<div class='dia'>" . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) . " " . __($hora) . "</div>";
                 echo "Creado por: " . $emprendedor['User']['username'] . $twitter;
                 

@@ -1,4 +1,4 @@
-<div class="rio">
+<div class="rio" style="background-color: #f5f5f5; border: 0px;">
     <div class="notas"><h2>Empresas buscando pasantes</h2></div>
     <table width="100%" cellspacing="0" cellpadding="5" class="fs11 mt15" style="border:#333 solid 1px">
         <tr class="bg00355a colorfff">
@@ -11,7 +11,7 @@
             $cont = 0;
             foreach ($enterprises as $enterprise) {
                 if (($cont % 2) == 0)
-                    echo "<tr>";
+                    echo "<tr class='bgfff'>";
                 if (($cont % 2) == 1)
                     echo "<tr class='bgbebe'>";
                     
