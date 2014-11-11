@@ -89,7 +89,7 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
     });
 </script>
 
-<div class="logo"><a href="#"><img src="/img/logo.png" alt="Universo Ideas" /></a></div>
+<div class="logo"><a href="/"><img src="/img/logo.png" alt="Universo Ideas" /></a></div>
 
 
 <div class="right">
