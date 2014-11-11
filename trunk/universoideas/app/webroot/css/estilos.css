@@ -67,6 +67,7 @@ TD A{color:#00355a}
 .fs16{font-size:16px}
 .fs20{font-size:20px}
 .mr10{margin-right:10px}
+.mr15{margin-right:15px!important}
 .mr5{margin-right:5px}
 .pr5{padding-right:5px}
 .pl5{padding-left:5px}
@@ -78,7 +79,10 @@ TD A{color:#00355a}
 .pb20{ padding-bottom:20px}
 .pb30{ padding-bottom:30px}
 .m0{margin: 0!important}
+.m10{margin: 10px;}
+.m15{margin: 15px;}
 .ml0{margin-left:0px}
+.ml15{margin-left:15px!important}
 .mt15{margin-top:15px}
 .mt5{margin-top:5px}
 .mt10{margin-top:10px}
@@ -172,6 +176,7 @@ padding: 10px;}
 .doble .calendario .caja .txt A IMG{ margin: 3px}
 
 .calendario {background-color: #fff; border-radius: 5px;border: 1px solid #e8e8e8;}
+.cursos {background-color: #333; border-radius: 5px; border: 1px solid #e8e8e8; color: #bbb;}
 
 /*
 .doble .der{float:right; width: 250px; color:#FFF} 
@@ -358,11 +363,24 @@ p.thumb a:hover img{ border:1px solid #999; background:#fff; padding:2px; }
     padding-top: 1px;
 }
 
+.line-separator-dark {
+    margin: 0 0 1px 0;
+    border-bottom: 1px solid #676464;
+    padding-top: 1px;
+}
+
 a.sleyendo_box {
     font-size: 12px;
     float: right;
     margin: 0px 0px 10px;
     color: rgb(0, 64, 128);
+}
+
+.sleyendo-rbox {
+    font-size: 12px;
+    float: right;
+    margin: 10px;
+    color: #2B7ED2!important;
 }
 
 .border-radius-5 {
@@ -388,4 +406,16 @@ a.sleyendo_box {
 input#submit-button[disabled] {
     background-color: rgba(0, 64, 0, 0.29);
     border: #B6C0B5 1px solid;
+}
+
+.dark_title {
+    color: #2B7ED2!important; font-size: 16px; font-weight: normal; padding: 0px 0px 10px 0px; text-transform: uppercase;
+}
+
+.a-gray {
+    color: #bbb;
+}
+
+.p-custom {
+    padding: 13px 0px 10px 10px;
 }
