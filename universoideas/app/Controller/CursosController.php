@@ -78,6 +78,15 @@ class CursosController extends AppController {
                 $this->Session->setFlash('El curso no pudo ser guardado.', 'flash_error');
             }
         } 
+        $categories = array("principal" => "Principal", 
+                          "encuentrame" => "Encuéntrame", 
+                          "rumba" => "Rumba", 
+                          "arte" => "Arte y Cultura", 
+                          "ciencia" => "Ciencia y Tecnología", 
+                          "sexualidad" => "Sexualidad al día", 
+                          "moda" => "Moda"
+                         );
+        $this->set(compact('categories'));
     }
 
     /**
@@ -109,6 +118,15 @@ class CursosController extends AppController {
             $options = array('conditions' => array('Curso.' . $this->Curso->primaryKey => $id));
             $this->request->data = $this->Curso->find('first', $options);
         }
+        $categories = array("principal" => "Principal", 
+                          "encuentrame" => "Encuéntrame", 
+                          "rumba" => "Rumba", 
+                          "arte" => "Arte y Cultura", 
+                          "ciencia" => "Ciencia y Tecnología", 
+                          "sexualidad" => "Sexualidad al día", 
+                          "moda" => "Moda"
+                         );
+        $this->set(compact('categories'));
     }
 
     /**

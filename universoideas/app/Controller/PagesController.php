@@ -577,7 +577,7 @@ class PagesController extends AppController {
         $this->loadModel('Curso');
         $this->layout = 'page';
         
-        $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
+        $cursos = $this->Curso->find('all', array('conditions' => array('Curso.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 5));
         
         $this->set(compact('cursos'));
     }
