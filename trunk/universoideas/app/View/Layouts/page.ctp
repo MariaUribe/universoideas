@@ -33,11 +33,12 @@ $title_for_layout = 'Universoideas';
         echo $this->Html->css('jquery-ui-1.11.2.custom/jquery-ui.min');
         echo $this->Html->css('jquery-ui-1.11.2.custom/jquery-ui.structure.min');
         echo $this->Html->css('jquery-ui-1.11.2.custom/jquery-ui.theme.min');
+        echo $this->Html->css('jquery.mCustomScrollbar');
         
         echo $this->Html->script('http://code.jquery.com/jquery-1.9.1.js');
         echo $this->Html->script('generic');
         echo $this->Html->script('../css/jquery-ui-1.11.2.custom/jquery-ui.min');
-
+        
         echo $this->fetch('meta');
         echo $this->fetch('css');
         echo $this->fetch('script');
@@ -57,6 +58,9 @@ $title_for_layout = 'Universoideas';
     </div>
     <?php include ("includes/foot.htm") ?>
     <?php echo $this->Html->script('jquery/jquery.validate'); ?>
+    <?php echo $this->Html->script('jquery.mCustomScrollbar.concat.min'); ?>
+    
     <script type="text/javascript">setMenuSelected()</script>
+    
 </body>
 </html>
