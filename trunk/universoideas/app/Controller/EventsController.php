@@ -78,6 +78,15 @@ class EventsController extends AppController {
                 $this->Session->setFlash('El evento no pudo ser guardado.', 'flash_error');
             }
         }
+        $categories = array("principal" => "Principal", 
+                          "encuentrame" => "Encuéntrame", 
+                          "rumba" => "Rumba", 
+                          "arte" => "Arte y Cultura", 
+                          "ciencia" => "Ciencia y Tecnología", 
+                          "sexualidad" => "Sexualidad al día", 
+                          "moda" => "Moda"
+                         );
+        $this->set(compact('categories'));
     }
 
     /**
@@ -109,6 +118,15 @@ class EventsController extends AppController {
             $options = array('conditions' => array('Event.' . $this->Event->primaryKey => $id));
             $this->request->data = $this->Event->find('first', $options);
         }
+        $categories = array("principal" => "Principal", 
+                          "encuentrame" => "Encuéntrame", 
+                          "rumba" => "Rumba", 
+                          "arte" => "Arte y Cultura", 
+                          "ciencia" => "Ciencia y Tecnología", 
+                          "sexualidad" => "Sexualidad al día", 
+                          "moda" => "Moda"
+                         );
+        $this->set(compact('categories'));
     }
 
     /**
