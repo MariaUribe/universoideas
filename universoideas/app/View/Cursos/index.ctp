@@ -4,7 +4,6 @@
         <tr>
             <th><?php echo $this->Paginator->sort('id'); ?></th>
             <th class="w130"><?php echo $this->Paginator->sort('name', 'Nombre'); ?></th>
-            <th><?php echo $this->Paginator->sort('description', 'Descripción'); ?></th>
             <th class="w130 tac"><?php echo $this->Paginator->sort('date', 'Fecha'); ?></th>
             <th><?php echo $this->Paginator->sort('enabled', 'Habilitado'); ?></th>
             <th class="w130 tac"><?php echo $this->Paginator->sort('created', 'Creado'); ?></th>
@@ -25,7 +24,6 @@
         <tr>
             <td><?php echo h($curso['Curso']['id']); ?>&nbsp;</td>
             <td><?php echo h($curso['Curso']['name']); ?>&nbsp;</td>
-            <td><?php echo substr($curso['Curso']['description'], 0, 200) . "..."; ?>&nbsp;</td>
             <td><?php echo __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) ?>&nbsp;</td>
             <td class="tac"><?php echo h(($curso['Curso']['enabled']==1?"SI":"NO")); ?>&nbsp;</td>
             <td><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) . " " . $hora_crea ?>&nbsp;</td>
