@@ -1,87 +1,152 @@
-<script type="text/javascript" src="/js/jquery/jmenu.js"></script>
-<ul id="jMenu">
-    <li style="width: 5px;">
-        <p class="fNiv"></p>
-    </li>
+<style type="text/css">
+    #cssMenu {
+        font-size: 13px;
+        color: #fff;
+        width: 100%;
+        background: #322f32;
+    }
+
+    .cssMenu ul {
+        text-align: left;
+        display: inline;
+        margin: 0;
+        list-style: none;
+        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    }
     
-    <li class="moption tac br-menu">
-        <a class="fNiv">Artículos</a>
+    .cssMenu li a {
+        display: block;
+        background-color: transparent;
+        color: white;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    
+    .cssMenu li ul li a {
+        font-size: 12px;
+        text-transform: none;
+    }
+    
+    ul li {
+        display: inline-block;
+        margin-right: -4px;
+        position: relative;
+        padding: 15px 20px;
+        background: #322f32;
+        cursor: pointer;
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        -ms-transition: all 0.2s;
+        -o-transition: all 0.2s;
+        transition: all 0.2s;
+    }
+    
+    ul li:hover {
+        background: #555;
+        color: #fff;
+    }
+    
+    ul li ul {
+        padding: 0;
+        position: absolute;
+        top: 45px;
+        left: 0;
+        width: 150px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transiton: opacity 0.2s;
+        -moz-transition: opacity 0.2s;
+        -ms-transition: opacity 0.2s;
+        -o-transition: opacity 0.2s;
+        -transition: opacity 0.2s;
+    }
+    
+    ul li ul li { 
+        background: #555; 
+        display: block; 
+        color: #fff;
+        text-shadow: 0 -1px 0 #000;
+    }
+    
+    ul li ul li:hover { background: #666; }
+    
+    ul li:hover ul {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }  
+</style>
+
+<ul id="cssMenu" class="cssMenu">
+    <li>
+        <a>Artículos</a>
         <ul>
-            <li class="arrow"></li>
             <li><a href="/articles/add">Nuevo Artículo</a></li>
             <li><a href="/articles">Listar Artículos</a></li>
         </ul>
     </li>
 
-    <li class="moption tac br-menu">
-        <a class="fNiv">Eventos</a>
+    <li>
+        <a>Eventos</a>
         <ul>
-            <li class="arrow"></li>
             <li><a href="/events/add">Nuevo Evento</a></li>
             <li><a href="/events">Listar Eventos</a></li>
         </ul>
     </li>
 
-    <li class="moption tac br-menu">
-        <a class="fNiv">Cursos</a>
+    <li>
+        <a>Cursos</a>
         <ul>
-            <li class="arrow"></li>
             <li><a href="/cursos/add">Nuevo Curso</a></li>
             <li><a href="/cursos">Listar cursos</a></li>
         </ul>
     </li>
     
-    <li class="moption tac br-menu">
-        <a class="fNiv">Empresas</a>
+    <li>
+        <a>Empresas</a>
         <ul>
-            <li class="arrow"></li>
             <li><a href="/enterprises/add">Nueva Empresa</a></li>
             <li><a href="/enterprises">Listar Empresas</a></li>
         </ul>
     </li>
     
-    <li class="moption tac br-menu">
-        <a class="fNiv">Foro</a>
+    <li>
+        <a>Foro</a>
         <ul>
-            <li class="arrow"></li>
             <li><a href="/forums">Listar Temas</a></li>
         </ul>
     </li>
     
-    <li class="moption tac br-menu">
-        <a class="fNiv">Emprendimientos</a>
+    <li>
+        <a>Emprendimientos</a>
         <ul>
-            <li class="arrow"></li>
             <li><a href="/emprendedores">Listar Publicaciones</a></li>
         </ul>
     </li>
     
-    <li class="moption tac br-menu" style="width: 150px">
-        <a class="fNiv">Textos en el Site</a>
+    <li>
+        <a>Textos en el Site</a>
         <ul>
-            <li class="arrow"></li>
             <li><a href="/customTexts/add">Nuevo Texto</a></li>
             <li><a href="/customTexts">Listar Textos</a></li>
         </ul>
     </li>
     
-    <li class="moption tac br-menu">
-        <a class="fNiv">Ayuda</a>
+    <li>
+        <a>Ayuda</a>
         <ul>
-            <li class="arrow"></li>
             <li><a target="_blank" href="/includes/manual/manual-universoideas.pdf">Ver Manual</a></li>
         </ul>
     </li>
     
-    <li class="moption tac br-menu">
-        <a class="fNiv" href="/users/logout">Cerrar Sesión</a>
+    <li>
+        <a href="/users/logout">Cerrar Sesión</a>
     </li>
     
-    <li>
-        <p class="fNiv"></p>
-    </li>
 </ul>
-
-<script type="text/javascript">
-    $("#jMenu").jMenu();
-</script>
