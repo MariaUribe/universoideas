@@ -1,0 +1,68 @@
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="/js/jquery.bxslider.min.js"></script>
+<link href="/css/jquery.bxslider.css" rel="stylesheet" />
+
+<script>
+    j191 = jQuery.noConflict( true );
+    
+    j191(document).ready(function(){
+        j191('.bxslider').bxSlider();
+    });
+</script>
+
+<div class="title_box dark_title p-custom">Talleres y Cursos</div>
+<div class="line-separator-dark" style="clear: both"></div>
+
+<div class="bxslider">
+<div class='caja'><div class='txt'><div class='mt15 mb15'><a href='/pages/curso?id=5'><img src="/universoideas/app/webroot/img/uploads/Ladies_eventlogo_thumb.jpg" align="left" border="0" style="max-width: 190px;" class="mr15 ml15 mb15" alt="" /></a></div><div class='m15'><p style='margin: 0px 0px 5px 0px!important;font-size: 11px;'>Wed Noviembre 5, 2014</p><a href='/pages/curso?id=5'><strong style='font-size: 16px; color: #eee'>Cras justo odio, dapibus ac facilisis in, egestas eget quam</strong></a><div class='mod-cal mt10 taj'>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit ame...</div></div></div><div><a href='/pages/curso?id=5' class='sleyendo-rbox'>Más información &raquo;</a></div></div><div class='caja'><div class='txt'><div class='mt15 mb15'><a href='/pages/curso?id=4'><img src="/universoideas/app/webroot/img/uploads/Tomate%20Fritos_eventlogo_thumb.jpg" align="left" border="0" style="max-width: 190px;" class="mr15 ml15 mb15" alt="" /></a></div><div class='m15'><p style='margin: 0px 0px 5px 0px!important;font-size: 11px;'>Dom Septiembre 8, 2013</p><a href='/pages/curso?id=4'><strong style='font-size: 16px; color: #eee'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam q</strong></a><div class='mod-cal mt10 taj'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna molli...</div></div></div><div><a href='/pages/curso?id=4' class='sleyendo-rbox'>Más información &raquo;</a></div></div><div class='caja'><div class='txt'><div class='mt15 mb15'><a href='/pages/curso?id=1'><img src="/universoideas/app/webroot/img/uploads/image2_thumb.jpg" align="left" border="0" style="max-width: 190px;" class="mr15 ml15 mb15" alt="" /></a></div><div class='m15'><p style='margin: 0px 0px 5px 0px!important;font-size: 11px;'>Sab Agosto 10, 2013</p><a href='/pages/curso?id=1'><strong style='font-size: 16px; color: #eee'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </strong></a><div class='mod-cal mt10 taj'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+</div></div></div><div><a href='/pages/curso?id=1' class='sleyendo-rbox'>Más información &raquo;</a></div></div><div class='caja'><div class='txt'><div class='m15'><p style='margin: 0px 0px 5px 0px!important;font-size: 11px;'>Dom Septiembre 22, 2013</p><a href='/pages/curso?id=2'><strong style='font-size: 16px; color: #eee'>Consectetur adipisicing elit, sed do </strong></a><div class='mod-cal mt10 taj'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+</div></div></div><div><a href='/pages/curso?id=2' class='sleyendo-rbox'>Más información &raquo;</a></div></div><div class='caja'><div class='txt'><div class='mt15 mb15'><a href='/pages/curso?id=3'><img src="/universoideas/app/webroot/img/uploads/image5_thumb.jpg" align="left" border="0" style="max-width: 190px;" class="mr15 ml15 mb15" alt="" /></a></div><div class='m15'><p style='margin: 0px 0px 5px 0px!important;font-size: 11px;'>Mar Octubre 8, 2013</p><a href='/pages/curso?id=3'><strong style='font-size: 16px; color: #eee'>Donec ullamcorper nulla non metus auctor fringilla. Praesent comm</strong></a><div class='mod-cal mt10 taj'>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Curabitur blandit tempus porttitor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravi...</div></div></div><div><a href='/pages/curso?id=3' class='sleyendo-rbox'>Más información &raquo;</a></div></div></div>
+
+ 
+<!-- <div class="title_box">Talleres y Cursos</div>
+
+ <div class="line-separator" style="clear: both"></div>
+
+<php
+    $cont = 0;
+    $total_courses = sizeof($cursos);
+    
+    foreach ($cursos as $curso) {
+        $cont++;
+        $img = "";
+        $img = $curso['Curso']['image_thumb'];
+        $no_tags_desc = strip_tags($curso['Curso']['description']);
+        $description = (strlen($no_tags_desc) > 203) ? substr($no_tags_desc,0,200).'...' : $no_tags_desc;
+        
+        $date = $this->Time->format('D-F-j-Y-h:i A', $curso['Curso']['date']);
+        list($dia_sem, $mes, $dia, $ano) = explode('-', $date);
+        
+        echo "<div class='caja'>";
+        echo "<div class='txt'>"; 
+        
+        if($img != "") {
+            echo "<a href='/pages/curso?id=" . $curso['Curso']['id'] . "'>";
+            echo $this->Html->image($img, array('align' => 'left', 'border' => '0', 'style' => 'max-width: 190px;margin-bottom: 15px;'));
+            echo "</a>";
+        }
+        
+        echo "<p style='margin: 0px 0px 2px 0px!important;font-size: 11px;'>" . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano)  . "</p>";
+        
+        echo "<a href='/pages/curso?id=" . $curso['Curso']['id'] . "'>";
+        echo "<strong style='font-size: 16px'>" . $curso['Curso']['name'] . "</strong>";
+        echo "</a>";
+        
+        echo "<div class='mod-cal mt10'>";
+        echo $description;
+        echo "</div>";
+        
+        echo "</div>";
+        echo "<div><a href='/pages/curso?id=" . $curso['Curso']['id'] . "' class='sleyendo'>Más información &raquo;</a></div>";
+        
+        if($cont != $total_courses) {
+            echo "<div class='line-separator' style='clear: both'></div>";
+        }
+        
+        echo "</div>";
+    }
+?>-->

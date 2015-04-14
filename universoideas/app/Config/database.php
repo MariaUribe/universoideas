@@ -61,10 +61,13 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',
-		'password' => 'admin',
+		//'password' => 'admin', // credencial de produccion
+                //lylmarketdb
+                'password' => '@dm!n123', // comentar en produccion
 		'database' => 'estudiantes',
 		'prefix' => '',
-		'encoding' => 'utf8'
+		'encoding' => 'utf8', // comentar en produccion
+                'unix_socket' => '/tmp/mysql.sock' // comentar en produccion
 	);
 
 	public $test = array(

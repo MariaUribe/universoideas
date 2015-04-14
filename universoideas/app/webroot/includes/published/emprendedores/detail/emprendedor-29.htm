@@ -1,0 +1,347 @@
+<div class="emprendedores view">
+    <input type="hidden" name="data[Emprendedore][id]" value="29" id="EmprendedoreId"/> 
+    <div class='box'><h3>Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</h3><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr522aa3c40096f-trace').style.display = (document.getElementById('cakeErr522aa3c40096f-trace').style.display == 'none' ? '' : 'none');"><b>Notice</b> (8)</a>: Undefined index: username [<b>APP/View/Emprendedores/emprendedor_detail.ctp</b>, line <b>9</b>]<div id="cakeErr522aa3c40096f-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr522aa3c40096f-code').style.display = (document.getElementById('cakeErr522aa3c40096f-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr522aa3c40096f-context').style.display = (document.getElementById('cakeErr522aa3c40096f-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr522aa3c40096f-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"&lt;div&nbsp;class='box'&gt;"</span><span style="color: #007700">;</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"&lt;h3&gt;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$emprendedores</span><span style="color: #007700">[</span><span style="color: #DD0000">'Emprendedore'</span><span style="color: #007700">][</span><span style="color: #DD0000">'title'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"&lt;/h3&gt;"</span><span style="color: #007700">;</span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"&lt;div&nbsp;class='fs11'&gt;&nbsp;Creado&nbsp;por:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$emprendedores</span><span style="color: #007700">[</span><span style="color: #DD0000">'Emprendedore'</span><span style="color: #007700">][</span><span style="color: #DD0000">'username'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">"&nbsp;»&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">__</span><span style="color: #007700">(</span><span style="color: #0000BB">$dia_sem</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">__</span><span style="color: #007700">(</span><span style="color: #0000BB">$mes</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">__</span><span style="color: #007700">(</span><span style="color: #0000BB">$dia</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">",&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">__</span><span style="color: #007700">(</span><span style="color: #0000BB">$ano</span><span style="color: #007700">)&nbsp;.&nbsp;&nbsp;</span><span style="color: #DD0000">"&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$hora&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"&lt;/div&gt;"</span><span style="color: #007700">;&nbsp;</span></span></code></span></pre><pre id="cakeErr522aa3c40096f-context" class="cake-context" style="display: none;">$viewFile = &#039;/Users/maya/NetBeansProjects/universoideas/app/View/Emprendedores/emprendedor_detail.ctp&#039;
+$dataForView = array(
+	&#039;debugToolbarPanels&#039; =&gt; array(
+		&#039;history&#039; =&gt; array(
+			&#039;content&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;elementName&#039; =&gt; &#039;history_panel&#039;,
+			&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+			&#039;title&#039; =&gt; null,
+			&#039;disableTimer&#039; =&gt; true
+		),
+		&#039;session&#039; =&gt; array(
+			&#039;content&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;elementName&#039; =&gt; &#039;session_panel&#039;,
+			&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+			&#039;title&#039; =&gt; null,
+			&#039;disableTimer&#039; =&gt; true
+		),
+		&#039;request&#039; =&gt; array(
+			&#039;content&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;elementName&#039; =&gt; &#039;request_panel&#039;,
+			&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+			&#039;title&#039; =&gt; null,
+			&#039;disableTimer&#039; =&gt; true
+		),
+		&#039;sqllog&#039; =&gt; array(
+			&#039;content&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;elementName&#039; =&gt; &#039;sqllog_panel&#039;,
+			&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+			&#039;title&#039; =&gt; null,
+			&#039;disableTimer&#039; =&gt; true
+		),
+		&#039;timer&#039; =&gt; array(
+			&#039;content&#039; =&gt; null,
+			&#039;elementName&#039; =&gt; &#039;timer_panel&#039;,
+			&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+			&#039;title&#039; =&gt; null,
+			&#039;disableTimer&#039; =&gt; true
+		),
+		&#039;log&#039; =&gt; array(
+			&#039;content&#039; =&gt; object(DebugKitLogListener) {},
+			&#039;elementName&#039; =&gt; &#039;log_panel&#039;,
+			&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+			&#039;title&#039; =&gt; null,
+			&#039;disableTimer&#039; =&gt; true
+		),
+		&#039;variables&#039; =&gt; array(
+			&#039;content&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;elementName&#039; =&gt; &#039;variables_panel&#039;,
+			&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+			&#039;title&#039; =&gt; null,
+			&#039;disableTimer&#039; =&gt; true
+		),
+		&#039;environment&#039; =&gt; array(
+			&#039;content&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;elementName&#039; =&gt; &#039;environment_panel&#039;,
+			&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+			&#039;title&#039; =&gt; null,
+			&#039;disableTimer&#039; =&gt; true
+		),
+		&#039;include&#039; =&gt; array(
+			&#039;content&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;elementName&#039; =&gt; &#039;include_panel&#039;,
+			&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+			&#039;title&#039; =&gt; null,
+			&#039;disableTimer&#039; =&gt; true
+		)
+	),
+	&#039;debugToolbarJavascript&#039; =&gt; array(
+		&#039;jquery&#039; =&gt; &#039;DebugKit.jquery&#039;,
+		&#039;libs&#039; =&gt; &#039;DebugKit.js_debug_toolbar&#039;
+	),
+	&#039;debugToolbarCss&#039; =&gt; array(
+		(int) 0 =&gt; &#039;DebugKit.debug_toolbar.css&#039;
+	),
+	&#039;emprendedores&#039; =&gt; array(
+		&#039;Emprendedore&#039; =&gt; array(
+			&#039;id&#039; =&gt; &#039;29&#039;,
+			&#039;title&#039; =&gt; &#039;Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.&#039;,
+			&#039;resume&#039; =&gt; &#039;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod.&#039;,
+			&#039;description&#039; =&gt; &#039;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod.&#039;,
+			&#039;status&#039; =&gt; &#039;PA&#039;,
+			&#039;created&#039; =&gt; &#039;2013-09-06&#039;,
+			&#039;modified&#039; =&gt; &#039;2013-09-06&#039;,
+			&#039;user_id&#039; =&gt; &#039;5&#039;
+		),
+		&#039;User&#039; =&gt; array(
+			&#039;id&#039; =&gt; &#039;5&#039;,
+			&#039;username&#039; =&gt; &#039;carlosdsv&#039;,
+			&#039;name&#039; =&gt; &#039;Carlos&#039;,
+			&#039;lastname&#039; =&gt; &#039;De Sousa&#039;,
+			&#039;mail&#039; =&gt; &#039;carlos@gmail.com&#039;,
+			&#039;role_id&#039; =&gt; &#039;2&#039;
+		)
+	),
+	&#039;user&#039; =&gt; array(
+		&#039;id&#039; =&gt; &#039;5&#039;,
+		&#039;username&#039; =&gt; &#039;carlosdsv&#039;,
+		&#039;name&#039; =&gt; &#039;Carlos&#039;,
+		&#039;lastname&#039; =&gt; &#039;De Sousa&#039;,
+		&#039;mail&#039; =&gt; &#039;carlos@gmail.com&#039;,
+		&#039;birthdate&#039; =&gt; null,
+		&#039;gender&#039; =&gt; &#039;&#039;,
+		&#039;created&#039; =&gt; &#039;2013-07-28&#039;,
+		&#039;modified&#039; =&gt; &#039;2013-09-03&#039;,
+		&#039;twitter&#039; =&gt; null,
+		&#039;is_enterprise&#039; =&gt; false,
+		&#039;securityAnswer&#039; =&gt; &#039;test&#039;,
+		&#039;question_id&#039; =&gt; &#039;1&#039;,
+		&#039;role_id&#039; =&gt; &#039;2&#039;,
+		&#039;Role&#039; =&gt; array(
+			&#039;id&#039; =&gt; &#039;2&#039;,
+			&#039;role_type&#039; =&gt; &#039;invitado&#039;
+		),
+		&#039;Question&#039; =&gt; array(
+			&#039;id&#039; =&gt; &#039;1&#039;,
+			&#039;question&#039; =&gt; &#039;¿Cuál era tu sobrenombre de niño?&#039;
+		)
+	)
+)
+$debugToolbarPanels = array(
+	&#039;history&#039; =&gt; array(
+		&#039;content&#039; =&gt; array(
+			(int) 0 =&gt; array(
+				[maximum depth reached]
+			),
+			(int) 1 =&gt; array(
+				[maximum depth reached]
+			),
+			(int) 2 =&gt; array(
+				[maximum depth reached]
+			),
+			(int) 3 =&gt; array(
+				[maximum depth reached]
+			)
+		),
+		&#039;elementName&#039; =&gt; &#039;history_panel&#039;,
+		&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+		&#039;title&#039; =&gt; null,
+		&#039;disableTimer&#039; =&gt; true
+	),
+	&#039;session&#039; =&gt; array(
+		&#039;content&#039; =&gt; array(
+			&#039;Config&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;Auth&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;Message&#039; =&gt; array(
+				[maximum depth reached]
+			)
+		),
+		&#039;elementName&#039; =&gt; &#039;session_panel&#039;,
+		&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+		&#039;title&#039; =&gt; null,
+		&#039;disableTimer&#039; =&gt; true
+	),
+	&#039;request&#039; =&gt; array(
+		&#039;content&#039; =&gt; array(
+			&#039;params&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;url&#039; =&gt; &#039;emprendedores/emprendedor_detail/29&#039;,
+			&#039;query&#039; =&gt; array([maximum depth reached]),
+			&#039;data&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;get&#039; =&gt; array([maximum depth reached]),
+			&#039;currentRoute&#039; =&gt; object(CakeRoute) {}
+		),
+		&#039;elementName&#039; =&gt; &#039;request_panel&#039;,
+		&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+		&#039;title&#039; =&gt; null,
+		&#039;disableTimer&#039; =&gt; true
+	),
+	&#039;sqllog&#039; =&gt; array(
+		&#039;content&#039; =&gt; array(
+			&#039;connections&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;threshold&#039; =&gt; (int) 20
+		),
+		&#039;elementName&#039; =&gt; &#039;sqllog_panel&#039;,
+		&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+		&#039;title&#039; =&gt; null,
+		&#039;disableTimer&#039; =&gt; true
+	),
+	&#039;timer&#039; =&gt; array(
+		&#039;content&#039; =&gt; null,
+		&#039;elementName&#039; =&gt; &#039;timer_panel&#039;,
+		&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+		&#039;title&#039; =&gt; null,
+		&#039;disableTimer&#039; =&gt; true
+	),
+	&#039;log&#039; =&gt; array(
+		&#039;content&#039; =&gt; object(DebugKitLogListener) {},
+		&#039;elementName&#039; =&gt; &#039;log_panel&#039;,
+		&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+		&#039;title&#039; =&gt; null,
+		&#039;disableTimer&#039; =&gt; true
+	),
+	&#039;variables&#039; =&gt; array(
+		&#039;content&#039; =&gt; array(
+			&#039;emprendedores&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;user&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;$request-&gt;data&#039; =&gt; array(
+				[maximum depth reached]
+			)
+		),
+		&#039;elementName&#039; =&gt; &#039;variables_panel&#039;,
+		&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+		&#039;title&#039; =&gt; null,
+		&#039;disableTimer&#039; =&gt; true
+	),
+	&#039;environment&#039; =&gt; array(
+		&#039;content&#039; =&gt; array(
+			&#039;php&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;cake&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;app&#039; =&gt; array([maximum depth reached])
+		),
+		&#039;elementName&#039; =&gt; &#039;environment_panel&#039;,
+		&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+		&#039;title&#039; =&gt; null,
+		&#039;disableTimer&#039; =&gt; true
+	),
+	&#039;include&#039; =&gt; array(
+		&#039;content&#039; =&gt; array(
+			&#039;core&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;app&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;plugins&#039; =&gt; array(
+				[maximum depth reached]
+			),
+			&#039;paths&#039; =&gt; array(
+				[maximum depth reached]
+			)
+		),
+		&#039;elementName&#039; =&gt; &#039;include_panel&#039;,
+		&#039;plugin&#039; =&gt; &#039;DebugKit&#039;,
+		&#039;title&#039; =&gt; null,
+		&#039;disableTimer&#039; =&gt; true
+	)
+)
+$debugToolbarJavascript = array(
+	&#039;jquery&#039; =&gt; &#039;DebugKit.jquery&#039;,
+	&#039;libs&#039; =&gt; &#039;DebugKit.js_debug_toolbar&#039;
+)
+$debugToolbarCss = array(
+	(int) 0 =&gt; &#039;DebugKit.debug_toolbar.css&#039;
+)
+$emprendedores = array(
+	&#039;Emprendedore&#039; =&gt; array(
+		&#039;id&#039; =&gt; &#039;29&#039;,
+		&#039;title&#039; =&gt; &#039;Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.&#039;,
+		&#039;resume&#039; =&gt; &#039;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod.&#039;,
+		&#039;description&#039; =&gt; &#039;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod.&#039;,
+		&#039;status&#039; =&gt; &#039;PA&#039;,
+		&#039;created&#039; =&gt; &#039;2013-09-06&#039;,
+		&#039;modified&#039; =&gt; &#039;2013-09-06&#039;,
+		&#039;user_id&#039; =&gt; &#039;5&#039;
+	),
+	&#039;User&#039; =&gt; array(
+		&#039;id&#039; =&gt; &#039;5&#039;,
+		&#039;username&#039; =&gt; &#039;carlosdsv&#039;,
+		&#039;name&#039; =&gt; &#039;Carlos&#039;,
+		&#039;lastname&#039; =&gt; &#039;De Sousa&#039;,
+		&#039;mail&#039; =&gt; &#039;carlos@gmail.com&#039;,
+		&#039;role_id&#039; =&gt; &#039;2&#039;
+	)
+)
+$user = array(
+	&#039;id&#039; =&gt; &#039;5&#039;,
+	&#039;username&#039; =&gt; &#039;carlosdsv&#039;,
+	&#039;name&#039; =&gt; &#039;Carlos&#039;,
+	&#039;lastname&#039; =&gt; &#039;De Sousa&#039;,
+	&#039;mail&#039; =&gt; &#039;carlos@gmail.com&#039;,
+	&#039;birthdate&#039; =&gt; null,
+	&#039;gender&#039; =&gt; &#039;&#039;,
+	&#039;created&#039; =&gt; &#039;2013-07-28&#039;,
+	&#039;modified&#039; =&gt; &#039;2013-09-03&#039;,
+	&#039;twitter&#039; =&gt; null,
+	&#039;is_enterprise&#039; =&gt; false,
+	&#039;securityAnswer&#039; =&gt; &#039;test&#039;,
+	&#039;question_id&#039; =&gt; &#039;1&#039;,
+	&#039;role_id&#039; =&gt; &#039;2&#039;,
+	&#039;Role&#039; =&gt; array(
+		&#039;id&#039; =&gt; &#039;2&#039;,
+		&#039;role_type&#039; =&gt; &#039;invitado&#039;
+	),
+	&#039;Question&#039; =&gt; array(
+		&#039;id&#039; =&gt; &#039;1&#039;,
+		&#039;question&#039; =&gt; &#039;¿Cuál era tu sobrenombre de niño?&#039;
+	)
+)
+$date = &#039;Fri-September-6-2013-12:00 AM&#039;
+$hora = &#039;12:00 AM&#039;
+$ano = &#039;2013&#039;
+$dia = &#039;6&#039;
+$mes = &#039;September&#039;
+$dia_sem = &#039;Fri&#039;</pre><pre class="stack-trace">include - APP/View/Emprendedores/emprendedor_detail.ctp, line 9
+View::_evaluate() - CORE/Cake/View/View.php, line 947
+View::_render() - CORE/Cake/View/View.php, line 909
+View::render() - CORE/Cake/View/View.php, line 471
+Controller::render() - CORE/Cake/Controller/Controller.php, line 948
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 162
+Object::requestAction() - CORE/Cake/Core/Object.php, line 104
+EmprendedoresController::publishView() - APP/Controller/EmprendedoresController.php, line 191
+EmprendedoresController::publishEmprendedor() - APP/Controller/EmprendedoresController.php, line 197
+EmprendedoresController::add() - APP/Controller/EmprendedoresController.php, line 93
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 486
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 162
+[main] - APP/webroot/index.php, line 110</pre></div></pre><div class='fs11'> Creado por:  » Vie Septiembre 6, 2013 12:00 AM</div></div><div class='fs12'>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod.</div></div>
+
+<div class="fs11" style="color: #00355a; margin-top: 20px; font-weight: bold;">
+    <a href='/pages/mis_emprendimientos'>Ir a Mis Temas</a></div>
