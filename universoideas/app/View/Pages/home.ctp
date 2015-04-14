@@ -22,5 +22,5 @@
     <?php include ("includes/published/noticias_destacadas.htm"); ?>
     <?php include ("includes/twitter.htm") ?>
     <?php include ("includes/facebook.htm") ?>
-    <div id="publicidadrcielo1" class="mt10 p5 tac mt20"><div class="publicidad tal">ESPACIO PUBLICITARIO</div><a href="#"><img src="/img/publicidad/300x600.gif" width="250" alt="Publicidad" /></a></div>
+    <div id="publicidadrcielo1" class="mt10 p5 tac mt20"><div class="publicidad tal">ESPACIO PUBLICITARIO!</div><a href="#"><img src="/img/publicidad/300x600.gif" width="250" alt="Publicidad" /></a></div>
 </div>
