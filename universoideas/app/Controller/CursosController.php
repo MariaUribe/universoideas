@@ -73,6 +73,7 @@ class CursosController extends AppController {
                 $this->Session->setFlash('El curso fue guardado exitosamente.', 'flash_success');
                 $this->publishCurso($curso_id);
                 $this->publishModuloCursos();
+                $this->publishRios();
                 $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash('El curso no pudo ser guardado.', 'flash_error');
@@ -110,6 +111,7 @@ class CursosController extends AppController {
                 $this->Session->setFlash('El curso fue guardado exitosamente.', 'flash_success');
                 $this->publishCurso($id);
                 $this->publishModuloCursos();
+                $this->publishRios();
                 $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash('El curso no pudo ser guardado.', 'flash_error');
@@ -145,6 +147,7 @@ class CursosController extends AppController {
         if ($this->Curso->delete()) {
             $this->Session->setFlash('El curso fue eliminado.', 'flash_success');
             $this->publishModuloCursos();
+            $this->publishRios();
             $this->redirect(array('action' => 'index'));
         }
         $this->Session->setFlash('El curso no pudo ser eliminado.', 'flash_error');
@@ -211,5 +214,16 @@ class CursosController extends AppController {
     public function publishModuloCursos() {
         /* PUBLICAR MODULO DE TALLERES Y CURSOS */
         $this->publishView("talleres_cursos", "talleres_cursos");
+    }
+    
+    public function publishRios() {
+        /* PUBLICAR RIOS */
+        $this->publishView("rio", "rios/rio");
+        $this->publishView("rio/encuentrame", "rios/rio-encuentrame");
+        $this->publishView("rio/arte", "rios/rio-arte");
+        $this->publishView("rio/ciencia", "rios/rio-ciencia");
+        $this->publishView("rio/moda", "rios/rio-moda");
+        $this->publishView("rio/rumba", "rios/rio-rumba");
+        $this->publishView("rio/sexualidad", "rios/rio-sexualidad");
     }
 }

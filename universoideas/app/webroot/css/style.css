@@ -1,0 +1,677 @@
+﻿
+/*=============================================================
+    Authour URL: www.designbootstrap.com
+    
+    http://www.designbootstrap.com/
+
+    License: MIT
+
+    http://opensource.org/licenses/MIT
+
+    100% Free To use For Personal And Commercial Use.
+
+    IN EXCHANGE JUST TELL PEOPLE ABOUT THIS WEBSITE
+   
+========================================================  */
+
+
+/* =============================================================
+   GENERAL STYLES
+ ============================================================ */
+
+@import url(http://fonts.googleapis.com/css?family=Roboto); /* FREE GOOGLE FONT */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 30px;
+}
+
+.set-radius-zero {
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+
+.content-wrapper {
+    margin-top: 40px;
+    min-height: 600px;
+    padding-bottom: 60px;
+}
+
+.page-head-line {
+    font-weight: 900;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #6F5BA0;
+    text-transform: uppercase;
+    color: #6F5BA0;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+/*.btn {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}*/
+
+.progress {
+    height: 8px;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}
+.login-icon {
+    height: 60px;
+width: 60px;
+padding: 13px;
+border-radius: 50%;
+font-size: 30px;
+margin-bottom: 20px;
+color: #fff;
+text-align: center;
+cursor:pointer;
+background-color:#6F5BA0;
+-webkit-border-radius:50%;
+    -moz-border-radius:50%;
+}
+/* =============================================================
+   HEADER SECTION STYLES
+ ============================================================ */
+header {
+    background-color: #6F5BA0;
+    color: #fff;
+    padding: 10px;
+    text-align: right;
+}
+
+
+/* =============================================================
+   LOGO SECTION STYLES
+ ============================================================ */
+.left-div {
+    //padding-left: 30px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    float: right;
+}
+
+.navbar-brand {
+    width: 250px;
+    padding-top: 30px;
+}
+
+/* USER SETTINGS DIV */
+.user-settings-wrapper .nav > li > a {
+    position: relative;
+    display: block;
+    padding: 15px 18px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    background-color: #F7941E;
+    color: #fff;
+}
+
+.user-settings-wrapper {
+    margin-top: 10px;
+}
+
+    .user-settings-wrapper li {
+        display: inline-block;
+    }
+
+    .user-settings-wrapper .dropdown-settings {
+        width: 200px;
+        padding: 10px;
+    }
+
+    .user-settings-wrapper .nav > li > a:hover,.user-settings-wrapper .nav > li > a:focus {
+        text-decoration: none;
+        background-color: #ED8100!important;
+    }
+
+    .user-settings-wrapper img {
+        height: 64px;
+        width: 64px;
+        border: 1px solid #000000;
+    }
+
+    .user-settings-wrapper .dropdown-menu {
+        margin: 0px;
+        border-radius: 0px!important;
+        -moz-border-radius: 0px!important;
+        -webkit-border-radius: 0px!important;
+    }
+
+    .user-settings-wrapper .btn {
+        border-radius: 0px!important;
+        -moz-border-radius: 0px!important;
+        -webkit-border-radius: 0px!important;
+    }
+
+    .user-settings-wrapper .media-heading {
+        padding-top: 10px;
+    }
+
+/* MENU LINKS SECTION*/
+
+.menu-section {
+    background-color: #323131;
+}
+
+#menu-top a {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 10px 10px 10px;
+    text-transform: uppercase;
+}
+
+.menu-top-active {
+    background-color: #6F5BA0;
+}
+
+.menu-section .nav > li > a:hover,.menu-section .nav > li > a:focus {
+    background-color: #6F5BA0!important;
+}
+
+.menu-section .dropdown-menu > li > a:hover,.menu-section .dropdown-menu > li > a:focus {
+    background-color: #8474AB!important;
+}
+
+.submenu-option > a:hover {
+    background-color: #EDEDED!important;
+}
+
+.navbar-inverse {
+    background-color: #3D3D3D;
+    border-color: transparent;
+}
+
+.navbar-toggle {
+    background-color: #6F5BA0;
+    border: 1px solid #fff;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+/* =============================================================
+   FOOTER SECTION STYLES
+ ============================================================ */
+footer {
+    padding: 10px;
+    color: #fff;
+    font-size: 12px;
+    background-color: #3D3D3D;
+}
+
+    footer a, footer a:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+
+/*==============================================
+    DASHBOARD  STYLES    
+ =============================================*/
+
+/* DASHBOARD ICONS */
+
+.bk-clr-one {
+    background-color: #B9B739;
+}
+
+.bk-clr-two {
+    background-color: #F94C4C;
+}
+
+.bk-clr-three {
+    background-color: #119c7e;
+}
+
+.bk-clr-four {
+    background-color: #b739b9;
+}
+
+.dashboard-div-icon {
+    height: 75px;
+    width: 75px;
+    border: 2px solid #fff;
+    padding: 20px;
+    border-radius: 50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.dashboard-div-wrapper {
+    border-radius: 5px;
+    text-align: center;
+    padding: 15px;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+    .dashboard-div-wrapper .progress {
+        height: 2px;
+    }
+
+/* NOTICE BOARD */
+
+
+.notice-board .panel {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}
+
+.notice-board ul {
+    padding-left: 0px;
+    list-style: none;
+}
+
+.notice-board li {
+    padding: 10px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+    .notice-board li span {
+        margin-right: 10px;
+        border: 1px solid #DBDBDB;
+        padding: 5px;
+    }
+
+    .notice-board li a, li a:hover {
+        text-decoration: none;
+        color: #000;
+    }
+
+/* SOCIAL BUTTONS */
+.btn-social {
+    color: white;
+    opacity: 0.8;
+}
+
+    .btn-social:hover {
+        color: white;
+        opacity: 1;
+        text-decoration: none;
+    }
+
+.btn-facebook {
+    background-color: #3b5998;
+}
+
+.btn-twitter {
+    background-color: #00aced;
+}
+
+.btn-linkedin {
+    background-color: #0e76a8;
+}
+
+.btn-google {
+    background-color: #c32f10;
+}
+
+.login-msg {
+    color: white;
+    margin-right: 5px;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.mb5 {
+    margin-bottom: 5px;
+}
+
+.submenu-option {
+    padding: 3px 20px!important;
+    font-weight: normal!important;
+    color: rgb(61, 61, 61)!important;
+    text-transform: none!important;
+}
+
+
+/* =============================================================
+   CUSTOM STYLES
+ ============================================================ */
+
+.title_box { 
+    color: #E7881E; 
+    font-size: 20px; 
+    text-transform: uppercase; 
+}
+
+.dark_title {
+    color: #2B7ED2!important; 
+    font-size: 16px; 
+    font-weight: normal; 
+    padding: 0px 0px 10px 0px; 
+    text-transform: uppercase;
+}
+
+.line-separator-dark {
+    margin: 0 0 1px 0;
+    border-bottom: 1px solid #676464;
+    padding-top: 1px;
+}
+
+.cursos {
+    background-color: #333;
+    border-radius: 5px;
+    border: 1px solid #e8e8e8;
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+.caja {
+    line-height: 18px;
+}
+
+.p-custom {
+  padding: 9px 0px 9px 5px;
+}
+
+.sleyendo-rbox {
+    font-size: 12px;
+    float: right;
+    margin: 10px;
+    color: #2B7ED2!important;
+}
+
+.mod-cal {
+    font-size: 13px;
+}
+
+.mod-cal p {
+    margin: 5px;
+}
+
+.m0 {
+    margin: 0px!important;
+}
+
+.m15 {
+    margin: 15px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mt15 {
+    margin-top: 15px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+.mb10 {
+    margin-bottom: 15px;
+}
+
+.mb15 {
+    margin-bottom: 15px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.mr10 {
+    margin-right: 10px;
+}
+
+.mr15 {
+    margin-right: 15px;
+}
+
+.ml15 {
+    margin-left: 15px;
+}
+
+.lh26 {
+    line-height: 26px;
+}
+
+.p0-10 {
+    padding: 0px 10px 0px 0px!important;
+}
+
+.p10-10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.pb18 {
+    padding-bottom: 18px!important;
+}
+
+.pb5 {
+    padding-bottom: 5px;
+}
+
+.taj {
+    text-align: justify;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bx-wrapper .bx-controls-direction a {
+    margin-top: -28px!important;
+}
+
+.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
+    bottom: -40px!important;
+}
+
+.panel-heading.channel {
+    //color: rgb(128, 18, 173);
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+.title_rio a {
+    color: #E79437;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+h2.title_rio {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 24px;
+}
+
+.dia {
+    font-size: 11px;
+}
+
+.body {
+    line-height: 24px;
+}
+
+.sleyendo {
+  font-size: 12px;
+  float: right;
+  margin: 10px;
+  color: #004080!important;
+}
+
+.sumary {
+  line-height: 24px;
+  float: left;
+  margin-top: 10px;
+  text-align: justify;
+}
+
+.img {
+    text-align: center;
+}
+
+.dropdown-menu {
+    left: -135px;
+    min-width: 167px;
+    border: 1px solid rgba(0, 0, 0, 0.65);
+    background-color: #3D3D3D;
+}
+
+.submenu-option {
+    color: rgb(248, 255, 255)!important;
+}
+
+.dropdown-profile {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, .15);
+}
+
+.publicidad {
+  font-size: 9px;
+  line-height: 17px;
+  margin-top: 10px;
+}
+
+#join-box {
+  border: rgb(253, 197, 150) 1px solid!important;
+  border: rgba(253, 197, 150, 0.33) 1px solid!important;
+  background: rgba(255, 159, 44, 0.54);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.border-radius-5 {
+  behavior: url(pie/PIE.htc);
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: #666 0px 2px 3px;
+  -moz-box-shadow: #666 0px 2px 3px;
+  box-shadow: #666 0px 2px 3px;
+}
+
+.taj {
+  text-align: justify;
+}
+
+.tal {
+    text-align: left;
+}
+
+.tac {
+    text-align: center;
+}
+
+a.a-gray {
+    color: #EAEAEA;
+}
+
+#inf-icon {
+  position: absolute;
+  float: right;
+  margin-left: 205px;
+  margin-top: -46px;
+}
+
+#join-button {
+  background: #E78628;
+  font-size: 13px;
+  text-transform: uppercase;
+  border: #E78628;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 14px;
+}
+
+.siguenos {
+    background-color: rgba(61, 61, 61, 0.93);
+    border-radius: 5px;
+    padding: 10px 0px 10px 0px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.img-publicity {
+    margin: auto;
+}
+
+.calendar-box {
+    padding: 15px;
+    line-height: 22px;
+    background-color: aliceblue;
+    border-color: aliceblue;
+}
+
+a.sleyendo_box {
+  font-size: 12px;
+  float: right;
+  margin: 0px 0px 10px;
+  color: rgb(0, 64, 128);
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin: 8px 0 0;
+}
+
+a.login-msg:focus {
+    color: whitesmoke;
+}
+
+a.login-msg:hover {
+    color: whitesmoke;
+}
+
+input#UserIsEnterprise {
+    margin-top: 3px;
+    margin-left: 0px;
+}
+
+.pt0 {
+    padding-top: 0px!important;
+}
+
+.pl0 {
+    padding-left: 0px!important;
+}
+
+.mb0 {
+    margin-bottom: 0px;
+}
+
+.register-check .input.checkbox {
+  float: right;
+}
+
+.form-group.required .control-label:after {
+    content: " * ";
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.asterisk-required {
+  content: " * ";
+  color: red;
+  font-weight: bold;
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+.mt0 {
+    margin-top: 0px!important;
+}
+
+.purple-color {
+    color: #6F5BA0!important;
+}

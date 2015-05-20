@@ -1,3 +1,4 @@
+<input id="page_code" type="hidden" value="emprendedores"/>
 <link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.css">
 <script type="text/javascript" src="/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf-8">

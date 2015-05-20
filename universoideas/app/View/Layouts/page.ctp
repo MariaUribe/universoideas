@@ -24,21 +24,30 @@ $title_for_layout = 'Universoideas';
 <html>
 <head>
     <?php echo $this->Html->charset(); ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>
         <?php echo $title_for_layout ?>
     </title>
     <?php
         echo $this->Html->meta('icon');
-        echo $this->Html->css('estilos');
+        /*echo $this->Html->css('estilos');*/
         echo $this->Html->css('jquery-ui-1.11.2.custom/jquery-ui.min');
         echo $this->Html->css('jquery-ui-1.11.2.custom/jquery-ui.structure.min');
         echo $this->Html->css('jquery-ui-1.11.2.custom/jquery-ui.theme.min');
         echo $this->Html->css('jquery.mCustomScrollbar');
         
-        echo $this->Html->script('http://code.jquery.com/jquery-1.9.1.js');
-        echo $this->Html->script('generic');
-        echo $this->Html->script('../css/jquery-ui-1.11.2.custom/jquery-ui.min');
+        /* Responsive design */
+        echo $this->Html->css('bootstrap');
+        echo $this->Html->css('font-awesome');
+        echo $this->Html->css('style');
         
+        /*echo $this->Html->script('http://code.jquery.com/jquery-1.9.1.js');*/
+        /*echo $this->Html->script('jquery-ui.min');*/
+        
+        echo $this->Html->script('jquery-1.11.1');
+        echo $this->Html->script('jssor.slider.mini');
+        echo $this->Html->script('generic');
+    
         echo $this->fetch('meta');
         echo $this->fetch('css');
         echo $this->fetch('script');
@@ -46,21 +55,27 @@ $title_for_layout = 'Universoideas';
 </head>
 <body id="index">
     <div id="conten_ppal">
-        <div id="publicidadtop1" class="p5 tac"><div class="publicidad tal">ESPACIO PUBLICITARIO</div><a href="#"><img src="/img/publicidad/728x90.gif" width="728" height="90" alt="Publicidad" /></a></div>
+        <!--div id="publicidadtop1" class="p5 tac"><div class="publicidad tal">ESPACIO PUBLICITARIO</div><a href="#"><img src="/img/publicidad/728x90.gif" width="728" height="90" alt="Publicidad" /></a></div-->
         <div id="content_head" class="pt5">
             <?php $dir =  dirname(__DIR__); ?>
             <?php include $dir . "/Pages/head.ctp"; ?>
         </div>
         <?php echo $this->Session->flash(); ?>
-        <div id="content_dos_col">
-            <?php echo $this->fetch('content'); ?>
+        <!--div id="content_dos_col"-->
+        <div id="js_msg"></div>
+        <div class="content-wrapper">
+            <div id="js_container" class="container">
+                <?php echo $this->fetch('content'); ?>
+            </div>
         </div>
     </div>
     <?php include ("includes/foot.htm") ?>
-    <?php echo $this->Html->script('jquery/jquery.validate'); ?>
+    <!--php echo $this->Html->script('jquery/jquery.validate'); ?-->
     <?php echo $this->Html->script('jquery.mCustomScrollbar.concat.min'); ?>
     
     <script type="text/javascript">setMenuSelected()</script>
-    
+
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <?php echo $this->Html->script('bootstrap'); ?>
 </body>
 </html>

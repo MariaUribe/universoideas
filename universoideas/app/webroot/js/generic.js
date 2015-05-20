@@ -7,7 +7,7 @@
 
 var myMessages = ['info-jq','warning-jq','error-jq','success-jq'];
 
-$(document).ready(function(){	
+$(document).ready(function(){
     // Show message
     for(var i=0;i<myMessages.length;i++) {
         showMessage(myMessages[i]);
@@ -21,7 +21,7 @@ $(document).ready(function(){
     
     setTimeout(function(){hideAllMessages()},3000);
     
-    $('form').each(function () {
+    /*$('form').each(function () {
         $(this).validate({
             rules: {
                 "data[User][password]": {
@@ -46,9 +46,59 @@ $(document).ready(function(){
                 }
             }
         });
-    }); 
-});  
+    }); */
+});
 
+function jssor_slider1_starter() {
+    
+    var _CaptionTransitions = [];
+    _CaptionTransitions["transition_left"] = {$Duration:1500,x:0.6,$Easing:{$Left:$JssorEasing$.$EaseInOutExpo},$Opacity:2};
+    
+    var options = {
+            $AutoPlay: true,
+            $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$,
+                $ChanceToShow: 2,
+                $AutoCenter: 1
+            },
+            $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$,
+                $ChanceToShow: 2,
+                $AutoCenter: 2
+            },
+            $CaptionSliderOptions: {
+                $Class: $JssorCaptionSlider$,
+                $CaptionTransitions: _CaptionTransitions,
+                $PlayInMode: 1,
+                $PlayOutMode: 3,
+                $Zoom: 1,
+                $Rotate: 1,
+                $Opacity: 2
+            }
+        };
+        
+    var jssor_slider1 = new $JssorSlider$('slider1_container', options);
+    
+    //responsive code begin
+    //you can remove responsive code if you don't want the slider scales
+    //while window resizes
+    function ScaleSlider() {
+        var parentWidth = $('#slider1_container').parent().width();
+        if (parentWidth) {
+            jssor_slider1.$ScaleWidth(parentWidth);
+        }
+        else
+            window.setTimeout(ScaleSlider, 30);
+    }
+    //Scale slider after document ready
+    ScaleSlider();
+
+    //Scale slider while window load/resize/orientationchange.
+    $(window).bind("load", ScaleSlider);
+    $(window).bind("resize", ScaleSlider);
+    $(window).bind("orientationchange", ScaleSlider);
+    //responsive code end
+}
 
 function hideAllMessages() {
     var messagesHeights = new Array(); // this array will store height for each
@@ -197,14 +247,17 @@ function cancelChangeAnswer() {
 function setMenuSelected() {
     var page = $('#page_code').val();
     $('body').attr('id', page);
+    
+    $('#menu-top a').removeClass('menu-top-active');
+    $('#' + page + '_menu').addClass('menu-top-active');
 }
 
 function displayMail() {
-    $('#login').css('display', 'none');
-    $('#forgot').css('display', '');
+    $('#loginbox').hide();
+    $('#forgotbox').show();
 }
 
 function cancelForgot() {
-    $('#login').css('display', '');
-    $('#forgot').css('display', 'none');
+    $('#loginbox').show();
+    $('#forgotbox').hide();
 }

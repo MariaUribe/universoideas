@@ -27,10 +27,11 @@ class ArticlesController extends AppController {
         $user = $this->Auth->user();
         
         if(!empty($user)) {
-            if($user['role_id'] === '1')
+            if($user['role_id'] === '1') {
                 $this->Auth->allow(array('index', 'view', 'add', 'edit', 'delete'));
-            else
+            } else {
                 $this->Auth->deny(array('index', 'view', 'add', 'edit', 'delete'));
+            }
         } else {
             $this->Auth->deny(array('index', 'view', 'add', 'edit', 'delete'));
         }

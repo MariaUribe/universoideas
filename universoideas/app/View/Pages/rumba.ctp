@@ -1,6 +1,13 @@
 <input id="page_code" type="hidden" value="vida"/>
-<div id="content_col_izq">
-    <div class="channel_name">Rumba</div>
+
+<!--div id="content_col_izq"-->
+<div class="row">
+    <div class="col-md-12">
+        <h4 class="page-head-line channel_name">Rumba</h4>
+    </div>
+</div>
+
+<div class="row">
     
     <?php include ("includes/published/galleries/galeria-rumba.htm") ?>
  

@@ -1,7 +1,13 @@
 <input id="page_code" type="hidden" value="vida"/>
-<div id="content_col_izq">
-    <div class="channel_name">Sexualidad</div>
-    
+
+<!--div id="content_col_izq"-->
+<div class="row">
+    <div class="col-md-12">
+        <h4 class="page-head-line channel_name">Sexualidad</h4>
+    </div>
+</div>
+
+<div class="row">
     <?php include ("includes/published/galleries/galeria-sexualidad.htm") ?>
  
     <div id="publicidadrio1" class="p5 tac mt20"><div class="publicidad tal">ESPACIO PUBLICITARIO</div><a href="#"><img src="/img/publicidad/500x90.gif" width="500" height="90" alt="Publicidad" /></a></div>

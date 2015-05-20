@@ -1,20 +1,92 @@
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<script type="text/javascript" src="/js/s3Slider.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#slider1').s3Slider({
-            timeOut: 4000 
-        });
+<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 848px; height: 440px;" class="panel">
+    <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 848px; height: 440px;">
+        
+        <input id='article_id' type='hidden' value='73'/><div><img src="/universoideas/app/webroot/img/uploads/image10.jpg" u="image" alt="" /><div u='caption' t='transition_left' style='position: absolute; top: 285px; left: 20px; width: 805px; height: 110px; color: rgb(61, 61, 61); background-color: rgba(255, 255, 255, 0.6); padding: 3px 0px 0px 10px;'><a href='/pages/article?id=73' style='color: rgb(61, 61, 61);line-height: 15px;'><strong style='font-size: 16px;'>Cras mattis consectetur purus sit amet fermentum.</strong><br/><div class='dia'>Lun Abril 27, 2015</div>Cras mattis consectetur purus sit amet fermentum cras mattis consectetur purus sit amet fermentum.
+</a></div></div><input id='article_id' type='hidden' value='1'/><div><img src="/universoideas/app/webroot/img/uploads/image2.jpg" u="image" alt="" /><div u='caption' t='transition_left' style='position: absolute; top: 285px; left: 20px; width: 805px; height: 110px; color: rgb(61, 61, 61); background-color: rgba(255, 255, 255, 0.6); padding: 3px 0px 0px 10px;'><a href='/pages/article?id=1' style='color: rgb(61, 61, 61);line-height: 15px;'><strong style='font-size: 16px;'>Porta cras</strong><br/><div class='dia'>Wed Abril 22, 2015</div>Porta cras, aliquet facilisis aliquam est risus pellentesque? Proin etiam risus mauris. Magnis cursus...
+</a></div></div><input id='article_id' type='hidden' value='71'/><div><img src="/universoideas/app/webroot/img/uploads/image3.jpg" u="image" alt="" /><div u='caption' t='transition_left' style='position: absolute; top: 285px; left: 20px; width: 805px; height: 110px; color: rgb(61, 61, 61); background-color: rgba(255, 255, 255, 0.6); padding: 3px 0px 0px 10px;'><a href='/pages/article?id=71' style='color: rgb(61, 61, 61);line-height: 15px;'><strong style='font-size: 16px;'>Pharetra Tellus Vehicula Vulputate Sem</strong><br/><div class='dia'>Dom Noviembre 9, 2014</div>Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolo...</a></div></div><input id='article_id' type='hidden' value='75'/><div><img src="/universoideas/app/webroot/img/uploads/image1.jpg" u="image" alt="" /><div u='caption' t='transition_left' style='position: absolute; top: 285px; left: 20px; width: 805px; height: 110px; color: rgb(61, 61, 61); background-color: rgba(255, 255, 255, 0.6); padding: 3px 0px 0px 10px;'><a href='/pages/article?id=75' style='color: rgb(61, 61, 61);line-height: 15px;'><strong style='font-size: 16px;'>Morbi leo risus, porta ac consectetur ac, vestibul</strong><br/><div class='dia'>Dom Noviembre 9, 2014</div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper.
+</a></div></div><input id='article_id' type='hidden' value='67'/><div><img src="/universoideas/app/webroot/img/uploads/gal1.jpg" u="image" alt="" /><div u='caption' t='transition_left' style='position: absolute; top: 285px; left: 20px; width: 805px; height: 110px; color: rgb(61, 61, 61); background-color: rgba(255, 255, 255, 0.6); padding: 3px 0px 0px 10px;'><a href='/pages/article?id=67' style='color: rgb(61, 61, 61);line-height: 15px;'><strong style='font-size: 16px;'>Articulo de prueba</strong><br/><div class='dia'>Jue Noviembre 6, 2014</div>Diam ultricies diam natoque? Diam pulvinar diam porta, integer facilisis, diam etiam, odio
+</a></div></div>    </div>
+    <!--#region Bullet Navigator Skin Begin -->
+    <!-- Help: http://www.jssor.com/development/slider-with-bullet-navigator-jquery.html -->
+    <style>
+        /* jssor slider bullet navigator skin 05 css */
+        .jssorb05 {
+            position: absolute;
+        }
+        .jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
+            position: absolute;
+            /* size of bullet elment */
+            width: 16px;
+            height: 16px;
+            background: url(../img/b05.png) no-repeat;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .jssorb05 div { background-position: -7px -7px; }
+        .jssorb05 div:hover, .jssorb05 .av:hover { background-position: -37px -7px; }
+        .jssorb05 .av { background-position: -67px -7px; }
+        .jssorb05 .dn, .jssorb05 .dn:hover { background-position: -97px -7px; }
+
+        /* jssor slider arrow navigator skin 05 css */
+        .jssora05l, .jssora05r {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background: url(../img/a17.png) no-repeat;
+            overflow: hidden;
+        }
+        .jssora05l { background-position: -10px -40px; }
+        .jssora05r { background-position: -70px -40px; }
+        .jssora05l:hover { background-position: -130px -40px; }
+        .jssora05r:hover { background-position: -190px -40px; }
+        .jssora05l.jssora05ldn { background-position: -250px -40px; }
+        .jssora05r.jssora05rdn { background-position: -310px -40px; }
+    </style>
+
+    <div u="navigator" class="jssorb05" style="bottom: 16px; right: 6px;">
+        <div u="prototype"></div>
+    </div>
+    <!--#endregion Bullet Navigator Skin End -->
+
+    <span u="arrowleft" class="jssora05l" style="top: 123px; left: 8px;"></span>
+    <span u="arrowright" class="jssora05r" style="top: 123px; right: 8px;"></span>
+</div>
+
+<script>
+    jQuery(document).ready(function ($) {
+        jssor_slider1_starter();
     });
 </script>
 
-<div id="slider1">
+<!--div id="slider1">
     <ul id="slider1Content" style=" margin:0 0 0 -40px">
-        <li class='slider1Image'><input id='article_id' type='hidden' value='1'/><a href='/pages/article?id=1'><img src="/universoideas/app/webroot/img/uploads/image2.jpg" width="620" height="370" alt="" /><span class='gright'><strong>Porta cras</strong><br/><div class='dia'>Lun Abril 13, 2015</div><p>Porta cras, aliquet facilisis aliquam est risus pellentesque? Proin etiam risus mauris. Magnis cursus...</p>
-</span></a></li><li class='slider1Image'><input id='article_id' type='hidden' value='71'/><a href='/pages/article?id=71'><img src="/universoideas/app/webroot/img/uploads/image3.jpg" width="620" height="370" alt="" /><span class='gright'><strong>Pharetra Tellus Vehicula Vulputate Sem</strong><br/><div class='dia'>Dom Noviembre 9, 2014</div><p>Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-</span></a></li><li class='slider1Image'><input id='article_id' type='hidden' value='75'/><a href='/pages/article?id=75'><img src="/universoideas/app/webroot/img/uploads/image1.jpg" width="620" height="370" alt="" /><span class='gright'><strong>Morbi leo risus, porta ac consectetur ac, vestibul</strong><br/><div class='dia'>Dom Noviembre 9, 2014</div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper.</p>
-</span></a></li><li class='slider1Image'><input id='article_id' type='hidden' value='73'/><a href='/pages/article?id=73'><img src="/universoideas/app/webroot/img/uploads/image10.jpg" width="620" height="370" alt="" /><span class='gright'><strong>Cras mattis consectetur purus sit amet fermentum.</strong><br/><div class='dia'>Dom Noviembre 9, 2014</div><p>Cras mattis consectetur purus sit amet fermentum cras mattis consectetur purus sit amet fermentum.</p>
-</span></a></li><li class='slider1Image'><input id='article_id' type='hidden' value='67'/><a href='/pages/article?id=67'><img src="/universoideas/app/webroot/img/uploads/gal1.jpg" width="620" height="370" alt="" /><span class='gright'><strong>Articulo de prueba</strong><br/><div class='dia'>Jue Noviembre 6, 2014</div><p>Diam ultricies diam natoque? Diam pulvinar diam porta, integer facilisis, diam etiam, odio</p>
-</span></a></li>        <div class="clear slider1Image"></div>
+        <php 
+            foreach ($articles_gallery as $article) { 
+                $img = "";
+                $vid = "";
+
+                $img = $article['img']['image_id'];
+                $date = $this->Time->format('D-F-j-Y-h:i A', $article['art']['modified']);
+                list($dia_sem, $mes, $dia, $ano) = explode('-', $date);
+
+                echo "<li class='slider1Image'>";
+                echo "<input id='article_id' type='hidden' value='" . $article['art']['id'] . "'/>";
+                echo "<a href='/pages/article?id=" . $article['art']['id'] . "'>";
+                echo $this->Html->image($article['img']['uri'], array('width' => '620', 'height' => '370'));
+                
+                echo "<span class='gright'>";
+                echo "<strong>" . $article['art']['title'] . "</strong><br/>";
+                echo "<div class='dia'>" . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) . "</div>";
+                echo $article['art']['summary'];
+                echo "</span>";
+                
+                echo "</a>";
+                echo "</li>";
+            }
+        ?>
+        <div class="clear slider1Image"></div>
     </ul>
-</div>
+</div-->

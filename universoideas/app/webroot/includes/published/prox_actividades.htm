@@ -1,6 +1,26 @@
- <div class="title_box">CALENDARIO</div>
- <div class="line-separator" style="clear: both"></div>
- 
- <div class="caja pb10">
+<link href='calendar/fullcalendar.min.css' rel='stylesheet' />
+<link href='calendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+<script src='calendar/moment.min.js'></script>
+<script src='calendar/fullcalendar.min.js'></script>
 
-<div class='caja-interna'><div class='txt' style='float: left'><a href='/pages/event?id=14'><img src="/universoideas/app/webroot/img/uploads/Marbella_eventlogo_thumb.jpg" align="left" border="0" style="max-width: 190px;margin-bottom: 15px;" alt="" /></a><p style='margin: 0px 0px 2px 0px!important;font-size: 11px;'>Lun Mayo 27, 2013</p><a href='/pages/event?id=14'><strong style='font-size: 16px'>Adipisicing elit</strong></a><div class='mod-cal mt10'>Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. ...</div><div style='overflow: hidden;'><a href='/pages/event?id=14' class='sleyendo_box'>Más información &raquo;</a></div></div></div><div class='line-separator' style='clear: both'></div><div class='caja-interna'><div class='txt' style='float: left'><a href='/pages/event?id=20'><img src="/universoideas/app/webroot/img/uploads/chavez%20next_thumb.jpg" align="left" border="0" style="max-width: 190px;margin-bottom: 15px;" alt="" /></a><p style='margin: 0px 0px 2px 0px!important;font-size: 11px;'>Dom Octubre 13, 2013</p><a href='/pages/event?id=20'><strong style='font-size: 16px'>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, </strong></a><div class='mod-cal mt10'>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a phare...</div><div style='overflow: hidden;'><a href='/pages/event?id=20' class='sleyendo_box'>Más información &raquo;</a></div></div></div><div class='line-separator' style='clear: both'></div><div class='caja-interna'><div class='txt' style='float: left'><a href='/pages/event?id=13'><img src="/universoideas/app/webroot/img/uploads/Tomate%20Fritos_eventlogo_thumb.jpg" align="left" border="0" style="max-width: 190px;margin-bottom: 15px;" alt="" /></a><p style='margin: 0px 0px 2px 0px!important;font-size: 11px;'>Dom Julio 21, 2013</p><a href='/pages/event?id=13'><strong style='font-size: 16px'>Adipisicing elit consectetur</strong></a><div class='mod-cal mt10'>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam ven...</div><div style='overflow: hidden;'><a href='/pages/event?id=13' class='sleyendo_box'>Más información &raquo;</a></div></div></div><div class='line-separator' style='clear: both'></div><div class='caja-interna'><div class='txt' style='float: left'><a href='/pages/event?id=19'><img src="/universoideas/app/webroot/img/uploads/graduation_thumb.jpg" align="left" border="0" style="max-width: 190px;margin-bottom: 15px;" alt="" /></a><p style='margin: 0px 0px 2px 0px!important;font-size: 11px;'>Lun Julio 22, 2013</p><a href='/pages/event?id=19'><strong style='font-size: 16px'>Adipisicing elit</strong></a><div class='mod-cal mt10'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas s...</div><div style='overflow: hidden;'><a href='/pages/event?id=19' class='sleyendo_box'>Más información &raquo;</a></div></div></div> </div>
+<script>
+    $(document).ready(function() {
+        var events = [{"id":"20","title":"Duis mollis, est non commodo luctus, nisi erat porttitor ligula, ","start":"2015-10-13","url":"\/pages\/event?id=20","end":"2015-10-14"},{"id":"19","title":"Adipisicing elit","start":"2015-07-19","url":"\/pages\/event?id=19","end":"2015-07-19"},{"id":"13","title":"Adipisicing elit consectetur","start":"2015-07-21","url":"\/pages\/event?id=13","end":"2015-07-21"},{"id":"14","title":"Adipisicing elit","start":"2015-04-27","url":"\/pages\/event?id=14","end":"2015-04-28"},{"id":"8","title":"Consectetur adipisicing elit","start":"2015-05-03","url":"\/pages\/event?id=8","end":"2015-05-03"},{"id":"15","title":"Dolor sit amet, consectetur adipisicing elit","start":"2013-07-22","url":"\/pages\/event?id=15","end":"2013-07-22"}];
+        
+        $('#calendar').fullCalendar({
+            editable: false,
+            events: events,
+            eventColor: '#F7941E',
+            firstDay: 1,
+            buttonText: { today: 'hoy' },
+            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
+        });
+    });
+</script>
+
+<div class="row">
+    <h2 class="page-header">Calendario de Eventos</h2>
+    <div class="col-md-8 col-md-offset-2">
+        <div id='calendar' class="mt20"></div>
+    </div>
+</div>

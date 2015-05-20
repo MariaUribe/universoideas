@@ -391,8 +391,9 @@ class PagesController extends AppController {
         $this->layout = 'page';
         
         $user = $this->Auth->user();
+        $articles_count = $this->getArticlesCount(15, $channel);
         
-        $this->set(compact('user'));
+        $this->set(compact('user', 'articles_count'));
     }
     
     public function ciencia() {
@@ -402,7 +403,9 @@ class PagesController extends AppController {
         
         $user = $this->Auth->user();
         
-        $this->set(compact('user'));
+        $articles_count = $this->getArticlesCount(15, $channel);
+        
+        $this->set(compact('user', 'articles_count'));
     }
     
     public function moda() {
@@ -412,7 +415,9 @@ class PagesController extends AppController {
         
         $user = $this->Auth->user();
         
-        $this->set(compact('user'));
+        $articles_count = $this->getArticlesCount(15, $channel);
+        
+        $this->set(compact('user', 'articles_count'));
     }
     
     public function rumba() {
@@ -422,7 +427,9 @@ class PagesController extends AppController {
         
         $user = $this->Auth->user();
         
-        $this->set(compact('user'));
+        $articles_count = $this->getArticlesCount(15, $channel);
+        
+        $this->set(compact('user', 'articles_count'));
     }
     
     public function sexualidad() {
@@ -432,7 +439,9 @@ class PagesController extends AppController {
         
         $user = $this->Auth->user();
         
-        $this->set(compact('user'));
+        $articles_count = $this->getArticlesCount(15, $channel);
+        
+        $this->set(compact('user', 'articles_count'));
     }
     
     public function contacto() {
@@ -568,9 +577,31 @@ class PagesController extends AppController {
         $this->loadModel('Event');
         $this->layout = 'page';
         
-        $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 4));
+        $events = $this->Event->find('all', array('conditions' => array('Event.enabled' => 1), 'order' => array('modified' => 'desc'), 'limit' => 6));
         
-        $this->set(compact('events'));
+        $cal_events = array();
+        
+        foreach ($events as $event) {
+            $e = array();
+            $e['id'] = $event['Event']['id'];
+            $e['title'] = $event['Event']['name'];
+            $e['start'] = $event['Event']['event_date'];
+            $e['url'] = '/pages/event?id=' . $event['Event']['id'];
+                    
+            if($event['Event']['event_end_date'] != null) {
+                $e['end'] = $event['Event']['event_end_date'];
+            } else {
+                $e['end'] = $event['Event']['event_date'];
+            }
+
+            // Merge the event array into the return array
+            array_push($cal_events, $e);
+        }
+
+        // Output json for our calendar
+        $json_events = json_encode($cal_events);
+        
+        $this->set(compact('events', 'json_events'));
     }
     
     public function talleres_cursos() {
@@ -699,6 +730,29 @@ class PagesController extends AppController {
         $articles = $this->Article->query($sql);
         
         return $articles;
+    }
+    
+    public function getArticlesCount($limit, $channel) {
+        $this->loadModel('Article');
+        $join = "";
+        
+        if($channel != "" && $channel != null) {
+            $join = "AND art.channel = '" . $channel . "'";
+        }
+        
+        $sql = "SELECT art.id
+                FROM articles art 
+                LEFT JOIN related_images img on art.id = img.article_id 
+                LEFT JOIN related_videos vid on art.id = vid.article_id 
+                WHERE art.enabled = 1 
+                AND art.highlight = 0 " 
+                . $join .
+               "LIMIT " . $limit . ""; 
+        
+        $articles = $this->Article->query($sql);
+        $articles_count = sizeof($articles);
+        
+        return $articles_count;
     }
     
     public function getArticlesGallery($limit, $channel) {

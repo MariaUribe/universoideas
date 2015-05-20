@@ -89,7 +89,124 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
     });
 </script>
 
-<div class="logo"><a href="/"><img src="/img/logo.png" alt="Universo Ideas" /></a></div>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <script type="text/javascript" language="JavaScript">
+                    document.write (Muestrafecha());
+                </script>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- HEADER END-->
+
+<div class="navbar navbar-inverse set-radius-zero">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="/img/logo.png" />
+            </a>
+        </div>
+
+        <div class="left-div">
+            <div class="user-settings-wrapper">
+                <ul class="nav">
+                    <?php 
+                        if(!empty($user)) {
+                            echo "<span class='login-msg'>Bienvenido, " . $user['username'] . "</span>";
+                        } else {
+                            echo "<a class='login-msg' href='/users/login'>Inicia Sesión</a>";
+                        }
+                    ?>
+                    
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                            <span class="glyphicon glyphicon-user" style="font-size: 25px;"></span>
+                        </a>
+                        <?php 
+                            if(!empty($user)) {
+                                echo "<div class='dropdown-menu dropdown-settings dropdown-profile'>";
+                                echo "<div class='media'>";
+                                echo "<div class='media-body'>";
+                                    echo "<h4 class='media-heading'>" . $user['name']. " " . $user['lastname']. "</h4>";
+                                echo "</div>";
+                                echo "</div>";
+                                echo "<hr />";
+                                echo "<h5><strong>Nombre de Usuario : </strong></h5>";
+                                echo $user['username'];
+                                echo "<hr />";
+                                echo "<a href='/users/edit/" . $user['id'] . "' class='btn btn-info btn-sm'>Mi Perfil</a>&nbsp; <a href='/users/logout' class='btn btn-danger btn-sm'>Cerrar Sesión</a>";
+                                echo "</div>";
+                            }
+                        ?>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- LOGO HEADER END-->
+
+<section class="menu-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="navbar-collapse collapse ">
+                    <ul id="menu-top" class="nav navbar-nav navbar-right">
+                        <li><a id="index_menu" class="menu-top-active" href="/">Inicio</a></li>
+                        <li><a id="calendario_menu" href="/pages/cronograma">Calendario</a></li>
+                        <li class="dropdown">
+                            <a id="vida_menu" class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true" id="themes">
+                                Vida Universitaria <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-settings" aria-labelledby="themes">
+                                <li><a class="submenu-option" href="/pages/arte">Arte</a></li>
+                                <li><a class="submenu-option" href="/pages/ciencia">Ciencia</a></li>
+                                <li><a class="submenu-option" href="/pages/moda">Moda</a></li>
+                                <li><a class="submenu-option" href="/pages/rumba">Rumba</a></li>
+                                <li><a class="submenu-option" href="/pages/sexualidad">Sexualidad</a></li>
+                            </ul>
+                        </li>
+                        <li><a id="encuentrame_menu" href="/pages/encuentrame">Soy emprendedor</a></li>
+                        <li><a id="pasantias_menu" href="/pages/home_pasantias">Pasantías</a></li>
+                        <?php 
+                            if(!empty($user)) {
+                                if($user['role_id'] == '1' || $user['role_id'] == '3') { 
+                                    echo "<li><a id='emprendedores_menu' href='/pages/emprendedores'>Encuéntrame</a></li>";
+                                }
+                            }
+                        ?>
+                        <li><a id="forums_menu" href="/pages/forums">Foros </a></li>
+                        <li><a id="conocenos_menu" href="/pages/contacto">Conócenos</a></li>
+
+                        <?php 
+                            if(!empty($user)) {
+                                if($user['role_id'] == '1') { 
+                                    echo "<li><a href='/articles'>Administración</a></li>";
+                                }
+                            }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- MENU SECTION END-->
+
+
+
+
+<!-- ANTES DESDE AQUI -->
+
+<!--div class="logo"><a href="/"><img src="/img/logo.png" alt="Universo Ideas" /></a></div>
 
 
 <div class="right">
@@ -99,7 +216,7 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
         </script>
     </div>
     <div class="bold fecha clear pr5 mt15">
-        <?php 
+        < php 
             if(!empty($user)) {
                 echo "<span>Bienvenido, " . $user['username']. "</span><br><br>";
                 echo "<span><a href='/users/edit/" . $user['id'] . "' class='fff'>Mi Perfil</a> | <a href='/users/logout' class='fff'>Cerrar Sesión</a></span>";
@@ -135,7 +252,7 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
         <li>|</li>
         <li><a class="selec5" href="/pages/home_pasantias">Pasantías</a></li>
         
-        <?php 
+        <php 
             if(!empty($user)) {
                 if($user['role_id'] == '1' || $user['role_id'] == '3') { 
                     echo "<li>|</li>";
@@ -149,7 +266,7 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
         <li>|</li>
         <li><a class="selec8" href="/pages/contacto">Conócenos</a></li>
         
-        <?php 
+        <php 
             if(!empty($user)) {
                 if($user['role_id'] == '1') { 
                     echo "<li>|</li>";
@@ -158,4 +275,4 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
             }
         ?>
     </ul>
-</div>
+</div-->

@@ -1,3 +1,4 @@
+<input id="page_code" type="hidden" value="pasantias"/>
 <div class="rio" style="background-color: #f5f5f5; border: 0px;">
     <div class="notas"><h2>Empresas buscando pasantes</h2></div>
     <table width="100%" cellspacing="0" cellpadding="5" class="fs11 mt15" style="border:#333 solid 1px">
