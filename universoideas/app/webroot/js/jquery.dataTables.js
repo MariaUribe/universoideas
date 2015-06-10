@@ -11438,9 +11438,9 @@
 		"sPageJUIPrev": "",
 		
 		/* Full numbers paging buttons */
-		"sPageButton": "paginate_button m0 br0",
-		"sPageButtonActive": "paginate_active m0 br0",
-		"sPageButtonStaticDisabled": "paginate_button paginate_button_disabled m0 br0",
+		"sPageButton": "paginate_button",
+		"sPageButtonActive": "paginate_active",
+		"sPageButtonStaticDisabled": "paginate_button paginate_button_disabled",
 		"sPageFirst": "first",
 		"sPagePrevious": "previous",
 		"sPageNext": "next",

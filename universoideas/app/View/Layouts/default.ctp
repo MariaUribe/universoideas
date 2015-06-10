@@ -58,5 +58,6 @@ $title_for_layout = 'Universoideas Admin';
         </div>
     </div>
     <?php echo $this->element('sql_dump'); ?>
+    <?php echo $this->Html->script('bootstrap'); ?>
 </body>
 </html>

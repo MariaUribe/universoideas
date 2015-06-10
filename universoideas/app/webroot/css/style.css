@@ -599,6 +599,7 @@ a.a-gray {
     padding: 10px 0px 10px 0px;
     margin-bottom: 20px;
     text-align: center;
+    max-width: 350px;
 }
 
 .img-publicity {
@@ -674,4 +675,12 @@ input#UserIsEnterprise {
 
 .purple-color {
     color: #6F5BA0!important;
+}
+
+.bold-span {
+    font-weight: bold;
+}
+
+.table-responsive {
+    overflow-x: hidden!important;
 }

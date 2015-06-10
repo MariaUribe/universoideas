@@ -343,7 +343,6 @@
                 <div class="form-group">
                     <div class="col-md-offset-4 col-md-9">
                         <button id="btn-signup" type="submit" class="btn btn-info" disabled="disabled"><i class="icon-hand-right"></i> &nbsp Registrarme</button>
-                        
                     </div>
                 </div>
                 

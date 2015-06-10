@@ -1,9 +1,17 @@
 <link rel="stylesheet" type="text/css" href="/css/jquery.dataTablesAdmin.css">
 <script type="text/javascript" src="/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf-8">
+    function fnShowHide( iCol ) {
+        var oTable = $('#table-forums').dataTable();
+        var bVis = oTable.fnSettings().aoColumns[iCol].bVisible;
+        oTable.fnSetColumnVis( iCol, bVis ? false : true );
+    }
+    
     $(document).ready(function() {
         $('#table-forums').dataTable({
-            "sPaginationType": "full_numbers"
+            "sPaginationType": "full_numbers",
+            "aoColumnDefs": [{ "bVisible": false, "aTargets": [7] }],
+            "aaSorting": [[7,'desc']]
         });
     });
 </script>
@@ -16,10 +24,10 @@
                 <th class="w50"><?php echo 'ID'; ?></th>
                 <th class="w150"><?php echo 'Canal'; ?></th>
                 <th class="w400"><?php echo 'Título'; ?></th>
-                <!--<th class="w380">php echo 'Sumario'; ?></th>-->
                 <th><?php echo 'Habilitado'; ?></th>
                 <th><?php echo 'Destacada'; ?></th>
                 <th class="w130"><?php echo 'Creado'; ?></th>
+                <th class="w130"><?php echo 'Modificado'; ?></th>
                 <th class="w130"><?php echo 'Modificado'; ?></th>
                 <th class="actions tac"><?php echo __('Acciones'); ?></th>
             </tr>
@@ -57,11 +65,11 @@
             <td class="vam"><?php echo h($article['Article']['id']); ?>&nbsp;</td>
             <td class="vam"><?php echo $new_channel; ?>&nbsp;</td>
             <td class="vam"><?php echo h($article['Article']['title']); ?>&nbsp;</td>
-            <!--<td class="vam">php echo h($article['Article']['summary']); ?>bsp;</td>-->
             <td class="tac vam"><?php echo h(($article['Article']['enabled']==1?"SI":"NO")); ?>&nbsp;</td>
             <td class="tac vam"><?php echo h(($article['Article']['highlight']==1?"SI":"NO")); ?>&nbsp;</td>
             <td class="vam"><?php echo __($dia_sem_crea) . " " . __($mes_crea) . " " . __($dia_crea) . ", " . __($ano_crea) .  " " . $hora_crea ?>&nbsp;</td>
             <td class="vam"><?php echo __($dia_sem_mod) . " " . __($mes_mod) . " " . __($dia_mod) . ", " . __($ano_mod) .  " " . $hora_mod ?>&nbsp;</td>
+            <td class="vam"><?php echo __($ano_mod) . "-" . __($mes_mod) . "-" . __($dia_mod) . " " . $hora_mod ?>&nbsp;</td>
             <td class="actions tac vam">
                 <?php echo '<a href="/pages/article?id=' . $article['Article']['id'] . '">Ver</a>'; ?>
                 <?php echo '<a href="/articles/edit/' . $article['Article']['id'] . '">Editar</a>'; ?>

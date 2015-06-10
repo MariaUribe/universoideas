@@ -1650,14 +1650,14 @@ body.colorbox-demo #cboxContent, body.colorbox-demo #cboxContent p, body.colorbo
 .all-themes #examples{ padding: 15px 0 0 15px; }
 
 .all-themes .content{
-	width: 310px;
+	width: 350px;
 	height: 380px;
 	margin: 20px 0 20px 0;
 	float: left;
 }
 
 .all-themes .content h2, .all-themes .content p, .all-themes .content hr{ 
-	width: 230px;
+	width: 270px;
 	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; 
 }
 

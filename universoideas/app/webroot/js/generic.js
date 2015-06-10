@@ -234,6 +234,7 @@ function changePassword() {
 
 function cancelChangePassword() {
     $('.new_pass').css('display', 'none');
+    $('#btn-signup').removeAttr('disabled');
 }
 
 function changeAnswer() {

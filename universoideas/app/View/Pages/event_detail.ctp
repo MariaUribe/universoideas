@@ -1,29 +1,39 @@
-<div class="box notas">
-    <h3><?php echo $event['Event']['name']; ?></h3>
-    <?php 
+    <!-- Title -->
+    <h1><?php echo $event['Event']['name']; ?></h1>
+
+    <hr>
+
+    <?php
+        $date_modified = $this->Time->format('D-F-j-Y-h:i A', $event['Event']['modified']);
+        list($dia_sem_mod, $mes_mod, $dia_mod, $ano_mod, $hora_mod) = explode('-', $date_modified);
+        
         $date = $this->Time->format('D-F-j-Y-h:i A', $event['Event']['event_date']);
-        list($dia_sem, $mes, $dia, $ano) = explode('-', $date);
+        list($dia_sem, $mes, $dia, $ano, $hora) = explode('-', $date);
 
-        $img = "";
-        $vid = "";
-
-        $img = $event['Event']['image_thumb'];
+        $img = $event['Event']['image'];
     ?>
+    
+    <!-- Date/Time -->
+    <p><span class="glyphicon glyphicon-time"></span> Publicado el <?php echo __($dia_sem_mod) . ", " . __($dia_mod) . " de " . __($mes_mod) . " de " . __($ano_mod) .  " " . $hora_mod ?></p>
 
-    <?php 
-        echo "<div style='width: 100%'>";
+    <hr>
+   
+    <?php
         if($img != "") {
-            echo $this->Html->image($event['Event']['image'], array('alt' => $event['Event']['name'], 'align' => 'left', 'border' => '0', 'width' => 200));
-        } 
-        echo "</div>";
-
-        echo "<div style='float: left;' class='mt15'>";
-        echo "<div><strong>Fecha del evento: </strong>" . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) . "</div>";
-        echo "<div><strong>Lugar: </strong>" . $event['Event']['place'] . "</div>";
-        echo "<div><strong>Hora de inicio: </strong>" . $event['Event']['init_time'] . "</div>";
-        echo "<div><strong>Hora de fin: </strong>" . $event['Event']['end_time'] . "</div>";
-        echo "<br>";
-        echo $event['Event']['description'];
-        echo "</div>";
+            echo $this->Html->image($event['Event']['image'], array('alt' => $event['Event']['name'], 'class' => 'img-responsive', 'border' => '0'));
+            echo "<hr>";
+        }
     ?>
-</div>
+
+    <!-- Post Content -->
+    <?php $no_tags_sum = strip_tags($event['Event']['description']); ?>
+    <?php echo $no_tags_sum ?>
+    <br><br>
+    <?php 
+        echo "<div><span class='bold-span'>Fecha del evento:</span> " . __($dia_sem) . " " . __($mes) . " " . __($dia) . ", " . __($ano) . "</div>";
+        echo "<div><span class='bold-span'>Lugar:</span> " . $event['Event']['place'] . "</div>";
+        echo "<div><span class='bold-span'>Hora de inicio:</span> " . $event['Event']['init_time'] . "</div>";
+        echo "<div><span class='bold-span'>Hora de fin:</span> " . $event['Event']['end_time'] . "</div>";
+    ?>
+
+    <hr>

@@ -294,7 +294,7 @@ class PagesController extends AppController {
         $this->loadModel('Emprendedore');
         
         $this->layout = 'page';
-        $emprendedores = $this->Emprendedore->find('all', array('conditions' => array('Emprendedore.status' => 'AP'), 'limit' => 80));
+        $emprendedores = $this->Emprendedore->find('all', array('conditions' => array('Emprendedore.status' => 'AP'), 'order' => array('Emprendedore.modified' => 'desc'), 'limit' => 80));
 
         $this->set(compact('emprendedores'));
     }
@@ -305,7 +305,9 @@ class PagesController extends AppController {
         
         $has_emp = false;
         $user = $this->Auth->user();
-        $emprendedores = $this->Emprendedore->find('all', array('conditions' => array('Emprendedore.user_id' => $user['id']), 'limit' => 80));
+        $emprendedores = $this->Emprendedore->find('all', array('conditions' => array('Emprendedore.user_id' => $user['id']), 
+                                                                'order' => array('Emprendedore.modified' => 'desc'), 
+                                                                'limit' => 80));
         
         if(sizeof($emprendedores) > 0)
             $has_emp = true;
@@ -322,7 +324,9 @@ class PagesController extends AppController {
 //        $user_id = $this->Auth->user('id');
         $user = $this->Auth->user();
         
-        $emprendedores = $this->Emprendedore->find('all', array('conditions' => array('Emprendedore.user_id' => $user_id), 'limit' => 80));
+        $emprendedores = $this->Emprendedore->find('all', array('conditions' => array('Emprendedore.user_id' => $user_id), 
+                                                                'order' => array('Emprendedore.modified' => 'desc'), 
+                                                                'limit' => 80));
 
         $this->set(compact('emprendedores', 'user'));
     }
@@ -381,8 +385,9 @@ class PagesController extends AppController {
         $this->layout = 'page';
         
         $user = $this->Auth->user();
+        $articles_count = $this->getArticlesCount(15, $channel);
         
-        $this->set(compact('user'));
+        $this->set(compact('user', 'articles_count'));
     }
     
     public function arte() {

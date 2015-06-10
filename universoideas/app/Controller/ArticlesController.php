@@ -192,10 +192,10 @@ class ArticlesController extends AppController {
                             $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
                             $this->publishArticle($id);
                             $this->publishAll();
-                            $this->redirect(array('action' => 'index'));
+                            $this->redirect(array('action' => 'edit', $id));
                         } else {
                             $this->Session->setFlash('La imagen no pudo ser guardada.', 'flash_error');
-                            $this->redirect(array('action' => 'index'));
+                            $this->redirect(array('action' => 'edit', $id));
                         }
                     }
                     
@@ -206,10 +206,10 @@ class ArticlesController extends AppController {
                         $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
                         $this->publishArticle($id);
                         $this->publishAll();
-                        $this->redirect(array('action' => 'index'));
+                        $this->redirect(array('action' => 'edit', $id));
                     } else {
                         $this->Session->setFlash('La imagen no pudo ser guardada.', 'flash_error');
-                        $this->redirect(array('action' => 'index'));
+                        $this->redirect(array('action' => 'edit', $id));
                     }
                     
                 } else if($selectedMedia == 'video') {
@@ -224,10 +224,10 @@ class ArticlesController extends AppController {
                             $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
                             $this->publishArticle($id);
                             $this->publishAll();
-                            $this->redirect(array('action' => 'index'));
+                            $this->redirect(array('action' => 'edit', $id));
                         } else {
                             $this->Session->setFlash('El video no pudo ser guardado.', 'flash_error');
-                            $this->redirect(array('action' => 'index'));
+                            $this->redirect(array('action' => 'edit', $id));
                         }
                     }
                     
@@ -238,10 +238,10 @@ class ArticlesController extends AppController {
                         $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
                         $this->publishArticle($id);
                         $this->publishAll();
-                        $this->redirect(array('action' => 'index'));
+                        $this->redirect(array('action' => 'edit', $id));
                     } else {
                         $this->Session->setFlash('El video no pudo ser guardado.', 'flash_error');
-                        $this->redirect(array('action' => 'index'));
+                        $this->redirect(array('action' => 'edit', $id));
                     }
                 } else {
                     if($image_id != null && $image_id > 0)
@@ -253,7 +253,7 @@ class ArticlesController extends AppController {
                     $this->Session->setFlash('El artículo fue guardado exitosamente.', 'flash_success');
                     $this->publishArticle($id);
                     $this->publishAll();
-                    $this->redirect(array('action' => 'index'));
+                    $this->redirect(array('action' => 'edit', $id));
                 }
             } else {
                 $this->Session->setFlash('El artículo no pudo ser guardado. Intente de nuevo.', 'flash_error');

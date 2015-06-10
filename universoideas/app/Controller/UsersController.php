@@ -265,7 +265,7 @@ class UsersController extends AppController {
                 //$this->redirect(array('controller' => 'pages','action' => 'home'));
                 
             } else {
-                $this->Session->setFlash('No existe ningún usuario asociado a la dirección de correo: ' . $mail);
+                $this->Session->setFlash('No existe ningún usuario asociado a la dirección de correo: ' . $mail, 'flash_error');
                 $this->redirect(array('action' => 'login'));
             }
         }

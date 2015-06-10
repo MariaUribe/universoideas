@@ -47,6 +47,7 @@ $title_for_layout = 'Universoideas';
         echo $this->Html->script('jquery-1.11.1');
         echo $this->Html->script('jssor.slider.mini');
         echo $this->Html->script('generic');
+        echo $this->Html->script('../ckeditor_basic/ckeditor');
     
         echo $this->fetch('meta');
         echo $this->fetch('css');
@@ -61,7 +62,7 @@ $title_for_layout = 'Universoideas';
             <?php include $dir . "/Pages/head.ctp"; ?>
         </div>
         <?php echo $this->Session->flash(); ?>
-        <!--div id="content_dos_col"-->
+
         <div id="js_msg"></div>
         <div class="content-wrapper">
             <div id="js_container" class="container">
