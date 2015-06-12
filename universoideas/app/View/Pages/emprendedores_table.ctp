@@ -41,6 +41,3 @@
 </div>
 
 <div class="box mt15" style="clear: both">&nbsp;</div>
-
-<div class="doble">
-</div>

@@ -1,19 +1,37 @@
 <input id="page_code" type="hidden" value="foros"/>
-<div id="content_col_izq">
-    <div class="notas"><h2>Publicar comentario</h2></div>
-    <?php echo $this->Form->create('Comment'); ?>
-        <table width="570" cellspacing="0" cellpadding="5" class="fs12 mt15 p10" style="border:#333 solid 1px">
-            <?php
-                echo "<tr><td colspan='2'></td></tr>";
-                echo "<tr><td>Comentario:</td><td>" . $this->Form->input('Comment.description', array('label' => FALSE, 'type' => 'textarea', 'cols' => 58, 'rows' => 12, 'maxlength' => 1500)) . "</td></tr>";
-                echo "<tr><td>&nbsp;</td><td><input id='submit-button' type='submit' value='Guardar'/></td></tr>";
-                echo "<tr><td colspan='2'>&nbsp;</td></tr>";
-            ?>
-        </table>
-    <?php echo $this->Form->end(); ?>
-</div>
 
-<div id="content_col_der">
-    <?php include ("includes/siguenos.htm") ?>
-    <div id="publicidadventana5" class="p5 tac"><div class="publicidad tal">ESPACIO PUBLICITARIO</div><a href="#"><img src="/img/publicidad/300x250.gif" width="300" height="250" alt="Publicidad" /></a></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-sm-10">
+            <h1><span class="glyphicon glyphicon-comment"></span> Publicar comentario</h1>
+            <hr>
+            
+            <?php echo $this->Form->create('Comment', array('class' => 'form-horizontal')); ?>
+            
+            <div class="form-group required">
+                <div class="col-md-12">
+                    <?php 
+                    echo $this->Form->input('Comment.description', array('label' => false, 'type' => 'textarea', 'class' => 'form-control', 'type' => 'textarea', 'rows' => '18','required' => 'required', 'class' => 'ckeditor', 'maxlength' => 1500));
+                    ?>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-md-12"></div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <button id="btn-signup" type="submit" class="btn btn-primary"><i class="icon-hand-right"></i>Publicar</button>
+                    <button type="button" class="btn btn-danger"><i class="icon-hand-right"></i>Cancelar</button>
+                </div>
+            </div>
+            
+            <?php echo $this->Form->end(); ?>
+        </div>
+        <div class="col-md-4 col-sm-2">
+            <?php include ("includes/siguenos.htm") ?>
+            <div id="publicidadventana5" class="p5 tac"><div class="publicidad tal">ESPACIO PUBLICITARIO</div><a href="#"><img src="/img/publicidad/300x250.gif" width="300" height="250" alt="Publicidad" /></a></div>
+        </div>
+    </div>
 </div>

@@ -183,7 +183,7 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
                                 }
                             }
                         ?>
-                        <li><a id="forums_menu" href="/pages/forums">Foros </a></li>
+                        <li><a id="forums_menu" href="/pages/forums">Foro</a></li>
                         <li><a id="conocenos_menu" href="/pages/contacto">Conócenos</a></li>
 
                         <?php 

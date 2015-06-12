@@ -684,3 +684,12 @@ input#UserIsEnterprise {
 .table-responsive {
     overflow-x: hidden!important;
 }
+
+table.dataTable.no-footer {
+    border-bottom: 1px solid #111;
+}
+
+table.dataTable thead th, table.dataTable tfoot th {
+    font-weight: bold;
+    font-size: 15px;
+}
