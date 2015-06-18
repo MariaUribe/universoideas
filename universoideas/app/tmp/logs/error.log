@@ -64517,3 +64517,573 @@ Stack Trace:
 #1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
 #2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2015-06-12 11:20:42 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.min.css?url=pages%2Fcalendar%2Ffullcalendar.min.css
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-12 11:20:43 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.min.js?url=pages%2Fcalendar%2Ffullcalendar.min.js
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-12 11:20:43 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/moment.min.js?url=pages%2Fcalendar%2Fmoment.min.js
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-12 11:20:43 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.print.css?url=pages%2Fcalendar%2Ffullcalendar.print.css
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-12 11:20:45 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] No such file or directory',
+  'enabled' => true,
+)
+Request URL: /universoideas/users/login?url=users%2Flogin
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Datasource/DboSource.php(262): Mysql->connect()
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Model.php(3221): ConnectionManager::getDataSource('default')
+#3 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Model.php(1108): Model->setDataSource('default')
+#4 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Model.php(3243): Model->setSource('questions')
+#5 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Model.php(2696): Model->getDataSource()
+#6 /Users/maya/NetBeansProjects/universoideas/universoideas/app/Controller/UsersController.php(51): Model->find('list')
+#7 [internal function]: UsersController->login()
+#8 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#9 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-06-14 09:38:13 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] No such file or directory',
+  'enabled' => true,
+)
+Request URL: /universoideas/users/login?url=users%2Flogin
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Datasource/DboSource.php(262): Mysql->connect()
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Model.php(3221): ConnectionManager::getDataSource('default')
+#3 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Model.php(1108): Model->setDataSource('default')
+#4 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Model.php(3243): Model->setSource('questions')
+#5 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Model.php(2696): Model->getDataSource()
+#6 /Users/maya/NetBeansProjects/universoideas/universoideas/app/Controller/UsersController.php(51): Model->find('list')
+#7 [internal function]: UsersController->login()
+#8 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#9 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-06-14 09:38:14 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/moment.min.js?url=pages%2Fcalendar%2Fmoment.min.js
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-14 09:38:14 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.min.css?url=pages%2Fcalendar%2Ffullcalendar.min.css
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-14 09:38:14 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.min.js?url=pages%2Fcalendar%2Ffullcalendar.min.js
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-14 09:38:15 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.print.css?url=pages%2Fcalendar%2Ffullcalendar.print.css
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-14 19:41:40 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] No such file or directory',
+  'enabled' => true,
+)
+Request URL: /universoideas/users/login?url=users%2Flogin
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Datasource/DboSource.php(262): Mysql->connect()
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Model.php(3221): ConnectionManager::getDataSource('default')
+#3 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Model.php(1108): Model->setDataSource('default')
+#4 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Model.php(3243): Model->setSource('questions')
+#5 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Model/Model.php(2696): Model->getDataSource()
+#6 /Users/maya/NetBeansProjects/universoideas/universoideas/app/Controller/UsersController.php(51): Model->find('list')
+#7 [internal function]: UsersController->login()
+#8 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#9 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2015-06-16 19:01:10 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.min.css?url=pages%2Fcalendar%2Ffullcalendar.min.css
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:01:11 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/moment.min.js?url=pages%2Fcalendar%2Fmoment.min.js
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:01:11 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.min.js?url=pages%2Fcalendar%2Ffullcalendar.min.js
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:01:12 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.print.css?url=pages%2Fcalendar%2Ffullcalendar.print.css
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:14:55 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.min.css?url=pages%2Fcalendar%2Ffullcalendar.min.css
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:14:55 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.min.js?url=pages%2Fcalendar%2Ffullcalendar.min.js
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:14:56 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.print.css?url=pages%2Fcalendar%2Ffullcalendar.print.css
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:14:56 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/moment.min.js?url=pages%2Fcalendar%2Fmoment.min.js
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:15:50 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.min.css?url=pages%2Fcalendar%2Ffullcalendar.min.css
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:15:50 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.min.js?url=pages%2Fcalendar%2Ffullcalendar.min.js
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:15:50 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/moment.min.js?url=pages%2Fcalendar%2Fmoment.min.js
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:15:50 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.print.css?url=pages%2Fcalendar%2Ffullcalendar.print.css
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:16:21 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.min.css?url=pages%2Fcalendar%2Ffullcalendar.min.css
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:16:21 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.min.js?url=pages%2Fcalendar%2Ffullcalendar.min.js
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:16:21 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/moment.min.js?url=pages%2Fcalendar%2Fmoment.min.js
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 19:16:21 Error: [MissingActionException] Action PagesController::calendar() could not be found.
+Exception Attributes: array (
+  'controller' => 'PagesController',
+  'action' => 'calendar',
+)
+Request URL: /universoideas/pages/calendar/fullcalendar.print.css?url=pages%2Fcalendar%2Ffullcalendar.print.css
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/maya/NetBeansProjects/universoideas/universoideas/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2015-06-16 21:20:33 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:29:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:30:29 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:31:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:33:06 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:34:44 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:44:35 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:49:46 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:51:50 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:53:29 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:53:33 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:53:41 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:54:23 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:55:28 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:55:35 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 21:55:45 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 22:22:50 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 22:23:05 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 22:25:47 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 22:42:32 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 22:53:59 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-16 22:54:04 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/css/bootstrap.css.map?url=css%2Fbootstrap.css.map
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-17 11:13:27 Error: [MissingControllerException] Controller class ScrapeController could not be found.
+Exception Attributes: array (
+  'class' => 'ScrapeController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/scrape?url=scrape&info_hash=i%89%BEV%07%E1Ja%06%A4%16%7F%7D%F5%BD%CF%81%7Dz%3F
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-17 11:19:25 Error: [MissingControllerException] Controller class ScrapeController could not be found.
+Exception Attributes: array (
+  'class' => 'ScrapeController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/scrape?url=scrape&info_hash=%9F%26%1F%C7%40%2A%7D%E6%2A%92%21%8CO%1C%F6Een%B3%C2
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-17 11:26:37 Error: [MissingControllerException] Controller class ScrapeController could not be found.
+Exception Attributes: array (
+  'class' => 'ScrapeController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/scrape?url=scrape&info_hash=W%12%A5%29%27lE%8D%A1%1B%FB%9825m%EB%04%0A%F8-
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-17 11:27:54 Error: [MissingControllerException] Controller class ScrapeController could not be found.
+Exception Attributes: array (
+  'class' => 'ScrapeController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/scrape?url=scrape&info_hash=%F4dT%D5%EB%28%12b%D5%A4%ADA%CD%9A%AC3%3B%EA%EE%A8
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-06-17 11:28:48 Error: [MissingControllerException] Controller class ScrapeController could not be found.
+Exception Attributes: array (
+  'class' => 'ScrapeController',
+  'plugin' => NULL,
+)
+Request URL: /universoideas/scrape?url=scrape&info_hash=HX%00%CF%A1%A8%C7%88S%C3%EC%0EHT%14%AA%00kQ%99
+Stack Trace:
+#0 /Users/maya/NetBeansProjects/universoideas/universoideas/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

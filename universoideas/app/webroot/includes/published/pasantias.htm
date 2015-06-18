@@ -1,12 +1,46 @@
-<div class="rio" style="background-color: #f5f5f5; border: 0px;">
-    <div class="notas"><h2>Empresas buscando pasantes</h2></div>
-    <table width="100%" cellspacing="0" cellpadding="5" class="fs11 mt15" style="border:#333 solid 1px">
-        <tr class="bg00355a colorfff">
-            <td width="150">Empresa</td>
-            <td width="200">Cargo-Funciones</td>
-            <td width="120">Duración</td>
-        </tr>
-        
-        <tr class='bgfff'><input id='article_id' type='hidden' value='1'/><td>Consectetur adipisicing elit<br/><a href=''>rrhh@empresa.com</a></td><td><p>Dolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing adipisicing elitdfssdf</p>
-</td><td>1 mes</td></tr><tr class='bgbebe'><input id='article_id' type='hidden' value='3'/><td>Nullam quis risus eget urna mollis ornare vel eu leo.<br/><a href=''>empresa@mail.com</a></td><td>Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.</td><td>6 meses</td></tr><tr class='bgfff'><input id='article_id' type='hidden' value='2'/><td>Dolor sit amet, consectetur adipisicing elit<br/><a href=''>rrhh2@empresa.com</a></td><td>Consectetur adipisicing elit</td><td>2 meses</td></tr>    </table>
+<input id="page_code" type="hidden" value="pasantias"/>
+
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css">
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css">
+<script type="text/javascript" src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        $('#table-forums').dataTable({
+            "sPaginationType": "full_numbers",
+            "language": {
+                "lengthMenu": "Mostrando _MENU_ registros por página",
+                "zeroRecords": "No se encontraron registros",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "No se encontraron registros",
+                "infoFiltered": "(filtrados de _MAX_ registros en total)",
+                "search": "Buscar:",
+                "paginate": {
+                    "first": "Primera",
+                    "last": "Última",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+        });
+    });
+</script>
+
+<div class="table-responsive">
+    <table id="table-forums" width="100%" class="table table-striped table-hover dt-responsive dataTable">
+        <thead>
+            <tr>
+                <th>Empresa</th>
+                <th>Cargo / Funciones</th>
+                <th>Duración</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><input id='article_id' type='hidden' value='1'/><td>Consectetur adipisicing elit<br/><a href=''>rrhh@empresa.com</a></td><td><p>Dolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing elitdfssdfDolor sit amet, consectetur adipisicing adipisicing elitdfssdf</p>
+</td><td>1 mes</td></tr><tr><input id='article_id' type='hidden' value='4'/><td>Eurobuilding<br/><a href=''>soporte@eurobuilding.com</a></td><td><p>Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+<p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla.</p>
+</td><td>6 meses</td></tr><tr><input id='article_id' type='hidden' value='3'/><td>Nullam quis risus eget urna mollis ornare vel eu leo.<br/><a href=''>empresa@mail.com</a></td><td>Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.Nullam quis risus eget urna mollis ornare vel eu leo.</td><td>6 meses</td></tr><tr><input id='article_id' type='hidden' value='2'/><td>Dolor sit amet, consectetur adipisicing elit<br/><a href=''>rrhh2@empresa.com</a></td><td>Consectetur adipisicing elit</td><td>2 meses</td></tr>        </tbody>
+    </table>
 </div>

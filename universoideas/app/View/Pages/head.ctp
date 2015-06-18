@@ -44,47 +44,39 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
 }
 </script>
 
-<style type="text/css">
-    input.watermark { color: #999; }
-    input#buscarText {
-        width:200px;
-        height: 15px;
-    }
-</style>
-
 <script type="text/javascript">
     $(document).ready(function() {
 
         var watermark = 'Buscar';
 
         //init, set watermark text and class
-        $('#buscarText').val(watermark).addClass('watermark');
+        $('#srch-term').val(watermark).addClass('watermark');
 
         //if blur and no value inside, set watermark text and class again.
-        $('#buscarText').blur(function(){
+        $('#srch-term').blur(function(){
             if ($(this).val().length == 0){
                 $(this).val(watermark).addClass('watermark');
             }
         });
 
         //if focus and text is watermrk, set it to empty and remove the watermark class
-        $('#buscarText').focus(function(){
+        $('#srch-term').focus(function(){
             if ($(this).val() == watermark){
                 $(this).val('').removeClass('watermark');
             }
         });
         
-        $('#buscarText')
+        $('#srch-term')
             .keypress( function(event) {
                 if(event.keyCode==13) {
-                    window.location = "/pages/search_all?q=" + $('#buscarText').val();
+                    window.location = "/pages/search_all?q=" + $('#srch-term').val();
                     return false;
                 }
             });
             
             $('#buscarButton')
                 .click( function() {
-                    window.location = "/pages/search_all?q=" + $('#buscarText').val();
+                    window.location = "/pages/search_all?q=" + $('#srch-term').val();
             });
     });
 </script>
@@ -151,6 +143,18 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
             </div>
         </div>
     </div>
+
+    <div class="col-sm-3 col-md-3 pull-right mb5">
+        <form class="navbar-form" role="search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Buscar" name="srch-term" id="srch-term">
+                <div class="input-group-btn">
+                    <a id="buscarButton" class="btn btn-default" style="cursor: pointer;"><i class="glyphicon glyphicon-search"></i></a>
+                </div>
+            </div>
+        </form>
+    </div>
+
 </div>
 <!-- LOGO HEADER END-->
 

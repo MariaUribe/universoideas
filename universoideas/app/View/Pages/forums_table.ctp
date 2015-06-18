@@ -9,8 +9,6 @@
         </thead>
         <tbody>
             <?php 
-                $cont = 0;
-
                 foreach ($forums as $forum) {
                     $date_comment = "";
                     $date = $this->Time->format('D-F-j-Y-h:i A', $forum['Forum']['modified']);
