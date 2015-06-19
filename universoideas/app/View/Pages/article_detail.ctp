@@ -15,8 +15,28 @@
         $vid = $art['vid']['video_id'];
     ?>
     
+    <div class="nav-container2">
+        <ul class="social-media-list">
+            <li>
+                <div class="fb-share-button" data-href="http://www.universoideas.com/pages/article?id=<?php echo $art['art']['id'] ?>" data-layout="button_count"></div>
+            </li>
+            <li>
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<?php echo $art['art']['title']; ?> via @universoideasc - http://www.universoideas.com/pages/article?id=<?php echo $art['art']['id'] ?>">Tweet</a>
+            </li>
+            <li> 
+                <div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://www.universoideas.com/pages/article?id=<?php echo $art['art']['id'] ?>"></div>
+            </li>
+        </ul>
+    </div>
+    
+    <!--div>
+        <div class="fb-share-button" data-href="http://www.universoideas.com/pages/article?id=<php echo $art['art']['id'] ?>" data-layout="button_count"></div>
+        <a style="margin-right: 15px" class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<php echo $art['art']['title']; ?> via @universoideasc - http://www.universoideas.com/pages/article?id=<php echo $art['art']['id'] ?>">Tweet</a>
+        <div class="g-plus ml15" data-action="share" data-annotation="bubble" data-href="http://www.universoideas.com/pages/article?id=<php echo $art['art']['id'] ?>"></div>
+    </div-->
+    
     <!-- Date/Time -->
-    <p><span class="glyphicon glyphicon-time"></span> Publicado el <?php echo __($dia_sem_mod) . ", " . __($dia_mod) . " de " . __($mes_mod) . " de " . __($ano_mod) .  " " . $hora_mod ?></p>
+    <p class="mt15"><span class="glyphicon glyphicon-time"></span> Publicado el <?php echo __($dia_sem_mod) . ", " . __($dia_mod) . " de " . __($mes_mod) . " de " . __($ano_mod) .  " " . $hora_mod ?></p>
 
     <hr>
    

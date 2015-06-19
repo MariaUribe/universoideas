@@ -1,26 +1,361 @@
-<link href='calendar/fullcalendar.min.css' rel='stylesheet' />
-<link href='calendar/fullcalendar.print.css' rel='stylesheet' media='print' />
-<script src='calendar/moment.min.js'></script>
-<script src='calendar/fullcalendar.min.js'></script>
-
-<script>
-    $(document).ready(function() {
-        var events = [{"id":"20","title":"Duis mollis, est non commodo luctus, nisi erat porttitor ligula, ","start":"2015-10-13","url":"\/pages\/event?id=20","end":"2015-10-14"},{"id":"14","title":"Adipisicing elit","start":"2015-04-27","url":"\/pages\/event?id=14","end":"2015-04-28"},{"id":"19","title":"Adipisicing elit","start":"2015-07-19","url":"\/pages\/event?id=19","end":"2015-07-19"},{"id":"13","title":"Adipisicing elit consectetur","start":"2015-07-21","url":"\/pages\/event?id=13","end":"2015-07-21"},{"id":"8","title":"Consectetur adipisicing elit","start":"2015-05-03","url":"\/pages\/event?id=8","end":"2015-05-03"},{"id":"15","title":"Dolor sit amet, consectetur adipisicing elit","start":"2013-07-22","url":"\/pages\/event?id=15","end":"2013-07-22"}];
-        
-        $('#calendar').fullCalendar({
-            editable: false,
-            events: events,
-            eventColor: '#F7941E',
-            firstDay: 1,
-            buttonText: { today: 'hoy' },
-            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
-        });
-    });
-</script>
-
 <div class="row">
     <h2 class="page-header">Calendario de Eventos</h2>
-    <div class="col-md-8 col-md-offset-2">
-        <div id='calendar' class="mt20"></div>
+    <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+        <ul class="event-list">
+                                
+                    <li>
+                        <time datetime="2015-10-13">
+                            <span class="day">13</span>
+                            <span class="month">Oct</span>
+                            <span class="year">2015</span>
+                            <span class="time">12:00 AM</span>
+                        </time>
+                        <img src="/universoideas/app/webroot/img/uploads/chavez%20next_thumb.jpg" alt="Duis mollis, est non commodo luctus, nisi erat porttitor ligula, " border="0" class="img-responsive" />                        <div class="info">
+                            <h2 class="title"><a class="black" href="/pages/event?id=20">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, </a></h2>
+                            <p class="desc">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridi...</p>
+                            <ul>
+                                <li style="width:50%;">
+                                    <a href="/pages/event?id=20"><span class="fa fa-globe"></span> Leer Más</a>
+                                </li>
+                                <li style="width:50%;"><span class="fa fa-clock-o"></span> 03:00 pm</li>
+                            </ul>
+                        </div>
+                        <div class="social">
+                            <ul>
+                                <li class="facebook" style="width:33%;">
+                                    <a class="icon-facebook" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=20"
+                                        onclick="popUp=window.open(
+                                            'http://www.facebook.com/sharer.php?u=http://www.universoideas.com/pages/event?id=20',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-facebook"></span>
+                                    </a>
+                                </li>
+                                <li class="twitter" style="width:34%;">
+                                    <a class="icon-twitter" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=20"
+                                        onclick="popUp=window.open(
+                                            'http://twitter.com/intent/tweet?text=\'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, \' via @universoideasc - http://www.universoideas.com/pages/event?id=20',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-twitter"></span>
+                                    </a>
+                                </li>
+                                <li class="google-plus" style="width:33%;">
+                                    <a class="icon-gplus" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=20"
+                                        onclick="popUp=window.open(
+                                            'https://plus.google.com/share?url=http://www.universoideas.com/pages/event?id=20',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-google-plus"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                                
+                    <li>
+                        <time datetime="2015-04-27">
+                            <span class="day">27</span>
+                            <span class="month">Apr</span>
+                            <span class="year">2015</span>
+                            <span class="time">12:00 AM</span>
+                        </time>
+                        <img src="/universoideas/app/webroot/img/uploads/food_thumb.jpg" alt="Adipisicing elit" border="0" class="img-responsive" />                        <div class="info">
+                            <h2 class="title"><a class="black" href="/pages/event?id=14">Adipisicing elit</a></h2>
+                            <p class="desc">Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Morbi...</p>
+                            <ul>
+                                <li style="width:50%;">
+                                    <a href="/pages/event?id=14"><span class="fa fa-globe"></span> Leer Más</a>
+                                </li>
+                                <li style="width:50%;"><span class="fa fa-clock-o"></span> 07:00 am</li>
+                            </ul>
+                        </div>
+                        <div class="social">
+                            <ul>
+                                <li class="facebook" style="width:33%;">
+                                    <a class="icon-facebook" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=14"
+                                        onclick="popUp=window.open(
+                                            'http://www.facebook.com/sharer.php?u=http://www.universoideas.com/pages/event?id=14',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-facebook"></span>
+                                    </a>
+                                </li>
+                                <li class="twitter" style="width:34%;">
+                                    <a class="icon-twitter" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=14"
+                                        onclick="popUp=window.open(
+                                            'http://twitter.com/intent/tweet?text=\'Adipisicing elit\' via @universoideasc - http://www.universoideas.com/pages/event?id=14',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-twitter"></span>
+                                    </a>
+                                </li>
+                                <li class="google-plus" style="width:33%;">
+                                    <a class="icon-gplus" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=14"
+                                        onclick="popUp=window.open(
+                                            'https://plus.google.com/share?url=http://www.universoideas.com/pages/event?id=14',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-google-plus"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                                
+                    <li>
+                        <time datetime="2015-07-19">
+                            <span class="day">19</span>
+                            <span class="month">Jul</span>
+                            <span class="year">2015</span>
+                            <span class="time">12:00 AM</span>
+                        </time>
+                        <img src="/universoideas/app/webroot/img/uploads/graduation_thumb.jpg" alt="Adipisicing elit" border="0" class="img-responsive" />                        <div class="info">
+                            <h2 class="title"><a class="black" href="/pages/event?id=19">Adipisicing elit</a></h2>
+                            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bib...</p>
+                            <ul>
+                                <li style="width:50%;">
+                                    <a href="/pages/event?id=19"><span class="fa fa-globe"></span> Leer Más</a>
+                                </li>
+                                <li style="width:50%;"><span class="fa fa-clock-o"></span> 01:00 pm</li>
+                            </ul>
+                        </div>
+                        <div class="social">
+                            <ul>
+                                <li class="facebook" style="width:33%;">
+                                    <a class="icon-facebook" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=19"
+                                        onclick="popUp=window.open(
+                                            'http://www.facebook.com/sharer.php?u=http://www.universoideas.com/pages/event?id=19',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-facebook"></span>
+                                    </a>
+                                </li>
+                                <li class="twitter" style="width:34%;">
+                                    <a class="icon-twitter" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=19"
+                                        onclick="popUp=window.open(
+                                            'http://twitter.com/intent/tweet?text=\'Adipisicing elit\' via @universoideasc - http://www.universoideas.com/pages/event?id=19',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-twitter"></span>
+                                    </a>
+                                </li>
+                                <li class="google-plus" style="width:33%;">
+                                    <a class="icon-gplus" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=19"
+                                        onclick="popUp=window.open(
+                                            'https://plus.google.com/share?url=http://www.universoideas.com/pages/event?id=19',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-google-plus"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                                
+                    <li>
+                        <time datetime="2015-07-21">
+                            <span class="day">21</span>
+                            <span class="month">Jul</span>
+                            <span class="year">2015</span>
+                            <span class="time">12:00 AM</span>
+                        </time>
+                        <img src="/universoideas/app/webroot/img/uploads/Tomate%20Fritos_eventlogo_thumb.jpg" alt="Adipisicing elit consectetur" border="0" class="img-responsive" />                        <div class="info">
+                            <h2 class="title"><a class="black" href="/pages/event?id=13">Adipisicing elit consectetur</a></h2>
+                            <p class="desc">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo ...</p>
+                            <ul>
+                                <li style="width:50%;">
+                                    <a href="/pages/event?id=13"><span class="fa fa-globe"></span> Leer Más</a>
+                                </li>
+                                <li style="width:50%;"><span class="fa fa-clock-o"></span> 03:00 pm</li>
+                            </ul>
+                        </div>
+                        <div class="social">
+                            <ul>
+                                <li class="facebook" style="width:33%;">
+                                    <a class="icon-facebook" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=13"
+                                        onclick="popUp=window.open(
+                                            'http://www.facebook.com/sharer.php?u=http://www.universoideas.com/pages/event?id=13',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-facebook"></span>
+                                    </a>
+                                </li>
+                                <li class="twitter" style="width:34%;">
+                                    <a class="icon-twitter" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=13"
+                                        onclick="popUp=window.open(
+                                            'http://twitter.com/intent/tweet?text=\'Adipisicing elit consectetur\' via @universoideasc - http://www.universoideas.com/pages/event?id=13',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-twitter"></span>
+                                    </a>
+                                </li>
+                                <li class="google-plus" style="width:33%;">
+                                    <a class="icon-gplus" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=13"
+                                        onclick="popUp=window.open(
+                                            'https://plus.google.com/share?url=http://www.universoideas.com/pages/event?id=13',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-google-plus"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                                
+                    <li>
+                        <time datetime="2015-05-03">
+                            <span class="day">3</span>
+                            <span class="month">May</span>
+                            <span class="year">2015</span>
+                            <span class="time">12:00 AM</span>
+                        </time>
+                                                <div class="info">
+                            <h2 class="title"><a class="black" href="/pages/event?id=8">Consectetur adipisicing elit</a></h2>
+                            <p class="desc">Donec sed odio dui. Aenean eu leo quam. Pellentesque ornare sem lacinia qua...</p>
+                            <ul>
+                                <li style="width:50%;">
+                                    <a href="/pages/event?id=8"><span class="fa fa-globe"></span> Leer Más</a>
+                                </li>
+                                <li style="width:50%;"><span class="fa fa-clock-o"></span> 03:00 pm</li>
+                            </ul>
+                        </div>
+                        <div class="social">
+                            <ul>
+                                <li class="facebook" style="width:33%;">
+                                    <a class="icon-facebook" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=8"
+                                        onclick="popUp=window.open(
+                                            'http://www.facebook.com/sharer.php?u=http://www.universoideas.com/pages/event?id=8',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-facebook"></span>
+                                    </a>
+                                </li>
+                                <li class="twitter" style="width:34%;">
+                                    <a class="icon-twitter" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=8"
+                                        onclick="popUp=window.open(
+                                            'http://twitter.com/intent/tweet?text=\'Consectetur adipisicing elit\' via @universoideasc - http://www.universoideas.com/pages/event?id=8',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-twitter"></span>
+                                    </a>
+                                </li>
+                                <li class="google-plus" style="width:33%;">
+                                    <a class="icon-gplus" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=8"
+                                        onclick="popUp=window.open(
+                                            'https://plus.google.com/share?url=http://www.universoideas.com/pages/event?id=8',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-google-plus"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                                
+                    <li>
+                        <time datetime="2013-07-22">
+                            <span class="day">22</span>
+                            <span class="month">Jul</span>
+                            <span class="year">2013</span>
+                            <span class="time">12:00 AM</span>
+                        </time>
+                                                <div class="info">
+                            <h2 class="title"><a class="black" href="/pages/event?id=15">Dolor sit amet, consectetur adipisicing elit</a></h2>
+                            <p class="desc">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Etiam porta s...</p>
+                            <ul>
+                                <li style="width:50%;">
+                                    <a href="/pages/event?id=15"><span class="fa fa-globe"></span> Leer Más</a>
+                                </li>
+                                <li style="width:50%;"><span class="fa fa-clock-o"></span> 07:00 am</li>
+                            </ul>
+                        </div>
+                        <div class="social">
+                            <ul>
+                                <li class="facebook" style="width:33%;">
+                                    <a class="icon-facebook" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=15"
+                                        onclick="popUp=window.open(
+                                            'http://www.facebook.com/sharer.php?u=http://www.universoideas.com/pages/event?id=15',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-facebook"></span>
+                                    </a>
+                                </li>
+                                <li class="twitter" style="width:34%;">
+                                    <a class="icon-twitter" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=15"
+                                        onclick="popUp=window.open(
+                                            'http://twitter.com/intent/tweet?text=\'Dolor sit amet, consectetur adipisicing elit\' via @universoideasc - http://www.universoideas.com/pages/event?id=15',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-twitter"></span>
+                                    </a>
+                                </li>
+                                <li class="google-plus" style="width:33%;">
+                                    <a class="icon-gplus" rel="nofollow"
+                                        href="http://www.universoideas.com/pages/event?id=15"
+                                        onclick="popUp=window.open(
+                                            'https://plus.google.com/share?url=http://www.universoideas.com/pages/event?id=15',
+                                            'popupwindow',
+                                            'scrollbars=yes,width=800,height=400');
+                                        popUp.focus();
+                                        return false">
+                                        <span class="fa fa-google-plus"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    </ul>
     </div>
 </div>

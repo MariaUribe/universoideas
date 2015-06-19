@@ -53,6 +53,9 @@ $title_for_layout = 'Universoideas';
         echo $this->fetch('css');
         echo $this->fetch('script');
     ?>
+    <script src="https://apis.google.com/js/platform.js" async defer>
+        {lang: 'es'}
+    </script>
 </head>
 <body id="index">
     <div id="conten_ppal">
@@ -79,4 +82,32 @@ $title_for_layout = 'Universoideas';
     <!-- BOOTSTRAP SCRIPTS  -->
     <?php echo $this->Html->script('bootstrap'); ?>
 </body>
+<div id="fb-root"></div>
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script>
+    window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+          t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function(f) {
+          t._e.push(f);
+        };
+
+        return t;
+    }(document, "script", "twitter-wjs"));</script>
 </html>
