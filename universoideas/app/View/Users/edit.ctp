@@ -86,7 +86,7 @@
                         <div class="col-md-3 col-lg-3" align="center">
                             <img alt="User" src="/img/edit-user.png">
                             <div>
-                                <a href='/pages/list_all' style='font-weight: bold'>Mis Foros</a>
+                                <a href='/pages/list_all' style='font-weight: bold'>Mis Temas en el Foro</a>
                             </div>
 
                             <div>

@@ -15,7 +15,7 @@
   
     $(document).ready(function(){
         $.mCustomScrollbar.defaults.scrollButtons.enable=true;
-        $.mCustomScrollbar.defaults.axis="yx";
+        $.mCustomScrollbar.defaults.axis="y";
         $("#content-l").mCustomScrollbar();
     });
     

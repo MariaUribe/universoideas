@@ -8,6 +8,20 @@
 
 <hr>
 
+<div class="nav-container2">
+    <ul class="social-media-list">
+        <li>
+            <div class="fb-share-button" data-href="http://www.universoideas.com/forums/view/<?php echo $forum['Forum']['id'] ?>" data-layout="button_count"></div>
+        </li>
+        <li>
+            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<?php echo $forum['Forum']['title']; ?> via @universoideasc - http://www.universoideas.com/pages/article?id=<?php echo $forum['Forum']['id'] ?>">Tweet</a>
+        </li>
+        <li> 
+            <div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://www.universoideas.com/forums/view/<?php echo $forum['Forum']['id'] ?>"></div>
+        </li>
+    </ul>
+</div>
+
 <p><span class="glyphicon glyphicon-time"></span> Publicado el <?php echo __($dia_sem) . ", " . __($dia) . " de " . __($mes) . " de " . __($ano) .  " " . $hora ?></p>
 <p><span class="glyphicon glyphicon-user"></span> Creado por: <?php echo $forum['User']['username'] ?></p>
 

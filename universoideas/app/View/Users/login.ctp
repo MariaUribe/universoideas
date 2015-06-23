@@ -24,34 +24,49 @@
     
     function checkMail(elem, value) {
         var clases = $(elem).attr('class');
-        $.get('/users/exists_mail/' + value, function(data) {
-            var rs = $(data).find("#result").val();
-            if(rs == 0) { 
-                var contains = (clases.indexOf('error_val') > -1);
-                var enable = validarSubmit();
-                
-                if (contains) {
-                    $('.img_success_mail').css('display', 'none');
-                    $('.img_error_mail').css('display', '');
-                    $('#img_error_mail').css('display', 'none');
-                    $('#btn-signup').attr('disabled', 'disabled');
-                } else {
-                    if (enable == true) {
-                        $('.img_success_mail').css('display', '');
-                        $('.img_error_mail').css('display', 'none');
-                        $('#btn-signup').removeAttr('disabled');
-                    } else {
-                        $('.img_success_mail').css('display', '');
-                        $('.img_error_mail').css('display', 'none');
+        
+        if (isValidEmailAddress(value)) {
+            $('#error_mail').html('Este correo ya está registrado');
+            
+            $.get('/users/exists_mail/' + value, function(data) {
+                var rs = $(data).find("#result").val();
+                if(rs == 0) {
+                    var contains = (clases.indexOf('error_val') > -1);
+                    var enable = validarSubmit();
+
+                    if (contains) {
+                        $('.img_success_mail').hide();
+                        $('.img_error_mail').show();
+                        $('#error_mail').show();
                         $('#btn-signup').attr('disabled', 'disabled');
+                    } else {
+                        if (enable == true) {
+                            $('.img_success_mail').show();
+                            $('.img_error_mail').hide();
+                            $('#error_mail').hide();
+                            $('#btn-signup').removeAttr('disabled');
+                        } else {
+                            $('.img_success_mail').show();
+                            $('.img_error_mail').hide();
+                            $('#error_mail').hide();
+                            $('#btn-signup').attr('disabled', 'disabled');
+                        }
                     }
+                } else if(rs == 1) {
+                    $('.img_success_mail').hide();
+                    $('.img_error_mail').show();
+                    $('#error_mail').show();
+                    $('#btn-signup').attr('disabled', 'disabled');
                 }
-            } else if(rs == 1){
-                $('.img_success_mail').css('display', 'none');
-                $('.img_error_mail').css('display', '');
-                $('#btn-signup').attr('disabled', 'disabled');
-            } 
-        });
+            });
+        } else {
+            $('#error_mail').html('Dirección de correo inválida');
+            
+            $('.img_success_mail').hide();
+            $('.img_error_mail').show();
+            $('#error_mail').show();
+            $('#btn-signup').attr('disabled', 'disabled');
+        }
     }
     
     /*
@@ -112,6 +127,33 @@
         }
     }
     
+    function checkMailConf(value) {
+        var mail = $('#mail').val();
+        var re_mail = value;
+        var enable = validarSubmit();
+        
+        if(mail != re_mail) {
+            $('#error_mail_conf').show();
+            $('#img_mail_conf_success').hide();
+            $('#img_mail_conf_error').show();
+            $('#btn-signup').attr('disabled', 'disabled');
+        } else {
+            $('#error_mail_conf').hide();
+            $('#img_mail_conf_success').show();
+            $('#img_mail_conf_error').hide();
+            if (enable) {
+                $('#btn-signup').removeAttr('disabled');
+            } else {
+                $('#btn-signup').attr('disabled', 'disabled');
+            }
+        }
+    }
+    
+    function isValidEmailAddress(emailAddress) {
+        var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+        return pattern.test(emailAddress);
+    }
+    
     function showDialog() {
         $( "#dialog-message" ).dialog({
             resizable: false,
@@ -125,6 +167,12 @@
             }
         });
     }
+    
+    $(document).ready(function(){
+        $('.confirm-input').bind("paste",function(e) {
+            e.preventDefault();
+        });
+    });
     
 </script>
 
@@ -245,12 +293,25 @@
                     <label for="mail" class="col-md-4 control-label pt0">Correo Electrónico</label>
                     <div class="col-md-7">
                         <?php 
-                        echo $this->Form->input('mail', array('label' => false, 'class' => 'form-control email', 'type' => 'text', 'placeholder' =>'Correo Electrónico', 'required' => 'required', 'onkeyup' => 'checkMail(this, this.value)')) . "<label id='img_error_mail' class='img_error_mail error_val' style='display: none'>Este correo ya está registrado</label>";
+                        echo $this->Form->input('mail', array('label' => false, 'class' => 'form-control email', 'id' => 'mail', 'type' => 'text', 'placeholder' =>'Correo Electrónico', 'required' => 'required', 'onkeyup' => 'checkMail(this, this.value)')) . "<label id='error_mail' class='error_mail error_val' style='display: none'>Este correo ya está registrado</label>";
                         ?>
                     </div>
                     <div>
                         <img class='img_error_mail' src='/img/icons/error.png' width='20' height='20' alt='error' class='left mr5' style='display: none;'>
                         <img class='img_success_mail' src='/img/icons/success.gif' width='20' height='20' alt='exito' class='left mr5' style='display: none;'>
+                    </div>
+                </div>
+                
+                <div class="form-group required">
+                    <label for="re_mail" class="col-md-4 control-label pt0">Confirmar Correo</label>
+                    <div class="col-md-7">
+                        <?php 
+                        echo $this->Form->input('re_mail', array('label' => false, 'class' => 'form-control email confirm-input', 'type' => 'text', 'placeholder' =>'Correo Electrónico', 'required' => 'required', 'onkeyup' => 'checkMailConf(this.value)')) . "<label id='error_mail_conf' class='error_mail_conf error_val' style='display: none'>Los correos no coinciden</label>";
+                        ?>
+                    </div>
+                    <div>
+                        <img id='img_mail_conf_error' class='img_mail_conf_error' src='/img/icons/error.png' width='20' height='20' alt='error' class='left mr5' style='display: none;'>
+                        <img id='img_mail_conf_success' class='img_mail_conf_success' src='/img/icons/success.gif' width='20' height='20' alt='exito' class='left mr5' style='display: none;'>
                     </div>
                 </div>
                 
@@ -276,7 +337,7 @@
                     <label for="re_password" class="col-md-4 control-label pt0">Confirmar Contraseña</label>
                     <div class="col-md-7">
                         <?php
-                        echo $this->Form->input('re_password', array('label' => false, 'class' => 'form-control password_confirm', 'type' => 'password', 'placeholder' => 'Contraseña', 'required' => 'required', 'id' => 'password_confirm', 'name' => 'password_confirm', 'onkeyup' => 'checkPasswordConf(this.value)')). "<label id='error_pass' class='error_pass error_val' style='display: none'>Las contraseñas no coinciden</label>";
+                        echo $this->Form->input('re_password', array('label' => false, 'class' => 'form-control password_confirm confirm-input', 'type' => 'password', 'placeholder' => 'Contraseña', 'required' => 'required', 'id' => 'password_confirm', 'name' => 'password_confirm', 'onkeyup' => 'checkPasswordConf(this.value)')). "<label id='error_pass' class='error_pass error_val' style='display: none'>Las contraseñas no coinciden</label>";
                         ?>
                     </div>
                     <div>

@@ -235,7 +235,7 @@ yx-axis
 	}
 	
 	.mCSB_container_wrapper > .mCSB_container{
-		padding-right: 30px;
+		//padding-right: 30px;
 		padding-bottom: 30px;
 	}
 	
@@ -1363,7 +1363,7 @@ code{
 .content{
 	overflow: auto;
 	position: relative;
-	padding: 20px;
+	padding: 20px 15px 20px 20px;
 	background: #333;
 	margin: 10px;
 	width: 740px;
@@ -1389,7 +1389,7 @@ code{
 	border-top: 1px solid rgba(0,0,0,0.1);
 }
 
-.content p{ margin: 18px 0; }
+.content p{ margin: 10px 0; }
 
 .content p:last-child{ margin-bottom: 5px; }
 
@@ -1657,7 +1657,7 @@ body.colorbox-demo #cboxContent, body.colorbox-demo #cboxContent p, body.colorbo
 }
 
 .all-themes .content h2, .all-themes .content p, .all-themes .content hr{ 
-	width: 270px;
+	width: 100%;
 	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; 
 }
 

@@ -173,7 +173,7 @@ return(dias_de_la_semana[dia] + ", " + day + " de " + meses[month] + " del " + y
                             <ul class="dropdown-menu dropdown-settings" aria-labelledby="themes">
                                 <li><a class="submenu-option" href="/pages/arte">Arte</a></li>
                                 <li><a class="submenu-option" href="/pages/ciencia">Ciencia</a></li>
-                                <li><a class="submenu-option" href="/pages/moda">Moda</a></li>
+                                <li><a class="submenu-option" href="/pages/moda">Moda y Farándula</a></li>
                                 <li><a class="submenu-option" href="/pages/rumba">Rumba</a></li>
                                 <li><a class="submenu-option" href="/pages/sexualidad">Sexualidad</a></li>
                             </ul>
